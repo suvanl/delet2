@@ -1,0 +1,5 @@
+exports.TOKEN = 'TOKEN-HERE';
+
+exports.PREFIX = '%';
+
+exports.GOOGLE_API_KEY = '';
