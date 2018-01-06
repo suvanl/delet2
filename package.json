@@ -54,5 +54,8 @@
     "snekfetch": "^3.5.8",
     "unfluff": "^3.0.0",
     "ytdl-core": "^0.18.5"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.5"
   }
 }
