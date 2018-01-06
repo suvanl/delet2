@@ -68,12 +68,12 @@ client.on('message', async msg => {
         } else if (msg.content.startsWith(`${PREFIX}skip`)) {
             if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
             if (!serverQueue) return msg.channel.send('There is nothing playing that can be skipped.');
-            serverQueue.connection.dispatcher.end();
+            serverQueue.connection.dispatcher.end('Skip command used.');
             return undefined;
         } else if (msg.content.startsWith(`${PREFIX}stop`)) {
             if (!msg.member.voiceChannel) return msg.channel.send('You cannot stop a music stream when you aren\'t in a voice channel!');
             if (!serverQueue) return msg.channel.send('There is nothing playing that can be stopped.');
-            msg.member.voiceChannel.leave();
+            msg.member.voiceChannel.leave('Stop command used.');
             return undefined;
         } else if(msg.content.startsWith(`${PREFIX}volume`)) {
             if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
@@ -122,7 +122,9 @@ function play(guild, song) {
     console.log(serverQueue.songs);
 
     const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
-        .on('end', () => {
+        .on('end', reason => {
+            if (reason === 'Stream is not generating quickly enough.') console.log('Song ended');
+            else console.log(reason);
             serverQueue.songs.shift();
             play(guild, serverQueue.songs[0]);
         })
