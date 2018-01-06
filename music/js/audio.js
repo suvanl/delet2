@@ -1,8 +1,11 @@
 const { Client, Util } = require('discord.js');
-const { TOKEN, PREFIX } = require('./config');
+const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
+const YouTube = require('simple-youtube-api'); 
 const ytdl = require('ytdl-core');
 
 const client = new Client({disableEveryone: true});
+
+const youtube = new YouTube(GOOGLE_API_KEY);
 
 const queue = new Map();
 
@@ -19,7 +22,8 @@ client.on('reconnecting', () => console.log('Reconnecting...'));
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(PREFIX)) return undefined;
-    const args = msg.content.split(' ');
+    const args = msg.content.split(' ')[1];
+    const url = args.replace(/<(.+)>/g, '$1');
     const serverQueue = queue.get(msg.guild.id);
 
     if (msg.content.startsWith(`${PREFIX}play`)) {
