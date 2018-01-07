@@ -22,8 +22,9 @@ client.on('reconnecting', () => console.log('Reconnecting...'));
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(PREFIX)) return undefined;
-    const args = msg.content.split(' ')[1];
-    const url = args.replace(/<(.+)>/g, '$1');
+    const args = msg.content.split(' ');
+    const searchString = args.slice(1).join(' ');
+    const url = args[1].replace(/<(.+)>/g, '$1');
     const serverQueue = queue.get(msg.guild.id);
 
     if (msg.content.startsWith(`${PREFIX}play`)) {
@@ -37,10 +38,22 @@ client.on('message', async msg => {
             return msg.channel.send('I\'m trying to play music, however, I cannot, as I lack the `SPEAK` permission.');
         }
 
-        const songInfo = await ytdl.getInfo(args[1]);
+        try {
+            var video = await youtube.getVideo(url);
+        } catch (error) {
+            try {
+                var videos = await youtube.searchVideos(searchString, 1);
+                var video = await youtube.getVideoByID(videos[0].id);
+            } catch (err) {
+                console.error(err);
+                return msg.channel.send('No search results found.');
+            }
+        }
+        console.log(video);
         const song = {
-            title: Util.escapeMarkdown(songInfo.title),
-            url: songInfo.video_url
+            id: video.id,
+            title: video.title,
+            url: `https://www.youtube.com/watch?v=${video.id}`
         };
         if (!serverQueue) {
             const queueConstruct = {
