@@ -49,7 +49,7 @@ client.on('message', async msg => {
                 return msg.channel.send('No search results found.');
             }
         }
-        console.log(video);
+        
         const song = {
             id: video.id,
             title: video.title,
