@@ -26,7 +26,6 @@
   "homepage": "https://github.com/SuvanL/delet-2.0#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "canvas-constructor": "^0.3.0",
     "chalk": "^2.3.0",
     "discord.js": "github:hydrabolt/discord.js#11.3-dev",
     "ejs": "^2.5.7",
