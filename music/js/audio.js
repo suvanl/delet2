@@ -52,7 +52,7 @@ client.on('message', async msg => {
         
         const song = {
             id: video.id,
-            title: video.title,
+            title: Util.escapeMarkdown(video.title),
             url: `https://www.youtube.com/watch?v=${video.id}`
         };
         if (!serverQueue) {
