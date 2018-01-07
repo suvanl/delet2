@@ -4,8 +4,8 @@
 **delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library**
 
 ## A note about portability
-A project/product being open-source doesn't necessarily mean that it is portable, and in this case, delet is NOT portable. This is due to the reason that it wasn't built for the purpose of portability, and also depends on various things to work fully as your own bot, which instructions for getting things to work are not stated here. Essentially, this project is open-source for educational purposes; so that others can see how everything works. Self-hosting is NOT supported by any means.
-If you believe you do have the required knowledge to self-host this bot, you are REQUIRED to contact us beforehand and give full credit to the DS Development Group as the original authors.
+A project/product being open-source doesn't necessarily mean that it is portable, and in this case, delet is NOT portable. This is due to the reason that it wasn't built for the purpose of portability, and also depends on various things to work fully as your own bot, which instructions for getting things to work are not stated here. Essentially, this project is open-source for educational purposes; so that others can see how everything works. **Self-hosting is NOT supported by any means**.
+If you believe you do have the required knowledge to self-host this bot, you are REQUIRED to contact us beforehand and give full credit to the **DS Development Group** as the original authors.
 
 ### Moderation
 delet has a full, advanced moderation system currently being developed. The moderation system of delet 2.0 will have the same moderation commands as the old delet, but will also have new commands. Both the new and old commands will be written to be much more efficient and easy to use, as well as making them less error-prone.
