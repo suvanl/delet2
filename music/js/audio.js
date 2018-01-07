@@ -24,7 +24,7 @@ client.on('message', async msg => {
     if (!msg.content.startsWith(PREFIX)) return undefined;
     const args = msg.content.split(' ');
     const searchString = args.slice(1).join(' ');
-    const url = args[1].replace(/<(.+)>/g, '$1');
+    const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
     const serverQueue = queue.get(msg.guild.id);
 
     if (msg.content.startsWith(`${PREFIX}play`)) {
@@ -98,7 +98,7 @@ client.on('message', async msg => {
             if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**.`);
             serverQueue.volume = args[1];
             serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
-            return msg.channel.send(`Volume set to **${args[1]}**.`);
+            return msg.channel.send(`Volume set to **${args[1]}**.\nDefault volume = 5.`);
         } else if (msg.content.startsWith(`${PREFIX}np`)) {
             if (!serverQueue) return msg.channel.send('There is nothing playing.');
             return msg.channel.send(`Now playing: **${serverQueue.songs[0].title}**`);
