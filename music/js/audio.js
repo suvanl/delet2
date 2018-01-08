@@ -51,8 +51,27 @@ client.on('message', async msg => {
                 var video = await youtube.getVideo(url);
             } catch (error) {
                 try {
-                    var videos = await youtube.searchVideos(searchString, 1);
-                    var video = await youtube.getVideoByID(videos[0].id);
+                    var videos = await youtube.searchVideos(searchString, 10);
+                    let index = 0;
+                    msg.channel.send(`
+__**Song Selection**__\n
+${videos.map(video2 => `**${++index}.** ${video2.title}`).join('\n')}
+
+Please provide a number to select one of the search results, ranging from **1** to **10**.
+                    `);
+
+                    try {
+                        var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
+                            maxMatches: 1,
+                            time: 30000,
+                            errors: ['time']
+                        });
+                    } catch (err) {
+                         console.error(err);
+                         return msg.channel.send('Invalid value provided; cancelling video selection. Please make sure your message contains a number between 1 and 10, and nothing else.');
+                    }
+                    const videoIndex = parseInt(response.first().content);
+                    var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
                 } catch (err) {
                     console.error(err);
                     return msg.channel.send('No search results found.');
@@ -86,7 +105,7 @@ client.on('message', async msg => {
             if (!serverQueue) return msg.channel.send('There is nothing currently playing.');
             return msg.channel.send(`
 __**Song Queue**__\n
-${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
+${serverQueue.songs.map(song => `• ${song.title}`).join('\n')}
 
 **Now playing:** ${serverQueue.songs[0].title}
             `);
