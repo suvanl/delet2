@@ -57,7 +57,7 @@ client.on('message', async msg => {
 __**Song Selection**__\n
 ${videos.map(video2 => `**${++index}.** ${video2.title}`).join('\n')}
 
-Please provide a number to select one of the search results, ranging from **1** to **10**.
+Please provide a number to select one of the search results, ranging from **1** to **10**\nThe song selection time period is 30 seconds.
                     `);
 
                     try {
@@ -68,7 +68,7 @@ Please provide a number to select one of the search results, ranging from **1** 
                         });
                     } catch (err) {
                          console.error(err);
-                         return msg.channel.send('Invalid value provided; cancelling video selection. Please make sure your message contains a number between 1 and 10, and nothing else.');
+                         return msg.channel.send('Invalid value provided; cancelling video selection.');
                     }
                     const videoIndex = parseInt(response.first().content);
                     var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
