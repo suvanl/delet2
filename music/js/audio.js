@@ -56,7 +56,6 @@ client.on('message', async msg => {
                     msg.channel.send(`
 __**Song Selection**__\n
 ${videos.map(video2 => `**${++index}.** ${video2.title}`).join('\n')}
-
 Please provide a number to select one of the search results, ranging from **1** to **10**\nThe song selection time period is 30 seconds.
                     `);
 
@@ -83,23 +82,13 @@ Please provide a number to select one of the search results, ranging from **1** 
 
         } else if (msg.content.startsWith(`${PREFIX}skip`)) {
             if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
-            if (!serverQueue) try {
-                return msg.channel.send('There is nothing playing that can be skipped.');
-                serverQueue.connection.dispatcher.end('Skip command used.');
-            } catch (error) {
-                console.error(error);
-            } 
-            
+            if (!serverQueue) return msg.channel.send('There is nothing playing that can be skipped.');
+            serverQueue.connection.dispatcher.end('Skip command used.');
             return undefined;
         } else if (msg.content.startsWith(`${PREFIX}stop`)) {
             if (!msg.member.voiceChannel) return msg.channel.send('You cannot stop a music stream when you aren\'t in a voice channel!');
-            if (!serverQueue) try {
-                return msg.channel.send('There is nothing playing that can be stopped.');
-                msg.member.voiceChannel.leave('Stop command used.');
-            } catch (error) {
-                console.error(error);
-            } 
-            
+            if (!serverQueue) return msg.channel.send('There is nothing playing that can be stopped.');
+            msg.member.voiceChannel.leave('Stop command used.');
             return undefined;
         } else if(msg.content.startsWith(`${PREFIX}volume`)) {
             if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
@@ -116,7 +105,6 @@ Please provide a number to select one of the search results, ranging from **1** 
             return msg.channel.send(`
 __**Song Queue**__\n
 ${serverQueue.songs.map(song => `• ${song.title}`).join('\n')}
-
 **Now playing:** ${serverQueue.songs[0].title}
             `);
         } else if (msg.content.startsWith(`${PREFIX}pause`)) {
