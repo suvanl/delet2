@@ -83,13 +83,23 @@ Please provide a number to select one of the search results, ranging from **1** 
 
         } else if (msg.content.startsWith(`${PREFIX}skip`)) {
             if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
-            if (!serverQueue) return msg.channel.send('There is nothing playing that can be skipped.');
-            serverQueue.connection.dispatcher.end('Skip command used.');
+            if (!serverQueue) try {
+                return msg.channel.send('There is nothing playing that can be skipped.');
+                serverQueue.connection.dispatcher.end('Skip command used.');
+            } catch (error) {
+                console.error(error);
+            } 
+            
             return undefined;
         } else if (msg.content.startsWith(`${PREFIX}stop`)) {
             if (!msg.member.voiceChannel) return msg.channel.send('You cannot stop a music stream when you aren\'t in a voice channel!');
-            if (!serverQueue) return msg.channel.send('There is nothing playing that can be stopped.');
-            msg.member.voiceChannel.leave('Stop command used.');
+            if (!serverQueue) try {
+                return msg.channel.send('There is nothing playing that can be stopped.');
+                msg.member.voiceChannel.leave('Stop command used.');
+            } catch (error) {
+                console.error(error);
+            } 
+            
             return undefined;
         } else if(msg.content.startsWith(`${PREFIX}volume`)) {
             if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
