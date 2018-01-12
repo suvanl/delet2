@@ -4,7 +4,7 @@ class Multiply extends Command {
     constructor(client) {
       super(client, {
         name: "multiply",
-        description: "Multiplies numbers together",
+        description: "Multiplies numbers together.",
         category: "Maths",
         usage: "multiply x y z (and so on)",
         aliases: ["product"]

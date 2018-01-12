@@ -4,7 +4,7 @@ class Divide extends Command {
     constructor(client) {
       super(client, {
         name: "divide",
-        description: "Divides numbers together",
+        description: "Divides numbers together.",
         category: "Maths",
         usage: "divide x y z (and so on)",
         aliases: ["div"]

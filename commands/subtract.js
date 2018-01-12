@@ -4,7 +4,7 @@ class Subtract extends Command {
     constructor(client) {
       super(client, {
         name: "subtract",
-        description: "Subtracts numbers",
+        description: "Subtracts numbers.",
         category: "Maths",
         usage: "subtract x y z (and so on)",
         aliases: ["takeaway"]

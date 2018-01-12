@@ -4,7 +4,7 @@ class Add extends Command {
     constructor(client) {
       super(client, {
         name: "add",
-        description: "Adds numbers together",
+        description: "Adds numbers together.",
         category: "Maths",
         usage: "add x y z (and so on)",
         aliases: ["sum", "mathsadd"]
