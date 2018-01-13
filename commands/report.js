@@ -7,7 +7,6 @@ class Report extends Moderation {
         description: 'Reports a user to the server\'s staff.',
         usage: 'report [user] <reason/info>',
         extended: 'Informs the current server\'s staff of a rule-breaker, by sending a message to the modlog channel.',
-        guildOnly: false,
         aliases: [''],
         botPerms: ['MANAGE_MESSAGES']
       });
