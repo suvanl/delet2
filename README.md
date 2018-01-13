@@ -14,5 +14,5 @@ delet has a full, advanced moderation system currently being developed. The mode
 A variety of commands can be found in delet, ranging from system functions to fun commands, with a custom command system coming soon. Please note that as this bot is still in development, many more commands are still to come.
 
 ### Open-Source
-delet is an open-source project; which is why it can be found here, on GitHub. It is licensed under the MIT license. This bot is open source for the reason of allowing others view its code and learn from it, and also to gain inspiration for their own ideas. However, please do not directly copy entire things, as that is simply considered bad practice.
+delet is an open-source project; which is why it can be found here, on GitHub. It is licensed under the GPL-3.0 license. This bot is open source for the reason of allowing others view its code and learn from it, and also to gain inspiration for their own ideas. However, please do not directly copy entire things, as that is simply considered bad practice.
 However, if you wish to use any of delet's code in your project(s), you are required to credit us (DS Development). See the LICENSE file for further details.
