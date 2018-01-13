@@ -10,21 +10,11 @@ class MyLevel extends Command {
     });
   }
 
-  // async run(message, args, level) {
-  //   const friendly = this.client.config.permLevels.find(l => l.level === level).name;
-  //   let deletModRole = message.guild.roles.find('name', 'DeletMod');
-  //   if (message.member.roles.has(deletModRole.id)) {
-  //     return message.reply('your permission level is **${level}** (delet Moderator)');
-  //   } else message.reply(`your permission level is: **${level}** (${friendly})`);
-  // }
-
   async run(message, args, level) {
     const friendly = this.client.config.permLevels.find(l => l.level === level).name;
-    message.reply(`Your permission level is: ${level} - ${friendly}`);
+    message.reply(`your permission level is: ${level} - ${friendly}`);
   }
 
 }
-
-  
 
 module.exports = MyLevel;
