@@ -42,9 +42,15 @@ class Help extends Command {
         }
         output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
       });
-      message.channel.send(output, {code:"asciidoc", split: { char: "\u200b" }});
+      try {
+        message.author.send(output, {code:"asciidoc", split: { char: "\u200b" }});
+      } catch (error) {
+        message.reply("an error occurred whilst trying to DM you. Please make sure '**Allow direct messages from server members** is on in your privacy settings for this server.", {
+          file: "https://vgy.me/kSTXwO.png"
+        });
+      }
     } else {
-      // Show individual command's help.
+      // Show help for individual commands.
       let command = args[0];
       if (this.client.commands.has(command)) {
         command = this.client.commands.get(command);
