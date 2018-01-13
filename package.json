@@ -15,15 +15,15 @@
     "type": "git",
     "url": "git+https://github.com/DS-Development/delet-2.0.git"
   },
-  "author": "SuvanL (https://github.com/SuvanL)",
+  "author": "suvanl (https://github.com/suvanl)",
   "contributors": [
     "nitramleo (https://github.com/nitramleo)"
   ],
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/SuvanL/delet-2.0/issues"
+    "url": "https://github.com/DS-Development/delet-2.0/issues"
   },
-  "homepage": "https://github.com/SuvanL/delet-2.0#readme",
+  "homepage": "https://github.com/DS-Development/delet-2.0#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
