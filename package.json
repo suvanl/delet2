@@ -35,6 +35,7 @@
     "express-passport": "^0.1.0",
     "express-session": "^1.15.6",
     "fast-html-parser": "^1.0.1",
+    "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^3.2.2",
     "fs-nextra": "^0.3.2",
     "gifencoder": "^1.1.0",
