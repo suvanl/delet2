@@ -14,7 +14,7 @@ class Reboot extends Command {
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     try {
-      await message.reply("Bot is shutting down.");
+      await message.channel.send("Shutting down... (I'll restart if running under PM2)");
       this.client.commands.forEach(async cmd => {
         await this.client.unloadCommand(cmd);
       });

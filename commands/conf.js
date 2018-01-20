@@ -27,9 +27,9 @@ class Conf extends Command {
   
     // Adding a new key adds it to every guild (it will be visible to all of them)
     if (action === "add") {
-      if (!key) return message.reply("Please specify a key to add");
-      if (defaults[key]) return message.reply("This key already exists in the default settings");
-      if (value.length < 1) return message.reply("Please specify a value");
+      if (!key) return message.reply("please specify a key to add");
+      if (defaults[key]) return message.reply("this key already exists in the default settings");
+      if (value.length < 1) return message.reply("please specify a value");
 
       // `value` being an array, we need to join it first.
       defaults[key] = value.join(" ");
@@ -41,9 +41,9 @@ class Conf extends Command {
   
     // Changing the default value of a key only modified it for guilds that did not change it to another value.
     if (action === "edit") {
-      if (!key) return message.reply("Please specify a key to edit");
-      if (!defaults[key]) return message.reply("This key does not exist in the settings");
-      if (value.length < 1) return message.reply("Please specify a new value");
+      if (!key) return message.reply("please specify a key to edit");
+      if (!defaults[key]) return message.reply("this key does not exist in the settings");
+      if (value.length < 1) return message.reply("please specify a new value");
 
       defaults[key] = value.join(" ");
 
@@ -54,8 +54,8 @@ class Conf extends Command {
     // WARNING: DELETING A KEY FROM THE DEFAULTS ALSO REMOVES IT FROM EVERY GUILD
     // MAKE SURE THAT KEY IS REALLY NO LONGER NEEDED!
     if (action === "del") {
-      if (!key) return message.reply("Please specify a key to delete.");
-      if (!defaults[key]) return message.reply("This key does not exist in the settings");
+      if (!key) return message.reply("please specify a key to delete.");
+      if (!defaults[key]) return message.reply("this key does not exist in the settings");
     
       // Throw the 'are you sure?' text at them.
       const response = await this.client.awaitReply(message, `Are you sure you want to permanently delete ${key} from all guilds? This **CANNOT** be undone.`);
@@ -78,15 +78,15 @@ class Conf extends Command {
       } else
       // If they respond with n or no, we inform them that the action has been cancelled.
       if (["n","no","cancel"].includes(response)) {
-        message.reply("Action cancelled.");
+        message.reply("action cancelled.");
       }
     } else
   
     // Display a key's default value
     if (action === "get") {
-      if (!key) return message.reply("Please specify a key to view");
-      if (!defaults[key]) return message.reply("This key does not exist in the settings");
-      message.reply(`The value of ${key} is currently ${defaults[key]}`);
+      if (!key) return message.reply("please specify a key to view");
+      if (!defaults[key]) return message.reply("this key does not exist in the settings");
+      message.reply(`the value of ${key} is currently ${defaults[key]}`);
 
       // Display all default settings.
     } else {

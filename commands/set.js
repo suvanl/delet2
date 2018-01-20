@@ -33,23 +33,23 @@ class Set extends Command {
   
     // Secondly, if a user does `-set edit <key> <new value>`, let's change it
     if (action === "edit") {
-      if (!key) return message.reply("Please specify a key to edit");
-      if (!settings[key]) return message.reply("This key does not exist in the settings");
-      if (value.length < 1) return message.reply("Please specify a new value");
+      if (!key) return message.reply("please specify a key to edit.");
+      if (!settings[key]) return message.reply("this key does not exist in my settings.");
+      if (value.length < 1) return message.reply("please specify a new value.");
     
       settings[key] = value.join(" ");
 
       this.client.settings.set(message.guild.id, settings);
-      message.reply(`${key} successfully edited to ${value.join(" ")}`);
+      message.reply(`${key} was successfully edited to ${value.join(" ")}`);
     } else
   
     // Thirdly, if a user does `-set del <key>`, let's ask the user if they're sure...
     if (action === "del" || action === "reset") {
-      if (!key) return message.reply("Please specify a key to delete (reset).");
-      if (!settings[key]) return message.reply("This key does not exist in the settings");
+      if (!key) return message.reply("please specify a key to delete (reset).");
+      if (!settings[key]) return message.reply("this key does not exist in my settings.");
       
       // Throw the 'are you sure?' text at them.
-      const response = await this.client.awaitReply(message, `Are you sure you want to reset \`${key}\` to the default \`${defaults[key]}\`?`);
+      const response = await this.client.awaitReply(message, `are you sure you want to reset \`${key}\` to the default \`${defaults[key]}\`?`);
 
       // If they respond with y or yes, continue.
       if (["y", "yes"].includes(response)) {
@@ -62,15 +62,15 @@ class Set extends Command {
 
       // If they respond with n or no, we inform them that the action has been cancelled.
       if (["n","no","cancel"].includes(response)) {
-        message.reply(`Your setting for \`${key}\` remains at \`${settings[key]}\``);
+        message.reply(`your setting for \`${key}\` remains at \`${settings[key]}\``);
       }
     } else
   
     // Using `-set get <key>` we simply return the current value for the guild.
     if (action === "get") {
-      if (!key) return message.reply("Please specify a key to view");
-      if (!settings[key]) return message.reply("This key does not exist in the settings");
-      message.reply(`The value of ${key} is currently ${settings[key]}`);
+      if (!key) return message.reply("please specify a key to view");
+      if (!settings[key]) return message.reply("this key does not exist in my settings");
+      message.reply(`the value of ${key} is currently ${settings[key]}`);
       
     } else {
       // Otherwise, the default action is to return the whole configuration in JSON format (to be prettified!);
