@@ -1,6 +1,6 @@
 const Moderation = require('../base/Moderation.js');
 
-// TODO: refactor embed into RickEmbed
+// TODO: refactor embed into RichEmbed
 
 class Report extends Moderation {
     constructor(client) {
