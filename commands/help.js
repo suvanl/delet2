@@ -43,6 +43,7 @@ class Help extends Command {
         output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
       });
       try {
+        message.reply("sending a list of commands to your DMs... 📝");
         message.author.send(output, {code:"asciidoc", split: { char: "\u200b" }});
       } catch (error) {
         message.reply("an error occurred whilst trying to DM you. Please make sure '**Allow direct messages from server members** is on in your privacy settings for this server.", {
