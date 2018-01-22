@@ -1,5 +1,7 @@
 const Moderation = require('../base/Moderation.js');
 
+// TODO: refactor embed into RickEmbed
+
 class Report extends Moderation {
     constructor(client) {
       super(client, {
@@ -33,7 +35,7 @@ class Report extends Moderation {
             timestamp: new Date(),
             footer: {
               icon_url: "https://i.imgur.com/No7WfpC.png",
-              text: "Report system powered by delet™"
+              text: "Moderation system powered by delet™"
             }
         }
     }).catch(console.error);
