@@ -14,6 +14,7 @@ class Report extends Command {
         botPerms: ['MANAGE_MESSAGES']
       });
     }
+    
     async run(message, args, level) {
 
         const user = message.mentions.users.first();
