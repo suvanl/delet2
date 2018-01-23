@@ -1,11 +1,12 @@
-const Moderation = require('../base/Moderation.js');
+const Command = require("../base/Command.js");
 const Discord = require("discord.js");
 
-class Report extends Moderation {
+class Report extends Command {
     constructor(client) {
       super(client, {
         name: 'report',
         description: 'Reports a user to the server\'s staff.',
+        category: 'Miscellaneous',
         usage: 'report [user] <reason/info>',
         extended: 'Informs the current server\'s staff of a rule-breaker, by sending a message to the modlog channel.',
         aliases: [''],
