@@ -1,6 +1,5 @@
 const Moderation = require('../base/Moderation.js');
-
-// TODO: refactor embed into RichEmbed
+const Discord = require("discord.js");
 
 class Report extends Moderation {
     constructor(client) {
@@ -14,7 +13,7 @@ class Report extends Moderation {
         botPerms: ['MANAGE_MESSAGES']
       });
     }
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level) {
 
         const user = message.mentions.users.first();
         const reason = args.slice(1).join(' ');
@@ -24,22 +23,20 @@ class Report extends Moderation {
 
         message.delete();
 
-        this.client.channels.get(modLog.id).send({embed: {
-            color: 3502732,
-            author: {
-              name: `🚩 Report received from ${message.author.tag} (User ID: ${message.author.id})`,
-              icon_url: message.author.avatarURL
-            },
-            url: "",
-            description: `\`\`\`css\n@${user.username}#${user.discriminator} ${reason}\nReported from: #${message.channel.name}\`\`\``,
-            timestamp: new Date(),
-            footer: {
-              icon_url: "https://i.imgur.com/No7WfpC.png",
-              text: "Moderation system powered by delet™"
-            }
+        const embed = new Discord.RichEmbed()
+        .setTitle(`🚩 Report received from ${message.author.tag} (${message.author.id})`)
+        .setColor(3502732)
+        .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nReason: ${reason}\nChannel: ${message.channel.name}\`\`\``)
+        .setFooter("Moderation system powered by delet™", "https://i.imgur.com/No7WfpC.png")
+        .setTimestamp()
+
+        try {
+          this.client.channels.get(modLog.id).send({embed});
+          message.channel.send(`<:tick:398228298842374154> Report successfully sent.`);
+        } catch (error) {
+          message.channel.send(`<:redX:398228298708025344> An error occurred whilst submitting the report.`);
         }
-    }).catch(console.error);
-        message.channel.send(`<:tick:398228298842374154> Report successfully sent.`);
+        
     }
 }
 
