@@ -36,7 +36,7 @@ class Report extends Command {
           this.client.channels.get(modLog.id).send({embed});
           message.channel.send(`<:tick:398228298842374154> Report successfully sent.`);
         } catch (error) {
-          message.channel.send(`<:redX:398228298708025344> An error occurred whilst submitting the report.`);
+          return message.channel.send(`<:redX:398228298708025344> An error occurred whilst submitting the report.`);
         }
         
     }

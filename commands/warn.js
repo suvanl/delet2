@@ -25,7 +25,7 @@ class Warn extends Moderation {
         message.react("👌");
         user.send(`Hey there!\nYou were warned in **${message.guild.name}** for the reason **${reason}**.\nPlease make sure you always follow the rules, as not doing so can lead to punishments. <:feelsbanman:405126279025917962>`);
       } catch (error) {
-        message.channel.send("An error occurred whilst trying to DM the mentioned user.");
+        return message.channel.send("An error occurred whilst trying to DM the mentioned user.");
       }
 
       const embed = new Discord.RichEmbed()
