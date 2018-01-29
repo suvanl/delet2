@@ -6,7 +6,7 @@ class Purge extends Moderation {
       name: 'purge',
       description: 'Purges (bulk-deletes) between 2 and 99 messages.',
       usage: 'purge [user] <number>',
-      extended: 'This command will either purge a mentioned users messages (between 2 and 99), or the bots own messages.',
+      extended: 'This command will either purge a mentioned user\'s messages (between 2 and 99), or the bot\'s own messages.',
       aliases: ['prune'],
       botPerms: ['MANAGE_MESSAGES']
     });

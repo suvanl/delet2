@@ -46,8 +46,8 @@ module.exports = class {
     if (level < this.client.levelCache[cmd.conf.permLevel]) {
       if (settings.systemNotice === "true") {
         return message.channel.send(`You do not have permission to use this command.
-Your permission level is ${level} (${this.client.config.permLevels.find(l => l.level === level).name})
-This command requires level ${this.client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
+Your permission level is ${level} (${this.client.config.permLevels.find(l => l.level === level).name}).
+This command requires level ${this.client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel}).`);
       } else {
         return;
       }
