@@ -11,9 +11,8 @@ class Say extends Command {
       });
     }
 
-    async run(message, level) {
-        const args = message.content.split(" ").slice(1);
-        message.channel.send(args.join(" "));
+    async run(message, args, level) {
+      message.channel.send(args.join(" "));
     }
 }
 
