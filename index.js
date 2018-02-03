@@ -71,7 +71,7 @@ class Delet extends Discord.Client {
   loadCommand(commandPath, commandName) {
     try {
       const props = new (require(`${commandPath}${path.sep}${commandName}`))(client);
-      client.logger.log(`Loading Command: ${props.help.name}. 👌`, "log");
+      client.logger.log(`Loading command: ${props.help.name}. 👌`, "log");
       props.conf.location = commandPath;
       if (props.init) {
         props.init(client);
