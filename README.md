@@ -1,7 +1,7 @@
 # delet
 
 ![delet](https://vgy.me/CbTKs9.png "delet Logo")
-**delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library.**
+## delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library
 
 **Please ensure you read the note about portability in this README document.**
 
