@@ -32,6 +32,7 @@ const config = {
     "welcomeEnabled": "false",
     "welcomeChannel": "welcome",
     "welcomeMessage": "Say hello to {{user}}, everyone! 🎉👋",
+    "currency": ">>No currency set<<"
   },
 
   // PERMISSION LEVEL DEFINITIONS.

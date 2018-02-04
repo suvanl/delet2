@@ -14,7 +14,7 @@ const defaultSettings = `{
   "welcomeChannel": "general",
   "welcomeMessage": "Say hello to {{user}}, everyone! 🎉👋",
   "welcomeEnabled": "false",
-  "announceChannel": "announcements"
+  "currency": ">>No currency set<<"
 }`;
 
 const settings = new Enmap({provider: new EnmapLevel({name: "settings"})});
