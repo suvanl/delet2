@@ -19,7 +19,7 @@ class Flip extends Command {
     if (settings.currency === ">>No currency set<<") return message.channel.send(`
 I cannot run this command, as I don't know which currency to use on this server. Please set a currency by using:
 \`\`\`${settings.prefix}set edit currency TYPE\`\`\`
-Currently available types: \`GBP\``);
+Currently available types: \`GBP\`, \`EUR\``);
 
     function coinFlip() {
       return (Math.floor(Math.random() * 2) == 0) ? 'Heads' : 'Tails';
