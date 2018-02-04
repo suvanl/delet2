@@ -18,7 +18,7 @@ class Flip extends Command {
     }
 
     let variable = coinFlip();
-    console.log(variable);
+    // console.log(variable);
 
     if(variable === 'Heads') {
       const embed = new Discord.RichEmbed()
