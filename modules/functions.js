@@ -8,7 +8,7 @@ module.exports = (client) => {
 
   USAGE
 
-  const response = await client.awaitReply(msg, "Favourite Color?");
+  const response = await client.awaitReply(msg, "Favourite Colour?");
   msg.reply(`Oh, I really love ${response} too!`);
 
   */
