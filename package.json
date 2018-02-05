@@ -27,6 +27,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
+    "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.0",
     "ejs": "^2.5.7",
     "enmap": "^0.4.2",
@@ -50,6 +51,7 @@
     "node-opus": "^0.2.7",
     "passport": "^0.4.0",
     "passport-discord": "^0.1.3",
+    "querystring": "^0.2.0",
     "request": "^2.83.0",
     "simple-youtube-api": "^5.0.1",
     "snekfetch": "^3.6.1",
