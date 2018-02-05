@@ -12,7 +12,14 @@ class Say extends Command {
     }
 
     async run(message, args, level) {
-      message.channel.send(args.join(" "));
+      const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
+      const ttsArgs = message.content.split(" ").slice(2);
+
+      if (message.content.startsWith(`${settings.prefix}say tts`)) {
+        message.channel.send(ttsArgs.join(" "), {tts: true});
+      } else {
+        message.channel.send(args.join(" "));
+      }
     }
 }
 
