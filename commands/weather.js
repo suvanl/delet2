@@ -19,6 +19,10 @@ class Weather extends Command {
         weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) {
             if (err) return message.channel.send(`An error occurred:\n\`\`\`${err}\`\`\`\nTo see how to use this command, type \`${settings.prefix}help weather\`.`);
 
+            if (message.content.startsWith(`${settings.prefix}weather json`)) {
+                return message.channel.send(`\`\`\`${JSON.stringify(result[0].current, null, 2)}\`\`\``);
+            };
+
             var current = result[0].current;
             var location = result[0].location;
 
