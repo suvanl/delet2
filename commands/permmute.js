@@ -57,6 +57,7 @@ class PermMute extends Moderation {
     } else {
       message.guild.member(user).addRole(muteRole).then(() => {
         this.client.channels.get(modLog.id).send({embed});
+        user.send(`You were muted in **${message.guild.name}**.\n\nReason: **${reason}**\nIn channel: **#${message.channel.name}**\nDuration: **Permanent**\n\nPlease make sure to read and follow the rules in the future, for any server that has rules.`);
         message.react("👌");
       });
     }
