@@ -18,4 +18,4 @@ class Divide extends Command {
     }
 }
 
-module.exports =  Divide;
+module.exports = Divide;

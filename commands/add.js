@@ -27,4 +27,4 @@ class Add extends Command {
     }
 }
 
-module.exports =  Add;
+module.exports = Add;

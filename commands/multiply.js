@@ -22,4 +22,4 @@ class Multiply extends Command {
     }
 }
 
-module.exports =  Multiply;
+module.exports = Multiply;

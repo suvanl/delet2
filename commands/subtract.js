@@ -18,4 +18,4 @@ class Subtract extends Command {
     }
 }
 
-module.exports =  Subtract;
+module.exports = Subtract;
