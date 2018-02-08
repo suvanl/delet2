@@ -8,6 +8,7 @@ class Stats extends Command {
     super(client, {
       name: "stats",
       description: "Gives some useful bot statistics.",
+      category: "System",
       usage: "stats",
     });
   }
