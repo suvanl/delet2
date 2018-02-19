@@ -6,11 +6,10 @@ class Report extends Command {
       super(client, {
         name: 'report',
         description: 'Reports a user to the server\'s staff.',
-        category: 'Miscellaneous',
+        category: 'Moderation',
         usage: 'report [user] <reason/info>',
         extended: 'Informs the current server\'s staff of a rule-breaker, by sending a message to the modlog channel.',
         aliases: [''],
-        permLevel: "User",
         botPerms: ['MANAGE_MESSAGES']
       });
     }
