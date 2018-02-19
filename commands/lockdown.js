@@ -1,16 +1,18 @@
-const Moderation = require('../base/Moderation.js');
+const Command = require('../base/Command.js');
 const ms = require('ms');
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-class Lockdown extends Moderation {
+class Lockdown extends Command {
     constructor(client) {
       super(client, {
         name: 'lockdown',
         description: 'Locks a channel down for a set duration. Use "%lockdown release" to end the lockdown prematurely.',
+        category: 'Moderation',
         usage: 'lockdown <duration> <s|m|h>',
         guildOnly: true,
-        aliases: ['ld']
+        aliases: ['ld'],
+        permLevel: "DeletMod"
       });
     }
 

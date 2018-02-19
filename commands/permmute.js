@@ -1,13 +1,15 @@
-const Moderation = require('../base/Moderation.js');
+const Command = require('../base/Command.js');
 const Discord = require("discord.js");
 
-class PermMute extends Moderation {
+class PermMute extends Command {
   constructor(client) {
     super(client, {
       name: 'permmute',
       description: 'Permanently mutes the mentioned user.',
+      category: 'Moderation',
       usage: 'permmute [user] <reason>',
       aliases: ['perm'],
+      permLevel:"DeletMod",
       botPerms: ['MANAGE_ROLES', 'MANAGE_CHANNELS']
     });
   }

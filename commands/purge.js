@@ -1,13 +1,15 @@
-const Moderation = require('../base/Moderation.js');
+const Command = require('../base/Command.js');
 
-class Purge extends Moderation {
+class Purge extends Command {
   constructor(client) {
     super(client, {
       name: 'purge',
       description: 'Purges (bulk-deletes) between 2 and 99 messages.',
+      category: 'Moderation',
       usage: 'purge [user] <number>',
-      extended: 'This command will either purge a mentioned user\'s messages (between 2 and 99), or the bot\'s own messages.',
+      extended: 'This command will either purge a mentioned user\'s messages (between 2 and 99), the contents of the channel, or the bot\'s own messages.',
       aliases: ['prune'],
+      permLevel: "DeletMod",
       botPerms: ['MANAGE_MESSAGES']
     });
   }

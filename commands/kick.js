@@ -1,19 +1,20 @@
-const Moderation = require('../base/Moderation.js');
+const Command = require('../base/Command.js');
 const Discord = require("discord.js");
 
-class Kick extends Moderation {
+class Kick extends Command {
     constructor(client) {
       super(client, {
         name: 'kick',
         description: 'Kicks the mentioned user from the server.',
+        category: 'Moderation',
         usage: 'kick [user] <reason/info>',
         guildOnly: true,
-        aliases: ['boot']
+        aliases: ['boot'],
+        permLevel: "DeletMod"
       });
     }
     
     async run(message, args, level) {
-    
       const user = message.mentions.users.first();
       const reason = args.slice(1).join(' ');
       const modLog = message.guild.channels.find("name", "delet-this");
