@@ -1,6 +1,7 @@
 # delet
 
 ![delet](https://vgy.me/CbTKs9.png "delet Logo")
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDS-Development%2Fdelet-2.0.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FDS-Development%2Fdelet-2.0?ref=badge_shield)
 ## delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library
 
 **Please ensure you read the note about portability in this README document.**
@@ -18,3 +19,7 @@ However, if you wish to use any of delet's code in your project(s), you are requ
 ## A note about portability
 A project/product being open-source doesn't necessarily mean that it is portable, and in this case, delet is NOT portable. This is due to the reason that it wasn't built for the purpose of portability, and also depends on various things to work fully as your own bot, which instructions for getting things to work are not stated here. Essentially, this project is open-source for educational purposes; so that others can see how everything works. **Self-hosting is NOT supported by any means**.
 If you believe you do have the required knowledge to self-host this bot, you are REQUIRED to contact us beforehand and give full credit to the **DS Development Group** as the original authors.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDS-Development%2Fdelet-2.0.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FDS-Development%2Fdelet-2.0?ref=badge_large)
