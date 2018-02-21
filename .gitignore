@@ -67,3 +67,4 @@ music/js/config.js
 eval.js
 commands/eval.js
 music/js/audiotest.js
+.vscode/settings.json
