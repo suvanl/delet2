@@ -5,6 +5,7 @@ class Status extends Command {
       super(client, {
         name: "status",
         description: "Sets delet's presence/status.",
+        category: "System",
         usage: "status",
         aliases: [""],
         permLevel: "Bot Admin"

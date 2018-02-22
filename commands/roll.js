@@ -5,6 +5,7 @@ class Roll extends Command {
       super(client, {
         name: "roll",
         description: "Rolls a regular six-sided dice.",
+        category: "Fun",
         usage: "roll",
         aliases: ["dice"]
       });
