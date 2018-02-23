@@ -7,7 +7,7 @@ class Google extends Command {
     constructor(client) {
       super(client, {
         name: "google",
-        description: "Searches Google for your query",
+        description: "Searches Google for your query.",
         usage: "google [query]",
         aliases: ["search"]
       });
