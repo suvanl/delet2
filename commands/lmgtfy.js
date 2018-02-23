@@ -7,7 +7,7 @@ class LMGTFY extends Command {
         name: "lmgtfy",
         description: "Why don't you just... Google it?",
         usage: "lmgtfy [query]",
-        aliases: [""]
+        aliases: ["googleit"]
       });
     }
 
