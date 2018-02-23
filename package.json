@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/jshint/bin/jshint index.js",
-    "start": "node index.js",
-    "prepublish": "node util/setup.js"
+    "start": "node index.js"
   },
   "engines": {
     "node": ">=8"
