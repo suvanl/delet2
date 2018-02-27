@@ -12,7 +12,7 @@ class Roll extends Command {
     }
 
     async run(message, args, level) {
-        var roll = Math.floor(Math.random() * 6) + 1;
+        let roll = Math.floor(Math.random() * 6) + 1;
         
         try {
             if (roll === 8) {
