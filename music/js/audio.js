@@ -48,10 +48,10 @@ client.on('message', async msg => {
             return msg.channel.send(`The playlist **${playlist.title}** has been added to the queue.`);
         } else {
             try {
-                var video = await youtube.getVideo(url);
+                let video = await youtube.getVideo(url);
             } catch (error) {
                 try {
-                    var videos = await youtube.searchVideos(searchString, 10);
+                    let videos = await youtube.searchVideos(searchString, 10);
                     let index = 0;
                     msg.channel.send(`
 __**Song Selection**__\n
@@ -60,7 +60,7 @@ Please provide a number to select one of the search results, ranging from **1** 
                     `);
 
                     try {
-                        var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
+                        let response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
                             maxMatches: 1,
                             time: 30000,
                             errors: ['time']
@@ -70,7 +70,7 @@ Please provide a number to select one of the search results, ranging from **1** 
                          return msg.channel.send('Invalid value provided; cancelling video selection.');
                     }
                     const videoIndex = parseInt(response.first().content);
-                    var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
+                    let video = await youtube.getVideoByID(videos[videoIndex - 1].id);
                 } catch (err) {
                     console.error(err);
                     return msg.channel.send('No search results found.');
@@ -147,7 +147,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
         queueConstruct.songs.push(song);
 
         try {
-            var connection = await voiceChannel.join();
+            let connection = await voiceChannel.join();
             queueConstruct.connection = connection;
             play(msg.guild, queueConstruct.songs[0]);
         } catch (error) {
