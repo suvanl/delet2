@@ -12,7 +12,7 @@ class EightBall extends Command {
   }
 
   async run(message, args, level) {
-      var fortunes = [
+      const fortunes = [
         "Yes.",
         "No.",
         "Maybe.",
@@ -39,7 +39,7 @@ class EightBall extends Command {
         "https://giphy.com/gifs/eXQPwwE8DFTZS",
         "sry gtg"
       ];
-      var args = message.content.substring(this.client.settings.get("default").prefix.length).split(" ");
+
       if (args[1]) message.channel.send(fortunes[Math.floor(Math.random() * fortunes.length)]);
         else message.channel.send("I can't read that! :(");
   }
