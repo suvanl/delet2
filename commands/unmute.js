@@ -22,7 +22,7 @@ class Unmute extends Command {
     if (!user) return message.channel.send("You must mention a user to unmute.");
     if (!reason) return message.channel.send("Please provide a reason.");
 
-    var muteRole = message.guild.roles.find('name', 'Muted');
+    let muteRole = message.guild.roles.find('name', 'Muted');
 
     if (!message.guild.member(this.client.user).hasPermission("MANAGE_ROLES")) return message.channel.send("I do not have the required permission(s) to carry this out.");
 
@@ -36,6 +36,7 @@ class Unmute extends Command {
     if (message.guild.member(user).roles.has(muteRole.id)) {
       message.guild.member(user).removeRole(muteRole).then(() => {
           this.client.channels.get(modLog.id).send({embed});
+          user.send(`You have been unmuted in **${message.guild.name}**. Please ensure you always follow the rules to prevent being muted again!`);
           message.react("👌");
       });
     } else {

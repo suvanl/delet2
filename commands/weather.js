@@ -23,8 +23,8 @@ class Weather extends Command {
                 return message.channel.send(`\`\`\`${JSON.stringify(result[0].current, null, 2)}\`\`\``);
             };
 
-            var current = result[0].current;
-            var location = result[0].location;
+            let current = result[0].current;
+            let location = result[0].location;
 
             const embed = new Discord.RichEmbed()
             .setColor(7654911)

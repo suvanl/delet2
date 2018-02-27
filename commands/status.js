@@ -13,7 +13,7 @@ class Status extends Command {
     }
 
     async run(message, args, level) {
-        var status = args.join(" ");
+        let status = args.join(" ");
 
         if (status === "online" || status === "idle" || status === "dnd" || status === "invisible") {
             this.client.user.setStatus(status);
