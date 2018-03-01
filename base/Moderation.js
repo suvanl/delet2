@@ -1,23 +1,23 @@
-const Command = require('./Command.js');
+const Command = require("./Command.js");
 
 class Moderation extends Command {
   
   constructor(client, options) {
     super(client, Object.assign(options, {
-      category: 'Moderation',
+      category: "Moderation",
       guildOnly: true,
-      permLevel: 'Moderator'
+      permLevel: "Moderator"
     }));
 
     this.actions = {
-      wa: { color: 0xFFFF00, display: 'Warn'        },
-      mu: { color: 0xFF9900, display: 'Mute'        },
-      ki: { color: 0xFF3300, display: 'Kick'        },
-      so: { color: 0xFF2F00, display: 'Softban'     },
-      ba: { color: 0xFF0000, display: 'Ban'         },
-      bl: { color: 0x111111, display: 'Blacklisted' },
-      un: { color: 0x006699, display: 'Unban'       },
-      lo: { color: 0x7289DA, display: 'Lockdown'    }
+      wa: { color: 0xFFFF00, display: "Warn"        },
+      mu: { color: 0xFF9900, display: "Mute"        },
+      ki: { color: 0xFF3300, display: "Kick"        },
+      so: { color: 0xFF2F00, display: "Softban"     },
+      ba: { color: 0xFF0000, display: "Ban"         },
+      bl: { color: 0x111111, display: "Blacklisted" },
+      un: { color: 0x006699, display: "Unban"       },
+      lo: { color: 0x7289DA, display: "Lockdown"    }
     };
     
   }
@@ -54,9 +54,9 @@ class Moderation extends Command {
     const messages = await modlog.fetchMessages({limit: 5});
     const log = messages.filter(m => m.author.id === client.user.id
       && m.embeds[0]
-      && m.embeds[0].type === 'rich'
+      && m.embeds[0].type === "rich"
       && m.embeds[0].footer
-      && m.embeds[0].footer.text.startsWith('Case')
+      && m.embeds[0].footer.text.startsWith("Case")
     ).first();
     if (!log) return 1;
     const thisCase = /Case\s(\d+)/.exec(log.embeds[0].footer.text);
@@ -65,14 +65,14 @@ class Moderation extends Command {
   
   async caseEmbed(color, description, author, timestamp, footer) {
     const embed = {
-      'color': color,
-      'description': description,
-      'author': {
-        'name': author
+      "color": color,
+      "description": description,
+      "author": {
+        "name": author
       },
-      'timestamp': timestamp,
-      'footer': {
-        'text': footer
+      "timestamp": timestamp,
+      "footer": {
+        "text": footer
       }
     };
     return embed;
@@ -80,11 +80,11 @@ class Moderation extends Command {
 
   async buildModLog(client, guild, action, target, mod, reason) {
     const settings = client.getSettings(guild.id);
-    const caseNumber = await this.caseNumber(client, guild.channels.find('name', settings.modLogChannel));
+    const caseNumber = await this.caseNumber(client, guild.channels.find("name", settings.modLogChannel));
     const thisAction = this.actions[action];
     if (reason.length < 1) reason = `Awaiting moderator's input. Use ${settings.prefix}reason ${caseNumber} <reason>.`;
     const embed = await this.caseEmbed(thisAction.color, `**Action:** ${thisAction.display}\n**Target:** ${target.tag} (${target.id})\n**Reason:** ${reason}`,`${mod.tag} (${mod.id})`, new Date(), `Case ${caseNumber}`);
-    return guild.channels.find('name', settings.modLogChannel).send({embed});
+    return guild.channels.find("name", settings.modLogChannel).send({embed});
   }
   
 }
