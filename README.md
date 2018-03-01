@@ -1,6 +1,5 @@
 # delet
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4726beb2cbfa43d58bc7c96aa4fa9854)](https://www.codacy.com/app/suvanl/delet-2.0?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DS-Development/delet-2.0&amp;utm_campaign=Badge_Grade)
-![delet](https://vgy.me/CbTKs9.png "delet Logo")
+
 ## delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library
 
 **Please ensure you read the note about portability in this README document.**
