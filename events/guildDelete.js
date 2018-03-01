@@ -10,7 +10,7 @@ module.exports = class {
     //this.client.user.setPresence({game: {name: `${this.client.settings.get("default").prefix}help | ${this.client.guilds.size} Servers`, type:0}});
     
     // Updates number of guilds (servers) on the bot's status.
-    this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:'WATCHING'});
+    this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:"WATCHING"});
     
     // Well, they're gone :^) (removes them from settings)
     this.client.settings.delete(guild.id);
