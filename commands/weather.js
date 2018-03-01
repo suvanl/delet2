@@ -21,7 +21,7 @@ class Weather extends Command {
 
             if (message.content.startsWith(`${settings.prefix}weather json`)) {
                 return message.channel.send(`\`\`\`${JSON.stringify(result[0].current, null, 2)}\`\`\``);
-            };
+            }
 
             let current = result[0].current;
             let location = result[0].location;
