@@ -46,7 +46,7 @@ class Lockdown extends Command {
                 });
             }
         } catch (error) {
-            message.channel.send("An error occurred whilst trying to lock this channel down. Example command usage:\n```%lockdown 5 m```")
+            message.channel.send("An error occurred whilst trying to lock this channel down. Example command usage:\n```%lockdown 5 m```");
         }
     }
 }
