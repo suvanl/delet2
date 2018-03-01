@@ -13,7 +13,7 @@ class Google extends Command {
       });
     }
 
-    async run(message, args, level) {
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
         let searchMessage = await message.channel.send("Searching Google...");
         let searchURL = `https://www.google.com/search?q=${encodeURIComponent(message.content)}`;
 
@@ -26,7 +26,7 @@ class Google extends Command {
             searchMessage.edit(`Result found!\n${googleData.q}`);
 
         }).catch((err) => {
-            searchMessage.edit("No results found.");
+            searchMessage.edit(`No results found; an error occurred.\n\`\`\`${err}\`\`\``);
         });
     }
 }

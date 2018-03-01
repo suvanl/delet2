@@ -1,24 +1,24 @@
-const Command = require('../base/Command.js');
-const ms = require('ms');
+const Command = require("../base/Command.js");
+const ms = require("ms");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
 class Lockdown extends Command {
     constructor(client) {
       super(client, {
-        name: 'lockdown',
-        description: 'Locks a channel down for a set duration. Use "%lockdown release" to end the lockdown prematurely.',
-        category: 'Moderation',
-        usage: 'lockdown <duration> <s|m|h>',
+        name: "lockdown",
+        description: "Locks a channel down for a set duration. Use \"%lockdown release\" to end the lockdown prematurely.",
+        category: "Moderation",
+        usage: "lockdown <duration> <s|m|h>",
         guildOnly: true,
-        aliases: ['ld'],
+        aliases: ["ld"],
         permLevel: "DeletMod"
       });
     }
 
-    async run(message, args, level) {
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
         if (!client.lockit) client.lockit = [];
-        let time = args.join(' ');
+        let time = args.join(" ");
         let validUnlocks = ["release", "unlock"];
         if (!time) return message.channel.send("A duration for the lockdown must be set. This can be in hours, minutes or seconds. Example command usage:\n```%lockdown 5 m```");
 
@@ -46,7 +46,7 @@ class Lockdown extends Command {
                 });
             }
         } catch (error) {
-            message.channel.send("An error occurred whilst trying to lock this channel down. Example command usage:\n```%lockdown 5 m```")
+            message.channel.send("An error occurred whilst trying to lock this channel down. Example command usage:\n```%lockdown 5 m```");
         }
     }
 }

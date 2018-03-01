@@ -11,9 +11,9 @@ class Multiply extends Command {
       });
     }
 
-    async run(message, args, level) {
-        let numArray = args.map(n => parseInt(n));
-        let total = numArray.reduce( (p, c) => p*c);
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
+        const numArray = args.map(n => parseInt(n));
+        const total = numArray.reduce( (p, c) => p*c);
         message.channel.send(total);
 
         if (message.content.startsWith(`${this.client.settings.get("default").prefix}multiply 12 12`)) {

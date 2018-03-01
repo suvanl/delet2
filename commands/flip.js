@@ -12,7 +12,7 @@ class Flip extends Command {
     });
   }
 
-  async run(message, args, level) {
+  async run(message, args, level) { // eslint-disable-line no-unused-vars
     const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
 
     // No currency set
@@ -34,12 +34,12 @@ Currently available types: \`GBP\`, \`EUR\``);
     if (variable === 'Heads') {
       const embed = new Discord.RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
-      .setThumbnail("https://vgy.me/yvnN22.png")
+      .setThumbnail("https://vgy.me/yvnN22.png");
       message.channel.send({embed});
     } else {
       const embed = new Discord.RichEmbed()
       .setDescription(`This flip's result was **tails**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
-      .setThumbnail("https://vgy.me/PfWWql.png")
+      .setThumbnail("https://vgy.me/PfWWql.png");
       message.channel.send({embed});
     }
   }
@@ -49,12 +49,12 @@ Currently available types: \`GBP\`, \`EUR\``);
     if (variable === 'Heads') {
       const embed = new Discord.RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
-      .setThumbnail("https://vgy.me/QgVomc.png")
+      .setThumbnail("https://vgy.me/QgVomc.png");
       message.channel.send({embed});
     } else {
       const embed = new Discord.RichEmbed()
       .setDescription(`This flip's result was **tails**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
-      .setThumbnail("https://vgy.me/g4ispA.png")
+      .setThumbnail("https://vgy.me/g4ispA.png");
       message.channel.send({embed});
     }
   }

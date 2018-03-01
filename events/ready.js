@@ -32,7 +32,7 @@ module.exports = class {
     
     // Sets the bot's game/status as "Watching over {number} servers"
     // NOTE: This is also set in the guildCreate and guildDelete events.
-    this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:'WATCHING'});
+    this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:"WATCHING"});
   
     // Logs that the bot is ready to serve and run, so we know the bot accepts commands.
     this.client.logger.log(`${this.client.user.tag}, ready to serve ${this.client.users.size} users in ${this.client.guilds.size} servers.`, "ready");  
