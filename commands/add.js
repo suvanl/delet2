@@ -21,7 +21,7 @@ class Add extends Command {
         //     message.channel.send(`An error occured while executing this command.\n\`\`\`${error}\`\`\``);
         // }
 
-        let numArray = args.map(n => parseInt(n));
+        const numArray = args.map(n => parseInt(n));
         let total = numArray.reduce( (p, c) => p+c);
         message.channel.send(total);
     }
