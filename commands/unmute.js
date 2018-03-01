@@ -22,7 +22,7 @@ class Unmute extends Command {
     if (!user) return message.channel.send("You must mention a user to unmute.");
     if (!reason) return message.channel.send("Please provide a reason.");
 
-    let muteRole = message.guild.roles.find('name', 'Muted');
+    const muteRole = message.guild.roles.find('name', 'Muted');
 
     if (!message.guild.member(this.client.user).hasPermission("MANAGE_ROLES")) return message.channel.send("I do not have the required permission(s) to carry this out.");
 
