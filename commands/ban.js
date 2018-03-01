@@ -35,7 +35,7 @@ class Ban extends Command {
         .setColor(10944512)
         .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
         .setFooter("Moderation system powered by delet™", "https://i.imgur.com/No7WfpC.png")
-        .setTimestamp()
+        .setTimestamp();
 
         this.client.channels.get(modLog.id).send({embed});
     }
