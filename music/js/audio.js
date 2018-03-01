@@ -51,7 +51,7 @@ client.on("message", async msg => {
                 let video = await youtube.getVideo(url); // eslint-disable-line no-unused-vars
             } catch (error) {
                 try {
-                    let videos = await youtube.searchVideos(searchString, 10);
+                    const videos = await youtube.searchVideos(searchString, 10);
                     let index = 0;
                     msg.channel.send(`
 __**Song Selection**__\n
