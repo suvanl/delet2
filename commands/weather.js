@@ -13,7 +13,7 @@ class Weather extends Command {
       });
     }
 
-    async run(message, args, level) {
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
         const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
 
         weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) {
@@ -24,7 +24,8 @@ class Weather extends Command {
             }
 
             let current = result[0].current;
-            let location = result[0].location;
+            let location = result[0].location; // eslint-disable-line no-unused-vars
+            // `location` will be used in a future update of this command.
 
             const embed = new Discord.RichEmbed()
             .setColor(7654911)

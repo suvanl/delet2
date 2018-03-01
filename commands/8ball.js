@@ -11,7 +11,7 @@ class EightBall extends Command {
     });
   }
 
-  async run(message, args, level) {
+  async run(message, args, level) { // eslint-disable-line no-unused-vars
       const fortunes = [
         "Yes.",
         "No.",

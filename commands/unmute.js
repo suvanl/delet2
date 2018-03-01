@@ -14,7 +14,7 @@ class Unmute extends Command {
     });
   }
 
-  async run(message, args, level) {
+  async run(message, args, level) { // eslint-disable-line no-unused-vars
     const user = message.mentions.users.first();
     const reason = args.slice(1).join(' ');
     const modLog = message.guild.channels.find("name", "delet-this");
