@@ -31,7 +31,7 @@ class Unmute extends Command {
     .setColor(12451456)
     .setDescription(`\`\`\`fix\nUser: ${user.tag} (${user.id})\nUndone by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
     .setFooter("Moderation system powered by delet™", "https://i.imgur.com/No7WfpC.png")
-    .setTimestamp()
+    .setTimestamp();
 
     if (message.guild.member(user).roles.has(muteRole.id)) {
       message.guild.member(user).removeRole(muteRole).then(() => {
