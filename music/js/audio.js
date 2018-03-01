@@ -48,7 +48,7 @@ client.on('message', async msg => {
             return msg.channel.send(`The playlist **${playlist.title}** has been added to the queue.`);
         } else {
             try {
-                let video = await youtube.getVideo(url);
+                let video = await youtube.getVideo(url); // eslint-disable-line no-unused-vars
             } catch (error) {
                 try {
                     let videos = await youtube.searchVideos(searchString, 10);
