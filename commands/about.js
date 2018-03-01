@@ -13,7 +13,7 @@ class About extends Command {
       });
     }
 
-    async run(message, args, level) {
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
         // RichEmbed Builder
         const embed = new Discord.RichEmbed()
         .setTitle("Hey, I'm delet")

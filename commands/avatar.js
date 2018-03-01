@@ -11,7 +11,7 @@ class Avatar extends Command {
       });
     }
 
-    async run(message, args, level) {
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
         const user = message.mentions.users.first();
 
         if (!user) {

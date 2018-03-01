@@ -11,7 +11,7 @@ class Multiply extends Command {
       });
     }
 
-    async run(message, args, level) {
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
         let numArray = args.map(n => parseInt(n));
         let total = numArray.reduce( (p, c) => p*c);
         message.channel.send(total);

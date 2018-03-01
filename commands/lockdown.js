@@ -16,7 +16,7 @@ class Lockdown extends Command {
       });
     }
 
-    async run(message, args, level) {
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
         if (!client.lockit) client.lockit = [];
         let time = args.join(' ');
         let validUnlocks = ["release", "unlock"];
