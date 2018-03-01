@@ -3,7 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4095a9a01d8445939612d31b6283e6fd)](https://app.codacy.com/app/suvanl/delet-2.0?utm_source=github.com&utm_medium=referral&utm_content=DS-Development/delet-2.0&utm_campaign=badger)
 
 ![delet](https://vgy.me/CbTKs9.png "delet Logo")
-## delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library
+## delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library.
 
 **Please ensure you read the note about portability in this README document.**
 
