@@ -1,29 +1,29 @@
-const Command = require('../base/Command.js');
+const Command = require("../base/Command.js");
 const Discord = require("discord.js");
 
 class PermMute extends Command {
   constructor(client) {
     super(client, {
-      name: 'permmute',
-      description: 'Permanently mutes the mentioned user.',
-      category: 'Moderation',
-      usage: 'permmute [user] <reason>',
-      aliases: ['perm'],
+      name: "permmute",
+      description: "Permanently mutes the mentioned user.",
+      category: "Moderation",
+      usage: "permmute [user] <reason>",
+      aliases: ["perm"],
       permLevel:"DeletMod",
-      botPerms: ['MANAGE_ROLES', 'MANAGE_CHANNELS']
+      botPerms: ["MANAGE_ROLES", "MANAGE_CHANNELS"]
     });
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     const user = message.mentions.users.first();
-    const reason = args.slice(1).join(' ');
+    const reason = args.slice(1).join(" ");
     const modLog = message.guild.channels.find("name", "delet-this");
     if (user === message.author) return message.reply("you cannot mute yourself!");
     if (!modLog) return message.channel.send("Modlog not found. Please inform the server owner of this.");
     if (!user) return message.channel.send("You must mention a user to mute.");
     if (!reason) return message.channel.send("Please provide a reason for the punishment.");
 
-    let muteRole = message.guild.roles.find('name', 'Muted');
+    let muteRole = message.guild.roles.find("name", "Muted");
 
     if (!message.guild.member(this.client.user).hasPermission("MANAGE_ROLES")) return message.channel.send("I do not have the required permission(s) to carry this out.");
 

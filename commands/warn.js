@@ -1,23 +1,23 @@
-const Command = require('../base/Command.js');
+const Command = require("../base/Command.js");
 const Discord = require("discord.js");
 
 class Warn extends Command {
     constructor(client) {
       super(client, {
-        name: 'warn',
-        description: 'Issues a warning to the specified user.',
-        category: 'Moderation',
-        usage: 'warn [user] <reason/info>',
-        extended: 'Warns the mentioned user by sending them a warning DM and by recording the event in the modlog channel. Warnings are currently untracked.',
+        name: "warn",
+        description: "Issues a warning to the specified user.",
+        category: "Moderation",
+        usage: "warn [user] <reason/info>",
+        extended: "Warns the mentioned user by sending them a warning DM and by recording the event in the modlog channel. Warnings are currently untracked.",
         guildOnly: true,
-        aliases: ['w'],
+        aliases: ["w"],
         permLevel: "DeletMod"
       });
     }
 
     async run(message, args, level) {
       const user = message.mentions.users.first();
-      const reason = args.slice(1).join(' ');
+      const reason = args.slice(1).join(" ");
       const modLog = message.guild.channels.find("name", "delet-this");
       if (!modLog) return message.channel.send("Modlog not found. Please inform the server owner of this.");
       if (!user) return message.channel.send("You must mention a user to warn.");
