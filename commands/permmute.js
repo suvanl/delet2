@@ -15,6 +15,7 @@ class PermMute extends Command {
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
+    const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default"); // eslint-disable-line no-unused-vars
     const user = message.mentions.users.first();
     const reason = args.slice(1).join(" ");
     const modLog = message.guild.channels.find("name", "delet-this");
@@ -52,7 +53,7 @@ class PermMute extends Command {
     .setColor(16758125)
     .setDescription(`\`\`\`fix\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nChannel ID: ${message.channel.id}\`\`\``)
     .setFooter("Moderation system powered by delet™", "https://i.imgur.com/No7WfpC.png")
-    .setTimestamp()
+    .setTimestamp();
 
     if (message.guild.member(user).roles.has(muteRole.id)) {
       return message.channel.send("The mentioned user is already muted.");

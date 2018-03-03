@@ -15,7 +15,7 @@ class Purge extends Command {
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
-    
+    const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default"); // eslint-disable-line no-unused-vars
     const user = message.mentions.users.first();
     const amount = parseInt(message.content.split(" ")[1]) ? parseInt(message.content.split(" ")[1]) : parseInt(message.content.split(" ")[2]);
 
