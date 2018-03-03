@@ -17,14 +17,14 @@ class Avatar extends Command {
         if (!user) {
             const embed = new Discord.RichEmbed()
             .setTitle(`${message.author.tag}'s avatar`)
-            .setImage(`${message.author.avatarURL}`)
+            .setImage(`${message.author.avatarURL}`);
             message.channel.send({embed});
             return;
         }
 
         const embed = new Discord.RichEmbed()
         .setTitle(`${user.tag}'s avatar`)
-        .setImage(`${user.avatarURL}`)
+        .setImage(`${user.avatarURL}`);
         message.channel.send({embed});
     }
 }

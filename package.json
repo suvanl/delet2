@@ -4,7 +4,7 @@
   "description": "An in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/jshint/bin/jshint index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "engines": {
