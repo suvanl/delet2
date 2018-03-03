@@ -52,7 +52,7 @@ class PermMute extends Command {
     .setColor(16758125)
     .setDescription(`\`\`\`fix\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nChannel ID: ${message.channel.id}\`\`\``)
     .setFooter("Moderation system powered by delet™", "https://i.imgur.com/No7WfpC.png")
-    .setTimestamp()
+    .setTimestamp();
 
     if (message.guild.member(user).roles.has(muteRole.id)) {
       return message.channel.send("The mentioned user is already muted.");
