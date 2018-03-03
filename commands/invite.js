@@ -30,7 +30,10 @@ class Invite extends Command {
             "SPEAK", 
             "USE_VAD"
         ]).then(link => {
-            message.channel.send(`Generated bot invite link: ${link}`);
+            message.channel.send("Generating...")
+            .then(msg => {
+                msg.edit(`Generated invite link for delet:\n**<${link}>**`);
+            });
         });
     }
 }
