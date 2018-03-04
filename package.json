@@ -29,7 +29,7 @@
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.0",
     "ejs": "^2.5.7",
-    "enmap": "^0.4.2",
+    "enmap": "^0.4.6",
     "enmap-level": "^1.0.0",
     "express": "^4.16.2",
     "express-passport": "^0.1.0",
@@ -61,7 +61,7 @@
     "strict-uri-encode": "^2.0.0",
     "unfluff": "^3.0.0",
     "weather-js": "^2.0.0",
-    "ytdl-core": "^0.18.5"
+    "ytdl-core": "^0.18.7"
   },
   "devDependencies": {
     "jshint": "^2.9.5"
