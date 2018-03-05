@@ -1,0 +1,12 @@
+GEM
+  specs:
+    jekyll-swiss (0.4.0)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  jekyll-swiss
+
+BUNDLED WITH
+   1.16.0
