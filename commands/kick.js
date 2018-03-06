@@ -24,6 +24,7 @@ class Kick extends Command {
       if (!reason) return message.channel.send("Please provide a reason for the punishment.");
 
       if (!message.guild.member(user).kickable) return message.reply("I cannot kick that user from this server!\nThis may be because I do not have the required permissions to do so, or they may be the server owner.");
+      if (user === message.author) return message.channel.send("You cannot kick yourself.");
       try {
         message.guild.member(user).kick();
         message.react("👌");

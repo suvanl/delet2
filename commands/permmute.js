@@ -23,6 +23,7 @@ class PermMute extends Command {
     if (!modLog) return message.channel.send("Modlog not found. Please inform the server owner of this.");
     if (!user) return message.channel.send("You must mention a user to mute.");
     if (!reason) return message.channel.send("Please provide a reason for the punishment.");
+    if (user === message.author) return message.channel.send("You cannot kick yourself.");
 
     const muteRole = message.guild.roles.find("name", "Muted");
 

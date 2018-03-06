@@ -22,6 +22,7 @@ class Ban extends Command {
         if (!modLog) return message.channel.send("Modlog not found. Please inform the server owner of this.");
         if (!user) return message.channel.send("You must mention a user to ban.");
         if (!reason) return message.channel.send("Please provide a reason for the punishment.");
+        if (user === message.author) return message.channel.send("You cannot kick yourself.");
 
         if (!message.guild.member(user).bannable) return message.reply("I cannot ban that user from this server!\nThis may be because I do not have the required permissions to do so, or they may be the server owner.");
         try {
