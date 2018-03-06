@@ -21,7 +21,7 @@ class About extends Command {
         .setFooter("Made with Discord.js", "https://nodejs.org/static/images/logos/nodejs-new-pantone-white.png")
         .setThumbnail("https://cdn.discordapp.com/avatars/314444116677099541/e167b59e4fb7dd0b3fc68db1fe0fc88d.webp?size=1024")
         .setTimestamp()
-        .addField("GitHub Repository", "https://github.com/DS-Development/delet-2.0", true)
+        .addField("GitHub Repository", "https://github.com/DS-Development/delet", true)
         .addField("Users", `${this.client.users.size}`, true)
         .addField("Invite link", "[Click here](https://discordapp.com/oauth2/authorize?client_id=314444116677099541&permissions=305528022&scope=bot)", true)
         .addField("Uptime", `${moment.utc(this.client.uptime).format("DD")-1} day(s), ${moment.utc(this.client.uptime).format("HH:mm:ss")}`, true)
