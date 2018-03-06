@@ -3,7 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4095a9a01d8445939612d31b6283e6fd)](https://app.codacy.com/app/suvanl/delet-2.0?utm_source=github.com&utm_medium=referral&utm_content=DS-Development/delet-2.0&utm_campaign=badger)
 [![Dependencies](https://david-dm.org/DS-Development/delet-2.0.svg)](https://david-dm.org/DS-Development/delet-2.0)
 [![DevDependencies](https://david-dm.org/DS-Development/delet-2.0/dev-status.svg)](https://david-dm.org/DS-Development/delet-2.0?type=dev)
-![GitHub last commit](https://img.shields.io/github/last-commit/ds-development/delet-2.0.svg?label=last%20updated)
+![GitHub last commit](https://img.shields.io/github/last-commit/ds-development/delet.svg?label=last%20updated)
 
 ![delet](https://i.imgur.com/xCxkppZ.png)
 ## delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library.
