@@ -1,4 +1,4 @@
-# delet Website
+# delet
 
 **The official website for the delet Discord bot.**
 
