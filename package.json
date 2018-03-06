@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DS-Development/delet-2.0.git"
+    "url": "git+https://github.com/DS-Development/delet.git"
   },
   "author": "suvanl (https://github.com/suvanl)",
   "contributors": [
@@ -20,9 +20,9 @@
   ],
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/DS-Development/delet-2.0/issues"
+    "url": "https://github.com/DS-Development/delet/issues"
   },
-  "homepage": "https://github.com/DS-Development/delet-2.0#readme",
+  "homepage": "https://github.com/DS-Development/delet#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
