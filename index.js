@@ -2,6 +2,8 @@
 delet - a multipurpose Discord bot
 © suvanl, nitramleo (of the DS Development Group) 2017 - 2018
 Licensed under the GPL-3.0 license.
+
+https://delet.js.org/
 */
 
 // This will check if the Node.js version the system is running is the required
