@@ -69,3 +69,5 @@ commands/eval.js
 music/js/audiotest.js
 .vscode/settings.json
 commands/embed.js
+docs/elements.html
+docs/generic.html
