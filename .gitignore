@@ -62,7 +62,7 @@ typings/
 
 # Specific files & folders
 session-encrypt.txt
-assets/
+/assets/
 music/js/config.js
 eval.js
 commands/eval.js
