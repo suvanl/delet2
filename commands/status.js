@@ -13,7 +13,7 @@ class Status extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        let status = args.join(" ");
+        const status = args.join(" ");
 
         if (status === "online" || status === "idle" || status === "dnd" || status === "invisible") {
             this.client.user.setStatus(status);

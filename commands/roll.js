@@ -12,7 +12,7 @@ class Roll extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        let roll = Math.floor(Math.random() * 6) + 1;
+        const roll = Math.floor(Math.random() * 6) + 1;
         
         try {
             if (roll === 8) {
