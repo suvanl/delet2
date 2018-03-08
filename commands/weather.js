@@ -23,7 +23,7 @@ class Weather extends Command {
                 return message.channel.send(`\`\`\`${JSON.stringify(result[0].current, null, 2)}\`\`\``);
             }
 
-            let current = result[0].current;
+            const current = result[0].current;
             const location = result[0].location; // eslint-disable-line no-unused-vars
             // `location` will be used in a future update of this command.
 

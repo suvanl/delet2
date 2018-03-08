@@ -48,7 +48,7 @@ client.on("message", async msg => {
             return msg.channel.send(`The playlist **${playlist.title}** has been added to the queue.`);
         } else {
             try {
-                let video = await youtube.getVideo(url); // eslint-disable-line no-unused-vars
+                const video = await youtube.getVideo(url); // eslint-disable-line no-unused-vars
             } catch (error) {
                 try {
                     const videos = await youtube.searchVideos(searchString, 10);
@@ -60,7 +60,7 @@ Please provide a number to select one of the search results, ranging from **1** 
                     `);
 
                     try {
-                        let response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
+                        const response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {// eslint-disable-line no-unused-vars
                             maxMatches: 1,
                             time: 30000,
                             errors: ["time"]
@@ -70,7 +70,7 @@ Please provide a number to select one of the search results, ranging from **1** 
                          return msg.channel.send("Invalid value provided; cancelling video selection.");
                     }
                     const videoIndex = parseInt(response.first().content);
-                    const video = await youtube.getVideoByID(videos[videoIndex - 1].id);
+                    const video = await youtube.getVideoByID(videos[videoIndex - 1].id); // eslint-disable-line no-unused-vars
                 } catch (err) {
                     console.error(err);
                     return msg.channel.send("No search results found.");
@@ -90,7 +90,7 @@ Please provide a number to select one of the search results, ranging from **1** 
             if (!serverQueue) return msg.channel.send("There is nothing playing that can be stopped.");
             msg.member.voiceChannel.leave("Stop command used.");
             return undefined;
-        } else if(msg.content.startsWith(`${PREFIX}volume`)) {
+        } else if (msg.content.startsWith(`${PREFIX}volume`)) {
             if (!msg.member.voiceChannel) return msg.channel.send("You are not in a voice channel!");
             if (!serverQueue) return msg.channel.send("The volume cannot be changed as there is nothing currently playing.");
             if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**.`);

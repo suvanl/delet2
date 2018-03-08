@@ -15,11 +15,11 @@ class Google extends Command {
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         const searchMessage = await message.channel.send("Searching Google...");
-        let searchURL = `https://www.google.com/search?q=${encodeURIComponent(message.content)}`;
+        const searchURL = `https://www.google.com/search?q=${encodeURIComponent(message.content)}`;
 
         return snekfetch.get(searchURL).then((result) => {
 
-            let $ = cheerio.load(result.text);
+            const $ = cheerio.load(result.text);
             let googleData = $(".r").first().find("a").first().attr("href");
 
             googleData = querystring.parse(googleData.replace("/url?", ""));
