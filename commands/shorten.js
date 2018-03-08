@@ -22,7 +22,7 @@ class Shorten extends Command {
           shortener.custom(args[0], args[1], function(res) {
               if (res.startsWith("Error:")) return message.channel.send(`An error occurred:\n\`\`\`${res}\`\`\``);
               message.channel.send(`Your shortened link: **<${res}>**.`);
-          })
+          });
       }
   }
 }
