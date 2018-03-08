@@ -22,16 +22,16 @@ I cannot run this command, as I don't know which currency to use on this server.
 Currently available types: \`GBP\`, \`EUR\``);
 
     function coinFlip() {
-      return (Math.floor(Math.random() * 2) == 0) ? 'Heads' : 'Tails';
+      return (Math.floor(Math.random() * 2) == 0) ? "Heads" : "Tails";
     }
 
-    let variable = coinFlip();
+    const variable = coinFlip();
     // console.log(variable);
 
     // Pounds [£] (GBP)
     if (settings.currency === "GBP") {
 
-    if (variable === 'Heads') {
+    if (variable === "Heads") {
       const embed = new Discord.RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
       .setThumbnail("https://vgy.me/yvnN22.png");
@@ -46,7 +46,7 @@ Currently available types: \`GBP\`, \`EUR\``);
 
   // Euros [€] (EUR)
   if (settings.currency === "EUR") {
-    if (variable === 'Heads') {
+    if (variable === "Heads") {
       const embed = new Discord.RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
       .setThumbnail("https://vgy.me/QgVomc.png");
