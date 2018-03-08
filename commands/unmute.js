@@ -5,7 +5,7 @@ class Unmute extends Command {
   constructor(client) {
     super(client, {
       name: "unmute",
-      description: "Undoes the mentioned user\'s mute.",
+      description: "Undoes the mentioned user's mute.",
       category: "Moderation",
       usage: "unmute [user] reason",
       aliases: [""],
