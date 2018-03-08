@@ -15,10 +15,6 @@ class Multiply extends Command {
         const numArray = args.map(n => parseInt(n));
         const total = numArray.reduce( (p, c) => p*c);
         message.channel.send(total);
-
-        if (message.content.startsWith(`${this.client.settings.get("default").prefix}multiply 12 12`)) {
-            message.react('312695712565559296');
-        }
     }
 }
 
