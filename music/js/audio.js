@@ -70,7 +70,7 @@ Please provide a number to select one of the search results, ranging from **1** 
                          return msg.channel.send("Invalid value provided; cancelling video selection.");
                     }
                     const videoIndex = parseInt(response.first().content);
-                    let video = await youtube.getVideoByID(videos[videoIndex - 1].id);
+                    const video = await youtube.getVideoByID(videos[videoIndex - 1].id);
                 } catch (err) {
                     console.error(err);
                     return msg.channel.send("No search results found.");
@@ -147,7 +147,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
         queueConstruct.songs.push(song);
 
         try {
-            let connection = await voiceChannel.join();
+            const connection = await voiceChannel.join();
             queueConstruct.connection = connection;
             play(msg.guild, queueConstruct.songs[0]);
         } catch (error) {
