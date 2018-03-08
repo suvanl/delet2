@@ -16,7 +16,7 @@ class Weather extends Command {
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
 
-        weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) {
+        weather.find({search: args.join(" "), degreeType: "C"}, function(err, result) {
             if (err) return message.channel.send(`An error occurred:\n\`\`\`${err}\`\`\`\nTo see how to use this command, type \`${settings.prefix}help weather\`.`);
 
             if (message.content.startsWith(`${settings.prefix}weather json`)) {
@@ -24,7 +24,7 @@ class Weather extends Command {
             }
 
             let current = result[0].current;
-            let location = result[0].location; // eslint-disable-line no-unused-vars
+            const location = result[0].location; // eslint-disable-line no-unused-vars
             // `location` will be used in a future update of this command.
 
             const embed = new Discord.RichEmbed()
@@ -38,8 +38,8 @@ class Weather extends Command {
 • Wind: **${current.winddisplay.toLowerCase()}**
             `)
             .setThumbnail(current.imageUrl)
-            .setFooter(`Weather information system powered by delet™`)
-            .setTimestamp()
+            .setFooter("Weather information system powered by delet™")
+            .setTimestamp();
 
             message.channel.send({embed});
         });
