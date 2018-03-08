@@ -14,7 +14,7 @@ class Google extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        let searchMessage = await message.channel.send("Searching Google...");
+        const searchMessage = await message.channel.send("Searching Google...");
         let searchURL = `https://www.google.com/search?q=${encodeURIComponent(message.content)}`;
 
         return snekfetch.get(searchURL).then((result) => {

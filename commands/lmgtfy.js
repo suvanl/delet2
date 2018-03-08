@@ -14,9 +14,9 @@ class LMGTFY extends Command {
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
-        let textQuery = args.join(" ");
-        let query = encode(args.join(" "));
-        let url = `https://lmgtfy.com/?q=${query}`;
+        const textQuery = args.join(" ");
+        const query = encode(args.join(" "));
+        const url = `https://lmgtfy.com/?q=${query}`;
 
         if (!query) return message.channel.send(`Please enter a query. For example, \`${settings.prefix}lmgtfy How to create a Discord server\`.`);
         else message.channel.send(`"${textQuery}"\n**<${url}>**`);

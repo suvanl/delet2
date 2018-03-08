@@ -18,7 +18,7 @@ class Lockdown extends Command {
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         if (!client.lockit) client.lockit = [];
-        let time = args.join(" ");
+        const time = args.join(" ");
         let validUnlocks = ["release", "unlock"];
         if (!time) return message.channel.send("A duration for the lockdown must be set. This can be in hours, minutes or seconds. Example command usage:\n```%lockdown 5 m```");
 
