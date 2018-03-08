@@ -19,7 +19,7 @@ class Google extends Command {
 
         return snekfetch.get(searchURL).then((result) => {
 
-            let $ = cheerio.load(result.text);
+            const $ = cheerio.load(result.text);
             let googleData = $(".r").first().find("a").first().attr("href");
 
             googleData = querystring.parse(googleData.replace("/url?", ""));
