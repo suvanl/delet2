@@ -5,7 +5,7 @@ class Flip extends Command {
   constructor(client) {
     super(client, {
       name: "flip",
-      description: "Flips/tosses a coin",
+      description: "Flips/tosses a coin.",
       category: "Fun",
       usage: "flip",
       aliases: ["toss"]

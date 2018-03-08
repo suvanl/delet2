@@ -10,7 +10,7 @@ class Conf extends Command {
   constructor(client) {
     super(client, {
       name: "conf",
-      description: "Modify the default configuration for all guilds.",
+      description: "Modifies the default configuration for all guilds.",
       category: "System",
       usage: "conf <view/get/edit> <key> <value>",
       guildOnly: true,
