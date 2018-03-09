@@ -27,7 +27,7 @@ class EightBall extends Command {
         "no fucc u",
         "**Yes**, but only because Discord is connected to your real-time communication server on eu-west324 with an average ping of 30ms. The last ping was 30ms.\nIf the ping is not consistent or more than 250ms, consider asking the server owner to switch to another region.",
         "Certainly not.",
-        "Seems like my magic 8 ball is broken...",
+        "Seems like my magic 8 ball is broken... Try again.",
         "I sure hope so!",
         "There is a good chance.",
         "Quite likely.",
