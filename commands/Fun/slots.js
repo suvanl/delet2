@@ -13,7 +13,7 @@ class Slots extends Command {
     });
   }
 
-  async run(message, args, level) {
+  async run(message, args, level) { // eslint-disable-line no-unused-vars
     const slotOne = slots[Math.floor(Math.random() * slots.length)];
     const slotTwo = slots[Math.floor(Math.random() * slots.length)];
     const slotThree = slots[Math.floor(Math.random() * slots.length)];
