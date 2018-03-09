@@ -72,3 +72,5 @@ commands/embed.js
 docs/elements.html
 docs/generic.html
 commands/indev/
+/tags/
+/test/
