@@ -1,6 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
-const slots = ['🍇', '🍊', '🍐', '🍒', '🍋'];
+const slots = ["🍇", "🍊", "🍐", "🍒", "🍋"];
 
 class Slots extends Command {
   constructor(client) {
