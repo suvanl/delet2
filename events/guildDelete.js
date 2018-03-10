@@ -9,6 +9,9 @@ module.exports = class {
     // OLD status; no longer used:
     //this.client.user.setPresence({game: {name: `${this.client.settings.get("default").prefix}help | ${this.client.guilds.size} Servers`, type:0}});
     
+    // Log it
+    this.client.logger.log(`Left guild: ${guild.name} (${guild.id}) with ${guild.memberCount - 1} members`);
+
     // Updates number of guilds (servers) on the bot's status.
     this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:"WATCHING"});
     
