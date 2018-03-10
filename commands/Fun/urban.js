@@ -29,15 +29,20 @@ class Urban extends Command {
 
             const result = body.list[resultNum];
             if (result) {
-                const embed = new Discord.RichEmbed()
-                .setColor(50687)
-                .setAuthor("Urban Dictionary", "https://i.imgur.com/ONrIClq.jpg")
-                .setDescription(`Displaying Urban Dictionary definition for **${args}**`)
-                .addField("» Definition", `${resultNum += 1} out of ${body.list.length}\n**${result.definition}**`)
-                .addField("» Example", `${result.example}\n<${result.permalink}>`)
-                .setFooter(`Definition requested by ${message.author.tag}`, `${message.author.avatarURL}`);
+                try {
+                    const embed = new Discord.RichEmbed()
+                    .setColor(50687)
+                    .setAuthor("Urban Dictionary", "https://i.imgur.com/ONrIClq.jpg")
+                    .setDescription(`Displaying Urban Dictionary definition for **${args}**`)
+                    .addField("» Definition", `${resultNum += 1} out of ${body.list.length}\n**${result.definition}**`)
+                    .addField("» Example", `${result.example}\n<${result.permalink}>`)
+                    .setFooter(`Definition requested by ${message.author.tag}`, `${message.author.avatarURL}`);
 
                 message.channel.send({embed});
+                } catch (err) {
+                    console.log(err);
+                    message.channel.send(`An error occurred:\n${err.message}`);
+                }
             } else {
                 message.channel.send("No entry found.");
             }
