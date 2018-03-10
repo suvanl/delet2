@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse" id="navbar01">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a class="nav-link" href="/commands">Commands</a></li>
-            <li class="nav-item"><a class="nav-link<% if(!bot.appInfo.botPublic) { %> disabled<% } %>" href="https://discordapp.com/oauth2/authorize?client_id=<%= bot.appInfo.id %>&scope=bot&response_type=code&redirect_uri=<%= encodeURIComponent(bot.config.dashboard.callbackURL) %>">Add to Server</a></li>
+            <li class="nav-item"><a class="nav-link<% if(!bot.appInfo.botPublic) { %> disabled<% } %>" href="https://discordapp.com/oauth2/authorize?client_id=314444116677099541&permissions=305528022&scope=bot" target="_blank">Add to Server</a></li>
             <li class="nav-item"><a class="nav-link" href="/stats">On <%= bot.guilds.size %> Servers</a></li>
           </ul>
           <ul class="navbar-nav">
