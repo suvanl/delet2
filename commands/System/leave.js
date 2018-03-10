@@ -14,7 +14,7 @@ class Leave extends Command {
       });
     }
 
-    async run(message, args, level) {
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
         message.reply("are you sure you want me to leave this guild? I can only be added back by users with the `MANAGE_GUILD` (Manage Server) permission. **(Y/N)**");
 
         return message.channel.awaitMessages(m => m.author.id === message.author.id, {
