@@ -24,8 +24,7 @@ class Weather extends Command {
             }
 
             const current = result[0].current;
-            const location = result[0].location; // eslint-disable-line no-unused-vars
-            // `location` will be used in a future update of this command.
+            const location = result[0].location;
 
             const embed = new Discord.RichEmbed()
             .setColor(7654911)
@@ -38,7 +37,7 @@ class Weather extends Command {
 • Wind: **${current.winddisplay.toLowerCase()}**
             `)
             .setThumbnail(current.imageUrl)
-            .setFooter("Weather information system powered by delet™")
+            .setFooter(`Correct as of ${current.observationtime} local time`)
             .setTimestamp();
 
             message.channel.send({embed});
