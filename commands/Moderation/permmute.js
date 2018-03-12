@@ -18,7 +18,7 @@ class PermMute extends Command {
     const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default"); // eslint-disable-line no-unused-vars
     const user = message.mentions.users.first();
     const reason = args.slice(1).join(" ");
-    const modLog = message.guild.channels.find("name", "delet-this");
+    const modLog = message.guild.channels.find("name", settings.modLogChannel);
     if (user === message.author) return message.reply("you cannot mute yourself!");
     if (!modLog) return message.channel.send("Modlog not found. Please inform the server owner of this.");
     if (!user) return message.channel.send("You must mention a user to mute.");
