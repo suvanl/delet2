@@ -9,7 +9,7 @@ class Ban extends Command {
         category: "Moderation",
         usage: "ban [user] <reason/info>",
         guildOnly: true,
-        aliases: ["banish"],
+        aliases: ["banish", "permban"],
         permLevel: "DeletMod"
       });
     }
@@ -35,7 +35,7 @@ class Ban extends Command {
         const embed = new Discord.RichEmbed()
         .setTitle(`🚫 Member banned from ${message.guild.name}`)
         .setColor(10944512)
-        .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
+        .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\`\`\``)
         .setFooter("Moderation system powered by delet™", "https://i.imgur.com/No7WfpC.png")
         .setTimestamp();
 
