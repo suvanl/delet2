@@ -23,7 +23,7 @@ class Leave extends Command {
         }).then(resp => {
             if (!resp) return message.channel.send("Timed out.");
             resp = resp.array()[0];
-            let validAnswers = [
+            const validAnswers = [
                 "Y",
                 "N",
                 "y",
