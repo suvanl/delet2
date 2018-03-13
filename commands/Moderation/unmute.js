@@ -17,7 +17,7 @@ class Unmute extends Command {
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     const user = message.mentions.users.first();
     const reason = args.slice(1).join(" ");
-    const modLog = message.guild.channels.find("name", "delet-this");
+    const modLog = message.guild.channels.find("name", settings.modLogChannel);
     if (!modLog) return message.channel.send("Modlog not found. Please inform the server owner of this.");
     if (!user) return message.channel.send("You must mention a user to unmute.");
     if (!reason) return message.channel.send("Please provide a reason.");
