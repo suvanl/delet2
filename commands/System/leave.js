@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
 
 class Leave extends Command {
     constructor(client) {
@@ -24,7 +23,7 @@ class Leave extends Command {
         }).then(resp => {
             if (!resp) return message.channel.send("Timed out.");
             resp = resp.array()[0];
-            let validAnswers = [
+            const validAnswers = [
                 "Y",
                 "N",
                 "y",

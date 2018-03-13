@@ -24,7 +24,7 @@ class Weather extends Command {
             }
 
             const current = result[0].current;
-            const location = result[0].location;
+            const location = result[0].location; // eslint-disable-line no-unused-vars
 
             const embed = new Discord.RichEmbed()
             .setColor(7654911)
