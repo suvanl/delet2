@@ -71,3 +71,7 @@ music/js/audiotest.js
 commands/embed.js
 docs/elements.html
 docs/generic.html
+commands/indev/
+/tags/
+/test/
+/TODO.txt
