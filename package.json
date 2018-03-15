@@ -65,6 +65,8 @@
     "ytdl-core": "^0.20.2"
   },
   "devDependencies": {
-    "jshint": "^2.9.5"
+    "chai": "^4.1.2",
+    "jshint": "^2.9.5",
+    "mocha": "^5.0.4"
   }
 }
