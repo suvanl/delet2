@@ -7,14 +7,14 @@ class Reboot extends Command {
       description: "If running under PM2, the bot will restart.",
       category: "System",
       usage: "reboot",
-      aliases: [],
+      aliases: ["restart"],
       permLevel: "Bot Owner"
     });
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     try {
-      await message.channel.send("Shutting down... (I'll restart if running under PM2.)");
+      await message.channel.send("Rebooting, please wait...");
       this.client.commands.forEach(async cmd => {
         await this.client.unloadCommand(cmd);
       });
