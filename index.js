@@ -95,7 +95,7 @@ class Delet extends Discord.Client {
     } else if (client.aliases.has(commandName)) {
       command = client.commands.get(client.aliases.get(commandName));
     }
-    if (!command) return `The command \`${commandName}\` doesn"t seem to exist, nor is it an alias. Try again!`;
+    if (!command) return `The command \`${commandName}\` doesn't seem to exist, nor is it an alias.`;
 
     if (command.shutdown) {
       await command.shutdown(client);
