@@ -38,6 +38,26 @@
             <li class="nav-item"><a class="nav-link" href="/commands">Commands</a></li>
             <li class="nav-item"><a class="nav-link<% if(!bot.appInfo.botPublic) { %> disabled<% } %>" href="https://discordapp.com/oauth2/authorize?client_id=314444116677099541&permissions=305528022&scope=bot" target="_blank">Add to Server</a></li>
             <li class="nav-item"><a class="nav-link" href="/stats">On <%= bot.guilds.size %> Servers</a></li>
+            <!--
+            <script>
+            
+              function changeCSS(cssFile, cssLinkIndex) {
+                var oldlink = document.getElementsByName("link").item(cssLinkIndex);
+
+                var newlink = document.createElement("link");
+                newlink.setAttribute("rel", "stylesheet");
+                newlink.setAttribute("type", "text/css");
+                newlink.setAttribute("href", cssFile);
+
+                document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+              }
+
+            </script>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="changeCSS('/public/css/darkly.css', 0);">STYLE 1</a>
+              <a class="nav-link" href="#" onclick="changeCSS('/public/css/flatly.css', 0);">STYLE 2</a>
+            </li>
+          -->
           </ul>
           <ul class="navbar-nav">
             <% if(user) { %>
