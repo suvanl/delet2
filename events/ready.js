@@ -30,6 +30,15 @@ module.exports = class {
     // as otherwise some data may be missing from the dashboard. 
     require("../modules/dashboard.js")(this.client);
     
+    // Sets the status to Do Not Disturb for 5 seconds, to visually indicate to 
+    // users that the client is restarting or has just been started up.
+    this.client.user.setStatus("dnd");
+    await this.client.wait(5000);
+
+    // Sets the client's status back to Online to visually indicate to users that
+    // it is (almost) ready.
+    this.client.user.setStatus("online");
+
     // Sets the bot's game/status as "Watching over {number} servers"
     // NOTE: This is also set in the guildCreate and guildDelete events.
     this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:"WATCHING"});
