@@ -48,8 +48,7 @@ class UserInfo extends Command {
 • Discord: **${moment.utc(user.createdAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
 `, true)
 
-        .setFooter(`Info requested by ${message.author.tag}`, `${message.author.displayAvatarURL}`)
-        .setTimestamp()
+        .setFooter(`Info requested by ${message.author.tag} • All times are UTC`, `${message.author.displayAvatarURL}`)
 
         message.channel.send({embed});
     }
