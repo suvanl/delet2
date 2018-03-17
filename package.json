@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/DS-Development/delet/issues"
   },
-  "homepage": "https://github.com/DS-Development/delet#readme",
+  "homepage": "https://delet.js.org",
   "dependencies": {
     "bbcode-to-markdown": "^1.0.1",
     "body-parser": "^1.18.2",
