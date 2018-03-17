@@ -25,6 +25,14 @@ class UserInfo extends Command {
           status = user.presence.status.toProperCase();
         }
 
+        let activity;
+        if (user.presence.game === "Spotify") {
+          activity = "Listening to **Spotify**";
+        } else {
+          activity = `Playing **${user.presence.game ? user.presence.game.name : "Nothing"}**`;
+        }
+        return message.channel.send(activity);
+
         const embed = new Discord.RichEmbed()
         .setColor(roleColor)
         .setThumbnail(user.displayAvatarURL)
@@ -33,7 +41,7 @@ class UserInfo extends Command {
 
         .addField("❯ Details", `
 • Status: **${status}**
-• Playing: **${user.presence.game ? user.presence.game.name : "Nothing"}**
+• Activity: ${activity}
 ‍   
 `, true)
 
