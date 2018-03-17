@@ -46,7 +46,7 @@ class UserInfo extends Command {
 
         .addField("❯ Roles", `
 • Highest: **${message.guild.member(user).highestRole.name}**
-• All: ${message.guild.member(user).roles.map(roles => `\`${roles.name}\``).slice(1).join(" ")}
+• All: ${message.guild.member(user).roles.map(roles => `\`${roles.name}\``).slice(1).join(", ")}
 ‍   
 `, true)
 
