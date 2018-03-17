@@ -31,7 +31,6 @@ class UserInfo extends Command {
         } else {
           activity = `Playing **${user.presence.game ? user.presence.game.name : "Nothing"}**`;
         }
-        return message.channel.send(activity);
 
         const embed = new Discord.RichEmbed()
         .setColor(roleColor)
