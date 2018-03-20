@@ -10,7 +10,8 @@ class Purge extends Command {
       extended: "This command will either purge a mentioned user's messages (between 2 and 99), the contents of the channel, or the bot's own messages.",
       aliases: ["prune"],
       permLevel: "DeletMod",
-      botPerms: ["MANAGE_MESSAGES"]
+      botPerms: ["MANAGE_MESSAGES"],
+      guildOnly: true
     });
   }
 

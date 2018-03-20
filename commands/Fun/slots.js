@@ -8,7 +8,8 @@ class Slots extends Command {
       description: "Spin the slot machine!",
       category: "Fun",
       usage: "slots",
-      aliases: ["slotmachine"]
+      aliases: ["slotmachine"],
+      guildOnly: true
     });
   }
 
