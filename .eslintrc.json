@@ -9,10 +9,6 @@
   "extends": "eslint:recommended",
   "rules": {
     "no-console": "off",
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
     "quotes": [
       "warn",
       "double"
