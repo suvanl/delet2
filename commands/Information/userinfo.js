@@ -14,7 +14,7 @@ class UserInfo extends Command {
       });
     }
 
-    async run(message, args, level) {
+    async run(message, args, level) { // eslint-disable-line no-unused-vars
       
         const user = message.mentions.users.first() || message.author;
         const roleColor = message.guild.member(user).highestRole.color || 15527148;
@@ -56,7 +56,7 @@ class UserInfo extends Command {
 • Discord: **${moment.utc(user.createdAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
 `, true)
 
-        .setFooter(`Info requested by ${message.author.tag} • All times are UTC`, `${message.author.displayAvatarURL}`)
+        .setFooter(`Info requested by ${message.author.tag} • All times are UTC`, `${message.author.displayAvatarURL}`);
 
         message.channel.send({embed});
     }

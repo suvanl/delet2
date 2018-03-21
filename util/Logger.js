@@ -14,7 +14,7 @@ class Logger {
         return console.log(`${timestamp} ${chalk.black.bgYellow(type.toUpperCase())} ${content} `);
       }
       case "info": {
-        return console.log(`${timestamp} ${chalk.cyan(type.toUpperCase())} ${content} `)
+        return console.log(`${timestamp} ${chalk.cyan(type.toUpperCase())} ${content} `);
       }
       case "error": {
         return console.log(`${timestamp} ${chalk.bgRed(type.toUpperCase())} ${content} `);
