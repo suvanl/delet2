@@ -20,8 +20,10 @@ class Conf extends Command {
   }
 
   async run(message, [action, key, ...value], level) { // eslint-disable-line no-unused-vars
+
+    if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
     
-  // Retrieve Default Values from the default settings in the bot.
+    // Retrieve Default Values from the default settings in the bot.
     const defaults = this.client.settings.get("default");
   
     // Adding a new key adds it to every guild (it will be visible to all of them)

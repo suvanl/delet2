@@ -15,6 +15,7 @@ class UserInfo extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
+        if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
       
         const user = message.mentions.users.first() || message.author;
         const roleColor = message.guild.member(user).highestRole.color || 15527148;

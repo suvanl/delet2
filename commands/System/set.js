@@ -26,6 +26,7 @@ class Set extends Command {
   }
 
   async run(message, [action, key, ...value], level) { // eslint-disable-line no-unused-vars
+    if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
     // First we need to retrieve current guild settings
     const settings = message.settings;

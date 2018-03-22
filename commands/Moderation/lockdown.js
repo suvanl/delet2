@@ -17,6 +17,8 @@ class Lockdown extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
+        if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
+        
         if (!client.lockit) client.lockit = [];
         const time = args.join(" ");
         const validUnlocks = ["release", "unlock"];
