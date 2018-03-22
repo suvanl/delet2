@@ -38,7 +38,7 @@ class Leave extends Command {
                     message.channel.send("Use this if you ever want to add me back!\n**<http://bit.ly/deletAdd>**");
                     try {
                         message.guild.leave()
-                            .then(g => console.log(`Left guild via command: ${g}`));
+                            .then(g => this.client.logger.info(`Left guild via command: ${g}`));
                     } catch (e) {
                         console.error(e);
                         message.channel.send(`I tried to leave, but couldn't.\nAn error occurred: ${e.message}`);
