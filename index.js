@@ -109,8 +109,8 @@ class Delet extends Discord.Client {
   // read the current *complete* guild settings (default + overrides, merged) or that
   // wants to change settings for a specific guild.
 
-  // getSettings merges the client defaults with the guild settings. guild settings in
-  // enmap should only have *unique* overrides that are different from defaults.
+  // getSettings merges the client defaults with the guild settings. Guild settings in
+  // Enmap should only have *unique* overrides that are different from defaults.
   getSettings(id) {
     const defaults = client.settings.get("default");
     let guild = client.settings.get(id);
