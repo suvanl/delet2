@@ -7,7 +7,7 @@ https://delet.js.org/
 */
 
 // This will check if the Node.js version the system is running is the required
-// Node.js version and if it isn't, it will throw the following error to say so.
+// Node.js version (9.x.x) and if it isn't, it will throw the following error to say so.
 
 if (process.version.slice(1).split(".")[0] < 9) throw new Error("Node.js 9.0.0 or higher is required. Update Node on your system.");
 
