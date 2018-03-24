@@ -1,11 +1,10 @@
-![delet](https://cdn.discordapp.com/avatars/314444116677099541/e167b59e4fb7dd0b3fc68db1fe0fc88d.png?size=32) delet
-===================
+<p align="center"><img src="https://i.imgur.com/lywDtNH.png" width="50%"></p>
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4095a9a01d8445939612d31b6283e6fd)](https://app.codacy.com/app/suvanl/delet-2.0?utm_source=github.com&utm_medium=referral&utm_content=DS-Development/delet-2.0&utm_campaign=badger)
-[![Dependencies](https://david-dm.org/DS-Development/delet.svg)](https://david-dm.org/DS-Development/delet)
-[![DevDependencies](https://david-dm.org/DS-Development/delet/dev-status.svg)](https://david-dm.org/DS-Development/delet0?type=dev)
+<p align="center">
+<a href="https://app.codacy.com/app/suvanl/delet-2.0/dashboard"><img src="https://api.codacy.com/project/badge/Grade/4095a9a01d8445939612d31b6283e6fd" alt="Code Quality"></a>
+<a href="https://david-dm.org/DS-Development/delet"><img src="(https://david-dm.org/DS-Development/delet.svg" alt="Dependency Status"></a>
+<a href="https://david-dm.org/DS-Development/delet0?type=dev"><img src="(https://david-dm.org/DS-Development/delet/dev-status.svg" alt="Dev Dependency Status"></a>
 
-![delet](https://i.imgur.com/xCxkppZ.png)
 ## delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library.
 
 **Please ensure you read the note about portability in this README document.**
