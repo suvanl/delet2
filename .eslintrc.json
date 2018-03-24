@@ -9,6 +9,7 @@
   "extends": "eslint:recommended",
   "rules": {
     "no-console": "off",
+    "no-undef": "off",
     "quotes": [
       "warn",
       "double"
