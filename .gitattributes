@@ -5,5 +5,4 @@
 *.md text
 *.example text
 
-docs/* linguist-vendored
 dashboard/public/css/* linguist-vendored
