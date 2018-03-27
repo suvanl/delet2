@@ -64,7 +64,6 @@ typings/
 session-encrypt.txt
 /assets/
 music/js/config.js
-commands/System/eval.js
 music/js/audiotest.js
 .vscode/settings.json
 commands/embed.js
