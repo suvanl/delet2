@@ -4,3 +4,5 @@
 *.json text
 *.md text
 *.example text
+
+docs/* linguist-vendored
