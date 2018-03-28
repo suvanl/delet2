@@ -26,4 +26,5 @@ class Reload extends Command {
     message.channel.send(`The command \`${commands.help.name}\` has been reloaded`);
   }
 }
+
 module.exports = Reload;

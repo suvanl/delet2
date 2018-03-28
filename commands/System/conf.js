@@ -1,8 +1,8 @@
-// FOR GUILD SETTINGS SEE set.js!
+// FOR GUILD SETTINGS, SEE set.js!
 // This command is used to modify the bot's default configuration values, which affects all guilds. 
 // If a default setting is not specifically overwritten by a guild, changing a default here will
-// change it for that guild. The `add` action adds a key to the configuration of every guild in
-// your bot. The `del` action removes the key also from every guild, and loses its value forever.
+// change it for that guild. The `add` action adds a key to the configuration of every guild the
+// bot is in. The `del` action also removes the key from every guild, and loses its value forever.
 
 const Command = require("../../base/Command.js");
 
