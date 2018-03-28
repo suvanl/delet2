@@ -12,10 +12,10 @@ module.exports = class {
       // If "welcome" is off, don't proceed
       if (settings.welcomeEnabled !== "true") return;
   
-      // Replaces the placeholders in the welcome message with actual data.
+      // Replaces the placeholders in the leave message with actual data.
       const leaveMessage = settings.leaveMessage.replace("{{user}}", member.user.tag);
   
-      // Sends the leave message to the welcome channel.
+      // Sends the leave message to the welcomeChannel defined in the guild's settings.
       member.guild.channels.find("name", settings.welcomeChannel).send(leaveMessage).catch(console.error);
     }
   };
