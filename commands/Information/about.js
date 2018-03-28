@@ -16,7 +16,7 @@ class About extends Command {
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         const embed = new Discord.RichEmbed()
-        .setTitle("Hey, I'm delet")
+        .setTitle(`Hey ${message.author.username}, I'm delet!`)
         .setColor("#669F64")
         .setDescription("I'm a multipurpose Discord bot developed and maintained by the DS Development Group.")
         .setFooter(`Made with Discord.js (v${version})`, "https://nodejs.org/static/images/logos/nodejs-new-pantone-white.png")
