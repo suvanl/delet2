@@ -6,16 +6,13 @@ module.exports = class {
   }
 
   async run(guild) {
-    // OLD status; no longer used:
-    //this.client.user.setPresence({game: {name: `${this.client.settings.get("default").prefix}help | ${this.client.guilds.size} Servers`, type:0}});
-    
-    // Log it
+    // Logs it
     this.client.logger.log(`Left guild: ${guild.name} (${guild.id}) with ${guild.memberCount - 1} members`);
 
     // Updates number of guilds (servers) on the bot's status.
     this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:"WATCHING"});
     
-    // Well, they're gone :^) (removes them from settings)
+    // Well, they're gone :^) (removes them from the settings database)
     this.client.settings.delete(guild.id);
   }
 };
