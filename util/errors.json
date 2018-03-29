@@ -1,0 +1,6 @@
+{
+    "NOTBOOL": "Invalid data type provided.\nThe value must be a boolean, i.e. \"True\" or \"False\".",
+    "NaN": "Invalid data type provided.\nThe value must be a number, such as \"5\" or \"6.4\".",
+    "NOTSTRING": "Invalid data type provided.\nThe value must be a string (text).",
+    "UNDEFINED": "Null or undefined value provided."
+}
