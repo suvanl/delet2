@@ -22,7 +22,7 @@ class Add extends Command {
         // }
 
         const numArray = args.map(n => parseInt(n));
-        const total = numArray.reduce( (p, c) => p+c);
+        const total = numArray.reduce((p, c) => p+c);
         message.channel.send(total);
     }
 }
