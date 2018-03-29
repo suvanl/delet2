@@ -5,7 +5,7 @@ module.exports = class {
     this.client = client;
   }
 
-  async run(guild, message) {
+  async run(guild) {
     // Updates number of guilds (servers) on the bot's status
     this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:"WATCHING"});
 

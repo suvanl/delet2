@@ -20,7 +20,7 @@ class Prime extends Command {
             if (n%2 == 0) return (n == 2);
             if (n%3 == 0) return (n == 3);
             
-            let m = Math.sqrt(n);
+            const m = Math.sqrt(n);
 
             for (let i = 5; i <= m; i += 6) {
                 if (n%i == 0) return false;
