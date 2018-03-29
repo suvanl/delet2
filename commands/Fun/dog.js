@@ -18,7 +18,7 @@ class Dog extends Command {
         try {
             return message.channel.send({files: [body.message] });
         } catch (error) {
-            console.error(error);
+            this.client.logger.error(error);
             message.channel.send(`An error occurred:\n${error.message}`);
         }
     }

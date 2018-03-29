@@ -20,7 +20,7 @@ class Reboot extends Command {
       });
       process.exit(1);
     } catch (e) {
-      console.log(e);
+      this.client.logger.error(e);
     }
   }
 }

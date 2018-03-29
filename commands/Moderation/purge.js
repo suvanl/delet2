@@ -35,7 +35,7 @@ class Purge extends Command {
     this.client.emit("messageDeleteBulk", messages);
     for (const msg of messages.values()) msg.channel.messages.delete(msg.id);
     
-    message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    message.channel.bulkDelete(messages).catch(error => this.client.logger.error(error.stack));
 
     message.channel.send(`${amount} messages were purged.`);
   }

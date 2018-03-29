@@ -37,7 +37,7 @@ class PermMute extends Command {
             name: "Muted",
             color: "RED",
             permissions: []
-        }).catch(error => console.log(error.stack));
+        }).catch(error => this.client.logger.error(error.stack));
     }
 
     try {
@@ -48,7 +48,7 @@ class PermMute extends Command {
         });
       });
     } catch (error) {
-      console.log(error.stack);
+      this.client.logger.error(error.stack);
       message.channel.send(`An error occurred:\n\`\`\`${error}\`\`\``);
     }
 

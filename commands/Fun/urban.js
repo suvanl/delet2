@@ -40,7 +40,7 @@ class Urban extends Command {
 
                 message.channel.send({embed});
                 } catch (err) {
-                    console.log(err);
+                    this.client.logger.error(err);
                     message.channel.send(`An error occurred:\n${err.message}`);
                 }
             } else {

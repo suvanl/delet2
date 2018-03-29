@@ -23,7 +23,7 @@ class Roll extends Command {
                 msg.edit(`You rolled a **${roll}**!`);
             }
         } catch (e) {
-            console.log(e);
+            this.client.logger.error(e);
         }
     }
 }

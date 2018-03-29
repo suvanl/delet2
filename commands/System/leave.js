@@ -40,7 +40,7 @@ class Leave extends Command {
                         message.guild.leave()
                             .then(g => this.client.logger.info(`Left guild via command: ${g}`));
                     } catch (e) {
-                        console.error(e);
+                        this.client.logger.error(e);
                         message.channel.send(`I tried to leave, but couldn't.\nAn error occurred: ${e.message}`);
                     }
                 }

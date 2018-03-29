@@ -16,7 +16,7 @@ class Ping extends Command {
       const msg = await message.channel.send("Ping! 🏓");
       msg.edit(`Pong! 🏓\nMessage roundtrip took: \`${msg.createdTimestamp - message.createdTimestamp}ms\`. Heartbeat (ping): \`${Math.round(this.client.ping)}ms\`.`);
     } catch (e) {
-      console.log(e);
+      this.client.logger.error(e);
     }
   }
 }

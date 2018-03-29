@@ -20,7 +20,7 @@ class Shutdown extends Command {
       });
       process.exit(0);
     } catch (e) {
-      console.log(e);
+      this.client.logger.error(e);
     }
   }
 }
