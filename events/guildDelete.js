@@ -1,4 +1,4 @@
-// This event executes when a new guild (server) is left.
+// This event executes when a new guild (server) has been left.
 
 module.exports = class {
   constructor(client) {
