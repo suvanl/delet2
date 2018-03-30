@@ -41,7 +41,6 @@ class Warn extends Command {
       } catch (error) {
         this.client.logger.error(error);
         message.channel.send("An error occurred.");
-        return undefined;
       }
     }
 }
