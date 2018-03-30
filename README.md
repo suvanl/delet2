@@ -23,10 +23,10 @@ delet comes with a full moderation system, with even more features currently bei
 We're big fans of open-source here at DS Development. delet is an open-source project; which is why it can be found here, on GitHub. It is licensed under the GPL-3.0 license. This bot is open source for the reason of allowing others view its code and learn from it, and also to gain inspiration for their own ideas. However, please do not directly copy entire chunks of code, as that can be considered bad practice.
 However, if you wish to use any of delet's code in your project(s), you are required to credit us (DS Development). See the [LICENSE](https://github.com/DS-Development/delet/blob/master/LICENSE) file for further details.
 
-## A note about portability
+## Self-Hosting/Portability
 A project/product being open-source doesn't necessarily mean that it is portable, and in this case, delet is NOT portable. This is due to the reason that it wasn't built for the purpose of portability, and also depends on various things to work fully as your own bot, which instructions for getting things to work are not stated here. Essentially, this project is open-source for educational purposes; so that others can see how everything works. **Self-hosting is NOT supported by any means**.
 If you believe you do have the required knowledge to self-host this bot, you are REQUIRED to contact us beforehand for approval. If we do allow you to self-host delet, you must give full credit to the **DS Development Group** as the original authors. Please see the [LICENSE](https://github.com/DS-Development/delet/blob/master/LICENSE) file for further information.
 
-### Further information
+### Further Information
 - **License**: [GPL-3.0](https://github.com/DS-Development/delet/blob/master/LICENSE)
 - **ETA**: Summer 2018 (Subject to change)
