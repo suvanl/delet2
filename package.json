@@ -26,8 +26,6 @@
   "dependencies": {
     "bbcode-to-markdown": "^1.0.1",
     "body-parser": "^1.18.2",
-    "canvas": "^1.6.10",
-    "canvas-constructor": "^0.3.0",
     "chalk": "^2.3.0",
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
@@ -67,6 +65,10 @@
     "unfluff": "^3.0.0",
     "weather-js": "^2.0.0",
     "ytdl-core": "^0.20.2"
+  },
+  "optionalDependencies": {
+    "canvas": "^1.6.10",
+    "canvas-constructor": "^0.3.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
