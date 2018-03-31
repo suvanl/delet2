@@ -73,6 +73,7 @@ commands/indev/
 /test/
 /notes/
 /docker-compose.yml
+/keys.js
 
 # Temporary
 /tags/
