@@ -10,7 +10,7 @@ class ForceBan extends Command {
         usage: "ban [user ID] <reason/info>",
         guildOnly: true,
         aliases: ["hackban", "xban"],
-        permLevel: "DeletMod"
+        permLevel: "Moderator"
       });
     }
 

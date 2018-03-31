@@ -10,7 +10,7 @@ class Ban extends Command {
         usage: "ban [user] <reason/info>",
         guildOnly: true,
         aliases: ["banish", "permban"],
-        permLevel: "DeletMod"
+        permLevel: "Moderator"
       });
     }
 

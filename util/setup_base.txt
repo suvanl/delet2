@@ -15,7 +15,7 @@ const config = {
       check: () => true
     },
     { level: 2,
-      name: "DeletMod",
+      name: "Moderator",
       check: (message) => {
         try {
           const modRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.modRole.toLowerCase());

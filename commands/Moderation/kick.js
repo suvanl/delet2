@@ -10,7 +10,7 @@ class Kick extends Command {
         usage: "kick [user] <reason/info>",
         guildOnly: true,
         aliases: ["boot"],
-        permLevel: "DeletMod"
+        permLevel: "Moderator"
       });
     }
     

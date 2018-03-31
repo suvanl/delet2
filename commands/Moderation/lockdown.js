@@ -12,7 +12,7 @@ class Lockdown extends Command {
         usage: "lockdown <duration> <s|m|h>",
         guildOnly: true,
         aliases: ["ld"],
-        permLevel: "DeletMod"
+        permLevel: "Moderator"
       });
     }
 

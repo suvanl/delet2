@@ -9,7 +9,7 @@ class PermMute extends Command {
       category: "Moderation",
       usage: "permmute [user] <reason>",
       aliases: ["perm"],
-      permLevel:"DeletMod",
+      permLevel:"Moderator",
       botPerms: ["MANAGE_ROLES", "MANAGE_CHANNELS"],
       guildOnly: true
     });
