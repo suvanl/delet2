@@ -18,8 +18,8 @@ class Feedback extends Command {
         message.channel.send(`
 Want to suggest something, or give feedback? Encountering any bugs/issues?
 
-**Suggestions & feedback**: ${sf}
-**Bugs/issues**: ${issues}
+**Suggestions & feedback**: ${sf}.
+**Bugs/issues**: ${issues}.
 `);
     }
 }
