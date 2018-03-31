@@ -6,7 +6,7 @@ class Urban extends Command {
     constructor(client) {
       super(client, {
         name: "urban",
-        description: "Sends a random image or GIF of a cat.",
+        description: "Searches the Urban Dictionary for the specified query.",
         category: "Fun",
         usage: "urban [query]",
         aliases: ["urbandictionary", "udictionary"]
