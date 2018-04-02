@@ -15,9 +15,10 @@ class EightBall extends Command {
       const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
 
       // SUBMITTING FORTUNES
-      // If you wish to submit a fortune, please create a pull request, and add it to the "fortunes" array.
-      // Please add a comment next to it, stating whether it is positive, negative, or neutral. If you're unsure,
-      // leave it blank. If you do state if it's positive/neutral/negative, please update the "FORTUNE TYPES" accordingly.
+      // If you wish to submit a fortune, please fork this repository, add the fortune to the "fortunes" array, and
+      // create a pull request. Please add a comment next to it, stating whether it is positive, negative, or neutral.
+      // If you're unsure, leave it blank. If you do state if it's positive, neutral ornegative, please update the
+      // "FORTUNE TYPES" comments accordingly.
 
       // FORTUNE TYPES
       //
