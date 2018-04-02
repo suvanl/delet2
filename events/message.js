@@ -62,7 +62,7 @@ Your permission level is ${level} (${this.client.config.permLevels.find(l => l.l
     }
     
     // If the command exists, AND the user has permission to use it, this will run the command.
-    this.client.logger.log(`${this.client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`, "cmd");
+    this.client.logger.log(`${this.client.config.permLevels.find(l => l.level === level).name} ${message.author.tag} (${message.author.id}) ran command ${cmd.help.name}`, "cmd");
     cmd.run(message, args, level);
   }
 };
