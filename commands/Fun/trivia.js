@@ -40,7 +40,7 @@ class Trivia extends Command {
                       const embed = new Discord.RichEmbed()
                       .setColor(4169468)
                       .setTitle("Trivia")
-                      .setDescription(`**Question**\n${decodeURIComponent(body.question)}`)
+                      .setDescription(`**Statement**\n${decodeURIComponent(body.question)}`)
                       .addField("Category", decodeURIComponent(body.category), true)
                       .addField("Difficulty", body.difficulty.toProperCase(), true)
                       .setFooter("Reply with \"True\" or \"False\" within 60 seconds!", "https://opentdb.com/images/logo.png");
