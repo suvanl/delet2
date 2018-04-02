@@ -1,20 +1,18 @@
-/* 
-DASHBOARD EXAMPLE
+// DASHBOARD
 
-  Install the following for dashboard stuff.
-  npm install body-parser ejs express express-passport express-session
-  npm install level-session-store marked passport passport-discord
+//   Install the following for dashboard stuff.
+//   npm install body-parser ejs express express-passport express-session
+//   npm install level-session-store marked passport passport-discord
   
-This is a very simple dashboard example, but even in its simple state, there are still a
-lot of moving parts working together to make this a reality. I shall attempt to explain
-those parts in as much details as possible, but be aware: there's still a lot of complexity
-and you shouldn't expect to really understand all of it instantly.
+// This is quite a simple dashboard, but even in its simple state, there's still a lot of
+// moving parts working together to make this a reality. An attempt will be made to explain
+// those parts in as much details as possible, but be aware - there's still a lot of complexity
+// and you shouldn't expect to really understand all of it instantly.
 
-Pay attention, be aware of the details, and read the comments. 
+// Be sure to pay attention, be aware of the details, and read the comments!
 
-Note that this *could* be split into multiple files, but for the purpose of this
-example, putting it in one file is a little simpler. Just *a little*.
-*/
+// Note that this *could* be split into multiple files, but,
+// putting it in one file is a little simpler. Just a little.
 
 // Native Node Imports
 const url = require("url");
@@ -30,7 +28,7 @@ const moment = require("moment");
 require("moment-duration-format");
 
 // Express Plugins
-// Specifically, passport helps with oauth2 in general.
+// Specifically, passport helps with OAuth2 in general.
 // passport-discord is a plugin for passport that handles Discord's specific implementation.
 // express-session and level-session-store work together to create persistent sessions
 // (so that when you come back to the page, it still remembers you're logged in).
@@ -40,7 +38,7 @@ const LevelStore = require("level-session-store")(session);
 const Strategy = require("passport-discord").Strategy;
 
 // Helmet is specifically a security plugin that enables some specific, useful 
-// headers in your page to enhance security.
+// headers in the page to enhance security.
 const helmet = require("helmet");
 
 // Used to parse Markdown from things like ExtendedHelp
@@ -48,18 +46,18 @@ const md = require("marked");
 
 module.exports = (client) => {
   // It's easier to deal with complex paths. 
-  // This resolves to: yourbotdir/dashboard/
+  // This resolves to: rootdir/dashboard/
   const dataDir = path.resolve(`${process.cwd()}${path.sep}dashboard`);
 
-  // This resolves to: yourbotdir/dashboard/templates/ 
+  // This resolves to: rootdir/dashboard/templates/ 
   // which is the folder that stores all the internal template files.
   const templateDir = path.resolve(`${dataDir}${path.sep}templates`);
 
   // The public data directory, which is accessible from the *browser*. 
-  // It contains all css, client javascript, and images needed for the site.
+  // It contains all css, client JavaScript, and images needed for the site.
   app.use("/public", express.static(path.resolve(`${dataDir}${path.sep}public`)));
 
-  // These are... internal things related to passport. Honestly I have no clue either.
+  // These are internal things related to passport. Honestly, I have no clue either.
   // Just leave 'em there.
   passport.serializeUser((user, done) => {
     done(null, user);
@@ -68,22 +66,21 @@ module.exports = (client) => {
     done(null, obj);
   });
 
-  /* 
-  This defines the **Passport** oauth2 data. A few things are necessary here.
+  // This defines the **Passport** OAuth2 data. A few things are necessary here.
   
-  clientID = Your bot's client ID, at the top of your app page. Please note, 
-    older bots have BOTH a client ID and a Bot ID. Use the Client one.
-  clientSecret: The secret code at the top of the app page that you have to 
-    click to reveal. Yes that one we told you you'd never use.
-  callbackURL: The URL that will be called after the login. This URL must be
-    available from your PC for now, but must be available publically if you're
-    ever to use this dashboard in an actual bot. 
-  scope: The data scopes we need for data. identify and guilds are sufficient
-    for most purposes. You might have to add more if you want access to more
-    stuff from the user. See: https://discordapp.com/developers/docs/topics/oauth2 
+  // clientID = The bot's client ID, from the app page. Please note that
+  //   older bots have BOTH a Client ID and a Bot ID. Use the Client one.
+  // clientSecret: The secret code at the top of the app page that you have to 
+  //   click to reveal. Yes that one we told you you'd never use.
+  // callbackURL: The URL that will be called after the login. This URL must be
+  //   available from your PC for now, but must be available publically if you're
+  //   ever to use this dashboard in an actual bot. 
+  // scope: The data scopes we need for data. identify and guilds are sufficient
+  //   for most purposes. You might have to add more if you want access to more
+  //   stuff from the user. See: https://discordapp.com/developers/docs/topics/oauth2 
 
-  See config.js.example to set these up. 
-  */
+  // See config.js.example to set these up. 
+  
   passport.use(new Strategy({
     clientID: client.appInfo.id,
     clientSecret: client.config.dashboard.oauthSecret,
@@ -125,10 +122,9 @@ module.exports = (client) => {
     extended: true
   })); 
 
-  /* 
-  Authentication Checks. For each page where the user should be logged in, double-checks
-  whether the login is valid and the session is still active.
-  */
+  // Authentication Checks. For each page where the user should be logged in, double-checks
+  // whether the login is valid and the session is still active.
+  
   function checkAuth(req, res, next) {
     if (req.isAuthenticated()) return next();
     req.session.backURL = req.url;
@@ -148,7 +144,7 @@ module.exports = (client) => {
   };
 
 
-  /** PAGE ACTIONS RELATED TO SESSIONS */
+  /** PAGE ACTIONS RELATED TO SESSIONS **/
 
   // The login page saves the page the person was on in the session,
   // then throws the user to the Discord OAuth2 login page.
