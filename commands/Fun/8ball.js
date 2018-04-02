@@ -22,9 +22,9 @@ class EightBall extends Command {
 
       // FORTUNE TYPES
       //
-      // Positive: 9
+      // Positive: 11
       // Neutral:  5
-      // Negative: 9
+      // Negative: 11
 
       const fortunes = [
         "Yes.", // Positive
@@ -50,7 +50,11 @@ class EightBall extends Command {
         "Possibly.", // Neutral
         "Forget about it.", // Negative
         "https://giphy.com/gifs/eXQPwwE8DFTZS", // Negative
-        "sry gtg" // Neutral
+        "sry gtg", // Neutral
+        "I highly doubt it.", // Negative
+        "My sources say no.", // Negative
+        "My sources say yes.", // Positive
+        "All signs point to yes." // Positive
       ];
 
       if (args[0]) {
