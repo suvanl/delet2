@@ -59,6 +59,21 @@ Currently available types: \`GBP\`, \`EUR\``);
     }
   }
 
+  // US Dollars [$] (USD)
+  if (settings.currency === "USD") {
+    if (variable === "Heads") {
+      const embed = new Discord.RichEmbed()
+      .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
+      .setThumbnail("https://vgy.me/e08J8X.png");
+      message.channel.send({embed});
+    } else {
+      const embed = new Discord.RichEmbed()
+      .setDescription(`This flip's result was **tails**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
+      .setThumbnail("https://vgy.me/mYy2Fv.png");
+      message.channel.send({embed});
+    }
+  }
+  
   }
 }
 
