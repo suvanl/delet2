@@ -12,18 +12,20 @@ class Roll extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        const roll = Math.floor(Math.random() * 6) + 1;
-        
+        const numbers = [
+            ":one:",
+            ":two:",
+            ":three:",
+            ":four:",
+            ":five:",
+            ":six:"
+        ];
         try {
-            if (roll === 8) {
-                const msg = await message.channel.send("Rolling... 🎲");
-                msg.edit("You rolled an **8**!");
-            } else {
-                const msg = await message.channel.send("Rolling... 🎲");
-                msg.edit(`You rolled a **${roll}**!`);
-            }
-        } catch (e) {
-            this.client.logger.error(e);
+            const roll = numbers.random(sdf);
+            const msg = await message.channel.send("Rolling... 🎲");
+            msg.edit(`You rolled a ${roll}!`);
+        } catch (error) {
+            message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
         }
     }
 }
