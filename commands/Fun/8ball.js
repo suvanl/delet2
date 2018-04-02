@@ -63,7 +63,7 @@ class EightBall extends Command {
           //message.channel.send(fortunes.random());
           const embed = new Discord.RichEmbed()
           .setTitle("Magic 8 Ball 🎱")
-          .setDescription(`The 8 Ball says:\n**${fortunes.random()}**`)
+          .setDescription(`The 8 ball says:\n**${fortunes.random()}**\n   ‍   `)
           .setFooter(`Question asked by ${message.author.tag}`, message.author.displayAvatarURL);
 
           message.channel.send({embed});
