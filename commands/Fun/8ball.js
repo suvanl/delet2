@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const Discord = require("discord.js");
 
 class EightBall extends Command {
   constructor(client) {
@@ -59,7 +60,13 @@ class EightBall extends Command {
 
       if (args[0]) {
         try {
-          message.channel.send(fortunes.random());
+          //message.channel.send(fortunes.random());
+          const embed = new Discord.RichEmbed()
+          .setTitle("Magic 8 Ball 🎱")
+          .setDescription(`The 8 Ball says:\n**${fortunes.random()}**`)
+          .setFooter(`Question asked by ${message.author.tag}`, message.author.displayAvatarURL);
+
+          message.channel.send({embed});
         } catch (error) {
           this.client.logger.error(error);
           message.channel.send(`My magic 8 ball says that an error occurred:\n${error.message}`);
