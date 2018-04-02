@@ -63,13 +63,13 @@ class Trivia extends Command {
 
                       trivia.on("collect", ans => {
                           if (ans.content === body.correct_answer.toLowerCase()) {
-                              const reply = "well done, your answer is correct!\nTrivia session ended.";
-                              message.reply(reply).catch(e => {
+                              const reply = "Well done, your answer is correct!\nTrivia session ended.";
+                              message.channel.send(reply).catch(e => {
                                 this.client.logger.error(e);
                             });
                           } else {
-                              const reply = "unfortunately, that's the wrong answer.\nTrivia session ended.";
-                              message.reply(reply).catch(e => {
+                              const reply = "Unfortunately, that's the wrong answer.\nTrivia session ended.";
+                              message.channel.send(reply).catch(e => {
                                 this.client.logger.error(e);
                             });
                           }
