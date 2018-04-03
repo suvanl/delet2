@@ -11,7 +11,8 @@ class Trivia extends Command {
       usage: "trivia",
       aliases: ["randomtrivia", "randomq", "testme"],
       permLevel: "Bot Owner",
-      guildOnly: true
+      guildOnly: true,
+      enabled: false
     });
   }
 
