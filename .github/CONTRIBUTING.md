@@ -8,3 +8,7 @@ Currently, contributing is mainly limited to members of the DS Development Group
 
 ## Fortunes for the 8ball command
 Check the comments in the file [here](https://github.com/DS-Development/delet/blob/master/commands/Fun/8ball.js).
+
+
+### Want to join the DS Development Group?
+Head to [delet.js.org/join](https://delet.js.org/join)!
