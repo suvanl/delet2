@@ -21,7 +21,7 @@ class About extends Command {
         .setColor("#669F64")
         .setDescription("I'm a multipurpose Discord bot developed and maintained by the DS Development Group.")
         .setFooter(`Made with Discord.js (v${Discord.version})`, "https://nodejs.org/static/images/logos/nodejs-new-pantone-white.png")
-        .setThumbnail("https://cdn.discordapp.com/avatars/314444116677099541/e167b59e4fb7dd0b3fc68db1fe0fc88d.webp?size=1024")
+        .setThumbnail(this.client.user.displayAvatarURL)
         .setTimestamp()
         .addField("Version", `${version}`, true)
         .addField("Website", "https://delet.js.org", true)
