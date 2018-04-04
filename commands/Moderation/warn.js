@@ -31,7 +31,7 @@ class Warn extends Command {
         .setTitle(`⚠️ Warning issued in #${message.channel.name}`)
         .setColor(16381497)
         .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-        .setFooter("Moderation system powered by delet™", "https://i.imgur.com/No7WfpC.png")
+        .setFooter("Moderation system powered by delet™", this.client.user.displayAvatarURL)
         .setTimestamp();
   
         this.client.channels.get(modLog.id).send({embed});

@@ -55,7 +55,7 @@ class PermMute extends Command {
     .setTitle(`🔇 Member muted in #${message.channel.name}`)
     .setColor(16758125)
     .setDescription(`\`\`\`fix\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nChannel ID: ${message.channel.id}\`\`\``)
-    .setFooter("Moderation system powered by delet™", "https://i.imgur.com/No7WfpC.png")
+    .setFooter("Moderation system powered by delet™", this.client.user.displayAvatarURL)
     .setTimestamp();
 
     if (message.guild.member(user).roles.has(muteRole.id)) {
