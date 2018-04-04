@@ -26,7 +26,7 @@ class About extends Command {
         .addField("Version", `${version}`, true)
         .addField("Website", "https://delet.js.org", true)
         .addField("Users", `${this.client.users.size}`, true)
-        .addField("Invite link", "[Click here](https://discordapp.com/oauth2/authorize?client_id=314444116677099541&permissions=305528022&scope=bot)", true)
+        .addField("Invite link", "[Click here](https://delet.js.org/invite)", true)
         .addField("Uptime", `${moment.utc(this.client.uptime).format("DD")-1} day(s), ${moment.utc(this.client.uptime).format("HH:mm:ss")}`, true)
         .addField("GitHub", "[Click here](https://github.com/DS-Development/delet)", true)
         .addField("Node.js version", `${process.version}`, true)
