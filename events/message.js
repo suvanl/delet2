@@ -43,6 +43,7 @@ module.exports = class {
     if (cmd && !message.guild && cmd.conf.guildOnly)
       return message.channel.send("This command is unavailable via direct message. Please run this command in a guild (server).");
 
+    // Prevents users from running commands that aren't available for their permLevel.
     if (level < this.client.levelCache[cmd.conf.permLevel]) {
       if (settings.systemNotice === "true") {
         return message.channel.send(`You do not have permission to use this command.
