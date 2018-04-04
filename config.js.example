@@ -1,7 +1,14 @@
 const config = {
+  // Bot Admins, level 9 by default. Array of user ID strings.
   "admins": [],
+  
+  // Bot Support, level 8 by default. Array of user ID strings.
   "support": [],
+
+  // Bot's token
   "token": "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0",
+
+  // Dashboard settings
   "dashboard" : {
     "oauthSecret": "",
     "callbackURL": "",
@@ -9,13 +16,23 @@ const config = {
     "domain": "",
     "port": 3030
   },
+
+  // PERMISSION LEVEL DEFINITIONS
+
   permLevels: [
+    // Default permLevel for regular users
     { level: 0,
-      name: "User", 
+      name: "User",
+      // No need to check; just returns true which allows them to execute any command their
+      // level allows them to.
       check: () => true
     },
     { level: 2,
       name: "Moderator",
+      // The following lines check the guild the message came from for the roles.
+      // Then it checks if the member that authored the message has the role.
+      // If they do, it returns true, which will allow them to execute the command in question.
+      // If they don't, it returns false, which will prevent them from executing the command.
       check: (message) => {
         try {
           const modRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.modRole.toLowerCase());
@@ -37,17 +54,28 @@ const config = {
       }
     },
     { level: 4,
-      name: "Server Owner", 
+      name: "Server Owner",
+      // Simple check - checks if the guild owner id matches the message author's ID, and if so, it will return true.
+      // Otherwise, it will return false.
       check: (message) => message.channel.type === "text" ? (message.guild.owner.user.id === message.author.id ? true : false) : false
     },
+    // Bot Support is a special "in-between" level that has the equivalent access level of the server
+    // owner on any server they join, in order to help troubleshoot the bot on behalf of owners.
     { level: 8,
       name: "Bot Support",
+      // The check is carried out by reading if an ID is part of this array.
+      // This means that the bot must be rebooted once an ID has been added.
       check: (message) => config.support.includes(message.author.id)
     },
+    // Bot Admin has some access to functions like rebooting the bot or reloading commands.
     { level: 9,
       name: "Bot Admin",
       check: (message) => config.admins.includes(message.author.id)
     },
+
+    // This is the bot owner. This should be the highest permission level available.
+    // The reason this should be the highest level is because of dangerous commands such as eval
+    // or exec (if the owner has that).
     { level: 10,
       name: "Bot Owner", 
       check: (message) => message.client.appInfo.owner.id === message.author.id
