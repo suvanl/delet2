@@ -18,8 +18,9 @@ class EightBall extends Command {
       // SUBMITTING FORTUNES
       // If you wish to submit a fortune, please fork this repository, add the fortune to the "fortunes" array, and
       // create a pull request. Please add a comment next to it, stating whether it is positive, negative, or neutral.
-      // If you're unsure, leave it blank. If you do state if it's positive, neutral ornegative, please update the
-      // "FORTUNE TYPES" comments accordingly.
+      // If you're unsure, leave it blank. If you do state if it's positive, neutral or negative, please update the
+      // "FORTUNE TYPES" comments accordingly. Please ensure your fortune has an "opposite" fortune to it too, so the
+      // number of positive and negative fortunes match.
 
       // FORTUNE TYPES
       //
