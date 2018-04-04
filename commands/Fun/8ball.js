@@ -24,9 +24,9 @@ class EightBall extends Command {
 
       // FORTUNE TYPES
       //
-      // Positive: 11
-      // Neutral:  5
-      // Negative: 11
+      // Positive: 14
+      // Neutral:  7
+      // Negative: 14
 
       const fortunes = [
         "Yes.", // Positive
@@ -57,6 +57,16 @@ class EightBall extends Command {
         "My sources say no.", // Negative
         "My sources say yes.", // Positive
         "All signs point to yes." // Positive
+        "delet this and try again", // neutral
+        "If this is about Suvan being gay, no. If not, yes.", // positive
+        // below sourced from https://en.wikipedia.org/wiki/Magic_8-Ball#Possible_answers
+        "Outlook not so good", // negative
+        "Outlook good", // positive
+        // above sourced from https://en.wikipedia.org/wiki/Magic_8-Ball#Possible_answers
+        "[INSERT GENERIC POSITIVE RESPONSE HERE]",
+        "[INSERT GENERIC NEGATIVE RESPONSE HERE]",
+        "maybe idk lmao", // neutral
+        "who gives a shit lul", // negative
       ];
 
       if (args[0]) {
