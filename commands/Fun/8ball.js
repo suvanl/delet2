@@ -56,7 +56,7 @@ class EightBall extends Command {
         "I highly doubt it.", // Negative
         "My sources say no.", // Negative
         "My sources say yes.", // Positive
-        "All signs point to yes." // Positive
+        "All signs point to yes.", // Positive
         "delet this and try again", // neutral
         "If this is about Suvan being gay, no. If not, yes.", // positive
         // below sourced from https://en.wikipedia.org/wiki/Magic_8-Ball#Possible_answers
