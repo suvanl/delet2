@@ -1,6 +1,6 @@
 const Command = require("../../base/Command.js");
+const { version } = require("../../package.json");
 const Discord = require("discord.js");
-const { version } = require("discord.js");
 const moment = require("moment");
 
 class About extends Command {
@@ -15,14 +15,16 @@ class About extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
+      try {
         const embed = new Discord.RichEmbed()
         .setTitle(`Hey ${message.author.username}, I'm delet!`)
         .setColor("#669F64")
         .setDescription("I'm a multipurpose Discord bot developed and maintained by the DS Development Group.")
-        .setFooter(`Made with Discord.js (v${version})`, "https://nodejs.org/static/images/logos/nodejs-new-pantone-white.png")
+        .setFooter(`Made with Discord.js (v${Discord.version})`, "https://nodejs.org/static/images/logos/nodejs-new-pantone-white.png")
         .setThumbnail("https://cdn.discordapp.com/avatars/314444116677099541/e167b59e4fb7dd0b3fc68db1fe0fc88d.webp?size=1024")
         .setTimestamp()
-        .addField("Website", "https://delet.js.org")
+        .addField("Version", `${version}`, true)
+        .addField("Website", "https://delet.js.org", true)
         .addField("Users", `${this.client.users.size}`, true)
         .addField("Invite link", "[Click here](https://discordapp.com/oauth2/authorize?client_id=314444116677099541&permissions=305528022&scope=bot)", true)
         .addField("Uptime", `${moment.utc(this.client.uptime).format("DD")-1} day(s), ${moment.utc(this.client.uptime).format("HH:mm:ss")}`, true)
@@ -31,6 +33,10 @@ class About extends Command {
         .addField("Memory usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
 
         message.channel.send({embed});
+      } catch (error) {
+        this.client.logger.error(error.stack);
+        message.channel.send(`An error occurred:\`\`\`${error.message}\`\`\``);
+      }
     }
 }
 
