@@ -14,12 +14,17 @@ module.exports = class {
     if (message.author.bot) return;
 
     // Grabs the settings for this server from the PersistentCollection
-    // If there is no guild, get default conf (DMs).
+    // If there is no guild, get default conf (for DMs).
     const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
 
     // For ease of use in commands and functions, the settings are attached
     // to the message object, so `message.settings` is accessible.
     message.settings = settings;
+
+    // Ticks point 10 in the list of best practices (https://github.com/meew0/discord-bot-best-practices).
+    if (message.content.startsWith("<@314444116677099541> help" || "<@314444116677099541> helpme" || "<@314444116677099541> prefix")) {
+      return message.channel.send(`Hey! Looking for help? Run \`${settings.prefix}help\` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix for this server.`);
+    }
 
     // Ignores any messages that don't start with the prefix set in the configuration file.
     if (message.content.indexOf(settings.prefix) !== 0) return;
