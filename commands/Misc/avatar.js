@@ -18,8 +18,7 @@ class Avatar extends Command {
             const embed = new Discord.RichEmbed()
             .setTitle(`${message.author.tag}'s avatar`)
             .setImage(`${message.author.avatarURL}`);
-            message.channel.send({embed});
-            return;
+            return message.channel.send({embed});
         }
 
         const embed = new Discord.RichEmbed()
