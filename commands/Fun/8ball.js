@@ -60,13 +60,14 @@ class EightBall extends Command {
         "delet this and try again", // neutral
         "If this is about Suvan being gay, no. If not, yes.", // positive
         // below sourced from https://en.wikipedia.org/wiki/Magic_8-Ball#Possible_answers
-        "Outlook not so good", // negative
-        "Outlook good", // positive
+        "Outlook not so good.", // negative
+        "Outlook good.", // positive
         // above sourced from https://en.wikipedia.org/wiki/Magic_8-Ball#Possible_answers
-        "[INSERT GENERIC POSITIVE RESPONSE HERE]",
-        "[INSERT GENERIC NEGATIVE RESPONSE HERE]",
+        "You may rely on it.", // Positive
+        "Don't count on it.",
         "maybe idk lmao", // neutral
-        "who gives a shit lul" // negative
+        "who gives a shit lul", // negative
+        "No. Why would you even ask such a thing?" // Negative
       ];
 
       if (args[0]) {
