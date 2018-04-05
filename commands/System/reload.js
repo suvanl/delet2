@@ -18,12 +18,12 @@ class Reload extends Command {
     if (!commands) return message.reply(`the command \`${args[0]}\` does not exist, nor is it an alias.`);
 
     let response = await this.client.unloadCommand(commands.conf.location, commands.help.name);
-    if (response) return message.channel.send(`Error Unloading: ${response}`);
+    if (response) return message.channel.send(`Error Unloading: \`${response}\`.`);
 
     response = this.client.loadCommand(commands.conf.location, commands.help.name);
-    if (response) return message.channel.send(`Error loading: ${response}`);
+    if (response) return message.channel.send(`Error loading: \`${response}\`.`);
 
-    message.channel.send(`The command \`${commands.help.name}\` has been reloaded`);
+    message.channel.send(`The command \`${commands.help.name}\` has been reloaded.`);
   }
 }
 
