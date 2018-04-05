@@ -14,7 +14,7 @@ class Avatar extends Command {
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         const user = message.mentions.users.first();
 
-        if (!user) {
+        if (!user || !message.mentions.users.size) {
             const embed = new Discord.RichEmbed()
             .setTitle(`${message.author.tag}'s avatar`)
             .setImage(`${message.author.avatarURL}`);
