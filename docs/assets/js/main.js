@@ -8,6 +8,14 @@ Licensed under the GPL-3.0 license.
 https://delet.js.org/
 */
 
+console.log(`
+Hey! Want to view this site's full source code?
+Check it out here: https://github.com/DS-Development/delet/tree/master/docs.
+
+Want to join the DS Development Group?
+Head to https://delet.js.org/join.
+`);
+
 (function($) {
 
 	skel.breakpoints({
