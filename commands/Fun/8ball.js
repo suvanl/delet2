@@ -66,7 +66,7 @@ class EightBall extends Command {
         "[INSERT GENERIC POSITIVE RESPONSE HERE]",
         "[INSERT GENERIC NEGATIVE RESPONSE HERE]",
         "maybe idk lmao", // neutral
-        "who gives a shit lul", // negative
+        "who gives a shit lul" // negative
       ];
 
       if (args[0]) {
