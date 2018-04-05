@@ -25,6 +25,7 @@
   },
   "homepage": "https://delet.js.org",
   "dependencies": {
+    "@google/maps": "^0.4.6",
     "bbcode-to-markdown": "^1.0.1",
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
