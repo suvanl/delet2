@@ -29,11 +29,11 @@ class Set extends Command {
   async run(message, [action, key, ...value], level) { // eslint-disable-line no-unused-vars
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
-    // First we need to retrieve current guild settings
+    // Firstly, we need to retrieve current guild settings
     const settings = message.settings;
     const defaults = this.client.settings.get("default");
   
-    // Secondly, if a user does `-set edit <key> <new value>`, let's change it
+    // Secondly, if a user does `-set edit <key> <new value>`, we need to change the key
     if (action === "edit") {
       if (!key) return message.reply("please specify a key to edit.");
       if (!settings[key]) return message.reply("this key does not exist in my settings.");
