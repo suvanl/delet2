@@ -1,6 +1,7 @@
 const Command = require("../../base/Command.js");
 const Discord = require("discord.js");
-const request = require("request");
+const snekfetch = require("snekfetch");
+const h = new (require("html-entities").AllHtmlEntities)();
 
 class Trivia extends Command {
   constructor(client) {
@@ -9,98 +10,51 @@ class Trivia extends Command {
       description: "Puts your general knowledge to the test.",
       category: "Fun",
       usage: "trivia",
-      aliases: ["randomtrivia", "randomq", "testme"],
-      permLevel: "Bot Owner",
+      aliases: ["randomtrivia", "randomq", "testme", "quiz"],
       guildOnly: true,
-      enabled: false
+      permLevel: "Bot Owner"
     });
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
-    // TODO: complete refactor & use multiple choice format rather than boolean.
+      const { body } = await snekfetch.get("https://opentdb.com/api.php?amount=50&difficulty=medium&type=multiple");
+      const quiz = body.results.random();
+      const choices = quiz.incorrect_answers.map(answ => h.decode(answ));
+      choices.push(h.decode(quiz.correct_answer));
 
-      const activeChannels = [];
-
-      if (activeChannels.includes(message.channel.id)) {
-          return message.channel.send("A trivia session is already active!");
+      const randomChoices = new Array(4);
+      for (let i = 0; i < 4; i++) {
+          randomChoices[i] = choices.random();
+          choices.splice(choices.indexOf(randomChoices[i]), 1);
       }
 
-      const options = {
-          method: "GET",
-          url: "https://opentdb.com/api.php?amount=1&type=boolean&encode=url3986"
-      };
+      const embed = new Discord.RichEmbed()
+        .setColor(5360873)
+        .setAuthor("Trivia", "https://vgy.me/9UDUk0.png")
+        .setDescription(`
+**Question**
+${h.decode(quiz.question)}
 
-      request(options, async (error, response, body) => {
-          if (error) {
-              return message.channel.send("An error occurred.");
-          }
+:regional_indicator_a: ${randomChoices[0]}
+:regional_indicator_b: ${randomChoices[1]}
+:regional_indicator_c: ${randomChoices[2]}
+:regional_indicator_d: ${randomChoices[3]}
 
-          if (response) {
-              if (response.statusCode === 200) {
-                  try {
-                      body = JSON.parse(body);
-                      body = body.results[0];
+**Category & Difficulty**
+${h.decode(quiz.category)} | ${h.decode(quiz.difficulty.toProperCase())}
+`)
+        .setFooter("Reply with the correct letter within 60 seconds!", message.author.displayAvatarURL);
 
-                      const embed = new Discord.RichEmbed()
-                      .setColor(4169468)
-                      .setTitle("Trivia")
-                      .setDescription(`**Statement**\n${decodeURIComponent(body.question)}`)
-                      .addField("Category", decodeURIComponent(body.category), true)
-                      .addField("Difficulty", body.difficulty.toProperCase(), true)
-                      .setFooter("Reply with \"True\" or \"False\" within 60 seconds!", "https://opentdb.com/images/logo.png");
-                      const question = await message.channel.send({embed});
+        const question = await this.client.awaitEmbedReply(message, "", m => m.author.id === message.author.id, 60000, {embed: embed});
+        if (!question) return message.channel.send("**Trivia session ended**\nThe session timed out as you did not answer within 60 seconds.");
 
-                      activeChannels.push(message.channel.id);
-
-                      const validAnswers = [
-                          "true",
-                          "false"
-                      ];
-
-                      const trivia = message.channel.createMessageCollector(
-                          msg => !msg.author.bot && validAnswers.includes(msg.content.toLowerCase()),
-                          {
-                              maxMatches: 1,
-                              time: 60 * 1000
-                          }
-                      );
-
-                      trivia.on("collect", ans => {
-                          if (ans.content === body.correct_answer.toLowerCase()) {
-                              const reply = "Well done, your answer is correct!\nTrivia session ended.";
-                              message.channel.send(reply).catch(e => {
-                                this.client.logger.error(e);
-                            });
-                          } else {
-                              const reply = "Unfortunately, that's the wrong answer.\nTrivia session ended.";
-                              message.channel.send(reply).catch(e => {
-                                this.client.logger.error(e);
-                            });
-                          }
-                      });
-
-                      trivia.on("end", (answers, reason) => {
-                          activeChannels.splice(activeChannels.indexOf(message.channel.id), 1);
-
-                          if (reason === "time") {
-                              message.channel.send("**Trivia ended**\nThe session timed out as no one answered within 60 seconds.")
-                                .then(() => {
-                                    question.delete().catch(e => {
-                                        this.client.logger.error(e);
-                                    });
-                                }).catch(e => {
-                                    this.client.logger.error(e);
-                                });
-                          }
-                      });
-                  } catch (e) {
-                      this.client.logger.error(e);
-                  }
-              } else {
-                  return message.channel.send("An error occurred.");
-              }
-          }
-      });
+        const choice = randomChoices[["a", "b", "c", "d"].indexOf(question.toLowerCase())];
+        if (!choice) return message.channel.send("That's not a valid answer!\nFor future reference, please ensure your answer is either **A**, **B**, **C**, or **D** (lowercase and uppercase are both accepted).");
+        if (choice === h.decode(quiz.correct_answer)) {
+            return message.channel.send("Well done, your answer is correct!\nTrivia session ended.");
+        } else {
+            return message.channel.send(`Unfortunately, that's the wrong answer. The correct answer was **${h.decode(quiz.correct_answer)}**, and you chose **${choice}**.\nTrivia session ended.`);
+        }
   }
 }
 
