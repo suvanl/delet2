@@ -11,8 +11,7 @@ class Trivia extends Command {
       category: "Fun",
       usage: "trivia",
       aliases: ["randomtrivia", "randomq", "testme", "quiz"],
-      guildOnly: true,
-      permLevel: "Bot Owner"
+      guildOnly: true
     });
   }
 
