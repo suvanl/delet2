@@ -1,7 +1,5 @@
 const Command = require("../../base/Command.js");
 const ms = require("ms");
-const Discord = require("discord.js");
-const client = new Discord.Client();
 
 class Lockdown extends Command {
     constructor(client) {
@@ -20,7 +18,7 @@ class Lockdown extends Command {
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
         const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
-        if (!client.lockit) client.lockit = [];
+        if (!this.client.lockit) this.client.lockit = [];
         const time = args.join(" ");
         const validUnlocks = ["release", "unlock"];
         if (!time) return message.channel.send("A duration for the lockdown must be set. This can be in hours, minutes or seconds. Example command usage:\n```%lockdown 5 m```");
@@ -31,19 +29,19 @@ class Lockdown extends Command {
                     SEND_MESSAGES: null
                 }).then(() => {
                     message.channel.send("Lockdown lifted.");
-                    clearTimeout(client.lockit[message.channel.id]);
-                    delete client.lockit[message.channel.id];
+                    clearTimeout(this.client.lockit[message.channel.id]);
+                    delete this.client.lockit[message.channel.id];
                 });
             } else {
                 message.channel.overwritePermissions(message.guild.id, {
                     SEND_MESSAGES: false
                 }).then(() => {
                     message.channel.send(`Channel locked down for ${ms(ms(time), { long: true })}.`).then (() => {
-                        client.lockit[message.channel.id] = setTimeout(() => {
+                        this.client.lockit[message.channel.id] = setTimeout(() => {
                             message.channel.overwritePermissions(message.guild.id, {
                                 SEND_MESSAGES: null
                             }).then(message.channel.send("Lockdown lifted."));
-                            delete client.lockit[message.channel.id];
+                            delete this.client.lockit[message.channel.id];
                         }, ms(time));
                     });
                 });
