@@ -17,6 +17,8 @@ class Trivia extends Command {
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
+    // TODO: complete refactor & use multiple choice format rather than boolean.
+
       const activeChannels = [];
 
       if (activeChannels.includes(message.channel.id)) {
