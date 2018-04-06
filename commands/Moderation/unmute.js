@@ -10,7 +10,7 @@ class Unmute extends Command {
       usage: "unmute [user] reason",
       aliases: [""],
       permLevel: "Moderator",
-      botPerms: ["MANAGE_ROLES", "MANAGE_CHANNELS"]
+      guildOnly: true
     });
   }
 
