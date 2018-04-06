@@ -5,7 +5,7 @@ class Lockdown extends Command {
     constructor(client) {
       super(client, {
         name: "lockdown",
-        description: "Locks a channel down for a set duration. Use \"%lockdown release\" to end the lockdown prematurely.",
+        description: "Locks a channel down for a set duration. Use \"[prefix]lockdown release\" to end the lockdown prematurely.",
         category: "Moderation",
         usage: "lockdown <duration> <s|m|h>",
         guildOnly: true,
@@ -15,9 +15,9 @@ class Lockdown extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-
         const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
+
+        if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
         if (!this.client.lockit) this.client.lockit = [];
         const time = args.join(" ");
         const validUnlocks = ["release", "unlock"];
