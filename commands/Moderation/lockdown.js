@@ -18,7 +18,8 @@ class Lockdown extends Command {
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-        
+
+        const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
         if (!client.lockit) client.lockit = [];
         const time = args.join(" ");
         const validUnlocks = ["release", "unlock"];
@@ -48,7 +49,7 @@ class Lockdown extends Command {
                 });
             }
         } catch (error) {
-            message.channel.send("An error occurred whilst trying to lock this channel down. Example command usage:\n```%lockdown 5 m```");
+            message.channel.send(`An error occurred whilst trying to lock this channel down. Example command usage: \`${settings.prefix}lockdown 5 m\``);
         }
     }
 }
