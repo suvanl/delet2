@@ -10,8 +10,7 @@ class Trivia extends Command {
       description: "Puts your general knowledge to the test.",
       category: "Fun",
       usage: "trivia",
-      aliases: ["randomtrivia", "randomq", "testme", "quiz"],
-      guildOnly: true
+      aliases: ["randomtrivia", "randomq", "testme", "quiz"]
     });
   }
 
