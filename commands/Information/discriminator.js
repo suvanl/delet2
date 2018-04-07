@@ -4,7 +4,7 @@ class Discriminator extends Command {
     constructor(client) {
       super(client, {
         name: "discriminator",
-        description: "Discriminator.",
+        description: "Searches for users with the specified discriminator.",
         category: "Information",
         usage: "discriminator [discriminator]",
         aliases: ["discrim", "discriminator-search", "discrim-search"]
