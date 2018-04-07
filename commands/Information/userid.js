@@ -5,6 +5,7 @@ class UserID extends Command {
       super(client, {
         name: "userid",
         description: "Returns the mentioned user's user ID.",
+        category: "Information",
         usage: "userid [@user]",
         aliases: ["id"]
       });
