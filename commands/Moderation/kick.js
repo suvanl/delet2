@@ -23,7 +23,7 @@ class Kick extends Command {
       const modLog = message.guild.channels.find("name", settings.modLogChannel);
       if (!modLog) return message.channel.send(`Modlog channel not found. If you're an admin (or above) on this server, please use:\`\`\`${settings.prefix}set edit modLogChannel {{channel name}}\`\`\`\nFor example: \`${settings.prefix}set edit modLogChannel cool-channel-name\`.`);
       if (!user) return message.channel.send("You must mention a user to kick.");
-      if (!reason) return message.channel.send("Please provide a reason for the punishment.");
+      if (!reason) return message.channel.send("You must provide a reason for the punishment.");
 
       if (!message.guild.member(user).kickable) return message.reply("I cannot kick that user from this server!\nThis may be because I do not have the required permissions to do so, or they may be the server owner.");
       if (user === message.author) return message.channel.send("You cannot kick yourself.");
