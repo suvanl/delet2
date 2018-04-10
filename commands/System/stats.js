@@ -10,6 +10,7 @@ class Stats extends Command {
       description: "Gives some useful bot statistics.",
       category: "System",
       usage: "stats",
+      aliases: ["statistics"]
     });
   }
 
