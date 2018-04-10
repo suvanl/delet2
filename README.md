@@ -1,4 +1,4 @@
-<p align="center"><img src="https://vgy.me/tN5H3x.png" alt="tN5H3x.png">
+<p align="center"><a href="https://delet.js.org/" title="delet"><img src="https://vgy.me/tN5H3x.png" alt="tN5H3x.png"></a>
 
 <p align="center">
 <a href="https://app.codacy.com/app/suvanl/delet-2.0/dashboard"><img src="https://api.codacy.com/project/badge/Grade/4095a9a01d8445939612d31b6283e6fd" alt="Code Quality"></a>
