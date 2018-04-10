@@ -5,14 +5,14 @@ const Command = require("../../base/Command.js");
 
 class Event extends Command {
     constructor(client) {
-        super(client, {
-            name: "event",
-            description: "Emits an event.",
-            category: "System",
-            usage: "event",
-            aliases: ["emit"],
-            permLevel: "Bot Owner"
-        });
+      super(client, {
+        name: "event",
+        description: "Emits an event.",
+        category: "System",
+        usage: "event",
+        aliases: ["emit"],
+        permLevel: "Bot Owner"
+      });
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
