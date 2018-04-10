@@ -27,18 +27,25 @@ class UserInfo extends Command {
           status = user.presence.status.toProperCase();
         }
 
-        let activity;
-        if (user.presence.game === "Spotify") {
-          activity = "Listening to **Spotify**";
-        } else {
+        let activity = "";
+
+        if (user.presence.status === "offline") {
+          activity = "Nothing";
+        }
+
+        if (user.presence.game) {
           activity = `Playing **${user.presence.game ? user.presence.game.name : "Nothing"}**`;
+        }
+
+        if (user.presence.game.name === "Spotify") {
+          activity = "Listening to **Spotify**";
         }
 
         const embed = new Discord.RichEmbed()
         .setColor(roleColor)
         .setThumbnail(user.displayAvatarURL)
         .setTitle(`User Information for ${user.tag}`)
-        .setDescription(`**User ID** ${user.id}`)
+        .setDescription(`**User ID**: ${user.id}`)
 
         .addField("❯ Details", `
 • Status: **${status}**
