@@ -16,7 +16,7 @@ class Stats extends Command {
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     const duration = moment.duration(this.client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
     message.channel.send(`= STATISTICS =
-  • RAM Usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
+  • RAM usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
   • Uptime     :: ${duration}
   • Users      :: ${this.client.users.size.toLocaleString()}
   • Servers    :: ${this.client.guilds.size.toLocaleString()}
