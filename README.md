@@ -7,8 +7,8 @@
 <a href="https://david-dm.org/DS-Development/delet?type=dev" title="devDependencies status"><img src="https://david-dm.org/DS-Development/delet/dev-status.svg"/></a>
 </p>
 
-<p align="center"><strong>delet is an in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library.</strong>
-<br><strong>Please ensure you read the note about portability in this README document.</strong></p>
+<p align="center"><strong>delet is an in-development, open-source Discord bot written in JavaScript, using the Discord.js library for the Discord API.
+<br>Please ensure you read the section regarding self-hosting and portability in this README document.</strong></p>
 
 ## Commands
 A variety of commands can be found in delet, ranging from system functions to fun commands. A custom command creation system is planned for a future release, allowing users to create their own basic commands from within Discord. Please note that as this bot is still in development, many more commands are still to come.
