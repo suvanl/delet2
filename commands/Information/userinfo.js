@@ -60,7 +60,7 @@ class UserInfo extends Command {
 `, true)
 
         .addField("❯ Join Dates", `
-• ${message.guild.name}: **${moment.utc(message.guild.member(user).joinedAt).format("dddd, MMMM Do YYYY @ HH:mm:ss")}**
+• ${message.guild.name}: **${moment.utc(message.guild.member(user).joinedAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
 • Discord: **${moment.utc(user.createdAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
 `, true)
 
