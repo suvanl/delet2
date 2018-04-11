@@ -29,7 +29,7 @@ class UserInfo extends Command {
 
         let activity = "";
 
-        if (user.presence.status === "offline") {
+        if (!user.presence.game) {
           activity = "Nothing";
         }
 
@@ -37,9 +37,9 @@ class UserInfo extends Command {
           activity = `Playing **${user.presence.game ? user.presence.game.name : "Nothing"}**`;
         }
 
-        if (user.presence.game.name === "Spotify") {
-          activity = "Listening to **Spotify**";
-        }
+        // if (user.presence.game.name === "Spotify") {
+        //   activity = "Listening to **Spotify**";
+        // }
 
         const embed = new Discord.RichEmbed()
         .setColor(roleColor)
