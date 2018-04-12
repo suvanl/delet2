@@ -7,7 +7,7 @@ class Feedback extends Command {
         description: "Sends the link to the \"Suggestions & Feedback\" Typeform.",
         category: "Information",
         usage: "suggest",
-        aliases: ["suggestion", "suggestions", "suggest", "issue", "issues", "bugs"]
+        aliases: ["suggestion", "suggestions", "suggest", "issue", "issues", "bugs", "bug"]
       });
     }
 
