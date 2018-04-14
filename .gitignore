@@ -70,6 +70,7 @@ commands/embed.js
 docs/elements.html
 docs/generic.html
 commands/indev/
+util/indev/
 /test/
 /notes/
 /docker-compose.yml
