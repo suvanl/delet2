@@ -42,7 +42,7 @@ class Purge extends Command {
     
     message.channel.bulkDelete(messages).catch(error => this.client.logger.error(error.stack));
 
-    message.channel.send(`**${amount}** messages were purged.`)
+    message.channel.send(`**${amount}** messages were purged.`);
   }
 }
 
