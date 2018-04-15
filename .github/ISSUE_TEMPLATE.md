@@ -1,34 +1,20 @@
-<!--- Provide a general summary of the issue in the Title above -->
-<!--- Please ensure you remove all comments; text in this format: <!--- Text -->
+Please be sure to read through other issues as well to make sure what you are suggesting/reporting has not already
+been suggested/reported
 
-## Expected behaviour
-<!--- Tell us what should happen -->
+### Type:
 
-## Current behaviour
-<!--- Tell us what happens instead of the expected behaviour -->
+- [ ] Suggestion
+- [ ] Bug
 
-## Possible Solution
-<!--- Not obligatory, but you may suggest a fix/reason for the bug. You may include relevant code examples -->
+### Brief description of the problem
 
-## Steps to Reproduce
-<!--- Provide a set of steps to reproduce this bug. -->
-1.
-2.
-3.
-4.
+### Expected behavior
 
-## Context (Environment)
-<!--- How has this issue affected you? What are you trying to accomplish when you run into the issue? -->
-<!--- Providing context helps us come up with a solution that is most useful. -->
+### Actual behavior
 
-Your Discord Client:
-* [ ] Desktop
-* [ ] Canary
-* [ ] Web Browser
-* [ ] Mobile
+### Steps to reproduce
 
-## Detailed Description
-<!--- Not obligatory, but you may provide a detailed description of the change or addition you are proposing -->
-
-## Possible Implementation
-<!--- Not obligatory, but you may suggest an idea for implementing addition or change -->
+1. 
+2. 
+3. 
+4. 
