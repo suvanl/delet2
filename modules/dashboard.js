@@ -1,8 +1,8 @@
 // DASHBOARD
 
-//   Install the following for dashboard stuff.
-//   npm install body-parser ejs express express-passport express-session
-//   npm install level-session-store marked passport passport-discord
+// Install the following for dashboard stuff.
+// npm install body-parser ejs express express-passport express-session
+// npm install level-session-store marked passport passport-discord
   
 // This is quite a simple dashboard, but even in its simple state, there's still a lot of
 // moving parts working together to make this a reality. An attempt will be made to explain
