@@ -73,7 +73,21 @@ Currently available types: \`GBP\`, \`EUR\``);
       message.channel.send({embed});
     }
   }
-  
+
+  // Norwegian Krone [kr] (NOK)
+  if (settings.currency === "NOK") {
+    if (variable === "Heads") {
+      const embed = new Discord.RichEmbed()
+      .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Krone (NOK)`)
+      .setThumbnail("https://vgy.me/NbbKna.png");
+      message.channel.send({embed});
+    } else {
+      const embed = new Discord.RichEmbed()
+      .setDescription(`This flip's result was **tails**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Krone (NOK)`)
+      .setThumbnail("https://vgy.me/VbieZr.png");
+      message.channel.send({embed});
+    }
+  }
   }
 }
 
