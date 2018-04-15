@@ -66,13 +66,13 @@
     "sqlite3": "^4.0.0",
     "strict-uri-encode": "^2.0.0",
     "unfluff": "^3.0.0",
-    "weather-js": "^2.0.0",
-    "ytdl-core": "^0.20.2"
+    "weather-js": "^2.0.0"
   },
   "optionalDependencies": {
     "canvas": "^1.6.10",
     "canvas-constructor": "^0.3.0",
-    "node-opus": "^0.2.7"
+    "node-opus": "^0.2.7",
+    "ytdl-core": "^0.20.2"
   },
   "devDependencies": {
     "chai": "^4.1.2",
