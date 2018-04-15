@@ -17,7 +17,9 @@ branches:
 install:
   # Get the latest stable version of Node.js
   - ps: Install-Product node $env:nodejs_version
-  # install modules
+  # Install node-gyp
+  - npm install -g node-gyp
+  # Install modules
   - npm install
 
 build: off
