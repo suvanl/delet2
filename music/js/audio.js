@@ -48,10 +48,10 @@ client.on("message", async msg => {
             return msg.channel.send(`The playlist **${playlist.title}** has been added to the queue.`);
         } else {
             try {
-                var video = await youtube.getVideo(url);
+                const video = await youtube.getVideo(url); // eslint-disable-line no-unused-vars
             } catch (error) {
                 try {
-                    var videos = await youtube.searchVideos(searchString, 10);
+                    const videos = await youtube.searchVideos(searchString, 10);
                     let index = 0;
                     msg.channel.send(`
 __**Song Selection**__\n
@@ -60,7 +60,7 @@ ${videos.map(video2 => `**${++index}.** ${video2.title}`).join("\n")}
                     `);
 
                     try {
-                        var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
+                        const response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, { // eslint-disable-line no-unused-vars
                             maxMatches: 1,
                             time: 30000,
                             errors: ["time"]
@@ -147,7 +147,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
         queueConstruct.songs.push(song);
 
         try {
-            var connection = await voiceChannel.join();
+            const connection = await voiceChannel.join();
             queueConstruct.connection = connection;
             play(msg.guild, queueConstruct.songs[0]);
         } catch (error) {
