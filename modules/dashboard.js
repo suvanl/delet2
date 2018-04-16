@@ -79,7 +79,7 @@ module.exports = (client) => {
 
   // callbackURL: The URL that will be called after the login. This URL must be
   //   available from your PC for now, but must be available publicly if you're
-  //   ever to use this dashboard in an actual bot. 
+  //   ever to use this dashboard in an actual bot of your own.
   
   // scope: The data scopes we need for data. identify and guilds are sufficient
   //   for most purposes. You might have to add more if you want access to more
