@@ -13,6 +13,8 @@ module.exports = class {
     this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:"WATCHING"});
     
     // Well, they're gone :^) (removes them from the settings database)
-    this.client.settings.delete(guild.id);
+    if (this.client.settings.has(guild.id)) {
+      this.client.settings.delete(guild.id);
+    }
   }
 };
