@@ -1,6 +1,7 @@
 // DASHBOARD
 
-// Install the following for dashboard stuff.
+// Install the following for dashboard stuff:
+
 // npm install body-parser ejs express express-passport express-session
 // npm install level-session-store marked passport passport-discord
   
@@ -28,10 +29,12 @@ const moment = require("moment");
 require("moment-duration-format");
 
 // Express Plugins
+
 // Specifically, passport helps with OAuth2 in general.
 // passport-discord is a plugin for passport that handles Discord's specific implementation.
 // express-session and level-session-store work together to create persistent sessions
 // (so that when you come back to the page, it still remembers you're logged in).
+
 const passport = require("passport");
 const session = require("express-session");
 const LevelStore = require("level-session-store")(session);
@@ -70,11 +73,14 @@ module.exports = (client) => {
   
   // clientID = The bot's client ID, from the app page. Please note that
   //   older bots have BOTH a Client ID and a Bot ID. Use the Client one.
+
   // clientSecret: The secret code at the top of the app page that you have to 
   //   click to reveal. Yes that one we told you you'd never use.
+
   // callbackURL: The URL that will be called after the login. This URL must be
   //   available from your PC for now, but must be available publically if you're
   //   ever to use this dashboard in an actual bot. 
+  
   // scope: The data scopes we need for data. identify and guilds are sufficient
   //   for most purposes. You might have to add more if you want access to more
   //   stuff from the user. See: https://discordapp.com/developers/docs/topics/oauth2 
