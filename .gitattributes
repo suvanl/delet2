@@ -5,4 +5,5 @@
 *.md text
 *.example text
 
-dashboard/public/css/* linguist-vendored
+dashboard/public/css/bootstrap.min.css linguist-vendored
+dashboard/public/css/font-awesome.min.css linguist-vendored
