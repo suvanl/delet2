@@ -7,3 +7,5 @@
 
 dashboard/public/css/bootstrap.min.css linguist-vendored
 dashboard/public/css/font-awesome.min.css linguist-vendored
+dashboard/public/css/darkly.css linguist-vendored
+dashboard/public/css/flatly.css linguist-vendored
