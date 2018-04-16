@@ -173,7 +173,7 @@ module.exports = (client) => {
   // Here we check if the user was already on the page and redirect them
   // there, mostly.
   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/autherror" }), (req, res) => {
-    if (req.user.id === client.appInfo.owner.id) {
+    if (req.user.id === client.appInfo.owner.id || client.config.admins.includes(req.user.id)) {
       req.session.isAdmin = true;
     } else {
       req.session.isAdmin = false;
@@ -243,7 +243,7 @@ module.exports = (client) => {
 
   // The Admin dashboard is similar to the one above, with the exception that
   // it shows all current guilds the bot is on, not *just* the ones the user has
-  // access to. Obviously, this is reserved to the bot's owner for security reasons.
+  // access to. Obviously, this is reserved to the bot's owner and admins for security reasons.
   app.get("/admin", checkAuth, (req, res) => {
     if (!req.session.isAdmin) return res.redirect("/");
     renderTemplate(res, req, "admin.ejs");
