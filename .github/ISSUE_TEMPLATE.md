@@ -1,18 +1,18 @@
 Please be sure to read through other issues as well, to make sure what you are suggesting/reporting has not already
 been suggested/reported.
 
-### Type:
+**Type**
 
 - [ ] Suggestion
 - [ ] Bug
 
-### Brief description of the problem
+**Brief description of the problem**
 
-### Expected behavior
+**Expected behavior**
 
-### Actual behavior
+**Actual behavior**
 
-### Steps to reproduce
+**Steps to reproduce**
 
 1. 
 2. 
