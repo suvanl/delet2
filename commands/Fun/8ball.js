@@ -15,20 +15,20 @@ class EightBall extends Command {
   async run(message, args, level) { // eslint-disable-line no-unused-vars
       const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
 
-      // SUBMITTING FORTUNES
-      // If you wish to submit a fortune, please fork this repository, add the fortune to the "fortunes" array, and
+      // SUBMITTING OUTCOMES
+      // If you wish to submit a outcome, please fork this repository, add the outcome to the "outcomes" array, and
       // create a pull request. Please add a comment next to it, stating whether it is positive, negative, or neutral.
       // If you're unsure, leave it blank. If you do state if it's positive, neutral or negative, please update the
-      // "FORTUNE TYPES" comments accordingly. Please ensure your fortune has an "opposite" fortune to it too, so the
-      // number of positive and negative fortunes match.
+      // "OUTCOME TYPES" comments accordingly. Please ensure your outcome has an "opposite" outcome to it too, so the
+      // number of positive and negative outcomes match.
 
-      // FORTUNE TYPES
+      // OUTCOME TYPES
       //
       // Positive: 14
       // Neutral:  7
       // Negative: 14
 
-      const fortunes = [
+      const outcomes = [
         "Yes.", // Positive
         "No.", // Negative
         "Maybe.", // Neutral
@@ -51,7 +51,7 @@ class EightBall extends Command {
         "I hope so.", // Positive
         "Possibly.", // Neutral
         "Forget about it.", // Negative
-        "https://giphy.com/gifs/eXQPwwE8DFTZS", // Negative
+        "http://i.imgur.com/n7A21Jq.gif", // Negative
         "sry gtg", // Neutral
         "I highly doubt it.", // Negative
         "My sources say no.", // Negative
@@ -71,14 +71,23 @@ class EightBall extends Command {
       ];
 
       if (args[0]) {
+        const randomOutcome = outcomes.random();
         try {
-          //message.channel.send(fortunes.random());
-          const embed = new Discord.RichEmbed()
-          .setTitle("Magic 8 Ball 🎱")
-          .setDescription(`The 8 ball says:\n**${fortunes.random()}**\n   ‍   `)
-          .setFooter(`Question asked by ${message.author.tag}`, message.author.displayAvatarURL);
+          if (randomOutcome.startsWith("http://i.imgur.com/")) {
+            const embed = new Discord.RichEmbed()
+              .setTitle("Magic 8 Ball 🎱")
+              .setImage(randomOutcome)
+              .setFooter(`Question asked by ${message.author.tag}`, message.author.displayAvatarURL);
 
-          message.channel.send({embed});
+            message.channel.send({embed});
+          } else {
+            const embed = new Discord.RichEmbed()
+              .setTitle("Magic 8 Ball 🎱")
+              .setDescription(`The 8 ball says:\n**${randomOutcome}**\n   ‍   `)
+              .setFooter(`Question asked by ${message.author.tag}`, message.author.displayAvatarURL);
+
+            message.channel.send({embed});
+          }
         } catch (error) {
           this.client.logger.error(error);
           message.channel.send(`My magic 8 ball says that an error occurred:\n${error.message}`);
