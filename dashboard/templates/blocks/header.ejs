@@ -66,7 +66,17 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <h6 class="dropdown-header"><i class="fa fa-user" aria-hidden="true"></i> <%= user.username %></h6>
                   <a class="dropdown-item" href="/dashboard"><i class="fa fa-cogs" aria-hidden="true"></i> Dashboard</a>
-                  <% if(user.id === bot.appInfo.owner.id) { %>
+                  <!-- 
+                    IMPORTANT: the second part of the following `if` statement only works as delet has a co-owner. Hardcoding in his ID allows him
+                    to see the "Admin" button on the respective dropdown menu. The first part of the statement is quite self-explanatory, and grants
+                    the bot owner access to the admin panel via the "Admin" button on the dropdown menu.
+
+                    If you're going to use a similar system in your own project, please note that the second part of the `if` statement
+                    `user.id === "{{co-owner_user_id}}"` is not required if you are the only owner of the bot. We highly recommend only having one
+                    owner, unless you trust the other person significantly. Note that it is not possible to "officially" have multiple owners, as
+                    the bot owner ID registered on the Discord API will only be that of the bot application's creator.
+                  -->
+                  <% if(user.id === bot.appInfo.owner.id || user.id === "{{co-owner_user_id}}") { %> <!-- Replace with co-owner's user ID -->
                     <a class="dropdown-item" href="/admin"><i class="fa fa-key"></i> Admin</a>
                   <% } %>
                   <div class="dropdown-divider"></div>
