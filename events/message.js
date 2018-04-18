@@ -57,7 +57,7 @@ module.exports = class {
         return;
       }
     }
-      
+    
     // To simplify message arguments, the author's level is now put on level (not member, so it is supported in DMs)
     // The "level" command module argument will be deprecated in the future.
     message.author.permLevel = level;
