@@ -51,7 +51,7 @@ module.exports = class {
 
     // Prevents users from running commands that aren't available for their permLevel.
     if (level < this.client.levelCache[cmd.conf.permLevel]) {
-      if (settings.systemNotice === "true") {
+      if (settings.systemNotice.toLowerCase() === "true") {
         return message.channel.send(`You do not have permission to use this command.\nYour permission level is ${level} (${this.client.config.permLevels.find(l => l.level === level).name}), and this command requires level ${this.client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel}).`);
       } else {
         return;
