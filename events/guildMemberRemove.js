@@ -10,7 +10,7 @@ module.exports = class {
       const settings = this.client.getSettings(member.guild.id);
     
       // If "welcome" is off, don't proceed
-      if (settings.welcomeEnabled !== "true") return;
+      if (settings.welcomeEnabled.toLowerCase() !== "true") return;
   
       // Replaces the placeholders in the leave message with actual data.
       const leaveMessage = settings.leaveMessage.replace("{{user}}", member.user.tag);
