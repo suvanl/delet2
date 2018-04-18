@@ -29,7 +29,7 @@ Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
     // console.log(variable);
 
     // Pounds [£] (GBP)
-    if (settings.currency === "GBP") {
+    if (settings.currency.toUpperCase() === "GBP") {
 
     if (variable === "Heads") {
       const embed = new Discord.RichEmbed()
@@ -45,7 +45,7 @@ Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
   }
 
   // Euros [€] (EUR)
-  if (settings.currency === "EUR") {
+  if (settings.currency.toUpperCase() === "EUR") {
     if (variable === "Heads") {
       const embed = new Discord.RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
@@ -60,7 +60,7 @@ Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
   }
 
   // US Dollars [$] (USD)
-  if (settings.currency === "USD") {
+  if (settings.currency.toUpperCase() === "USD") {
     if (variable === "Heads") {
       const embed = new Discord.RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
@@ -75,7 +75,7 @@ Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
   }
 
   // Norwegian Krone [kr] (NOK)
-  if (settings.currency === "NOK") {
+  if (settings.currency.toUpperCase() === "NOK") {
     if (variable === "Heads") {
       const embed = new Discord.RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
