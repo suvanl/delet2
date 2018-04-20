@@ -69,8 +69,7 @@ music/js/audiotest.js
 commands/embed.js
 docs/elements.html
 docs/generic.html
-commands/indev/
-util/indev/
+indev
 /test/
 /notes/
 /docker-compose.yml
