@@ -23,6 +23,7 @@ class Weather extends Command {
                 return message.channel.send(`\`\`\`${JSON.stringify(result[0].current, null, 2)}\`\`\``);
             }
 
+            const current = result[0].current;
             const location = result[0].location; // eslint-disable-line no-unused-vars
 
             const embed = new Discord.RichEmbed()
