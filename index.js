@@ -1,6 +1,6 @@
 /*
 delet - a multipurpose Discord bot
-© DS Development Group & Contributors 2017 - 2018
+Copyright © 2017-2018 DS Development Group. All rights reserved.
 Contributors are listed in package.json
 
 Licensed under the GPL-3.0 license.
