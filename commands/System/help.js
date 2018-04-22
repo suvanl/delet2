@@ -42,7 +42,7 @@ class Help extends Command {
         output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
       });
       try {
-        message.reply("sending a list of commands (available for your permission level) to your DMs... 📝");
+        message.channel.send(`${message.author}, sending a list of commands available for your permission level to your DMs... 📝`);
         message.author.send(output, {code:"asciidoc", split: { char: "\u200b" }});
         if (message.channel.type === "dm") {
           await this.client.wait(2000);
