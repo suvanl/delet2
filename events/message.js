@@ -13,6 +13,10 @@ module.exports = class {
     // and not get into a "botception" spam loop.
     if (message.author.bot) return;
 
+    // Cancels any attempts to run commands in servers where the bot cannot
+    // respond to the user, due to insufficient permissions.
+    if (message.guild.me.permissionsIn(message.channel).missing("SEND_MESSAGES")) return;
+
     // Grabs the settings for this server from the PersistentCollection
     // If there is no guild, get default conf (for DMs).
     const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
