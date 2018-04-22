@@ -8,7 +8,7 @@ class Event extends Command {
       super(client, {
         name: "event",
         description: "Emits an event.",
-        category: "System",
+        category: "Debug",
         usage: "event",
         aliases: ["emit"],
         permLevel: "Bot Owner"
