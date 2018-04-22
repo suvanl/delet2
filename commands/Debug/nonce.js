@@ -7,7 +7,8 @@ class Nonce extends Command {
       description: "Sends a random number string used for checking message delivery.",
       category: "Debug",
       usage: "nonce",
-      aliases: [""]
+      aliases: [""],
+      permLevel: "Bot Admin"
     });
   }
 
