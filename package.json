@@ -75,14 +75,6 @@
     "ytdl-core": "^0.20.2"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "eslint": "^4.19.1",
-    "jshint": "^2.9.5",
-    "mocha": "^5.0.4",
-    "webdash": "^1.0.0",
-    "webdash-npm-scripts": "^1.0.0",
-    "webdash-package-json": "^1.1.0-2",
-    "webdash-performance-budget": "^1.2.0",
-    "webdash-pwa-manifest": "^1.1.0"
+    "eslint": "^4.19.1"
   }
 }
