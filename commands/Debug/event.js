@@ -11,7 +11,8 @@ class Event extends Command {
         category: "Debug",
         usage: "event",
         aliases: ["emit"],
-        permLevel: "Bot Owner"
+        permLevel: "Bot Owner",
+        guildOnly: true
       });
     }
 
