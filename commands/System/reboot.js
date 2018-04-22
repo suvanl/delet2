@@ -8,7 +8,7 @@ class Reboot extends Command {
       category: "System",
       usage: "reboot",
       aliases: ["restart"],
-      permLevel: "Bot Owner"
+      permLevel: "Bot Admin"
     });
   }
 
