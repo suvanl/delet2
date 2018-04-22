@@ -18,16 +18,16 @@ class Help extends Command {
   }
 
   async run(message, args, level) {
-    // If no specific command is called, show all filtered commands.
+    // Shows all filtered commands, if no specific command is called.
     if (!args[0]) {
-      // Load guild settings (for prefixes and eventually per-guild tweaks)
+      // Loads guild settings (for prefixes and eventually per-guild tweaks)
       const settings = message.settings;
       
-      // Filter all commands by which are available for the user's level, using the <Collection>.filter() method.
+      // Filters all commands by which are available for the user's level, using the <Collection>.filter() method.
       const myCommands = message.guild ? this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level) : this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level &&  cmd.conf.guildOnly !== true);
       
-      // Here we have to get the command names only, and we use that array to get the longest name.
-      // This make the help commands "aligned" in the output.
+      // Here, we have to get the command names only, and we use that array to get the longest name.
+      // This makes the help commands "aligned" in the output.
       const commandNames = myCommands.keyArray();
       const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
       let currentCategory = "";
@@ -41,6 +41,7 @@ class Help extends Command {
         }
         output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
       });
+      // Tries to send the output to the message author, and catches the error.
       try {
         message.channel.send(`${message.author}, sending a list of commands available for your permission level to your DMs... 📝`);
         message.author.send(output, {code:"asciidoc", split: { char: "\u200b" }});
@@ -54,7 +55,7 @@ class Help extends Command {
         });
       }
     } else {
-      // Show help for individual commands.
+      // Shows help for individual commands.
       let command = args[0];
       if (this.client.commands.has(command)) {
         command = this.client.commands.get(command);
