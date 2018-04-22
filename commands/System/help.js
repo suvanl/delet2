@@ -47,10 +47,10 @@ class Help extends Command {
         message.author.send(output, {code:"asciidoc", split: { char: "\u200b" }});
         if (message.channel.type === "dm") {
           await this.client.wait(2000);
-          message.author.send("Please note that due to the `help` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.");
+          message.author.send("Please note that due to the \`help\` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.");
         }
       } catch (error) {
-        message.reply("an error occurred whilst trying to DM you. Please make sure '**Allow direct messages from server members** is on in your privacy settings for this server.", {
+        message.reply(`an error occurred whilst trying to DM you. Please make sure '**Allow direct messages from server members** is on in your privacy settings for this server.\n\n(${error.message})`, {
           file: "https://vgy.me/kSTXwO.png"
         });
       }
