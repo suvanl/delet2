@@ -5,7 +5,7 @@ class Lockdown extends Command {
     constructor(client) {
       super(client, {
         name: "lockdown",
-        description: "Locks a channel down for a set duration. Use \"[prefix]lockdown release\" to end the lockdown prematurely.",
+        description: "Locks a channel down for a set duration. Use \"lockdown release\" to end the lockdown prematurely.",
         category: "Moderation",
         usage: "lockdown <duration> <s|m|h>",
         guildOnly: true,
