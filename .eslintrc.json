@@ -26,7 +26,7 @@
     ],
     "space-before-blocks": [
       "error", {
-        "functions":"always",
+        "functions": "always",
         "keywords": "always",
         "classes": "always"
       }
@@ -42,6 +42,15 @@
       "error", {
         "destructuring": "any",
         "ignoreReadBeforeAssign": false
+      }
+    ],
+    "comma-dangle": [
+      "warn", {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "ignore"
       }
     ]
   }
