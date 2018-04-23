@@ -8,7 +8,8 @@ class Flip extends Command {
       description: "Flips/tosses a coin.",
       category: "Fun",
       usage: "flip",
-      aliases: ["toss"]
+      aliases: ["toss"],
+      guildOnly: true
     });
   }
 
