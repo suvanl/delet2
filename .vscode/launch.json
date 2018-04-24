@@ -4,11 +4,16 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch Audio",
+            "program": "${workspaceFolder}/music/js/audio.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Index",
             "program": "${workspaceFolder}\\index.js"
         }
     ]
