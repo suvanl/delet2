@@ -19,6 +19,8 @@ class Eval extends Command {
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
+    this.client.logger.warn("Eval command used");
+
     const code = args.join(" ");
     try {
       const evaled = eval(code);
