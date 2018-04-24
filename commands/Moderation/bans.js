@@ -16,7 +16,13 @@ class Bans extends Command {
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         try {
             message.guild.fetchBans()
-                .then(bans => message.channel.send(`This server has **${bans.size}** banned user(s).`));
+                .then(bans => {
+                    let plurality;
+                    if (bans.size === 1) plurality = "user";
+                    else plurality = "users";
+
+                    message.channel.send(`This server has **${bans.size}** banned ${plurality}.`);
+                });
         } catch (error) {
             this.client.logger.error(error.stack);
             message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
