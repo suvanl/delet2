@@ -19,6 +19,8 @@ class Exec extends Command {
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
+    this.client.logger.warn("Exec command used");
+
     try {
         exec(`${args.join(" ")}`, (error, stdout) => {
             const response = (error || stdout);
