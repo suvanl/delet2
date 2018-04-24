@@ -19,10 +19,15 @@ class Exec extends Command {
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
-    exec(`${args.join(" ")}`, (error, stdout) => {
-        const response = (error || stdout);
-        message.channel.send(`Ran command **\`${message.content.slice(6)}\`**:\n\`\`\`${response}\`\`\``, {split: true}).catch(console.error());
-    });
+    try {
+        exec(`${args.join(" ")}`, (error, stdout) => {
+            const response = (error || stdout);
+            message.channel.send(`Ran command **\`${message.content.slice(6)}\`**:\n\`\`\`${response}\`\`\``, {split: true});
+        });
+    } catch (error) {
+        this.client.logger.error(error.stack);
+        return message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+    }
   }
 }
 
