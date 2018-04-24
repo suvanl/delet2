@@ -18,7 +18,7 @@ class Bans extends Command {
             message.guild.fetchBans()
                 .then(bans => message.channel.send(`This server has **${bans.size}** banned user(s).`));
         } catch (error) {
-            this.client.logger.error(error.message);
+            this.client.logger.error(error.stack);
             message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
         }
     }
