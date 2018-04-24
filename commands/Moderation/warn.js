@@ -21,7 +21,7 @@ class Warn extends Command {
       const user = message.mentions.users.first();
       let reason = args.slice(1).join(" ") || undefined;
       const modLog = message.guild.channels.find("name", settings.modLogChannel);
-      if (!modLog) return message.channel.send("Modlog not found. Please inform the server owner of this.");
+      if (!modLog) return message.channel.send(`Modlog channel not found. If you're an admin (or owner) on this server, please use:\`\`\`${settings.prefix}set edit modLogChannel {{channel name}}\`\`\`\nFor example: \`${settings.prefix}set edit modLogChannel cool-channel-name\`.`);
       if (!user) return message.channel.send("You must mention a user to warn.");
       if (!reason) {
         message.channel.send("Please enter a reason for the warning...\nThis text-entry period will time-out in 30 seconds.");
