@@ -15,7 +15,7 @@ client.on("error", console.error);
 
 client.on("ready", () => console.log("Music system ready!"));
 
-client.on("disconnect", () => console.log("Just disconnected; reconnecting now..."));
+client.on("disconnect", () => console.log("Disconnected, attempting to reconnect..."));
 
 client.on("reconnecting", () => console.log("Reconnecting..."));
 
