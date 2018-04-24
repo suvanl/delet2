@@ -8,10 +8,9 @@ class Warn extends Command {
         description: "Issues a warning to the specified user.",
         category: "Moderation",
         usage: "warn [user] <reason/info>",
-        extended: "Warns the mentioned user by sending them a warning DM and by recording the event in the modlog channel. Warnings are currently untracked.",
         guildOnly: true,
         aliases: ["w"],
-        permLevel: "DeletMod"
+        permLevel: "Moderator"
       });
     }
 
@@ -20,27 +19,43 @@ class Warn extends Command {
 
       const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
       const user = message.mentions.users.first();
-      const reason = args.slice(1).join(" ");
+      let reason = args.slice(1).join(" ") || undefined;
       const modLog = message.guild.channels.find("name", settings.modLogChannel);
-      if (!modLog) return message.channel.send(`Modlog channel not found. If you're an admin (or above) on this server, please use:\`\`\`${settings.prefix}set edit modLogChannel {{channel name}}\`\`\`\nFor example: \`${settings.prefix}set edit modLogChannel cool-channel-name\`.`);
+      if (!modLog) return message.channel.send("Modlog not found. Please inform the server owner of this.");
       if (!user) return message.channel.send("You must mention a user to warn.");
-      if (!reason) return message.channel.send("Please provide a reason for the warning.");
+      if (!reason) {
+        message.channel.send("Please enter a reason for the warning...\nThis text-entry period will time-out in 30 seconds.");
+        await message.channel.awaitMessages(m => m.author.id === message.author.id, {
+          "errors": ["time"],
+          "max": 1,
+          time: 30000
+        }).then(resp => {
+          if (!resp) return message.channel.send("Timed out. The user has not been warned.");
+          resp = resp.array()[0];
+          reason = resp.content;
+          if (resp) resp.react("✅");
+        }).catch(error => { // eslint-disable-line no-unused-vars
+          message.channel.send("Timed out. The user has not been warned.");
+        });
+      }
 
-      try {
-        const embed = new Discord.RichEmbed()
-        .setTitle(`⚠️ Warning issued in #${message.channel.name}`)
-        .setColor(16381497)
-        .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-        .setFooter("Moderation system powered by delet™", this.client.user.displayAvatarURL)
-        .setTimestamp();
+      if (reason) {
+        try {
+          const embed = new Discord.RichEmbed()
+          .setTitle(`⚠️ Warning issued in #${message.channel.name}`)
+          .setColor(16381497)
+          .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
+          .setFooter("Moderation system powered by delet™", "https://i.imgur.com/No7WfpC.png")
+          .setTimestamp();
+    
+          this.client.channels.get(modLog.id).send({embed});
   
-        this.client.channels.get(modLog.id).send({embed});
-
-        user.send(`Hey there!\nYou were warned in **${message.guild.name}** for the reason **${reason}**.\nPlease make sure you always follow the rules, as not doing so can lead to punishments. <:feelsbanman:405126279025917962>`);
-        message.react("👌");
-      } catch (error) {
-        this.client.logger.error(error.stack);
-        message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+          user.send(`Hey there!\nYou were warned in **${message.guild.name}** for the reason "**${reason}**".\nPlease make sure you always follow the rules, as not doing so can lead to punishments. <:feelsbanman:405126279025917962>`);
+          message.react("👌");
+        } catch (error) {
+          this.client.logger.error(error);
+          message.channel.send("An error occurred.");
+        }
       }
     }
 }
