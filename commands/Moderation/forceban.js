@@ -21,7 +21,7 @@ class ForceBan extends Command {
         const userID = args[0];
         const reason = args.slice(1).join(" ");
         const modLog = message.guild.channels.find("name", settings.modLogChannel);
-        if (!modLog) return message.channel.send(`Modlog channel not found. If you're an admin (or above) on this server, please use:\`\`\`${settings.prefix}set edit modLogChannel {{channel name}}\`\`\`\nFor example: \`${settings.prefix}set edit modLogChannel cool-channel-name\`.`);
+        if (!modLog) return message.channel.send(`Modlog channel not found. If you're an admin (or owner) on this server, please use:\`\`\`${settings.prefix}set edit modLogChannel {{channel name}}\`\`\`\nFor example: \`${settings.prefix}set edit modLogChannel cool-channel-name\`.`);
         if (!userID) return message.channel.send("You must provide a user ID to ban.");
         if (!reason) return message.channel.send("Please provide a reason for the punishment.");
         if (userID === message.author.id) return message.channel.send("You cannot ban yourself.");
