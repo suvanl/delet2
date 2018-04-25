@@ -104,7 +104,7 @@ module.exports = (client) => {
     store: new LevelStore("./data/dashboard-session/"),
     secret: client.config.dashboard.sessionSecret,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: false
   }));
 
   // Initializes passport and session.
@@ -200,7 +200,7 @@ module.exports = (client) => {
     });
   });
 
-  /** REGULAR INFORMATION PAGES */
+  // REGULAR INFORMATION PAGES
 
   // Index page. If the user is authenticated, it shows their info
   // at the top right of the screen.

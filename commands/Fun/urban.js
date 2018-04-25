@@ -19,7 +19,7 @@ class Urban extends Command {
 
         request({
             url: URL,
-            json: true,
+            json: true
         }, (error, response, body) => {
             if (!resultNum) {
                 resultNum = 0;
