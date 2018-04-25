@@ -54,12 +54,12 @@ module.exports = (client) => {
   };
 
 
-  /* MISCELANEOUS NON-CRITICAL FUNCTIONS */
+  // MISCELANEOUS NON-CRITICAL FUNCTIONS
   
   // EXTENDING NATIVE TYPES IS BAD PRACTICE. Why? Because if JavaScript adds this
   // later, this conflicts with native code. Also, if some other lib you use does
-  // this, a conflict also occurs. KNOWING THIS however, the following 2 methods
-  // are, we feel, very useful in code. 
+  // this, a conflict also occurs. KNOWING this, however, the following 2 methods
+  // are, we feel, very useful in code, as no conflicts currently exist.
   
   // <String>.toPropercase() returns a proper-cased string such as: 
   // "Mary had a little lamb".toProperCase() returns "Mary Had A Little Lamb"
