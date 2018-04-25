@@ -5,9 +5,10 @@ class Quote extends Command {
   constructor(client) {
     super(client, {
       name: "quote",
-      description: "Quote.",
-      usage: "quote",
-      aliases: ["q"]
+      description: "Quotes the specified message (by ID).",
+      usage: "quote [message ID]",
+      aliases: ["q"],
+      guildOnly: true
     });
   }
 
