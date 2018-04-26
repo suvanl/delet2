@@ -62,7 +62,7 @@
     "request-promise": "^4.2.2",
     "sequelize": "^4.34.1",
     "simple-youtube-api": "^5.0.1",
-    "snekfetch": "^3.6.1",
+    "snekfetch": "^3.6.4",
     "sqlite3": "^4.0.0",
     "strict-uri-encode": "^2.0.0",
     "unfluff": "^3.0.0",
