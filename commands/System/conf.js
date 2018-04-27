@@ -52,14 +52,14 @@ class Conf extends Command {
       message.reply(`${key} successfully edited to ${value.join(" ")}`);
     } else
   
-    // WARNING: DELETING A KEY FROM THE DEFAULTS ALSO REMOVES IT FROM EVERY GUILD
+    // WARNING: DELETING A KEY FROM THE DEFAULTS ALSO REMOVES IT FROM EVERY GUILD.
     // MAKE SURE THAT KEY IS REALLY NO LONGER NEEDED!
     if (action === "del") {
       if (!key) return message.reply("please specify a key to delete.");
       if (!defaults[key]) return message.reply("this key does not exist in the settings");
     
       // Throw the 'are you sure?' text at them.
-      const response = await this.client.awaitReply(message, `Are you sure you want to permanently delete ${key} from all guilds? This **CANNOT** be undone.`);
+      const response = await this.client.awaitReply(message, `Are you sure you want to permanently delete ${key} from all guilds? This action **CANNOT** be undone.`);
 
       // If they respond with y or yes, continue.
       if (["y", "yes"].includes(response)) {
