@@ -12,7 +12,7 @@ class DSDev extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        message.channel.send("Interested in joining the team that develops and maintains me?\nVisit this link: **https://delet.js.org/join**.");
+        message.channel.send("Interested in joining the team that develops and maintains me?\nVisit this link: **https://delet.js.org/go/join**.");
     }
 }
 

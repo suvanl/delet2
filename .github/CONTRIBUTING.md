@@ -11,4 +11,4 @@ Check the comments in the file [here](https://github.com/DS-Development/delet/bl
 
 
 ### Want to join the DS Development Group?
-Head to [delet.js.org/join](https://delet.js.org/join)!
+Head to [delet.js.org/go/join](https://delet.js.org/go/join)!
