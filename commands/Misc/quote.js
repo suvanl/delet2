@@ -14,6 +14,7 @@ class Quote extends Command {
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     const id = args[0];
+    if (!id) return message.channel.send("You must provide a message ID.\nYou must have developer mode turned on to obtain a message ID (Settings → Appearance → Developer Mode).", { file: "https://vgy.me/cQbRf7.png "});
     message.channel.fetchMessage(id)
       .then(message => {
         const roleColor = message.guild.member(message.author).highestRole.color || 15527148;
