@@ -4,9 +4,9 @@ class Emoji extends Command {
     constructor(client) {
       super(client, {
         name: "emoji",
-        description: "Searches the current server for the specified search term.",
+        description: "Creates a new emoji.",
         category: "Utility",
-        usage: "search",
+        usage: "emoji [image link] [emoji name]",
         aliases: ["createemoji", "create-emoji"]
       });
     }
