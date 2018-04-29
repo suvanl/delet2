@@ -22,6 +22,7 @@ class PermMute extends Command {
     const user = message.mentions.users.first();
     const reason = args.slice(1).join(" ");
     const modLog = message.guild.channels.find("name", settings.modLogChannel);
+    const lastMessage = message.guild.member(user).lastMessageID;
     if (!modLog) return message.channel.send(`Modlog channel not found. If you're an admin (or owner) on this server, please use:\`\`\`${settings.prefix}set edit modLogChannel {{channel name}}\`\`\`\nFor example: \`${settings.prefix}set edit modLogChannel cool-channel-name\`.`);
     if (!user) return message.channel.send("You must mention a user to mute.");
     if (!reason) return message.channel.send("Please provide a reason for the punishment.");
@@ -54,7 +55,7 @@ class PermMute extends Command {
     const embed = new Discord.RichEmbed()
     .setTitle(`🔇 Member muted in #${message.channel.name}`)
     .setColor(16758125)
-    .setDescription(`\`\`\`fix\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nChannel ID: ${message.channel.id}\`\`\``)
+    .setDescription(`\`\`\`fix\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nChannel ID: ${message.channel.id}\nLast message: ${lastMessage}\`\`\``)
     .setFooter("Moderation system powered by delet™", this.client.user.displayAvatarURL)
     .setTimestamp();
 
