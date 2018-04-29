@@ -4,7 +4,7 @@ class Invite extends Command {
     constructor(client) {
       super(client, {
         name: "invite",
-        description: "Generates an invite link, to add delet to a server.",
+        description: "Generates an invite link, for adding delet to a server.",
         usage: "invite",
         aliases: ["join"]
       });
@@ -22,6 +22,7 @@ class Invite extends Command {
             "EMBED_LINKS", 
             "READ_MESSAGE_HISTORY", 
             "USE_EXTERNAL_EMOJIS", 
+            "MANAGE_EMOJIS",
             "SEND_MESSAGES", 
             "MANAGE_MESSAGES", 
             "ATTACH_FILES", 
