@@ -21,7 +21,7 @@ class Emoji extends Command {
 
         if (!image) return message.channel.send("You must provide an **Imgur** or **vgy.me** image link, for the emoji's image.");
 
-        if (image.match(/^https?:\/\/(\w+\.)?imgur.com\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/) || image.match(/^https?:\/\/(\w+\.)?vgy.me\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/)) { // TODO: support vgy.me
+        if (image.match(/^https?:\/\/(\w+\.)?imgur.com\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/) || image.match(/^https?:\/\/(\w+\.)?vgy.me\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/)) {
           imgLink = true;
         } else {
           imgLink = false;
