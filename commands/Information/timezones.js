@@ -36,9 +36,9 @@ class Timezones extends Command {
   • CST     :: [${moment().tz("Asia/Hong_Kong").format("HH:mm ZZ")}]
 
 #AUSTRALIA
-  • AWST     :: [${moment().tz("Australia/Perth").format("HH:mm ZZ")}]
-  • ACST     :: [${moment().tz("Australia/Darwin").format("HH:mm ZZ")}]
-  • AEST     :: [${moment().tz("Australia/Sydney").format("HH:mm ZZ")}]
+  • AWST    :: [${moment().tz("Australia/Perth").format("HH:mm ZZ")}]
+  • ACST    :: [${moment().tz("Australia/Darwin").format("HH:mm ZZ")}]
+  • AEST    :: [${moment().tz("Australia/Sydney").format("HH:mm ZZ")}]
 
 #EUROPE
   • UTC/GMT :: [${moment.utc().format("HH:mm ZZ")}]
