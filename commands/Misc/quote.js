@@ -20,7 +20,7 @@ class Quote extends Command {
         const roleColor = message.guild.member(message.author).highestRole.color || 15527148;
         const embed = new Discord.RichEmbed()
           .setColor(roleColor)
-          .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL)
+          .setAuthor(message.author.tag, message.author.displayAvatarURL)
           .setDescription(message.content)
           .setFooter(`#${message.channel.name}`)
           .setTimestamp();
