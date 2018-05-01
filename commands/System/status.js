@@ -13,13 +13,16 @@ class Status extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        const status = args.join(" ");
+        const status = args[0];
+        if (!status) return message.channel.send("A status type must be provided.");
 
-        if (status === "online" || status === "idle" || status === "dnd" || status === "invisible") {
+        const statusType = args[0].toLowerCase();
+
+        if (statusType === "online" || statusType === "idle" || statusType === "dnd" || statusType === "invisible") {
             this.client.user.setStatus(status);
-            message.channel.send(`Status successfully changed to **${status}**.\nPlease note that changing status may take up to a minute or two.`);
+            message.channel.send(`Status successfully changed to **${statusType}**.\nPlease note that initially changing status may take up to a minute or two.`);
         } else {
-            return message.channel.send(`"${status}" is not a valid status type.`);
+            return message.channel.send(`"${statusType}" is not a valid status type.`);
         }
     }
 }
