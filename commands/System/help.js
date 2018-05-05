@@ -61,6 +61,7 @@ class Help extends Command {
             return message.channel.send(`An error occurred:\n\`\`\`${e.message}\`\`\``);
           }
         });
+        
         if (message.channel.type === "dm") {
           await this.client.wait(2000);
           message.author.send("Please note that due to the `help` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.");
@@ -75,7 +76,6 @@ class Help extends Command {
         }
       }
     }
-  }
-
+}
 
 module.exports = Help;
