@@ -18,7 +18,7 @@ class UserID extends Command {
         message.channel.send(`${user.tag}'s user ID is: \`${user.id}\`.`)
             .catch((e) => {
                 this.client.logger.error(e.stack);
-                message.channel.send(`An error occurred:\n\`\`\`${e.message}\`\`\``);
+                return message.channel.send(`An error occurred:\n\`\`\`${e.message}\`\`\``);
             });
     }
 }

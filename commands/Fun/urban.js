@@ -41,7 +41,7 @@ class Urban extends Command {
                 message.channel.send({embed});
                 } catch (err) {
                     this.client.logger.error(err);
-                    message.channel.send(`An error occurred:\n${err.message}`);
+                    return message.channel.send(`An error occurred:\n${err.message}`);
                 }
             } else {
                 message.channel.send("No entry found.");

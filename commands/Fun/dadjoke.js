@@ -20,7 +20,7 @@ class DadJoke extends Command {
           msg.edit(text);
         } catch (error) {
           this.client.logger.error(error.stack);
-          message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+          return message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
         }
     }
 }

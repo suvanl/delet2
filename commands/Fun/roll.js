@@ -25,7 +25,7 @@ class Roll extends Command {
             const msg = await message.channel.send("Rolling... 🎲");
             msg.edit(`You rolled a ${roll}!`);
         } catch (error) {
-            message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+            return message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
         }
     }
 }

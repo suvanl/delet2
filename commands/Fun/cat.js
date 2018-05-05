@@ -23,7 +23,7 @@ class Cat extends Command {
             message.channel.send({files: [body.file] });
         } catch (error) {
             this.client.logger.error(error);
-            message.channel.send(`An error occurred:\n${error.message}`);
+            return message.channel.send(`An error occurred:\n${error.message}`);
         }
     }
 }
