@@ -41,29 +41,39 @@ class Help extends Command {
         }
         output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
       });
-      // Tries to send the output to the message author, and catches the error.
-      try {
+
+      let image;
+      if (message.guild.member(this.client.user).hasPermission("ATTACH_FILES")) {
+        image = "https://vgy.me/k6Qkv8.png";
+      } else {
+        image = null;
+      }
+
+      // Sends the output to the message author, and catches any errors that occur
         message.channel.send(`${message.author}, sending a list of commands available for your permission level to your DMs... 📝`);
-        message.author.send(output, {code:"asciidoc", split: { char: "\u200b" }});
+        message.author.send(output, {code:"asciidoc", split: { char: "\u200b" }}).catch(e => {
+          this.client.logger.error(e);
+          if (e.toString().startsWith("DiscordAPIError: Cannot send messages to this user")) {
+            return message.channel.send(`Oops, looks like the message didn't make it to your DMs, ${message.author}. Please ensure "**Allow direct messages from server members**" is on in your privacy settings for this server.`, {
+              file: image
+            });
+          }
+        });
         if (message.channel.type === "dm") {
           await this.client.wait(2000);
           message.author.send("Please note that due to the `help` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.");
         }
-      } catch (error) {
-        message.reply(`an error occurred whilst trying to DM you. Please make sure '**Allow direct messages from server members** is on in your privacy settings for this server.\n\n(${error.message})`, {
-          file: "https://vgy.me/kSTXwO.png"
-        });
-      }
-    } else {
-      // Shows help for individual commands.
-      let command = args[0];
-      if (this.client.commands.has(command)) {
-        command = this.client.commands.get(command);
-        if (level < this.client.levelCache[command.conf.permLevel]) return;
-        message.channel.send(`= ${command.help.name} = \n${command.help.description}\nusage   :: ${command.help.usage}\naliases :: ${command.conf.aliases.join(", ")}`, {code:"asciidoc"});
+      } else {
+        // Shows help for individual commands.
+        let command = args[0];
+        if (this.client.commands.has(command)) {
+          command = this.client.commands.get(command);
+          if (level < this.client.levelCache[command.conf.permLevel]) return;
+          message.channel.send(`= ${command.help.name} = \n${command.help.description}\nusage   :: ${command.help.usage}\naliases :: ${command.conf.aliases.join(", ")}`, {code:"asciidoc"});
+        }
       }
     }
   }
-}
+
 
 module.exports = Help;
