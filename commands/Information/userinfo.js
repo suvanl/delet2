@@ -18,7 +18,6 @@ class UserInfo extends Command {
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
       
         const user = message.mentions.users.first() || message.author;
-        const roleColor = message.guild.member(user).highestRole.color || 15527148;
 
         let status;
         if (user.presence.status.toProperCase() === "Dnd") {
@@ -42,7 +41,7 @@ class UserInfo extends Command {
         // }
 
         const embed = new Discord.RichEmbed()
-        .setColor(roleColor)
+        .setColor(message.guild.member(user).displayColor)
         .setThumbnail(user.displayAvatarURL)
         .setTitle(`User Information for ${user.tag}`)
         .setDescription(`**User ID**: ${user.id}`)
