@@ -17,9 +17,8 @@ class Quote extends Command {
     if (!id) return message.channel.send("You must provide a message ID.\nYou must have developer mode turned on to obtain a message ID (Settings → Appearance → Developer Mode).", { file: "https://vgy.me/cQbRf7.png "});
     message.channel.fetchMessage(id)
       .then(message => {
-        const roleColor = message.guild.member(message.author).highestRole.color || 15527148;
         const embed = new Discord.RichEmbed()
-          .setColor(roleColor)
+          .setColor(message.guild.member(message.author).displayColor)
           .setAuthor(message.author.tag, message.author.displayAvatarURL)
           .setDescription(message.content)
           .setFooter(`#${message.channel.name}`)

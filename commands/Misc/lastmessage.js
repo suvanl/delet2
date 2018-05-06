@@ -18,11 +18,9 @@ class LastMessage extends Command {
 
       const lastMsg = message.guild.member(member).lastMessage;
       if (!lastMsg) return message.channel.send("This user's last message could not be found, or they simply may not have sent any messages here.");
-      
-      const roleColor = message.guild.member(member).highestRole.color || 15527148;
-            
+                  
       const embed = new Discord.RichEmbed()
-        .setColor(roleColor)
+        .setColor(message.guild.member(member).displayColor)
         .setAuthor(member.user.tag, member.user.displayAvatarURL)
         .setDescription(`*${lastMsg}*`)
         .setFooter(`#${message.channel.name}`)
