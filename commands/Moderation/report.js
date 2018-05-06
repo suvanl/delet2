@@ -30,7 +30,7 @@ class Report extends Command {
         const embed = new Discord.RichEmbed()
         .setTitle(`🚩 Report received from ${message.author.tag} (${message.author.id})`)
         .setColor(3502732)
-        .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nReason: ${reason}\nChannel: ${message.channel.name}\`\`\``)
+        .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nReason: ${reason}\nChannel: #${message.channel.name}\`\`\``)
         .setFooter("Moderation system powered by delet™", this.client.user.displayAvatarURL)
         .setTimestamp();
 
