@@ -33,7 +33,7 @@ class Urban extends Command {
                     const embed = new Discord.RichEmbed()
                     .setColor(50687)
                     .setAuthor("Urban Dictionary", "https://vgy.me/ScvJzi.jpg")
-                    .setDescription(`Displaying Urban Dictionary definition for "**${args}**"\n<${result.permalink}>`)
+                    .setDescription(`Displaying Urban Dictionary definition for "**${args.join(" ")}**"\n<${result.permalink}>`)
                     .addField("» Definition", `${resultNum += 1} out of ${body.list.length}\n**${result.definition}**`)
                     .addField("» Example", `${result.example}`)
                     .setFooter(`Definition requested by ${message.author.tag}`, `${message.author.avatarURL}`);
