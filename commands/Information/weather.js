@@ -26,13 +26,29 @@ class Weather extends Command {
 
             const current = result[0].current;
             const location = result[0].location; // eslint-disable-line no-unused-vars
+            const ct = current.temperature;
+
+            let col;
+            
+            // TODO: unspaghetti and fix
+            if (ct <= 0) col = 13431807;
+            else if (ct < 0 && ct > 5) col = 12579071;
+            else if (ct < 5 && ct > 10) col = 11861906;
+            else if (ct < 10 && ct > 15) col = 9238900;
+            else if (ct < 15 && ct > 20) col = 15531898;
+            else if (ct < 20 && ct > 25) col = 16763258;
+            else if (ct < 25 && ct > 30) col = 16739910;
+            else if (ct < 30 && ct > 35) col = 16730914;
+            else if (ct < 35 && ct > 40) col = 16727074;
+            else if (ct >= 40) col = 12386304;
+            else col = 7654911;
 
             const embed = new Discord.RichEmbed()
-            .setColor(7654911)
+            .setColor(col)
             .setTitle(`Current weather information for ${current.observationpoint}`)
             .setDescription(`The weather is **${current.skytext.toLowerCase()}** at the moment.
 
-• Temperature: **${current.temperature}°C**
+• Temperature: **${ct}°C**
 • Feels like: **${current.feelslike}°C**
 • Humidity: **${current.humidity}%**
 • Wind: **${current.winddisplay.toLowerCase()}**
