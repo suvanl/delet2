@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 
 class Warn extends Command {
     constructor(client) {
@@ -41,7 +41,7 @@ class Warn extends Command {
 
       if (reason) {
         try {
-          const embed = new Discord.RichEmbed()
+          const embed = new RichEmbed()
           .setTitle(`⚠️ Warning issued in #${message.channel.name}`)
           .setColor(16381497)
           .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)

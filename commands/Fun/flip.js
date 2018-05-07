@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 
 class Flip extends Command {
   constructor(client) {
@@ -33,12 +33,12 @@ Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
     if (settings.currency.toUpperCase() === "GBP") {
 
     if (variable === "Heads") {
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
       .setThumbnail("https://vgy.me/yvnN22.png");
       message.channel.send({embed});
     } else {
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
       .setDescription(`This flip's result was **tails**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
       .setThumbnail("https://vgy.me/PfWWql.png");
       message.channel.send({embed});
@@ -48,12 +48,12 @@ Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
   // Euros [€] (EUR)
   if (settings.currency.toUpperCase() === "EUR") {
     if (variable === "Heads") {
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
       .setThumbnail("https://vgy.me/QgVomc.png");
       message.channel.send({embed});
     } else {
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
       .setDescription(`This flip's result was **tails**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
       .setThumbnail("https://vgy.me/g4ispA.png");
       message.channel.send({embed});
@@ -63,12 +63,12 @@ Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
   // US Dollars [$] (USD)
   if (settings.currency.toUpperCase() === "USD") {
     if (variable === "Heads") {
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
       .setThumbnail("https://vgy.me/e08J8X.png");
       message.channel.send({embed});
     } else {
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
       .setDescription(`This flip's result was **tails**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
       .setThumbnail("https://vgy.me/mYy2Fv.png");
       message.channel.send({embed});
@@ -78,12 +78,12 @@ Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
   // Norwegian Krone [kr] (NOK)
   if (settings.currency.toUpperCase() === "NOK") {
     if (variable === "Heads") {
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
       .setDescription(`This flip's result was **heads**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
       .setThumbnail("https://vgy.me/NbbKna.png");
       message.channel.send({embed});
     } else {
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
       .setDescription(`This flip's result was **tails**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
       .setThumbnail("https://vgy.me/VbieZr.png");
       message.channel.send({embed});

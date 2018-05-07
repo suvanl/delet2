@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 
 class LastMessage extends Command {
   constructor(client) {
@@ -19,7 +19,7 @@ class LastMessage extends Command {
       const lastMsg = message.guild.member(member).lastMessage;
       if (!lastMsg) return message.channel.send("This user's last message could not be found, or they simply may not have sent any messages here.");
                   
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
         .setColor(message.guild.member(member).displayColor)
         .setAuthor(member.user.tag, member.user.displayAvatarURL)
         .setDescription(`*${lastMsg}*`)

@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 const moment = require("moment");
 
 const verificationLevels = {
@@ -35,7 +35,7 @@ class ServerInfo extends Command {
 
         const createdTimestamp = moment.utc(message.guild.createdAt).format("YYYYMMDD");
 
-        const embed = new Discord.RichEmbed()
+        const embed = new RichEmbed()
         .setColor(randomColor)
         .setThumbnail(message.guild.iconURL)
         .setTitle(`Server Information for ${message.guild.name}`)

@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 
 class Report extends Command {
     constructor(client) {
@@ -27,7 +27,7 @@ class Report extends Command {
 
         message.delete();
 
-        const embed = new Discord.RichEmbed()
+        const embed = new RichEmbed()
         .setTitle(`🚩 Report received from ${message.author.tag} (${message.author.id})`)
         .setColor(message.guild.member(user).displayColor)
         .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nReason: ${reason}\nChannel: #${message.channel.name}\`\`\``)

@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 
 class PermMute extends Command {
   constructor(client) {
@@ -52,7 +52,7 @@ class PermMute extends Command {
       return message.channel.send(`An error occurred:\n\`\`\`${error}\`\`\``);
     }
 
-    const embed = new Discord.RichEmbed()
+    const embed = new RichEmbed()
     .setTitle(`🔇 Member muted in #${message.channel.name}`)
     .setColor(16758125)
     .setDescription(`\`\`\`fix\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nChannel ID: ${message.channel.id}\nLast message: ${lastMessage}\`\`\``)

@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 const request = require("request");
 
 class Urban extends Command {
@@ -30,7 +30,7 @@ class Urban extends Command {
             const result = body.list[resultNum];
             if (result) {
                 try {
-                    const embed = new Discord.RichEmbed()
+                    const embed = new RichEmbed()
                     .setColor(50687)
                     .setAuthor("Urban Dictionary", "https://vgy.me/ScvJzi.jpg")
                     .setDescription(`Displaying Urban Dictionary definition for "**${args.join(" ")}**"\n<${result.permalink}>`)

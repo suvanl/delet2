@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 const snekfetch = require("snekfetch");
 const h = new (require("html-entities").AllHtmlEntities)();
 
@@ -26,7 +26,7 @@ class Trivia extends Command {
           choices.splice(choices.indexOf(randomChoices[i]), 1);
       }
 
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
         .setColor(5360873)
         .setAuthor("Trivia", "https://vgy.me/9UDUk0.png")
         .setDescription(`

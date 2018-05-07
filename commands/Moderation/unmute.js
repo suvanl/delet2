@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 
 class Unmute extends Command {
   constructor(client) {
@@ -27,7 +27,7 @@ class Unmute extends Command {
 
     if (!message.guild.member(this.client.user).hasPermission("MANAGE_ROLES")) return message.channel.send("I do not have the required permission(s) to carry this out.");
 
-    const embed = new Discord.RichEmbed()
+    const embed = new RichEmbed()
     .setTitle("🔊 Member unmuted")
     .setColor(12451456)
     .setDescription(`\`\`\`fix\nUser: ${user.tag} (${user.id})\nUndone by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)

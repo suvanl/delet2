@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 
 class Ban extends Command {
     constructor(client) {
@@ -34,7 +34,7 @@ class Ban extends Command {
           return message.channel.send("An error occurred whilst trying to ban the mentioned user");
         }
 
-        const embed = new Discord.RichEmbed()
+        const embed = new RichEmbed()
         .setTitle(`🚫 Member banned from ${message.guild.name}`)
         .setColor(10944512)
         .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nLast message: ${lastMessage}\`\`\``)

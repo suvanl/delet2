@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 
 class Kick extends Command {
     constructor(client) {
@@ -35,7 +35,7 @@ class Kick extends Command {
         return message.channel.send("An error occurred whilst trying to kick the mentioned user.");
       }
 
-      const embed = new Discord.RichEmbed()
+      const embed = new RichEmbed()
       .setTitle(`👢 Member kicked in #${message.channel.name}`)
       .setColor(16733525)
       .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nLast message: ${lastMessage}\`\`\``)

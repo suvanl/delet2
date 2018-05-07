@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 
 class Avatar extends Command {
     constructor(client) {
@@ -15,13 +15,13 @@ class Avatar extends Command {
         const user = message.mentions.users.first();
 
         if (!user || !message.mentions.users.size) {
-            const embed = new Discord.RichEmbed()
+            const embed = new RichEmbed()
             .setTitle(`${message.author.tag}'s avatar`)
             .setImage(`${message.author.displayAvatarURL}`);
             return message.channel.send({embed});
         }
 
-        const embed = new Discord.RichEmbed()
+        const embed = new RichEmbed()
         .setTitle(`${user.tag}'s avatar`)
         .setImage(`${user.displayAvatarURL}`);
         message.channel.send({embed});

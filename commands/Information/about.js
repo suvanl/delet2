@@ -1,6 +1,6 @@
 const Command = require("../../base/Command.js");
 const { version } = require("../../package.json");
-const Discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
 const moment = require("moment");
 
 class About extends Command {
@@ -16,7 +16,7 @@ class About extends Command {
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
       try {
-        const embed = new Discord.RichEmbed()
+        const embed = new RichEmbed()
         .setTitle(`Hey ${message.author.username}, I'm delet!`)
         .setColor("#669F64")
         .setDescription("I'm a multipurpose Discord bot developed and maintained by the DS Development Group.")
