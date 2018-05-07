@@ -31,7 +31,7 @@ class Unmute extends Command {
     .setTitle("🔊 Member unmuted")
     .setColor(12451456)
     .setDescription(`\`\`\`fix\nUser: ${user.tag} (${user.id})\nUndone by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-    .setFooter("Moderation system powered by delet™", this.client.user.displayAvatarURL)
+    .setFooter("Moderation system powered by delet", this.client.user.displayAvatarURL)
     .setTimestamp();
 
     if (message.guild.member(user).roles.has(muteRole.id)) {

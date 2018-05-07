@@ -39,7 +39,7 @@ class ForceBan extends Command {
         .setTitle(`🚫 Member force-banned from ${message.guild.name}`)
         .setColor(13838185)
         .setDescription(`\`\`\`css\nTarget: ${userID}\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-        .setFooter("Moderation system powered by delet™", this.client.user.displayAvatarURL)
+        .setFooter("Moderation system powered by delet", this.client.user.displayAvatarURL)
         .setTimestamp();
 
         this.client.channels.get(modLog.id).send({embed});
