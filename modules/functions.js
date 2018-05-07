@@ -72,6 +72,14 @@ module.exports = (client) => {
     return this[Math.floor(Math.random() * this.length)];
   };
 
+  // <Number>.between() is a check to see if a number is in the specified range
+  // Usage example: Number.between(500, 600) 
+  Number.prototype.between = function(a, b) {
+    const min = Math.min.apply(Math, [a, b]),
+          max = Math.max.apply(Math, [a, b]);
+      return this > min && this < max;
+  };
+
   // `await client.wait(1000);` to "pause" for 1 second.
   client.wait = require("util").promisify(setTimeout);
 
