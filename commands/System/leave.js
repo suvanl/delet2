@@ -35,7 +35,7 @@ class Leave extends Command {
                 if (resp.content === "N" || resp.content === "n") {
                     return message.channel.send("Cool, looks like I won't be leaving. <:feelsgoodman:319952439602184232>");
                 } else if (resp.content === "Y" || resp.content === "y") {
-                    message.channel.send("Use this if you ever want to add me back!\n**<http://bit.ly/deletAdd>**");
+                    message.channel.send("Use this if you ever want to add me back!\n**<https://delet.js.org/go/invite>**");
                     try {
                         message.guild.leave()
                             .then(g => this.client.logger.info(`Left guild via command: ${g}`));
