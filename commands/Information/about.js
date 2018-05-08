@@ -1,5 +1,6 @@
 const Command = require("../../base/Command.js");
 const delet = require("../../package.json");
+const texts = require("../../util/globals.js");
 const { RichEmbed, version } = require("discord.js");
 const moment = require("moment");
 
@@ -34,8 +35,8 @@ class About extends Command {
 
         message.channel.send({embed});
       } catch (error) {
-        this.client.logger.error(error.stack);
-        message.channel.send(`An error occurred:\`\`\`${error.message}\`\`\``);
+        this.client.logger.error(error);
+        message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
       }
     }
 }
