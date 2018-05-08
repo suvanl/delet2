@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 
 class ClearNick extends Command {
   constructor(client) {
@@ -27,7 +28,7 @@ class ClearNick extends Command {
               return message.channel.send("I do not have permission to change this user's nickname.");
             } else {
               this.client.logger.error(error);
-              return message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+              return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
             }
         });
   }

@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 const { promisify } = require("util");
 const writeSnapshot = promisify(require("heapdump").writeSnapshot);
 
@@ -20,7 +21,7 @@ class HeapDump extends Command {
         message.channel.send(`Created new heap-dump @ \`${fileName}\`.`);
     } catch (e) {
         this.client.logger.error(e.stack);
-        return message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+        return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
     }
   }
 }

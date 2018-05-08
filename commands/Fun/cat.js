@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 const snekfetch = require("snekfetch");
 
 class Cat extends Command {
@@ -23,7 +24,7 @@ class Cat extends Command {
             message.channel.send({files: [body.file] });
         } catch (error) {
             this.client.logger.error(error);
-            return message.channel.send(`An error occurred:\n${error.message}`);
+            return message.channel.send(`${texts.error}${error.message}`);
         }
     }
 }

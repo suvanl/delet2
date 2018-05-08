@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 const { RichEmbed } = require("discord.js");
 const request = require("request");
 
@@ -41,7 +42,7 @@ class Urban extends Command {
                 message.channel.send({embed});
                 } catch (err) {
                     this.client.logger.error(err);
-                    return message.channel.send(`An error occurred:\n${err.message}`);
+                    return message.channel.send(`${texts.error}${err.message}`);
                 }
             } else {
                 message.channel.send("No entry found.");

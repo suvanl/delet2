@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 
 class Roll extends Command {
     constructor(client) {
@@ -25,7 +26,7 @@ class Roll extends Command {
             const msg = await message.channel.send("Rolling... 🎲");
             msg.edit(`You rolled a ${roll}!`);
         } catch (error) {
-            return message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+            return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
         }
     }
 }

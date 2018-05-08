@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 
 class Time extends Command {
     constructor(client) {
@@ -20,7 +21,7 @@ class Time extends Command {
             return message.channel.send(`The time in **${timeZone}** is currently **${time}**.`);
         } catch (err) {
             message.channel.send(`
-An error occurred:\n\`\`\`${err.message}\`\`\`
+${texts.error}\`\`\`${err.message}\`\`\`
 For a full list of timezones, refer to the "TZ" column here: **<https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List>**.
 
 • Please ensure you are using the correct format, e.g. \`${settings.prefix}time europe/london\`.

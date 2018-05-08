@@ -5,6 +5,7 @@
 // help command, its extended help is shown.
 
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 
 class Help extends Command {
   constructor(client) {
@@ -58,7 +59,7 @@ class Help extends Command {
             });
           } else {
             this.client.logger.error(e);
-            return message.channel.send(`An error occurred:\n\`\`\`${e.message}\`\`\``);
+            return message.channel.send(`${texts.error}\`\`\`${e.message}\`\`\``);
           }
         });
         

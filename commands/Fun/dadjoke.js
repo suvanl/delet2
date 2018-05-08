@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 const { get } = require("snekfetch");
 
 class DadJoke extends Command {
@@ -20,7 +21,7 @@ class DadJoke extends Command {
           msg.edit(text);
         } catch (error) {
           this.client.logger.error(error.stack);
-          return message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+          return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
         }
     }
 }

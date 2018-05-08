@@ -49,7 +49,7 @@ class PermMute extends Command {
       });
     } catch (error) {
       this.client.logger.error(error.stack);
-      return message.channel.send(`An error occurred:\n\`\`\`${error}\`\`\``);
+      return message.channel.send(`${texts.error}\`\`\`${error}\`\`\``);
     }
 
     const lastMessage = message.guild.member(user).lastMessageID;

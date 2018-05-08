@@ -4,6 +4,7 @@
 // executes the given command. It should only be used for debugging purposes.
 
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 const exec = require("child_process").exec;
 
 class Exec extends Command {
@@ -28,7 +29,7 @@ class Exec extends Command {
         });
     } catch (error) {
         this.client.logger.error(error.stack);
-        return message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+        return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
     }
   }
 }

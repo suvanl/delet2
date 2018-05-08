@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 
 class Bans extends Command {
     constructor(client) {
@@ -25,7 +26,7 @@ class Bans extends Command {
                 });
         } catch (error) {
             this.client.logger.error(error.stack);
-            return message.channel.send(`An error occurred:\n\`\`\`${error.message}\`\`\``);
+            return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
         }
     }
 }

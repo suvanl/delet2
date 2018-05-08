@@ -26,7 +26,7 @@ class Google extends Command {
             searchMessage.edit(`Result found!\n${googleData.q}`);
 
         }).catch((err) => {
-            searchMessage.edit(`No results found; an error occurred:\n\`\`\`${err}\`\`\``);
+            searchMessage.edit(`${texts.error}\`\`\`${err}\`\`\``);
         });
     }
 }
