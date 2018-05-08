@@ -25,7 +25,7 @@ class Quote extends Command {
           .setTimestamp();
         message.channel.send({embed});
       }).catch(error => {
-        this.client.logger.error(error.stack);
+        this.client.logger.error(error);
         message.channel.send(`An error occured:\n\`\`\`${error.message}\`\`\``);
       });
   }

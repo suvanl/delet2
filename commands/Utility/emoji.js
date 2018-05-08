@@ -33,7 +33,7 @@ class Emoji extends Command {
         message.guild.createEmoji(image, name)
           .then(emoji => message.channel.send(`Created new emoji: \`:${emoji.name}:\`.`))
           .catch(error => {
-            this.client.logger.error(error.stack);
+            this.client.logger.error(error);
             message.channel.send(`An error occurred: \`\`\`${error.message}\`\`\``);
           });
     }

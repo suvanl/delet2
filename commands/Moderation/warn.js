@@ -54,7 +54,7 @@ class Warn extends Command {
           user.send(`Hello,\nYou were warned in **${message.guild.name}** for the reason "**${reason}**".\nPlease make sure you always follow the rules, because, not doing so can lead to punishments. <:feelsbanman:405126279025917962>`);
           message.react("👌");
         } catch (error) {
-          this.client.logger.error(error.stack);
+          this.client.logger.error(error);
           return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
         }
       }

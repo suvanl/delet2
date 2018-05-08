@@ -25,7 +25,7 @@ class Bans extends Command {
                     message.channel.send(`This server has **${bans.size}** banned ${plurality}.`);
                 });
         } catch (error) {
-            this.client.logger.error(error.stack);
+            this.client.logger.error(error);
             return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
         }
     }
