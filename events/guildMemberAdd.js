@@ -9,7 +9,7 @@ module.exports = class {
   // Loads the guild's settings
     const settings = this.client.getSettings(member.guild.id);
   
-    // If welcome is off, don't proceed (don't welcome the user).
+    // If welcome is off, don't proceed (doesn't welcome the user).
     if (settings.welcomeEnabled.toLowerCase() !== "true") return;
 
     // Replaces the placeholders in the welcome message with actual data.
