@@ -15,11 +15,11 @@ class ClearNick extends Command {
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     const user = message.mentions.users.first();
-    const nick = message.guild.member(user).nickname;
     if (!user) return message.channel.send("You must provide a user to clear a nickname for.");
+    const nick = message.guild.member(user).nickname;
     if (!nick) return message.channel.send("The mentioned user does not currently have a nickname.");
-    if (!message.guild.member(this.client.user).hasPermission("MANAGE_NICKNAMES")) return message.channel.send("I cannot change any nicknames, as I do not have the \"Manage Nicknames\" permission.");
-    if (message.guild.member(user).highestRole.position >= message.guild.member(this.client.user).highestRole.position) return message.channel.send("I do not have permission to change this user's nickname.");
+    if (!message.guild.me.hasPermission("MANAGE_NICKNAMES")) return message.channel.send("I cannot change any nicknames, as I do not have the \"Manage Nicknames\" permission.");
+    if (message.guild.member(user).highestRole.position >= message.guild.me.highestRole.position) return message.channel.send("I do not have permission to change this user's nickname.");
 
     message.guild.member(user).setNickname("", "Clearing bad nickname")
         .catch(error => {

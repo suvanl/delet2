@@ -25,7 +25,7 @@ class Unmute extends Command {
 
     const muteRole = message.guild.roles.find("name", "Muted");
 
-    if (!message.guild.member(this.client.user).hasPermission("MANAGE_ROLES")) return message.channel.send("I do not have the required permission(s) to carry this out.");
+    if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("I do not have the required permission(s) to carry this out. Please ensure I have the \"Manage Roles\" permission.");
 
     const embed = new RichEmbed()
     .setTitle("🔊 Member unmuted")

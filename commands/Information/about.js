@@ -1,6 +1,6 @@
 const Command = require("../../base/Command.js");
-const { version } = require("../../package.json");
-const Discord = require("discord.js");
+const delet = require("../../package.json");
+const { RichEmbed, version } = require("discord.js");
 const moment = require("moment");
 
 class About extends Command {
@@ -16,14 +16,14 @@ class About extends Command {
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
       try {
-        const embed = new Discord.RichEmbed()
+        const embed = new RichEmbed()
         .setTitle(`Hey ${message.author.username}, I'm delet!`)
-        .setColor("#669F64")
+        .setColor(message.guild.me.displayColor)
         .setDescription("I'm a multipurpose Discord bot developed and maintained by the DS Development Group.")
-        .setFooter(`Made with Discord.js (v${Discord.version})`, "https://nodejs.org/static/images/logos/nodejs-new-pantone-white.png")
+        .setFooter(`Made with Discord.js (v${version})`, "https://vgy.me/ZlOMAx.png")
         .setThumbnail(this.client.user.displayAvatarURL)
         .setTimestamp()
-        .addField("Version", `${version}`, true)
+        .addField("Version", `${delet.version}`, true)
         .addField("Website", "https://delet.js.org", true)
         .addField("Users", `${this.client.users.size}`, true)
         .addField("Invite link", "[Click here](https://delet.js.org/go/invite)", true)

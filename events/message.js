@@ -15,7 +15,7 @@ module.exports = class {
 
     // Cancels any attempts to run commands in servers where the bot cannot
     // respond to the user, due to insufficient permissions.
-    if (!message.guild.member(this.client.user).hasPermission("SEND_MESSAGES")) return;
+    if (!message.guild.me.hasPermission("SEND_MESSAGES")) return;
 
     // Grabs the settings for this server from the PersistentCollection
     // If there is no guild, get default conf (for DMs).
@@ -26,7 +26,7 @@ module.exports = class {
     message.settings = settings;
 
     // Ticks point 10 in the list of best practices (https://github.com/meew0/discord-bot-best-practices).
-    // Useful for users who don't know delet's prefix, and are using delet for the first time ever.
+    // Useful for users who don't know delet's prefix, and are using delet for the first time.
     if (message.content.startsWith("<@314444116677099541> help" || "<@314444116677099541> helpme" || "<@314444116677099541> prefix")) {
       return message.channel.send(`Hey! Looking for help? Run \`${settings.prefix}help\` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix for this server.`);
     }

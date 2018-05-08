@@ -43,7 +43,7 @@ class Help extends Command {
       });
 
       let image;
-      if (message.guild.member(this.client.user).hasPermission("ATTACH_FILES")) {
+      if (message.guild.me.hasPermission("ATTACH_FILES")) {
         image = "https://vgy.me/k6Qkv8.png";
       } else {
         image = null;
