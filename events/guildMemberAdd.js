@@ -12,7 +12,7 @@ module.exports = class {
     // If welcome is off, don't proceed (doesn't welcome the user).
     if (settings.welcomeEnabled.toLowerCase() !== "true") return;
 
-    // Replaces the placeholders in the welcome message with actual data.
+    // Replaces the placeholder in the welcome message with actual data.
     const welcomeMessage = settings.welcomeMessage.replace("{{user}}", member.user.tag);
 
     // Sends the welcome message to the welcome channel.
