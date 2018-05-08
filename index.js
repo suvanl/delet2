@@ -142,8 +142,8 @@ class Delet extends Discord.Client {
 }
 
 // This is the client. Can sometimes be called `bot` or `self` too,
-// in other bots. Either way, `client.something`, or `bot.something`,
-// is used, this is what is being referred to - the client.
+// in other bots. Either way, whenever `client.X`, or `bot.X` is used
+// in any Discord.js bot, this is what is being referred to - the client.
 const client = new Delet({disableEveryone: true});
 console.log(client.config.permLevels.map(p => `${p.level} : ${p.name}`));
 
