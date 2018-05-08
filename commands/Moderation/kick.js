@@ -41,7 +41,7 @@ class Kick extends Command {
       .setTitle(`👢 Member kicked in #${message.channel.name}`)
       .setColor(16733525)
       .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nLast message: ${lastMessage}\`\`\``)
-      .setFooter("Moderation system powered by delet", this.client.user.displayAvatarURL)
+      .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
       .setTimestamp();
 
       this.client.channels.get(modLog.id).send({embed});

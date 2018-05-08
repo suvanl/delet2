@@ -32,7 +32,7 @@ class Report extends Command {
         .setTitle(`🚩 Report received from ${message.author.tag} (${message.author.id})`)
         .setColor(message.guild.member(user).displayColor)
         .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nReason: ${reason}\nChannel: #${message.channel.name}\`\`\``)
-        .setFooter("Moderation system powered by delet", this.client.user.displayAvatarURL)
+        .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
         .setTimestamp();
 
         try {

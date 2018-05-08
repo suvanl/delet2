@@ -41,7 +41,7 @@ class Ban extends Command {
         .setTitle(`🚫 Member banned from ${message.guild.name}`)
         .setColor(10944512)
         .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nLast message: ${lastMessage}\`\`\``)
-        .setFooter("Moderation system powered by delet", this.client.user.displayAvatarURL)
+        .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
         .setTimestamp();
 
         this.client.channels.get(modLog.id).send({embed});

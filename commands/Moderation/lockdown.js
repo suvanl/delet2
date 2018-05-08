@@ -45,7 +45,7 @@ class Lockdown extends Command {
                         .setTitle("🔒 Channel locked down")
                         .setColor(16753762)
                         .setDescription(`\`\`\`ruby\nChannel: #${message.channel.name} (${message.channel.id})\nDuration: ${ms(ms(time), { long: true })}\nIssued by: ${message.author.tag}\`\`\``)
-                        .setFooter("Moderation system powered by delet", this.client.user.displayAvatarURL)
+                        .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
                         .setTimestamp();
                     this.client.channels.get(modLog.id).send({embed}).then (() => {
                         this.client.lockit[message.channel.id] = setTimeout(() => {
