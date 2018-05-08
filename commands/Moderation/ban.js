@@ -22,7 +22,7 @@ class Ban extends Command {
         const user = message.mentions.users.first();
         const reason = args.slice(1).join(" ");
         const modLog = message.guild.channels.find("name", settings.modLogChannel);
-        if (!modLog) return message.channel.send(`${texts.modLogNotFound}`);
+        if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
         if (!user) return message.channel.send("You must mention a user to ban.");
         if (!reason) return message.channel.send("Please provide a reason for the punishment.");
         if (user === message.author) return message.channel.send("You cannot ban yourself.");

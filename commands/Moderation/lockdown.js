@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 const { RichEmbed } = require("discord.js");
 const ms = require("ms");
 
@@ -8,7 +9,7 @@ class Lockdown extends Command {
         name: "lockdown",
         description: "Locks a channel down for a set duration. Use \"lockdown release\" to end the lockdown prematurely.",
         category: "Moderation",
-        usage: "lockdown <duration> <s|m|h>",
+        usage: "lockdown <duration> <sec|min|hr>",
         guildOnly: true,
         aliases: ["ld"],
         permLevel: "Moderator"
@@ -20,7 +21,7 @@ class Lockdown extends Command {
 
         const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
         const modLog = message.guild.channels.find("name", settings.modLogChannel);
-        if (!modLog) return message.channel.send(`Modlog channel not found. If you're an admin (or owner) on this server, please use:\`\`\`${settings.prefix}set edit modLogChannel {{channel name}}\`\`\`\nFor example: \`${settings.prefix}set edit modLogChannel cool-channel-name\`.`);
+        if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
 
         if (!this.client.lockit) this.client.lockit = [];
         const time = args.join(" ");

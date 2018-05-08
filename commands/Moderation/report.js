@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const texts = require("../../util/globals.js");
 const { RichEmbed } = require("discord.js");
 
 class Report extends Command {
@@ -22,7 +23,7 @@ class Report extends Command {
         const user = message.mentions.users.first();
         const reason = args.slice(1).join(" ");
         const modLog = message.guild.channels.find("name", settings.modLogChannel);
-        if (!modLog) return message.channel.send(`Modlog channel not found. If you're an admin (or owner) on this server, please use:\`\`\`${settings.prefix}set edit modLogChannel {{channel name}}\`\`\`\nFor example: \`${settings.prefix}set edit modLogChannel cool-channel-name\`.`);
+        if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
         if (!user) return message.channel.send("You must mention a user to report.");
 
         message.delete();
