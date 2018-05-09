@@ -18,6 +18,7 @@ class Report extends Command {
     
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
+        if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send(`${texts.missingPerm.replace(/{{perm}}/g, "Embed Links")}`);
 
         const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
         const user = message.mentions.users.first();
@@ -29,11 +30,11 @@ class Report extends Command {
         message.delete();
 
         const embed = new RichEmbed()
-        .setTitle(`🚩 Report received from ${message.author.tag} (${message.author.id})`)
-        .setColor(message.guild.member(user).displayColor)
-        .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nReason: ${reason}\nChannel: #${message.channel.name}\`\`\``)
-        .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
-        .setTimestamp();
+          .setTitle(`🚩 Report received from ${message.author.tag} (${message.author.id})`)
+          .setColor(message.guild.member(user).displayColor)
+          .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nReason: ${reason}\nChannel: #${message.channel.name}\`\`\``)
+          .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+          .setTimestamp();
 
         try {
           this.client.channels.get(modLog.id).send({embed});
