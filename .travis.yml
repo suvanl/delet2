@@ -6,6 +6,10 @@ cache:
   directories:
     - "node_modules"
 
+addons:
+  apt:
+    update: true
+
 sudo: enabled
 
 # after_success:
