@@ -80,14 +80,12 @@ class EightBall extends Command {
               .setTitle("Magic 8 Ball 🎱")
               .setImage(randomOutcome)
               .setFooter(`Question asked by ${message.author.tag}`, message.author.displayAvatarURL);
-
             message.channel.send({embed});
           } else {
             const embed = new RichEmbed()
               .setTitle("Magic 8 Ball 🎱")
               .setDescription(`The 8 ball says:\n**${randomOutcome}**\n   ‍   `)
               .setFooter(`Question asked by ${message.author.tag}`, message.author.displayAvatarURL);
-
             message.channel.send({embed});
           }
         } catch (error) {
