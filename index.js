@@ -8,6 +8,8 @@ Licensed under the GPL-3.0 license.
 https://delet.js.org/
 */
 
+// MAIN ENTRY POINT
+
 // This will check if the Node.js version the system is running is the required
 // Node.js version (9.x.x) and if it isn't, it will throw the following error to say so.
 
