@@ -12,14 +12,8 @@ class Add extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        // try {
-        //     let numArray = args.map(n => parseInt(n));
-        //     let total = numArray.reduce( (p, c) => p+c);
-        //     message.channel.send(total);
-        // } catch (error) {
-        //     console.error(`Addition failed. ${error}`);
-        //     message.channel.send(`An error occured while executing this command.\n\`\`\`${error}\`\`\``);
-        // }
+        // const num = args[1];
+        // if (!num) return message.channel.send("You must provide some (integer) numbers to add.");
 
         const numArray = args.map(n => parseInt(n));
         const total = numArray.reduce((p, c) => p+c);
