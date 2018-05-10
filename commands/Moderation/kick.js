@@ -25,7 +25,7 @@ class Kick extends Command {
       if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
       if (!user) return message.channel.send("You must mention a user to kick.");
       if (!reason) {
-        message.channel.send("Please enter a reason for the punishment...\nThis text-entry period will time-out in 30 seconds.");
+        message.channel.send("Please enter a reason for the punishment...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.");
         await message.channel.awaitMessages(m => m.author.id === message.author.id, {
           "errors": ["time"],
           "max": 1,
@@ -33,6 +33,7 @@ class Kick extends Command {
         }).then(resp => {
           if (!resp) return message.channel.send("Timed out. The user has not been kicked.");
           resp = resp.array()[0];
+          if (resp.content.toLowerCase() === "cancel") return message.channel.send("Cancelled. The user has not been kicked.");
           reason = resp.content;
           if (resp) resp.react("✅");
         }).catch(error => { // eslint-disable-line no-unused-vars

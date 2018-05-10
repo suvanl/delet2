@@ -26,7 +26,7 @@ class Ban extends Command {
         if (!user) return message.channel.send("You must mention a user to ban.");
         if (user === message.author) return message.channel.send("You cannot ban yourself.");
         if (!reason) {
-          message.channel.send("Please enter a reason for the punishment...\nThis text-entry period will time-out in 30 seconds.");
+          message.channel.send("Please enter a reason for the punishment...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.");
           await message.channel.awaitMessages(m => m.author.id === message.author.id, {
             "errors": ["time"],
             "max": 1,
@@ -34,6 +34,7 @@ class Ban extends Command {
           }).then(resp => {
             if (!resp) return message.channel.send("Timed out. The user has not been banned.");
             resp = resp.array()[0];
+            if (resp.content.toLowerCase() === "cancel") return message.channel.send("Cancelled. The user has not been banned.");
             reason = resp.content;
             if (resp) resp.react("✅");
           }).catch(error => { // eslint-disable-line no-unused-vars
