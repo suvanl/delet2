@@ -2,6 +2,10 @@
 # http://www.appveyor.com/docs/appveyor-yml
 # Based on the ESLint AppVeyor configuration
 
+#---------------------------------#
+#      General Configuration      #
+#---------------------------------#
+
 # Build version format
 version: "{build}"
 
@@ -13,6 +17,10 @@ environment:
 branches:
   only:
     - master
+
+#---------------------------------#
+#           Installation          #
+#---------------------------------#
 
 install:
   # Get the latest stable version of Node.js
@@ -26,8 +34,16 @@ install:
 
 build: off
 
+#---------------------------------#
+#              Tests              #
+#---------------------------------#
+
 test_script:
   - npm test
+
+#---------------------------------#
+#            Post-build           #
+#---------------------------------#
 
 # on_success:
 #   - ps: Invoke-RestMethod https://raw.githubusercontent.com/DS-Development/delet/master/ci/appveyor/send.ps1 -o send.ps1
