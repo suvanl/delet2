@@ -19,6 +19,8 @@ install:
   - ps: Install-Product node $env:nodejs_version
   # Install node-gyp
   - npm install -g node-gyp
+  # Install latest version of npm
+  - npm i npm@latest -g
   # Install modules
   - npm install
 
