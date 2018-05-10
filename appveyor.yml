@@ -20,7 +20,7 @@ install:
   # Install node-gyp
   - npm install -g node-gyp
   # Install latest version of npm
-  - npm i npm@latest -g
+  - npm install npm@latest -g
   # Install modules
   - npm install
 
