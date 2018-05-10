@@ -12,13 +12,12 @@ module.exports = class {
     // Logs it
     this.client.logger.log(`New guild has been joined: ${guild.name} (${guild.id}) with ${guild.memberCount - 1} members`);
 
-    // Notify server owner
+    // Notifies server owner
     const guildOwner = guild.owner;
     guildOwner.send(`
 Hey! I'm delet, and I was invited to your server "**${guild.name}**" by someone with the Manage Server permission there. My prefix is **\`%\`**.
 To see how to get started, please go to **https://delet.js.org/#docs**.
 
-Hope to be of service to you and your server!
-`);
+Hope to be of service to you and your server!`);
   }
 };
