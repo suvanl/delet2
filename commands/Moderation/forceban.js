@@ -25,7 +25,7 @@ class ForceBan extends Command {
         if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
         if (!userID) return message.channel.send("You must provide a user ID to ban.");
         if (!reason) return message.channel.send("Please provide a reason for the punishment.");
-        if (userID === message.author.id) return message.channel.send("You cannot ban yourself.");
+        if (userID === message.author.id) return message.channel.send("You cannot ban yourself. <a:aThinking:444074885367595009>");
 
         if (!message.guild.member(userID).bannable) return message.reply("I cannot ban that user from this server!");
         try {

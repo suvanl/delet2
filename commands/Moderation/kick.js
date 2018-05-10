@@ -24,6 +24,7 @@ class Kick extends Command {
       const modLog = message.guild.channels.find("name", settings.modLogChannel);
       if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
       if (!user) return message.channel.send("You must mention a user to kick.");
+      if (user === message.author) return message.channel.send("You cannot kick yourself. <a:aThinking:444074885367595009>");
       if (!reason) {
         message.channel.send("Please enter a reason for the punishment...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.");
         await message.channel.awaitMessages(m => m.author.id === message.author.id, {
