@@ -2,3 +2,5 @@ exports.modLogNotFound = "Modlog channel not found. If you're an admin (or owner
 exports.poweredBy = "Moderation system powered by delet";
 exports.error = "An error occurred:\n";
 exports.missingPerm = "I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"{{perm}}\" permission.";
+exports.missingPerms = "I cannot run this command as I have insufficient permissions to do so. Please ensure I have the {{perms}} permissions.";
+
