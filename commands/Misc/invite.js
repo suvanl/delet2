@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const { botPerms } = require("../../util/globals.js");
 
 class Invite extends Command {
     constructor(client) {
@@ -11,27 +12,7 @@ class Invite extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        this.client.generateInvite([
-            "MANAGE_ROLES", 
-            "KICK_MEMBERS", 
-            "MANAGE_CHANNELS", 
-            "BAN_MEMBERS", 
-            "VIEW_AUDIT_LOG", 
-            "VIEW_CHANNEL", 
-            "SEND_TTS_MESSAGES", 
-            "EMBED_LINKS", 
-            "READ_MESSAGE_HISTORY", 
-            "USE_EXTERNAL_EMOJIS", 
-            "MANAGE_EMOJIS",
-            "SEND_MESSAGES", 
-            "MANAGE_MESSAGES",
-            "MANAGE_NICKNAMES", 
-            "ATTACH_FILES", 
-            "ADD_REACTIONS", 
-            "CONNECT", 
-            "SPEAK", 
-            "USE_VAD"
-        ]).then(link => {
+        this.client.generateInvite(botPerms).then(link => {
             message.channel.send("Generating...")
             .then(msg => {
                 msg.edit(`Generated invite link for delet:\n**<${link}>**`);
