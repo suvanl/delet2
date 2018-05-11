@@ -17,7 +17,7 @@ class Weather extends Command {
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
 
-        weather.find({search: args.join(" "), degreeType: "C"}, function(err, result) {
+        weather.find({ search: args.join(" "), degreeType: "C" }, function(err, result) {
             if (err === "missing search input") return message.channel.send(`You must provide a place to look up weather information for.\nTo see how to use this command, use \`${settings.prefix}help weather\`.`); 
             if (err) return message.channel.send(`${texts.error}\`\`\`${err}\`\`\`\nTo see how to use this command, use \`${settings.prefix}help weather\`.`);
 
