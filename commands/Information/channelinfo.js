@@ -27,7 +27,7 @@ class ChannelInfo extends Command {
             .setTitle(`Channel Information for #${chan.name}`)
             .addField("Created", chan.createdAt, true)
             .addField("Age", moment(createdTimestamp, "YYYYMMDD").fromNow().slice(0, -4), true)
-            .addField("Type", chan.type.toProperCase())
+            .addField("Type", chan.type.toProperCase(), true)
             .setFooter(`Channel ID: ${chan.id}`)
             .setTimestamp();
 
