@@ -7,7 +7,7 @@ module.exports = (client) => {
 
   // USAGE
 
-  // const response = await client.awaitReply(msg, "Favourite Colour?");
+  // const response = await client.awaitReply(msg, "Favourite colour?");
   // msg.reply(`Oh, I really love ${response} too!`);
 
   client.awaitReply = async (msg, question, limit = 60000) => {
