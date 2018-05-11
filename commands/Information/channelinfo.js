@@ -20,9 +20,12 @@ class ChannelInfo extends Command {
         else chan = this.client.channels.get(args[0]);
 
         const createdTimestamp = moment.utc(chan.createdAt).format("YYYYMMDD");
+        const randomColor = "#0000".replace(/0/g, function() {
+            return (~~(Math.random() * 16)).toString(16);
+        });
 
         const embed = new RichEmbed()
-            .setColor(7506394)
+            .setColor(randomColor)
             .setThumbnail("https://vgy.me/9fSC7k.png")
             .setTitle(`Channel Information for #${chan.name}`)
             .addField("Created", chan.createdAt, true)
