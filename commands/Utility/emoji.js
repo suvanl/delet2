@@ -7,7 +7,8 @@ class Emoji extends Command {
         description: "Creates a new emoji.",
         category: "Utility",
         usage: "emoji [image link] [emoji name]",
-        aliases: ["createemoji", "create-emoji"]
+        aliases: ["createemoji", "create-emoji"],
+        guildOnly: true
       });
     }
 
