@@ -11,8 +11,7 @@ class Tutorial extends Command {
       name: "tutorial",
       description: "Directs the user towards the docs.",
       usage: "tutorial",
-      aliases: ["guide"],
-      guildOnly: true
+      aliases: ["guide"]
     });
   }
 
