@@ -16,10 +16,18 @@ class About extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
+      let displayColor;
+      if (message.channel.type === "text") displayColor = message.guild.me.displayColor;
+      else if (message.channel.type === "dm" || message.channel.type === "group") {
+        displayColor = "#0000".replace(/0/g, function() {
+          return (~~(Math.random() * 16)).toString(16);
+        });
+      }
+      
       try {
         const embed = new RichEmbed()
         .setTitle(`Hey ${message.author.username}, I'm delet!`)
-        .setColor(message.guild.me.displayColor)
+        .setColor(displayColor)
         .setDescription("I'm a multipurpose Discord bot developed and maintained by the DS Development Group.")
         .setFooter(`Made with Discord.js (v${version})`, "https://vgy.me/ZlOMAx.png")
         .setThumbnail(this.client.user.displayAvatarURL)
