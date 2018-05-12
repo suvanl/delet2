@@ -7,8 +7,7 @@ class ChannelID extends Command {
         description: "Returns the ID of the current channel.",
         category: "Information",
         usage: "channelid",
-        aliases: ["channel-id", "cid"],
-        guildOnly: true
+        aliases: ["channel-id", "cid"]
       });
     }
 
