@@ -69,7 +69,8 @@
     "canvas": "^1.6.10",
     "canvas-constructor": "^0.3.0",
     "node-opus": "^0.2.7",
-    "ytdl-core": "^0.20.2"
+    "ytdl-core": "^0.20.2",
+    "cleverbot.io": "^1.0.4"
   },
   "devDependencies": {
     "eslint": "^4.19.1"
