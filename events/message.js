@@ -27,7 +27,7 @@ module.exports = class {
 
     // Ticks point 10 in the list of best practices (https://github.com/meew0/discord-bot-best-practices).
     // Useful for users who don't know delet's prefix, and are using delet for the first time.
-    if (message.content.startsWith("<@314444116677099541> help" || "<@314444116677099541> helpme" || "<@314444116677099541> prefix")) {
+    if (message.content.startsWith(`<@${this.client.user.id}> help` || `<@${this.client.user.id}> helpme` || `<@${this.client.user.id}> prefix`)) {
       return message.channel.send(`Hey! Looking for help? Run \`${settings.prefix}help\` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix for this server.`);
     }
 
