@@ -7,7 +7,7 @@ class Shutdown extends Command {
       description: "Shuts down delet.",
       category: "System",
       usage: "shutdown",
-      aliases: ["kill", "endprocess"],
+      aliases: ["kill", "endprocess", "shut-down"],
       permLevel: "Bot Owner"
     });
   }
