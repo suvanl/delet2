@@ -19,6 +19,11 @@ class ChannelInfo extends Command {
         if (!args[0]) chan = message.channel;
         else chan = this.client.channels.get(args[0]);
 
+        let topic;
+        if (chan.topic.length > 2048) topic = "[Too long to display]";
+        else topic = chan.topic;
+
+        const parent = chan.parent || "None";
         const createdTimestamp = moment.utc(chan.createdAt).format("YYYYMMDD");
         const randomColor = "#0000".replace(/0/g, function() {
             return (~~(Math.random() * 16)).toString(16);
@@ -31,7 +36,12 @@ class ChannelInfo extends Command {
             .addField("Created", chan.createdAt, true)
             .addField("Age", moment(createdTimestamp, "YYYYMMDD").fromNow().slice(0, -4), true)
             .addField("Type", chan.type.toProperCase(), true)
-            .setFooter(`Channel ID: ${chan.id}`)
+            .addField("Position", chan.calculatedPosition, true)
+            .addField("Parent", parent, true)
+            .addField("NSFW", chan.nsfw.toString().toProperCase(), true)
+            .addField("Deletable", chan.deletable.toString().toProperCase(), true)
+            .addField("Topic", topic, true)
+            .setFooter(`Channel ID: ${chan.id}`, "https://vgy.me/167efD.png")
             .setTimestamp();
 
         message.channel.send({embed});
