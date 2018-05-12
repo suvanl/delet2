@@ -7,7 +7,8 @@ class Resume extends Command {
         description: "Resumes the music if currently paused.",
         category: "Music",
         usage: "resume",
-        aliases: [""]
+        aliases: [""],
+        guildOnly: true
       });
     }
 

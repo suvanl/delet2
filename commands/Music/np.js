@@ -7,7 +7,8 @@ class NP extends Command {
         description: "Returns the title of the song that's currently playing.",
         category: "Music",
         usage: "np",
-        aliases: [""]
+        aliases: [""],
+        guildOnly: true
       });
     }
 
