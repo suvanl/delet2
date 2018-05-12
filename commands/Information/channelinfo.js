@@ -20,7 +20,7 @@ class ChannelInfo extends Command {
         else chan = this.client.channels.get(args[0]);
 
         let topic;
-        if (chan.topic.length > 2048) topic = "[Too long to display]";
+        if (chan.topic.length > 2048) topic = "[Too long to display!]";
         else topic = chan.topic;
 
         const parent = chan.parent || "None";
