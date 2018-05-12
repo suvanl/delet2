@@ -26,12 +26,10 @@ class About extends Command {
       
       try {
         const embed = new RichEmbed()
-        .setTitle(`Hey ${message.author.username}, I'm delet!`)
         .setColor(displayColor)
-        .setDescription("I'm a multipurpose Discord bot developed and maintained by the DS Development Group.")
-        .setFooter(`Made with Discord.js (v${version})`, "https://vgy.me/ZlOMAx.png")
         .setThumbnail(this.client.user.displayAvatarURL)
-        .setTimestamp()
+        .setTitle(`Hey ${message.author.username}, I'm delet!`)
+        .setDescription("I'm a multipurpose Discord bot developed and maintained by the DS Development Group.")
         .addField("Version", `${delet.version}`, true)
         .addField("Website", "https://delet.js.org", true)
         .addField("Users", `${this.client.users.size}`, true)
@@ -39,7 +37,9 @@ class About extends Command {
         .addField("Uptime", `${moment.utc(this.client.uptime).format("DD")-1} day(s), ${moment.utc(this.client.uptime).format("HH:mm:ss")}`, true)
         .addField("GitHub", "[Click here](https://github.com/DS-Development/delet)", true)
         .addField("Node.js version", `${process.version}`, true)
-        .addField("Memory usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
+        .addField("Memory usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
+        .setFooter(`Made with Discord.js (v${version})`, "https://vgy.me/ZlOMAx.png")
+        .setTimestamp();
 
         message.channel.send({embed});
       } catch (error) {
