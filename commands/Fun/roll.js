@@ -22,7 +22,7 @@ class Roll extends Command {
             ":six:"
         ];
         try {
-            const roll = numbers.random(sdf);
+            const roll = numbers.random();
             const msg = await message.channel.send("Rolling... 🎲");
             msg.edit(`You rolled a ${roll}!`);
         } catch (error) {
