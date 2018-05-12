@@ -15,7 +15,7 @@ module.exports = class {
 
     // Cancels any attempts to run commands in servers where the bot cannot
     // respond to the user, due to insufficient permissions.
-    if (!message.guild.me.hasPermission("SEND_MESSAGES")) return;
+    if (message.channel.type === "text" && !message.guild.me.hasPermission("SEND_MESSAGES")) return;
 
     // Grabs the settings for this server from the PersistentCollection
     // If there is no guild, get default conf (for DMs).
