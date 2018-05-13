@@ -31,22 +31,21 @@ class Weather extends Command {
 
             let col;
             
-            // TODO: unspaghetti and fix
             if (ct <= 0) col = 13431807;
-            else if (ct < 0 && ct > 5) col = 12579071;
-            else if (ct < 5 && ct > 10) col = 11861906;
-            else if (ct < 10 && ct > 15) col = 9238900;
-            else if (ct < 15 && ct > 20) col = 15531898;
-            else if (ct < 20 && ct > 25) col = 16763258;
-            else if (ct < 25 && ct > 30) col = 16739910;
-            else if (ct < 30 && ct > 35) col = 16730914;
-            else if (ct < 35 && ct > 40) col = 16727074;
+            else if (ct < 0 && ct >= 5) col = 12579071;
+            else if (ct >= 6 && ct <= 10) col = 11861906;
+            else if (ct >= 11 && ct <= 15) col = 9238900;
+            else if (ct >= 16 && ct <= 20) col = 15531898;
+            else if (ct >= 21 && ct <= 25) col = 16763258;
+            else if (ct >= 26 && ct <= 30) col = 16739910;
+            else if (ct >= 31 && ct <= 35) col = 16730914;
+            else if (ct >= 36 && ct <= 40) col = 16727074;
             else if (ct >= 40) col = 12386304;
-            else col = 7654911;
+            else col = 7654911; // fallback
 
             const embed = new RichEmbed()
             .setColor(col)
-            .setTitle(`Current weather information for ${current.observationpoint}`)
+            .setTitle(`Weather information for ${current.observationpoint}`)
             .setDescription(`The weather is **${current.skytext.toLowerCase()}** at the moment.
 
 • Temperature: **${ct}°C**
