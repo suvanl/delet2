@@ -17,13 +17,15 @@ class Avatar extends Command {
         if (!user || !message.mentions.users.size) {
             const embed = new RichEmbed()
             .setTitle(`${message.author.tag}'s avatar`)
-            .setImage(`${message.author.displayAvatarURL}`);
-            return message.channel.send({embed});
+            .setImage(message.author.displayAvatarURL);
+        
+        return message.channel.send({embed});
         }
 
         const embed = new RichEmbed()
-        .setTitle(`${user.tag}'s avatar`)
-        .setImage(`${user.displayAvatarURL}`);
+            .setTitle(`${user.tag}'s avatar`)
+            .setImage(user.displayAvatarURL);
+            
         message.channel.send({embed});
     }
 }
