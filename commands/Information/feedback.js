@@ -20,8 +20,7 @@ class Feedback extends Command {
 Want to suggest something, or give feedback? Encountering any bugs/issues?
 
 **Suggestions & feedback**: ${suggest}.
-**Bugs/issues**: ${issues}.
-`);
+**Bugs/issues**: ${issues}.`);
     }
 }
 
