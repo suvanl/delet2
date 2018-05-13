@@ -4,7 +4,7 @@ class Divide extends Command {
     constructor(client) {
       super(client, {
         name: "divide",
-        description: "Divides numbers together.",
+        description: "Divides integer numbers.",
         category: "Maths",
         usage: "divide x y z (and so on)",
         aliases: ["div"]
@@ -13,7 +13,10 @@ class Divide extends Command {
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         const numArray = args.map(n => parseInt(n));
-        const total = numArray.reduce( (p, c) => p/c);
+        if (!args[1] || numArray.length < 2) return message.channel.send("You must provide at least 2 integer numbers to divide.");
+
+        const total = numArray.reduce((p, c) => p/c);
+
         message.channel.send(total);
     }
 }
