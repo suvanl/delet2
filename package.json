@@ -1,6 +1,6 @@
 {
   "name": "delet",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "An in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library",
   "main": "index.js",
   "scripts": {
