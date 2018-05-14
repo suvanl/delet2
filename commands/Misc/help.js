@@ -12,7 +12,6 @@ class Help extends Command {
     super(client, {
       name: "help",
       description: "Displays all the available commands for you.",
-      category: "System",
       usage: "help [command]",
       aliases: ["h", "halp"]
     });
