@@ -26,8 +26,8 @@ class Help extends Command {
       // Filters all commands by which are available for the user's level, using the <Collection>.filter() method.
       const myCommands = message.guild ? this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level) : this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level &&  cmd.conf.guildOnly !== true);
       
-      // Here, we have to get the command names only, and we use that array to get the longest name.
-      // This makes the help commands "aligned" in the output.
+      // Gets command names only, and uses that array to get the longest name.
+      // This allows the output to be nicely aligned.
       const commandNames = myCommands.keyArray();
       const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
       let currentCategory = "";
