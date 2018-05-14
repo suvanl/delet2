@@ -51,7 +51,7 @@ class Weather extends Command {
 • Temperature: **${ct}°C**
 • Feels like: **${current.feelslike}°C**
 • Humidity: **${current.humidity}%**
-• Wind: **${current.winddisplay.toLowerCase()}**
+• Wind: **${current.winddisplay.toLowerCase()}** (${current.winddisplay.toLowerCase().replace(/[^0-9]/g,"") * 0.621371} mph)
             `)
             .setThumbnail(current.imageUrl)
             .setFooter(`Correct as of ${current.observationtime} local time`)
