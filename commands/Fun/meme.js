@@ -15,7 +15,7 @@ class Meme extends Command {
     async run(message, args, level) { // eslint-disable-line no-unused-vars
       meme("me_irl", function(data, err) {
         if (err) return this.client.logger.error(err);
-        message.channel.send(data.url);
+        message.channel.send(data.url[0]);
       });
     }
 }
