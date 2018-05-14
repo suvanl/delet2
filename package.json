@@ -27,6 +27,7 @@
   "homepage": "https://delet.js.org",
   "dependencies": {
     "@google/maps": "^0.4.6",
+    "array-sort": "^1.0.0",
     "bbcode-to-markdown": "^1.0.1",
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
@@ -62,6 +63,7 @@
     "simple-youtube-api": "^5.0.1",
     "snekfetch": "^4.0.0",
     "strict-uri-encode": "^2.0.0",
+    "table": "^4.0.3",
     "weather-js": "^2.0.0"
   },
   "optionalDependencies": {
