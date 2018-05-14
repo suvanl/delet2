@@ -68,7 +68,6 @@ class Delet extends Discord.Client {
     return permlvl;
   }
 
-  
   // COMMAND LOAD AND UNLOAD
   // To simplify the loading and unloading of commands from multiple locations
   // including the index.js load loop, and the reload function, these 2 ensure
@@ -126,8 +125,8 @@ class Delet extends Discord.Client {
     return returnObject;
   }
 
-  // writeSettings overrides, or adds, any configuration item that is different
-  // than the defaults. This ensures less storage wasted and to detect overrides.
+  // writeSettings overrides or adds any configuration item that is different
+  // to the defaults. This ensures less storage wasted and to detect overrides.
   writeSettings(id, newSettings) {
     const defaults = client.settings.get("default");
     let settings = client.settings.get(id);
