@@ -4,6 +4,8 @@ const ytdl = require("ytdl-core");
 
 const client = new Client({ disableEveryone: true });
 
+const queue = new Map();
+
 client.on("warn", console.warn);
 
 client.on("error", console.error);
@@ -18,6 +20,7 @@ client.on("message", async message => {
     if (message.author.bot) return;
     if (!message.content.startsWith(PREFIX)) return;
     const args = message.content.split(" ");
+    const serverQueue = queue.get(message.guild.id);
 
     if (message.content.startsWith(`${PREFIX}play`)) {
         const voiceChannel = message.member.voiceChannel;
@@ -26,6 +29,17 @@ client.on("message", async message => {
         const permissions = voiceChannel.permissionsFor(message.client.user);
         if (!permissions.has("CONNECT")) return message.channel.send("I cannot connect to your voice channel, due to insufficient permissions.");
         if (!permissions.has("SPEAK")) return message.channel.send("I cannot play any music, as I do not have the \"Speak\" permission.");
+
+        if (!serverQueue) {
+            const queueConstruct = {
+                textChannel: message.channel,
+                voiceChannel: voiceChannel,
+                connection: null,
+                songs: [],
+                volume: 5,
+                playing: true
+            };
+        }
 
         try {
             const connection = await voiceChannel.join(); // eslint-disable-line no-unused-vars
