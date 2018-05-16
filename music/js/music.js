@@ -23,7 +23,7 @@ client.on("message", async message => {
     const args = message.content.split(" ");
     const serverQueue = queue.get(message.guild.id);
 
-    // PLAY command
+    // PLAY COMMAND
     if (message.content.startsWith(`${PREFIX}play`)) {
         const voiceChannel = message.member.voiceChannel;
         if (!voiceChannel) return message.channel.send("You must be in a voice channel to be able to play music.");
@@ -105,12 +105,30 @@ client.on("message", async message => {
 
         **Now playing**: ${serverQueue.songs[0].title}
         `);
+
+        // PAUSE COMMAND
     } else if (message.content.startsWith(`${PREFIX}pause`)) {
         if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
-        if (!serverQueue && !serverQueue.playing) return message.channel.send("There is nothing currently playing.");
-        serverQueue.playing = false;
-        serverQueue.connection.dispatcher.pause();
-        return message.channel.send("Paused.");
+        if (serverQueue && serverQueue.playing) {
+            if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
+            if (!serverQueue && !serverQueue.playing) return message.channel.send("There is nothing currently playing.");
+            serverQueue.playing = false;
+            serverQueue.connection.dispatcher.pause();
+            return message.channel.send("Paused.");
+        }
+        return message.channel.send("There is nothing currently playing.");
+
+        // RESUME COMMAND
+    } else if (message.content.startsWith(`${PREFIX}resume`)) {
+        if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
+        if (serverQueue && !serverQueue.playing) {
+            if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
+            if (!serverQueue && !serverQueue.playing) return message.channel.send("There is nothing currently playing.");
+            serverQueue.playing = true;
+            serverQueue.connection.dispatcher.resume();
+            return message.channel.send("Resuming...");
+        }
+        return message.channel.send("There is nothing currently playing.");
     }
 
     return;
