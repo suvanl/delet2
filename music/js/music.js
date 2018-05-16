@@ -71,14 +71,14 @@ client.on("message", async message => {
     } else if (message.content.startsWith(`${PREFIX}skip`)) {
         if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
         if (!serverQueue) return message.channel.send("There is nothing currently playing that can be skipped.");
-        serverQueue.connection.dispatcher.end();
+        serverQueue.connection.dispatcher.end("Skip command used");
 
         // STOP COMMAND
     } else if (message.content.startsWith(`${PREFIX}stop`)) {
         if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
         if (!serverQueue) return message.channel.send("There is nothing currently playing that can be stopped.");
         serverQueue.songs = [];
-        serverQueue.connection.dispatcher.end();
+        serverQueue.connection.dispatcher.end("Stop command used");
         return message.channel.send("Music stopped.");
         
         // VOLUME COMMAND
@@ -144,7 +144,9 @@ function play(guild, song) {
     console.log(serverQueue.songs);
 
     const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
-        .on("end", () => {
+        .on("end", reason => {
+            if (reason === "Stream is not generating quickly enough.") console.log("Song ended");
+            else console.log(reason);
             console.log("Song ended");
             serverQueue.songs.shift();
             play(guild, serverQueue.songs[0]);
