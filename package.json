@@ -11,13 +11,6 @@
   "engines": {
     "node": ">=9"
   },
-  "nodemonConfig": {
-    "ignore": [
-      "music/*.js",
-      "README",
-      "*.example"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DS-Development/delet.git"
