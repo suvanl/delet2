@@ -39,6 +39,7 @@
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
     "cheerio": "^1.0.0-rc.2",
+    "common-tags": "^1.7.2",
     "discord.js": "^11.3.2",
     "ejs": "^2.5.7",
     "enmap": "^0.4.2",
