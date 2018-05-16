@@ -80,6 +80,11 @@ client.on("message", async message => {
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end();
         return message.channel.send("Music stopped.");
+    } else if (message.content.startsWith(`${PREFIX}volume`) || message.content.startsWith(`${PREFIX}vol`)) {
+        if (!serverQueue) return message.channel.send("There is nothing currently playing.");
+        if (!args[1]) return message.channel.send(`Current volume: ${serverQueue.volume}`);
+        serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
+        return message.channel.send(`Volume set to ${args[1]}`);
     } else if (message.content.startsWith(`${PREFIX}np`) || message.content.startsWith(`${PREFIX}song`)) {
         if (!serverQueue) return message.channel.send("There is nothing currently playing.");
         return message.channel.send(`Now playing: **${serverQueue.songs[0].title}**`);
