@@ -57,7 +57,7 @@ client.on("message", async message => {
             } catch (error) {
                 console.error(`Couldn't join voice channel: ${error}`);
                 queue.delete(msg.guild.id);
-                return message.channel.send(`I couldn't join your voice channel:\n${error.message}`);
+                return message.channel.send(`I couldn't join your voice channel:\n\`\`\`${error.message}\`\`\``);
             }
         } else {
             serverQueue.songs.push(song);
@@ -80,7 +80,11 @@ client.on("message", async message => {
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end();
         return message.channel.send("Music stopped.");
+    } else if (message.content.startsWith(`${PREFIX}np`) || message.content.startsWith(`${PREFIX}song`)) {
+        if (!serverQueue) return message.channel.send("There is nothing currently playing.");
+        return message.channel.send(`Now playing: **${serverQueue.songs[0].title}**`);
     }
+
     return;
 });
 
@@ -91,6 +95,8 @@ function play(guild, song) {
         queue.delete(guild.id);
         return;
     }
+    console.log(serverQueue.songs);
+
     const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
         .on("end", () => {
             console.log("Song ended");
@@ -99,6 +105,8 @@ function play(guild, song) {
         })
         .on("error", error => console.error(error));
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+
+    serverQueue.textChannel.send(`Started playing **${song.title}**.`);
 }
 
 client.login(TOKEN);
