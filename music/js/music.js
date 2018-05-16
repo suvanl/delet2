@@ -34,7 +34,7 @@ client.on("message", async message => {
 
         const songInfo = await ytdl.getInfo(args[1]);
         const song = {
-            title: songInfo.title,
+            title: Util.escapeMarkdown(songInfo.title),
             url: songInfo.video_url
         };
 
@@ -105,6 +105,12 @@ client.on("message", async message => {
 
         **Now playing**: ${serverQueue.songs[0].title}
         `);
+    } else if (message.content.startsWith(`${PREFIX}pause`)) {
+        if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
+        if (!serverQueue && !serverQueue.playing) return message.channel.send("There is nothing currently playing.");
+        serverQueue.playing = false;
+        serverQueue.connection.dispatcher.pause();
+        return message.channel.send("Paused.");
     }
 
     return;
