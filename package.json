@@ -11,9 +11,6 @@
   "engines": {
     "node": ">=9"
   },
-  "nodemonConfig": {
-    "ignore": ["music/*.js", "README", "*.example"]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DS-Development/delet.git"
@@ -35,6 +32,7 @@
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
     "cheerio": "^1.0.0-rc.2",
+    "common-tags": "^1.7.2",
     "discord.js": "^11.3.2",
     "ejs": "^2.5.7",
     "enmap": "^0.4.2",
@@ -63,7 +61,7 @@
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "sequelize": "^4.34.1",
-    "simple-youtube-api": "^5.0.1",
+    "simple-youtube-api": "^5.0.2",
     "snekfetch": "^4.0.0",
     "strict-uri-encode": "^2.0.0",
     "table": "^4.0.3",
@@ -72,9 +70,9 @@
   "optionalDependencies": {
     "canvas": "^1.6.10",
     "canvas-constructor": "^0.3.0",
-    "node-opus": "^0.2.7",
-    "ytdl-core": "^0.20.2",
-    "cleverbot.io": "^1.0.4"
+    "cleverbot.io": "^1.0.4",
+    "node-opus": "^0.2.9",
+    "ytdl-core": "^0.20.4"
   },
   "devDependencies": {
     "eslint": "^4.19.1"
