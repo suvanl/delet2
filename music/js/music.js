@@ -1,5 +1,6 @@
-const { Client } = require("discord.js");
+const { Client, Util } = require("discord.js");
 const { TOKEN, PREFIX } = require("./config");
+const { stripIndents } = require("common-tags");
 const ytdl = require("ytdl-core");
 
 const client = new Client({ disableEveryone: true });
@@ -71,7 +72,6 @@ client.on("message", async message => {
         if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
         if (!serverQueue) return message.channel.send("There is nothing currently playing that can be skipped.");
         serverQueue.connection.dispatcher.end();
-        return;
 
         // STOP COMMAND
     } else if (message.content.startsWith(`${PREFIX}stop`)) {
@@ -80,14 +80,31 @@ client.on("message", async message => {
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end();
         return message.channel.send("Music stopped.");
+        
+        // VOLUME COMMAND
     } else if (message.content.startsWith(`${PREFIX}volume`) || message.content.startsWith(`${PREFIX}vol`)) {
+        if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
         if (!serverQueue) return message.channel.send("There is nothing currently playing.");
-        if (!args[1]) return message.channel.send(`Current volume: ${serverQueue.volume}`);
+        if (!args[1]) return message.channel.send(`Current volume: **${serverQueue.volume}**.`);
+        serverQueue.volume = args[1];
         serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
-        return message.channel.send(`Volume set to ${args[1]}`);
+        return message.channel.send(`Volume set to **${args[1]}**.\nThe default volume level is 5.`);
+
+        // NOW PLAYING COMMAND
     } else if (message.content.startsWith(`${PREFIX}np`) || message.content.startsWith(`${PREFIX}song`)) {
         if (!serverQueue) return message.channel.send("There is nothing currently playing.");
-        return message.channel.send(`Now playing: **${serverQueue.songs[0].title}**`);
+        return message.channel.send(`Now playing: **${serverQueue.songs[0].title}**.`);
+
+        // QUEUE COMMAND
+    } else if (message.content.startsWith(`${PREFIX}queue`)) {
+        if (!serverQueue) return message.channel.send("There is nothing currently playing.");
+        return message.channel.send(stripIndents`
+        __**Song Queue**__
+
+        ${serverQueue.songs.map(song => `• ${song.title}`).join("\n")}
+
+        **Now playing**: ${serverQueue.songs[0].title}
+        `);
     }
 
     return;
