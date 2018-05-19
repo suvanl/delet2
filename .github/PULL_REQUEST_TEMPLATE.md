@@ -1,7 +1,7 @@
-### Type
+**Type**
 
 - [ ] Bugfix
 - [ ] Enhancement
 - [ ] New feature
 
-### Description of the changes
+**Description of the changes**
