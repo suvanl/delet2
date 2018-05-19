@@ -20,7 +20,7 @@ class Cat extends Command {
             message.channel.send({files: [body.file] });
         } catch (error) {
             this.client.logger.error(error);
-            return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
+            return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
         }
     }
 }

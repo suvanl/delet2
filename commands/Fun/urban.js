@@ -42,7 +42,7 @@ class Urban extends Command {
                 message.channel.send({embed});
                 } catch (err) {
                     this.client.logger.error(err);
-                    return message.channel.send(`${texts.error}${err.message}`);
+                    return message.channel.send(texts.error.replace(/{{err}}/g, err.message));
                 }
             } else {
                 message.channel.send("No entry found.");

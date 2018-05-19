@@ -21,7 +21,7 @@ class DadJoke extends Command {
           msg.edit(text);
         } catch (error) {
           this.client.logger.error(error);
-          return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
+          return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
         }
     }
 }

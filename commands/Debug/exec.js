@@ -29,7 +29,7 @@ class Exec extends Command {
         });
     } catch (error) {
         this.client.logger.error(error.stack);
-        return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
+        return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
     }
   }
 }

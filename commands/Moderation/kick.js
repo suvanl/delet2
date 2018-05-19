@@ -66,7 +66,7 @@ class Kick extends Command {
           this.client.channels.get(modLog.id).send({embed});
         } catch (error) {
           this.client.logger.error(error);
-          return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
+          return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
         }
       }
     }

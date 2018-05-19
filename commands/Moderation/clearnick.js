@@ -28,7 +28,7 @@ class ClearNick extends Command {
               return message.channel.send("I do not have permission to change this user's nickname.");
             } else {
               this.client.logger.error(error);
-              return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
+              return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
             }
         });
   }

@@ -19,7 +19,7 @@ class Weather extends Command {
 
         weather.find({ search: args.join(" "), degreeType: "C" }, function(err, result) {
             if (err === "missing search input") return message.channel.send(`You must provide a place to look up weather information for.\nTo see how to use this command, use \`${settings.prefix}help weather\`.`); 
-            if (err) return message.channel.send(`${texts.error}\`\`\`${err}\`\`\`\nTo see how to use this command, use \`${settings.prefix}help weather\`.`);
+            if (err) return message.channel.send(`${texts.error.replace(/{{err}}/g, err.message)}\nTo see how to use this command, use \`${settings.prefix}help weather\`.`);
 
             if (message.content.startsWith(`${settings.prefix}weather json`)) {
                 return message.channel.send(`\`\`\`${JSON.stringify(result[0].current, null, 2)}\`\`\``);

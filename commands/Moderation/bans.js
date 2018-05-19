@@ -28,7 +28,7 @@ class Bans extends Command {
                 });
         } catch (error) {
             this.client.logger.error(error);
-            return message.channel.send(`${texts.error}\`\`\`${error.message}\`\`\``);
+            return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
         }
     }
 }
