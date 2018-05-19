@@ -7,7 +7,7 @@ class Volume extends Command {
         description: "Changes the volume of the current song. Default volume is 5.",
         category: "Music",
         usage: "volume [number]",
-        aliases: [""],
+        aliases: ["vol"],
         guildOnly: true
       });
     }
