@@ -1,4 +1,4 @@
-// The MESSAGE event runs anytime a message is received
+// The MESSAGE event runs anytime a message is received.
 // Due to the binding of client to every event, every event
 // goes `client, other, args` when this function is run.
 
@@ -25,10 +25,13 @@ module.exports = class {
     // to the message object, so `message.settings` is accessible.
     message.settings = settings;
 
+    // Loads in messages
+    const texts = require("../util/globals.js");
+
     // Ticks point 10 in the list of best practices (https://github.com/meew0/discord-bot-best-practices).
     // Useful for users who don't know delet's prefix, and are using delet for the first time.
     if (message.content.startsWith(`<@${this.client.user.id}> help` || `<@${this.client.user.id}> helpme` || `<@${this.client.user.id}> prefix`)) {
-      return message.channel.send(`Hey! Looking for help? Run \`${settings.prefix}help\` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix for this server.`);
+      return message.channel.send(texts.mentionHelp.replace(/{{prefix}}/g, settings.prefix));
     }
 
     // Ignores any messages that don't start with the prefix set in the configuration file.
@@ -51,7 +54,7 @@ module.exports = class {
     // Some commands may not be usable in DMs. This check prevents those commands from running
     // and returns a friendly error message.
     if (cmd && !message.guild && cmd.conf.guildOnly)
-      return message.channel.send("This command is unavailable via direct message. Please run this command in a guild (server).");
+      return message.channel.send(texts.guildOnly);
 
     // Prevents users from running commands that aren't available for their permLevel.
     if (level < this.client.levelCache[cmd.conf.permLevel]) {
@@ -67,7 +70,7 @@ module.exports = class {
     message.author.permLevel = level;
 
     message.flags = [];
-    while (args[0] &&args[0][0] === "-") {
+    while (args[0] && args[0][0] === "-") {
       message.flags.push(args.shift().slice(1));
     }
     
