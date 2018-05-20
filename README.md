@@ -8,7 +8,7 @@
 <a href="https://david-dm.org/DS-Development/delet?type=dev" title="devDependencies status"><img src="https://david-dm.org/DS-Development/delet/dev-status.svg"/></a>
 </p>
 
-<p align="center"><strong>delet is an in-development, open-source Discord bot written in JavaScript, using the Discord.js library for the Discord API.
+<p align="center"><strong>delet is a powerful and configurable multipurpose Discord bot, made using the Discord.js library for the Discord API.
 <br>Please ensure you read the section regarding self-hosting and portability in this README document.</strong></p>
 
 ## Commands
@@ -18,7 +18,7 @@ A variety of commands can be found in delet, ranging from system functions to fu
 delet boasts an advanced music system, with commands and features to make your listening experience as enjoyable as possible, through having a system that's easy to use, yet full of useful functions, such as a built-in YouTube search function, to avoid having to always find the song's YouTube link, as well as a full queueing system.
 
 ## Moderation
-delet comes with a full moderation system, with even more features currently being developed. The moderation system of this version of delet will have the same moderation commands as the old delet, in addition to brand new, useful moderation commands. Both the new and existing commands will be written to be much more efficient and easy to use, as well as making them less error-prone.
+delet comes with a full moderation system, with even more features currently being developed. The moderation system of this version of delet will have the same moderation commands as the old version of delet, in addition to brand new, useful moderation commands. Both the new and existing commands will be written to be much more efficient and easy to use, as well as making them less error-prone.
 
 ## Open-Source
 We're big fans of open-source here at DS Development. delet is an open-source project; which is why it can be found here, on GitHub. It is licensed under the GPL-3.0 license. This bot is open source for the reason of allowing others view its code and learn from it, and also to gain inspiration for their own ideas. However, please do not directly copy entire chunks of code, as that can be considered bad practice.
