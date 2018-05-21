@@ -1,5 +1,6 @@
 const Command = require("../../base/Command.js");
 const delet = require("../../package.json");
+const { stripIndents } = require("common-tags");
 
 class Feedback extends Command {
     constructor(client) {
@@ -16,11 +17,11 @@ class Feedback extends Command {
         const suggest = "<https://delet.js.org/suggest>";
         const issues = `<${delet.bugs.url}>`;
 
-        message.channel.send(`
-Want to suggest something, or give feedback? Encountering any bugs/issues?
+        message.channel.send(stripIndents`
+        Want to suggest something, or give feedback? Encountering any bugs/issues?
 
-**Suggestions & feedback**: ${suggest}.
-**Bugs/issues**: ${issues}.`);
+        **Suggestions & feedback**: ${suggest}.
+        **Bugs/issues**: ${issues}.`);
     }
 }
 

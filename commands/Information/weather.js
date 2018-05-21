@@ -1,6 +1,7 @@
 const Command = require("../../base/Command.js");
 const texts = require("../../locales/en_GB");
 const { RichEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 const weather = require("weather-js");
 
 class Weather extends Command {
@@ -46,12 +47,13 @@ class Weather extends Command {
             const embed = new RichEmbed()
             .setColor(col)
             .setTitle(`Weather information for ${current.observationpoint}`)
-            .setDescription(`The weather is **${current.skytext.toLowerCase()}** at the moment.
+            .setDescription(stripIndents`
+            The weather is **${current.skytext.toLowerCase()}** at the moment.
 
-• Temperature: **${ct}°C**
-• Feels like: **${current.feelslike}°C**
-• Humidity: **${current.humidity}%**
-• Wind: **${current.winddisplay.toLowerCase()}** (${current.winddisplay.toLowerCase().replace(/[^0-9]/g,"") * 0.621371} mph)
+            • Temperature: **${ct}°C**
+            • Feels like: **${current.feelslike}°C**
+            • Humidity: **${current.humidity}%**
+            • Wind: **${current.winddisplay.toLowerCase()}** (${current.winddisplay.toLowerCase().replace(/[^0-9]/g,"") * 0.621371} mph)
             `)
             .setThumbnail(current.imageUrl)
             .setFooter(`Correct as of ${current.observationtime} local time`)

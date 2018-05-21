@@ -1,5 +1,6 @@
 const Command = require("../../base/Command.js");
 const texts = require("../../locales/en_GB");
+const { stripIndents } = require("common-tags");
 
 class Time extends Command {
     constructor(client) {
@@ -20,12 +21,12 @@ class Time extends Command {
             const time = new Date().toLocaleTimeString("en-GB", { timeZone });
             return message.channel.send(`The time in **${timeZone}** is currently **${time}**.`);
         } catch (err) {
-            message.channel.send(`
-${texts.error.replace(/{{err}}/g, err.message)}
-For a full list of timezones, refer to the "TZ" column here: **<https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List>**.
+            message.channel.send(stripIndents`
+            ${texts.error.replace(/{{err}}/g, err.message)}
+            For a full list of timezones, refer to the "TZ" column here: **<https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List>**.
 
-• Please ensure you are using the correct format, e.g. \`${settings.prefix}time europe/london\`.
-• Note that the continent of North America is split into \`America\` and \`Canada\`.
+            • Please ensure you are using the correct format, e.g. \`${settings.prefix}time europe/london\`.
+            • Note that the continent of North America is split into \`America\` and \`Canada\`.
             `);
         }
     }

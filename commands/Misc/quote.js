@@ -1,5 +1,6 @@
 const Command = require("../../base/Command.js");
 const { RichEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 
 class Quote extends Command {
   constructor(client) {
@@ -14,9 +15,12 @@ class Quote extends Command {
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     const id = args[0];
-    if (!id) return message.channel.send(`You must provide a message ID.
-To do so, you need to have developer mode turned on to obtain a message ID (Settings → Appearance → Developer Mode).
-Then, upon right-clicking a message, you'll be presented with an option called "Copy ID".`, { file: "https://vgy.me/cQbRf7.png "});
+    if (!id) return message.channel.send(stripIndents`
+    You must provide a message ID.
+    To do so, you need to have developer mode turned on to obtain a message ID (Settings → Appearance → Developer Mode).
+    Then, upon right-clicking a message, you'll be presented with an option called "Copy ID".`,
+    { file: "https://vgy.me/cQbRf7.png "});
+    
     message.channel.fetchMessage(id)
       .then(message => {
         const embed = new RichEmbed()

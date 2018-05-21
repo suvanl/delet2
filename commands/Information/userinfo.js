@@ -1,5 +1,6 @@
 const Command = require("../../base/Command.js");
 const { RichEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 const moment = require("moment");
 
 class UserInfo extends Command {
@@ -46,22 +47,22 @@ class UserInfo extends Command {
         .setTitle(`User Information for ${user.tag}`)
         .setDescription(`**User ID**: ${user.id}`)
 
-        .addField("❯ Details", `
-• Status: **${status}**
-• Activity: ${activity}
-‍   
-`, true)
+        .addField("❯ Details", stripIndents`
+        • Status: **${status}**
+        • Activity: ${activity}
+        ‍   
+        `, true)
 
-        .addField("❯ Roles", `
-• Highest: **${message.guild.member(user).highestRole.name}**
-• All: ${message.guild.member(user).roles.map(roles => `\`${roles.name}\``).slice(1).join(", ")}
-‍   
-`, true)
+        .addField("❯ Roles", stripIndents`
+        • Highest: **${message.guild.member(user).highestRole.name}**
+        • All: ${message.guild.member(user).roles.map(roles => `\`${roles.name}\``).slice(1).join(", ")}
+        ‍   
+        `, true)
 
-        .addField("❯ Join Dates", `
-• ${message.guild.name}: **${moment.utc(message.guild.member(user).joinedAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
-• Discord: **${moment.utc(user.createdAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
-`, true)
+        .addField("❯ Join Dates", stripIndents`
+        • ${message.guild.name}: **${moment.utc(message.guild.member(user).joinedAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
+        • Discord: **${moment.utc(user.createdAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
+        `, true)
 
         .setFooter(`Info requested by ${message.author.tag} • All times are UTC`, `${message.author.displayAvatarURL}`);
 

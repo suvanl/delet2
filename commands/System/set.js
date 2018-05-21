@@ -4,14 +4,15 @@
 // Note that there are no "checks" in this basic version - no config "types" like
 // Role, String, Int, etc... It's basic, to be extended with your deft hands!
 
-// Note the **destructuring** here. instead of `args` we have:
+// Note the use of destructuring here. instead of `args` we have:
 // [action, key, ...value]
-// This gives us the equivalent of either:
+// This gives the equivalent of either:
 // const action = args[0]; const key = args[1]; const value = args.slice(2);
 // OR the same as:
 // const [action, key, ...value] = args;
 
 const Command = require("../../base/Command.js");
+const { stripIndents } = require("common-tags");
 
 class Set extends Command {
   constructor(client) {
@@ -68,20 +69,21 @@ class Set extends Command {
       }
     } else
   
-    // Using `-set get <key>` we simply return the current value for the guild.
+    // Using `set get <key>` we simply return the current value for the guild.
     if (action === "get") {
       if (!key) return message.reply("please specify a key to view");
       if (!settings[key]) return message.reply("this key does not exist in my settings");
       message.reply(`the value of ${key} is currently ${settings[key]}`);
       
     } else {
-      // Otherwise, the default action is to return the whole configuration in JSON format (to be prettified!);
+      // Otherwise, the default action is to return the whole configuration in JSON format (to be prettified!)
       const array = [];
       Object.entries(settings).forEach(([key, value]) => {
         array.push(`${key}${" ".repeat(20 - key.length)}::  ${value}`); 
       });
-      await message.channel.send(`= Current Guild Settings =
-${array.join("\n")}`, {code: "asciidoc"});
+      await message.channel.send(stripIndents`
+      = Current Guild Settings =
+      ${array.join("\n")}`, {code: "asciidoc"});
     }
   }
 }

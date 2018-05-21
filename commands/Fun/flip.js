@@ -1,5 +1,6 @@
 const Command = require("../../base/Command.js");
 const { RichEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 
 class Flip extends Command {
   constructor(client) {
@@ -16,11 +17,11 @@ class Flip extends Command {
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
 
-    // No currency set
-    if (settings.currency === ">>No currency set<<") return message.channel.send(`
-I cannot run this command, as I don't know which currency to use on this server. Please set a currency by using:
-\`\`\`${settings.prefix}set edit currency TYPE\`\`\`
-Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
+    // If no currency is set
+    if (settings.currency === ">>No currency set<<") return message.channel.send(stripIndents`
+    I cannot run this command, as I don't know which currency to use on this server. Please set a currency by using:
+    \`\`\`${settings.prefix}set edit currency TYPE\`\`\`
+    Currently available types: \`GBP\`, \`EUR\`, \`USD\`, \`NOK\``);
 
     function coinFlip() {
       return (Math.floor(Math.random() * 2) == 0) ? "Heads" : "Tails";

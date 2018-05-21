@@ -1,5 +1,6 @@
 const Command = require("../../base/Command.js");
 const { RichEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 const snekfetch = require("snekfetch");
 const h = new (require("html-entities").AllHtmlEntities)();
 
@@ -29,18 +30,18 @@ class Trivia extends Command {
       const embed = new RichEmbed()
         .setColor(5360873)
         .setAuthor("Trivia", "https://vgy.me/9UDUk0.png")
-        .setDescription(`
-**Question**
-${h.decode(quiz.question)}
+        .setDescription(stripIndents`
+        **Question**
+        ${h.decode(quiz.question)}
 
-:regional_indicator_a: ${randomChoices[0]}
-:regional_indicator_b: ${randomChoices[1]}
-:regional_indicator_c: ${randomChoices[2]}
-:regional_indicator_d: ${randomChoices[3]}
+        :regional_indicator_a: ${randomChoices[0]}
+        :regional_indicator_b: ${randomChoices[1]}
+        :regional_indicator_c: ${randomChoices[2]}
+        :regional_indicator_d: ${randomChoices[3]}
 
-**Category & Difficulty**
-${h.decode(quiz.category)} | ${h.decode(quiz.difficulty.toProperCase())}
-`)
+        **Category & Difficulty**
+        ${h.decode(quiz.category)} | ${h.decode(quiz.difficulty.toProperCase())}
+        `)
         .setFooter("Reply with the correct letter within 60 seconds!", message.author.displayAvatarURL);
 
         const question = await this.client.awaitEmbedReply(message, "", m => m.author.id === message.author.id, 60000, {embed: embed});
