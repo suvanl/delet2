@@ -3,6 +3,7 @@ const { TOKEN, PREFIX, GOOGLE_API_KEY } = require("./config");
 const { stripIndents } = require("common-tags");
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
+const texts = require("../../util/globals.js");
 
 const client = new Client({ disableEveryone: true });
 
@@ -35,11 +36,11 @@ client.on("message", async message => {
 	// PLAY COMMAND
 	if (command === "play") {
 		const voiceChannel = message.member.voiceChannel;
-		if (!voiceChannel) return message.channel.send("You must be in a voice channel to be able to play music.");
+		if (!voiceChannel) return message.channel.send(texts.noVoiceChannel);
 
 		const permissions = voiceChannel.permissionsFor(message.client.user);
-		if (!permissions.has("CONNECT")) return message.channel.send("I cannot connect to your voice channel, due to insufficient permissions.");
-		if (!permissions.has("SPEAK")) return message.channel.send("I cannot play any music, as I do not have the \"Speak\" permission.");
+		if (!permissions.has("CONNECT")) return message.channel.send(texts.noConnect);
+		if (!permissions.has("SPEAK")) return message.channel.send(texts.noSpeak);
 
 		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
 			const playlist = await youtube.getPlaylist(url);
@@ -49,7 +50,7 @@ client.on("message", async message => {
 				const video2 = await youtube.getVideoByID(video.id);
 				await handleVideo(video2, message, voiceChannel, true);
 			}
-			return message.channel.send(`✅ The playlist **${playlist.title}** has been added to the queue.`);
+			return message.channel.send(texts.playlistAdded.replace(/{{playlist}}/g, playlist.title));
 		} else {
 			try {
 				var video = await youtube.getVideo(url);
@@ -60,12 +61,11 @@ client.on("message", async message => {
 					let index = 0;
 
 					message.channel.send(stripIndents`
-					__**Song Selection**__
+					__**${texts.songSelection}**__
 
 					${videos.map(video2 => `**${++index} -** ${video2.title}`).join("\n")}
 
-					Please provide a value to select one of the search results, ranging from **1** to **10**.
-					The song selection time period is 15 seconds.
+					${texts.songSelectionInfo}
 					`);
 					try {
 						var response = await message.channel.awaitMessages(message2 => message2.content > 0 && message2.content < 11, {
@@ -75,13 +75,13 @@ client.on("message", async message => {
 						});
 					} catch (err) {
 						console.error(err);
-						return message.channel.send("Invalid or null value provided; cancelling video selection.");
+						return message.channel.send(texts.songSelectionCancel);
 					}
 					const videoIndex = parseInt(response.first().content);
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id); // eslint-disable-line no-redeclare
 				} catch (err) {
 					console.error(err);
-					return message.channel.send("No search results found.");
+					return message.channel.send(texts.noResultsFound);
 				}
 			}
 			return handleVideo(video, message, voiceChannel);
@@ -89,14 +89,14 @@ client.on("message", async message => {
 
 		// SKIP COMMAND
 	} else if (command === "skip") {
-		if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
+		if (!message.member.voiceChannel) return message.channel.send(texts.noVoiceChannel);
 		if (!serverQueue) return message.channel.send("There is nothing currently playing that can be skipped.");
 		serverQueue.connection.dispatcher.end("Skip command used");
 		return;
 
 		// STOP COMMAND
 	} else if (command === "stop") {
-		if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
+		if (!message.member.voiceChannel) return message.channel.send(texts.noVoiceChannel);
 		if (!serverQueue) return message.channel.send("There is nothing currently playing that can be stopped.");
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end("Stop command used");
@@ -104,7 +104,7 @@ client.on("message", async message => {
 
 		// VOLUME COMMAND
 	} else if (command === "volume" || command === "vol") {
-		if (!message.member.voiceChannel) return message.channel.send("You must be in a voice channel to use this command.");
+		if (!message.member.voiceChannel) return message.channel.send(texts.noVoiceChannel);
 		if (!serverQueue) return message.channel.send("There is nothing currently playing.");
 		if (!args[1]) return message.channel.send(`The current volume is **${serverQueue.volume}**.`);
 		serverQueue.volume = args[1];
