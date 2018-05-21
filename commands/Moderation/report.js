@@ -42,7 +42,6 @@ class Report extends Command {
         } catch (error) {
           return message.channel.send("<:redX:398228298708025344> An error occurred whilst submitting the report.");
         }
-        
     }
 }
 
