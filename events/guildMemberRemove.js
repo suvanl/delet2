@@ -12,8 +12,10 @@ module.exports = class {
       // If "welcome" is off, don't proceed
       if (settings.welcomeEnabled.toLowerCase() !== "true") return;
   
+      // Leave message - temporarily removed
+
       // Replaces the placeholders in the leave message with actual data.
-      const leaveMessage = settings.leaveMessage.replace("{{user}}", member.user.tag);
+      // const leaveMessage = settings.leaveMessage.replace("{{user}}", member.user.tag);
   
       // Sends the leave message to the welcomeChannel defined in the guild's settings.
       member.guild.channels.find("name", settings.welcomeChannel).send(leaveMessage).catch(console.error);
