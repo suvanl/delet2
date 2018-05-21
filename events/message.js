@@ -26,7 +26,7 @@ module.exports = class {
     message.settings = settings;
 
     // Loads in messages
-    const texts = require("../util/globals.js");
+    const texts = require("../locales/en_GB");
 
     // Ticks point 10 in the list of best practices (https://github.com/meew0/discord-bot-best-practices).
     // Useful for users who don't know delet's prefix, and are using delet for the first time.
