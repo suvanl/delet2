@@ -14,9 +14,7 @@ class Flip extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
-    const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
-
+  async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
     // If no currency is set
     if (settings.currency === ">>No currency set<<") return message.channel.send(stripIndents`
     I cannot run this command, as I don't know which currency to use on this server. Please set a currency by using:

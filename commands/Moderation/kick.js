@@ -15,10 +15,9 @@ class Kick extends Command {
       });
     }
     
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
       if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
       
-      const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
       const user = message.mentions.users.first();
       let reason = args.slice(1).join(" ") || undefined;
       const modLog = message.guild.channels.find("name", settings.modLogChannel);

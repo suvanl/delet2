@@ -10,8 +10,7 @@ class Pi extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
-        const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
         if (message.content.startsWith(`${settings.prefix}π`)) {
             return message.channel.send(`π = **${Math.PI}**...`);
         }

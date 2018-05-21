@@ -12,8 +12,7 @@ class EightBall extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
-      const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
+  async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
 
       // SUBMITTING OUTCOMES
       // If you wish to submit a outcome, please fork this repository, add the outcome to the "outcomes" array, and
@@ -24,8 +23,8 @@ class EightBall extends Command {
       // Please ensure your outcome has an "opposite" outcome to it too, so the number of positive and negative outcomes
       // match. Unlike a regular magic 8 ball, delet's one has an equal number of positive and negative outcomes.
 
-      // OUTCOME TYPES
-      //
+      // OUTCOME TYPES:
+
       // Positive: 14
       // Neutral:  7
       // Negative: 14

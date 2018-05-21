@@ -14,11 +14,10 @@ class Purge extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
     if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${texts.missingPerm.replace(/{{perm}}/g, "Manage Messages")}`);
 
-    const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
     const user = message.mentions.users.first();
     const amount = parseInt(message.content.split(" ")[1]) ? parseInt(message.content.split(" ")[1]) : parseInt(message.content.split(" ")[2]);
 

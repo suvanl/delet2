@@ -16,10 +16,9 @@ class Lockdown extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
-        const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
         const modLog = message.guild.channels.find("name", settings.modLogChannel);
         if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
 

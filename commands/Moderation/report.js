@@ -16,11 +16,10 @@ class Report extends Command {
       });
     }
     
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
         if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send(`${texts.missingPerm.replace(/{{perm}}/g, "Embed Links")}`);
 
-        const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
         const user = message.mentions.users.first();
         const reason = args.slice(1).join(" ");
         const modLog = message.guild.channels.find("name", settings.modLogChannel);
