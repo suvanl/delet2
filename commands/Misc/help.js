@@ -5,7 +5,7 @@
 // help command, its extended help is shown.
 
 const Command = require("../../base/Command.js");
-const texts = require("../../util/globals.js");
+const texts = require("../../locales/en_GB");
 
 class Help extends Command {
   constructor(client) {

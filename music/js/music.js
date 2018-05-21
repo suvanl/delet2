@@ -3,7 +3,7 @@ const { TOKEN, PREFIX, GOOGLE_API_KEY } = require("./config");
 const { stripIndents } = require("common-tags");
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
-const texts = require("../../util/globals.js");
+const texts = require("../../locales/en_GB");
 
 const client = new Client({ disableEveryone: true });
 

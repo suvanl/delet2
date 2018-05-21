@@ -1,6 +1,6 @@
 const Command = require("../../base/Command.js");
 const delet = require("../../package.json");
-const texts = require("../../util/globals.js");
+const texts = require("../../locales/en_GB");
 const { RichEmbed, version } = require("discord.js");
 const moment = require("moment");
 

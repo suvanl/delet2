@@ -1,6 +1,6 @@
 const Command = require("../../base/Command.js");
 const keys = require("../../util/keys.js");
-const texts = require("../../util/globals.js");
+const texts = require("../../locales/en_GB");
 
 const YouTube = require("simple-youtube-api");
 const yt = new YouTube(keys.GOOGLE_API_KEY);

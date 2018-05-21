@@ -4,7 +4,7 @@
 // executes the given command. It should only be used for debugging purposes.
 
 const Command = require("../../base/Command.js");
-const texts = require("../../util/globals.js");
+const texts = require("../../locales/en_GB");
 const exec = require("child_process").exec;
 
 class Exec extends Command {
