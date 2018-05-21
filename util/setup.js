@@ -14,10 +14,11 @@ const defaultSettings = `{
   "welcomeChannel": "general",
   "welcomeMessage": "Say hello to {{user}}, everyone! 🎉👋",
   "welcomeEnabled": "false",
-  "currency": ">>No currency set<<"
+  "currency": ">>No currency set<<",
+  "language": "en_GB"
 }`;
 
-const settings = new Enmap({provider: new EnmapLevel({name: "settings"})});
+const settings = new Enmap({ provider: new EnmapLevel({ name: "settings" }) });
 
 let prompts = [
   {
