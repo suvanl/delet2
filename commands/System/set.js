@@ -34,8 +34,8 @@ class Set extends Command {
     const settings = message.settings;
     const defaults = this.client.settings.get("default");
   
-    // Secondly, if a user does `-set edit <key> <new value>`, we need to change the key
-    if (action === "edit") {
+    // Secondly, if a user does `set edit <key> <new value>`, we need to change the key
+    if (action.toLowerCase() === "edit") {
       if (!key) return message.reply("please specify a key to edit.");
       if (!settings[key]) return message.reply("this key does not exist in my settings.");
       if (value.length < 1) return message.reply("please specify a new value.");
@@ -46,8 +46,8 @@ class Set extends Command {
       message.reply(`${key} was successfully edited to ${value.join(" ")}`);
     } else
   
-    // Thirdly, if a user does `-set del <key>`, let's ask the user if they're sure...
-    if (action === "del" || action === "reset") {
+    // Thirdly, if a user does `set del <key>`, let's ask the user if they're sure...
+    if (action.toLowerCase() === "del" || action === "reset") {
       if (!key) return message.reply("please specify a key to delete (reset).");
       if (!settings[key]) return message.reply("this key does not exist in my settings.");
       
@@ -70,7 +70,7 @@ class Set extends Command {
     } else
   
     // Using `set get <key>` we simply return the current value for the guild.
-    if (action === "get") {
+    if (action.toLowerCase() === "get") {
       if (!key) return message.reply("please specify a key to view");
       if (!settings[key]) return message.reply("this key does not exist in my settings");
       message.reply(`the value of ${key} is currently ${settings[key]}`);
