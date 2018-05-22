@@ -209,7 +209,7 @@ module.exports = (client) => {
   });
 
 
-  // The list of commands the bot has. Current **not filtered** by permission.
+  // The list of commands the bot has. Currently **not filtered** by permission.
   app.get("/commands", (req, res) => {
     renderTemplate(res, req, "commands.ejs", {md});
   });
