@@ -20,7 +20,7 @@ class Set extends Command {
       name: "set",
       description: "Allows you to view or change settings for your server.",
       category: "System",
-      usage: "set <view/get/edit> <key> <value>",
+      usage: "set <view|get|edit> <key> <value>",
       guildOnly: true,
       aliases: ["setting", "settings"],
       permLevel: "Administrator"
@@ -82,7 +82,7 @@ class Set extends Command {
         array.push(`${key}${" ".repeat(20 - key.length)}::  ${value}`); 
       });
       await message.channel.send(stripIndents`
-      = Current Guild Settings =
+      = Current Server Settings =
       ${array.join("\n")}`, {code: "asciidoc"});
     }
   }
