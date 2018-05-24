@@ -29,7 +29,7 @@ class Flip extends Command {
       const variable = coinFlip();
 
       // Pounds [£] (GBP)
-      if (settings.currency.toUpperCase() === "GBP") {
+      if (settings.currency === "GBP") {
 
       if (variable === "Heads") {
         const embed = new RichEmbed()
@@ -45,7 +45,7 @@ class Flip extends Command {
     }
 
     // Euros [€] (EUR)
-    if (settings.currency.toUpperCase() === "EUR") {
+    if (settings.currency === "EUR") {
       if (variable === "Heads") {
         const embed = new RichEmbed()
         .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
@@ -60,7 +60,7 @@ class Flip extends Command {
     }
 
     // US Dollars [$] (USD)
-    if (settings.currency.toUpperCase() === "USD") {
+    if (settings.currency === "USD") {
       if (variable === "Heads") {
         const embed = new RichEmbed()
         .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
@@ -75,7 +75,7 @@ class Flip extends Command {
     }
 
     // Norwegian Krone [kr] (NOK)
-    if (settings.currency.toUpperCase() === "NOK") {
+    if (settings.currency === "NOK") {
       if (variable === "Heads") {
         const embed = new RichEmbed()
         .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
