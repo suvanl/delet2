@@ -9,6 +9,7 @@
 // const [action, key, ...value] = args;
 
 const Command = require("../../base/Command.js");
+const { currencies } = require("../../util/data.js");
 const { stripIndents } = require("common-tags");
 const fs = require("fs");
 
@@ -68,7 +69,12 @@ class Set extends Command {
         if (!langs.includes(value.join(" "))) return message.channel.send(`"${value.join(" ")}" is not a valid/settable language.`);
       }
 
-      // TODO: currency & true/false checks
+      // Currency
+      if (key === "currency") {
+        if (!currencies.includes(value.join(" "))) return message.channel.send(`"${value.join(" ")}" is not a valid/settable currency.\nThe valid currencies are: ${currencies.map(c => "`" + c + "`").join(", ")}`);
+      }
+
+      // TODO: true/false checks
 
       settings[key] = value.join(" ");
 
