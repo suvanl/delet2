@@ -21,7 +21,7 @@ exports.botPerms = [
     "USE_VAD"
 ];
 
-exports.languages = [
+exports.currencies = [
     "EUR",
     "GBP",
     "NOK",
