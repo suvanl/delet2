@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const { botPerms } = require("../../locales/en_GB");
+const { botPerms } = require("../../util/data.js");
 
 class Invite extends Command {
     constructor(client) {
