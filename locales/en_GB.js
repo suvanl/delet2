@@ -13,7 +13,7 @@ exports.mentionHelp = "Hey! Looking for help? Run `{{prefix}}help` for a list of
 
 exports.guildOnly = "This command is unavailable via direct message. Please run this command in a guild (server).";
 
-exports.cmdDisabled = "This command is unavailable as it has been temporarily disabled.";
+exports.cmdDisabled = "This command is unavailable as it has been temporarily disabled, or is still in development.";
 
 
 // Messages (strings) for music system
