@@ -25,8 +25,8 @@ module.exports = class {
     // to the message object, so `message.settings` is accessible.
     message.settings = settings;
 
-    // Loads in messages
-    const texts = require("../locales/en_GB");
+    // Loads in per-locale messages
+    const texts = require(`../locales/${settings.language}`);
 
     // Ticks point 10 in the list of best practices (https://github.com/meew0/discord-bot-best-practices).
     // Useful for users who don't know delet's prefix, and are using delet for the first time.
@@ -55,6 +55,9 @@ module.exports = class {
     // and returns a friendly error message.
     if (cmd && !message.guild && cmd.conf.guildOnly)
       return message.channel.send(texts.guildOnly);
+
+    if (cmd && cmd.conf.enabled === false)
+      return message.channel.send(texts.cmdDisabled);
 
     // Prevents users from running commands that aren't available for their permLevel.
     if (level < this.client.levelCache[cmd.conf.permLevel]) {
