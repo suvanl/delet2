@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const { stripIndents } = require("common-tags");
 
 class Time extends Command {
@@ -14,8 +13,9 @@ class Time extends Command {
     }
 
     async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
-        const timeZone = args.join("_").toUpperCase();
+        const texts = require(`../../locales/${settings.language}`);
 
+        const timeZone = args.join("_").toUpperCase();
         try {
             const time = new Date().toLocaleTimeString("en-GB", { timeZone });
             return message.channel.send(`The time in **${timeZone}** is currently **${time}**.`);

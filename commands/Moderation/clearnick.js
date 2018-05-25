@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 
 class ClearNick extends Command {
   constructor(client) {
@@ -14,7 +13,9 @@ class ClearNick extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    const texts = require(`../../locales/${settings.language}`);
+    
     const user = message.mentions.users.first();
     if (!user) return message.channel.send("You must provide a user to clear a nickname for.");
     const nick = message.guild.member(user).nickname;

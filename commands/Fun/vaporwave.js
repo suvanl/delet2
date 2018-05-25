@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 
 const songs = [
   `${process.cwd()}/assets/audio/Vaporwave1.mp3`,
@@ -18,7 +17,9 @@ class Vaporwave extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+      const texts = require(`../../locales/${settings.language}`);
+
       const voiceChannel = message.member.voiceChannel;
       if (!voiceChannel) return message.channel.send("You must be in a voice channel to be able to play ＶＡＰＯＲＷＡＶＥ　ＭＵＳＩＣ　可益ビ.");
 

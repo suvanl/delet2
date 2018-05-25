@@ -1,8 +1,7 @@
 const Command = require("../../base/Command.js");
 const keys = require("../../util/keys.js");
-const texts = require("../../locales/en_GB");
-
 const YouTube = require("simple-youtube-api");
+
 const yt = new YouTube(keys.GOOGLE_API_KEY);
 
 class YouTubeSearch extends Command {
@@ -15,7 +14,9 @@ class YouTubeSearch extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    const texts = require(`../../locales/${settings.language}`);
+
     const searchString = args.join(" ");
     if (!searchString) return message.channel.send("You must provide a video title for me to find.");
 

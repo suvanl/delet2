@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 
 class Bans extends Command {
     constructor(client) {
@@ -14,8 +13,10 @@ class Bans extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
+        const texts = require(`../../locales/${settings.language}`);
+
         if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send(`${texts.missingPerm.replace(/{{perm}}/g, "Ban Members")}`);
         try {
             message.guild.fetchBans()

@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const { RichEmbed } = require("discord.js");
 const request = require("request");
 
@@ -14,7 +13,9 @@ class Urban extends Command {
       });
     }
 
-    async run(message, args, level, resultNum) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, resultNum) { // eslint-disable-line no-unused-vars
+        const texts = require(`../../locales/${settings.language}`);
+
         const baseURL = "http://api.urbandictionary.com/v0/define?term=";
         const URL = baseURL + args;
 

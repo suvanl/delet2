@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const { get } = require("snekfetch");
 
 class DadJoke extends Command {
@@ -14,7 +13,9 @@ class DadJoke extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+        const texts = require(`../../locales/${settings.language}`);
+
         try {
           const msg = await message.channel.send("Contacting dad... 🤔");
           const { text } = await get("https://icanhazdadjoke.com/").set("Accept", "text/plain");

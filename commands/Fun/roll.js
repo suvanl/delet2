@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 
 class Roll extends Command {
     constructor(client) {
@@ -12,7 +11,9 @@ class Roll extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+        const texts = require(`../../locales/${settings.language}`);
+
         const numbers = [
             ":one:",
             ":two:",

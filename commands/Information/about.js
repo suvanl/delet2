@@ -1,6 +1,5 @@
 const Command = require("../../base/Command.js");
 const delet = require("../../package.json");
-const texts = require("../../locales/en_GB");
 const { RichEmbed, version } = require("discord.js");
 const moment = require("moment");
 
@@ -15,7 +14,9 @@ class About extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+      const texts = require(`../../locales/${settings.language}`);
+
       let displayColor;
       if (message.channel.type === "text") displayColor = message.guild.me.displayColor;
       else if (message.channel.type === "dm" || message.channel.type === "group") {

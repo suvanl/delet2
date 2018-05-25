@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const snekfetch = require("snekfetch");
 
 class Dog extends Command {
@@ -13,7 +12,9 @@ class Dog extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+        const texts = require(`../../locales/${settings.language}`);
+
         const { body } = await snekfetch.get("https://dog.ceo/api/breeds/image/random");
         try {
             return message.channel.send({files: [body.message] });
