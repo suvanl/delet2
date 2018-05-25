@@ -7,7 +7,6 @@ class Leave extends Command {
         description: "Leaves the server the message is run in.",
         category: "System",
         usage: "leave",
-        aliases: [""],
         guildOnly: true,
         permLevel: "Bot Admin"
       });

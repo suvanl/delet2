@@ -7,7 +7,6 @@ class Queue extends Command {
         description: "Sends the current queue.",
         category: "Music",
         usage: "queue",
-        aliases: [""],
         guildOnly: true
       });
     }

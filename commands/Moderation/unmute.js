@@ -9,7 +9,6 @@ class Unmute extends Command {
       description: "Undoes the mentioned user's mute.",
       category: "Moderation",
       usage: "unmute [user] reason",
-      aliases: [""],
       permLevel: "Moderator",
       guildOnly: true
     });

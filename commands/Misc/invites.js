@@ -9,7 +9,6 @@ class Invites extends Command {
         name: "invites",
         description: "Displays the server's invite leaderboard.",
         usage: "invites",
-        aliases: [""],
         guildOnly: true
       });
     }

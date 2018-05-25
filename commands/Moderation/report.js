@@ -9,8 +9,6 @@ class Report extends Command {
         description: "Reports a user to the server's staff.",
         category: "Moderation",
         usage: "report [user] <reason/info>",
-        extended: "Informs the current server's staff of a rule-breaker, by sending a message to the modlog channel.",
-        aliases: [""],
         botPerms: ["MANAGE_MESSAGES"],
         guildOnly: true
       });

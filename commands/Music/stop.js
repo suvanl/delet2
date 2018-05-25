@@ -7,7 +7,6 @@ class Stop extends Command {
         description: "Ends the current song and deletes the entire queue.",
         category: "Music",
         usage: "stop",
-        aliases: [""],
         guildOnly: true
       });
     }

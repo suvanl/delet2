@@ -14,7 +14,6 @@ class Exec extends Command {
       description: "Evaluates arbitrary JavaScript.",
       category: "Debug",
       usage: "exec <expression>",
-      aliases: [""],
       permLevel: "Bot Owner"
     });
   }

@@ -7,7 +7,6 @@ class Status extends Command {
         description: "Sets delet's presence/status.",
         category: "System",
         usage: "status",
-        aliases: [""],
         permLevel: "Bot Admin"
       });
     }

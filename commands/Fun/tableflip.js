@@ -13,8 +13,7 @@ class TableFlip extends Command {
         name: "tableflip",
         description: "Flips a table, in real-time! (╯°□°)╯",
         category: "Fun",
-        usage: "tableflip",
-        aliases: [""]
+        usage: "tableflip"
       });
     }
 
