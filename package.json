@@ -13,7 +13,6 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "./music/js/*.js",
       "./data/*",
       "README.md",
       "*.example"
