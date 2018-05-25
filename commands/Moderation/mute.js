@@ -2,14 +2,14 @@ const Command = require("../../base/Command.js");
 const texts = require("../../locales/en_GB");
 const { RichEmbed } = require("discord.js");
 
-class PermMute extends Command {
+class Mute extends Command {
   constructor(client) {
     super(client, {
-      name: "permmute",
-      description: "Permanently mutes the mentioned user.",
+      name: "mute",
+      description: "Mutes the mentioned user.",
       category: "Moderation",
-      usage: "permmute [user] <reason>",
-      aliases: ["perm"],
+      usage: "mute [user] <reason>",
+      aliases: ["permmute", "perm"],
       permLevel:"Moderator",
       botPerms: ["MANAGE_ROLES", "MANAGE_CHANNELS"],
       guildOnly: true
@@ -60,7 +60,7 @@ class PermMute extends Command {
     .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
     .setTimestamp();
 
-    if (message.guild.member(user).roles.has(muteRole.id)) {
+    if (message.guild.roles.find("name", "Muted") && message.guild.member(user).roles.has(muteRole.id)) {
       return message.channel.send("The mentioned user is already muted.");
     } else {
       message.guild.member(user).addRole(muteRole).then(() => {
@@ -72,4 +72,4 @@ class PermMute extends Command {
   }
 }
 
-module.exports = PermMute;
+module.exports = Mute;
