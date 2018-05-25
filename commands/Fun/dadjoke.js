@@ -9,7 +9,8 @@ class DadJoke extends Command {
         description: "Sends a random dad joke.",
         category: "Fun",
         usage: "dadjoke",
-        aliases: ["dad", "dadj", "badjoke", "joke"]
+        aliases: ["dad", "dadj", "badjoke", "joke"],
+        enabled: false
       });
     }
 
