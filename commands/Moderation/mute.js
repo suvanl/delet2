@@ -16,6 +16,8 @@ class Mute extends Command {
     });
   }
 
+  // TODO: store `muteRole` as settings key, so custom name can be used; also fixes an issue caused by the muteRole not being found.
+
   async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
