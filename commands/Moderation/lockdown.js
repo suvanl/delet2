@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const { RichEmbed } = require("discord.js");
 const ms = require("ms");
 
@@ -16,7 +15,7 @@ class Lockdown extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
         const modLog = message.guild.channels.find("name", settings.modLogChannel);

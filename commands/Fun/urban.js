@@ -13,9 +13,7 @@ class Urban extends Command {
       });
     }
 
-    async run(message, args, level, settings, resultNum) { // eslint-disable-line no-unused-vars
-        const texts = require(`../../locales/${settings.language}`);
-
+    async run(message, args, level, texts, resultNum) { // eslint-disable-line no-unused-vars
         const baseURL = "http://api.urbandictionary.com/v0/define?term=";
         const URL = baseURL + args;
 

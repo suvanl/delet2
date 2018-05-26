@@ -14,9 +14,7 @@ class About extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
-      const texts = require(`../../locales/${settings.language}`);
-
+    async run(message, args, level, texts) {
       let displayColor;
       if (message.channel.type === "text") displayColor = message.guild.me.displayColor;
       else if (message.channel.type === "dm" || message.channel.type === "group") {

@@ -13,9 +13,7 @@ class DadJoke extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
-        const texts = require(`../../locales/${settings.language}`);
-
+    async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
         try {
           const msg = await message.channel.send("Contacting dad... 🤔");
           const { text } = await get("https://icanhazdadjoke.com/").set("Accept", "text/plain");

@@ -12,9 +12,7 @@ class Time extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
-        const texts = require(`../../locales/${settings.language}`);
-
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         const timeZone = args.join("_").toUpperCase();
         try {
             const time = new Date().toLocaleTimeString("en-GB", { timeZone });

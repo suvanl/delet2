@@ -4,7 +4,6 @@
 // executes the given command. It should only be used for debugging purposes.
 
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const exec = require("child_process").exec;
 
 class Exec extends Command {
@@ -18,7 +17,7 @@ class Exec extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
     this.client.logger.warn("Exec command used");
 
     try {

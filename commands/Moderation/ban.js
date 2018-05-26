@@ -14,9 +14,8 @@ class Ban extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-        const texts = require(`../../locales/${settings.language}`);
 
         const user = message.mentions.users.first();
         let reason = args.slice(1).join(" ") || undefined;

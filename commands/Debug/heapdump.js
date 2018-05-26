@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const { promisify } = require("util");
 const writeSnapshot = promisify(require("heapdump").writeSnapshot);
 
@@ -15,7 +14,7 @@ class HeapDump extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
     try {
         const fileName = await writeSnapshot(`./${Date.now()}.heapsnapshot`);
         message.channel.send(`Created new heap-dump @ \`${fileName}\`.`);

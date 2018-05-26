@@ -11,9 +11,7 @@ class UserID extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
-        const texts = require(`../../locales/${settings.language}`);
-
+    async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
         const user = message.mentions.users.first();
         if (!user) return message.channel.send("You must mention a user to return an ID for.");
 

@@ -14,9 +14,7 @@ class YouTubeSearch extends Command {
     });
   }
 
-  async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
-    const texts = require(`../../locales/${settings.language}`);
-
+  async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
     const searchString = args.join(" ");
     if (!searchString) return message.channel.send("You must provide a video title for me to find.");
 

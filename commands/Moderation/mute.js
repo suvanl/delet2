@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const { RichEmbed } = require("discord.js");
 
 class Mute extends Command {
@@ -18,7 +17,7 @@ class Mute extends Command {
 
   // TODO: store `muteRole` as settings key, so custom name can be used; also fixes an issue caused by the muteRole not being found.
 
-  async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
     const user = message.mentions.users.first();

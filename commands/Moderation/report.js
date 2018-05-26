@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const { RichEmbed } = require("discord.js");
 
 class Report extends Command {
@@ -14,7 +13,7 @@ class Report extends Command {
       });
     }
     
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
         if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send(`${texts.missingPerm.replace(/{{perm}}/g, "Embed Links")}`);
 

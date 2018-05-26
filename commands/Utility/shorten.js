@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 const shortener = require("isgd");
 
 class Shorten extends Command {
@@ -13,7 +12,7 @@ class Shorten extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
       if (!args[0]) return message.channel.send("Please provide a link to shorten.");
       if (!args[1]) {
           shortener.shorten(args[0], function(res) {

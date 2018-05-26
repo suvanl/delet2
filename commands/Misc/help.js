@@ -5,8 +5,6 @@
 // help command, its extended help is shown.
 
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
-
 class Help extends Command {
   constructor(client) {
     super(client, {
@@ -17,7 +15,7 @@ class Help extends Command {
     });
   }
 
-  async run(message, args, level) {
+  async run(message, args, level, texts) {
     // Shows all filtered commands, if no specific command is called.
     if (!args[0]) {
       // Loads guild settings (for prefixes and eventually per-guild tweaks)

@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const texts = require("../../locales/en_GB");
 
 class Purge extends Command {
   constructor(client) {
@@ -14,7 +13,7 @@ class Purge extends Command {
     });
   }
 
-  async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
     if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${texts.missingPerm.replace(/{{perm}}/g, "Manage Messages")}`);
 
