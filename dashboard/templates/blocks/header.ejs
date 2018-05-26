@@ -6,7 +6,7 @@
     <meta name="delet" />
     <meta property="og:title" content="<%= bot.user.username %> Dashboard" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://dashboard.ban-hammered.me" /> <!--This redirects to the this site no matter what link-->
+    <meta property="og:url" content="https://delet.js.org/#dashboard" /> <!--This redirects to the this site no matter what link-->
     <meta property="og:description" content="<% if(bot.appInfo.description.length > 3) { %> <%= bot.appInfo.description %> <% } else { %>No description given.<% }%>" />
     <meta property="og:image" content="<%= bot.user.displayAvatarURL %>"/>
     <meta property="og:site_name" content="<%= bot.user.username %> Dashboard">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/public/css/font-awesome.min.css">
     <link rel="stylesheet" href="/public/css/flatly.css">
     <link rel="stylesheet" href="/public/css/dashboard.css" />
-    <link rel='icon' href='<%= bot.user.avatarURL %>'>
+    <link rel="icon" href="<%= bot.user.avatarURL %>">
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -25,7 +25,7 @@
     <!-- <script src="/public/js/script.js"></script> -->
     <script src="/public/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-    <title><%= bot.user.username %></title>
+    <title><%= bot.user.username %> - Dashboard</title>
   </head>
   <body>
     <a name="top"></a>
@@ -67,11 +67,11 @@
                   <h6 class="dropdown-header"><i class="fa fa-user" aria-hidden="true"></i> <%= user.username %></h6>
                   <a class="dropdown-item" href="/dashboard"><i class="fa fa-cogs" aria-hidden="true"></i> Dashboard</a>
                   <!-- 
-                    IMPORTANT: the second part of the following `if` statement only works as delet has a co-owner. Hardcoding in his ID allows him
+                    IMPORTANT: the second (OR) part of the following `if` statement only works as delet has a co-owner. Hardcoding in his ID allows him
                     to see the "Admin" button on the respective dropdown menu. The first part of the statement is quite self-explanatory, and grants
                     the bot owner access to the admin panel via the "Admin" button on the dropdown menu.
 
-                    If you're going to use a similar system in your own project, please note that the second part of the `if` statement
+                    If you're going to use a similar system in your own project, please note that the second part of the `if` statement,
                     `user.id === "{{co-owner_user_id}}"` is not required if you are the only owner of the bot. We highly recommend only having one
                     owner, unless you trust the other person significantly. Note that it is not possible to "officially" have multiple owners, as
                     the bot owner ID registered on the Discord API will only be that of the bot application's creator.
