@@ -15,7 +15,7 @@ const defaultSettings = `{
   "welcomeMessage": "Say hello to {{user}}, everyone! 🎉👋",
   "welcomeEnabled": "false",
   "currency": ">>No currency set<<",
-  "language": "en_GB"
+  "language": "en-GB"
 }`;
 
 const settings = new Enmap({ provider: new EnmapLevel({ name: "settings" }) });
