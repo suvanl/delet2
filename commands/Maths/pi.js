@@ -5,6 +5,7 @@ class Pi extends Command {
       super(client, {
         name: "pi",
         description: "Returns the value of Pi (π).",
+        category: "Maths",
         usage: "pi",
         aliases: ["π"]
       });
