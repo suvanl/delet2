@@ -6,6 +6,7 @@ class MyLevel extends Command {
       name: "mylevel",
       description: "Displays your permission level for your location.",
       usage: "mylevel",
+      aliases: ["myrank", "level"],
       guildOnly: true
     });
   }
