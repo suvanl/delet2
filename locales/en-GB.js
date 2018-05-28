@@ -15,6 +15,8 @@ exports.guildOnly = "This command is unavailable via direct message. Please run 
 
 exports.cmdDisabled = "This command is unavailable as it has been temporarily disabled, or is still in development.";
 
+exports.noResultsFound = "No search results found.";
+
 
 // Messages (strings) for music system
 exports.noVoiceChannel = "You must be in a voice channel to use this command.";
@@ -28,5 +30,3 @@ exports.playlistAdded = "The playlist {{playlist}} has been added to the queue."
 exports.songSelection = "Song Selection";
 exports.songSelectionInfo = "Please provide a value to select one of the search results, ranging from **1** to **10**.\nThe song selection time period is 15 seconds.";
 exports.songSelectionCancel = "Invalid or null value provided; cancelling video selection.";
-
-exports.noResultsFound = "No search results found.";
