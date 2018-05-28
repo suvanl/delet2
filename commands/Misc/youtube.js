@@ -1,8 +1,8 @@
 const Command = require("../../base/Command.js");
-const keys = require("../../util/keys.js");
+const { GOOGLE_API_KEY } = require("../../util/keys.js");
 const YouTube = require("simple-youtube-api");
 
-const yt = new YouTube(keys.GOOGLE_API_KEY);
+const yt = new YouTube(GOOGLE_API_KEY);
 
 class YouTubeSearch extends Command {
   constructor(client) {
