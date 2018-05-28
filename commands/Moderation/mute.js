@@ -10,7 +10,6 @@ class Mute extends Command {
       usage: "mute [user] <reason>",
       aliases: ["permmute", "perm"],
       permLevel:"Moderator",
-      botPerms: ["MANAGE_ROLES", "MANAGE_CHANNELS"],
       guildOnly: true
     });
   }
