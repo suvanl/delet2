@@ -7,8 +7,7 @@ class Dog extends Command {
         name: "dog",
         description: "Sends a random image of a dog.",
         category: "Fun",
-        usage: "dog",
-        botPerms: ["ATTACH_FILES"]
+        usage: "dog"
       });
     }
 
