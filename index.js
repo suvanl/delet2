@@ -3,7 +3,7 @@ delet - a multipurpose Discord bot
 Copyright © 2017-2018 DS Development Group. All rights reserved.
 Contributors are listed in package.json
 
-Licensed under the GPL-3.0 license.
+Licensed under the GNU General Public License v3.0.
 
 https://delet.js.org/
 */
