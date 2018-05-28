@@ -8,7 +8,6 @@ class Report extends Command {
         description: "Reports a user to the server's staff.",
         category: "Moderation",
         usage: "report [user] <reason/info>",
-        botPerms: ["MANAGE_MESSAGES"],
         guildOnly: true
       });
     }
