@@ -9,7 +9,7 @@ exports.missingPerm = "I cannot run this command as I have insufficient permissi
 
 exports.missingPerms = "I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"{{perms}}\" permissions.";
 
-exports.mentionHelp = "Hey! Looking for help? Run `{{prefix}}help` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix for this server.";
+exports.mentionHelp = "Hey! Looking for help? Use `{{prefix}}help` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix and language for this server.";
 
 exports.guildOnly = "This command is unavailable via direct message. Please run this command in a guild (server).";
 
