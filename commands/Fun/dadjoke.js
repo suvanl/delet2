@@ -8,17 +8,15 @@ class DadJoke extends Command {
         description: "Sends a random dad joke.",
         category: "Fun",
         usage: "dadjoke",
-        aliases: ["dad", "dadj", "badjoke", "joke"],
-        enabled: false
+        aliases: ["dad", "dadj", "badjoke", "joke"]
       });
     }
 
     async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
         try {
-          const msg = await message.channel.send("Contacting dad... 🤔");
-          const { text } = await get("https://icanhazdadjoke.com/").set("Accept", "text/plain");
+          const { raw } = await get("https://icanhazdadjoke.com/").set("Accept", "text/plain");
+          const text = raw.toString();
           message.channel.send(text);
-          msg.edit(text);
         } catch (error) {
           this.client.logger.error(error);
           return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
