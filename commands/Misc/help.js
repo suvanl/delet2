@@ -9,7 +9,7 @@ class Help extends Command {
   constructor(client) {
     super(client, {
       name: "help",
-      description: "Displays all the available commands for you.",
+      description: "Displays all commands available for you.",
       usage: "help [command]",
       aliases: ["h", "halp"]
     });
@@ -67,10 +67,12 @@ class Help extends Command {
       } else {
         // Shows help for individual commands.
         let command = args[0];
+        const settings = message.settings;
+        
         if (this.client.commands.has(command)) {
           command = this.client.commands.get(command);
           if (level < this.client.levelCache[command.conf.permLevel]) return;
-          message.channel.send(`= ${command.help.name} = \n${command.help.description}\nusage   :: ${command.help.usage}\naliases :: ${command.conf.aliases.join(", ")}`, {code:"asciidoc"});
+          message.channel.send(`= ${command.help.name} = \n${command.help.description}\nusage   :: ${settings.prefix}${command.help.usage}\naliases :: ${command.conf.aliases.join(", ")}`, {code:"asciidoc"});
         }
       }
     }
