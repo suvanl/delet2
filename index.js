@@ -187,7 +187,7 @@ const init = async () => {
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
 
-  // Logs the client in to Discord.
+  // Logs the client into Discord.
   client.login(client.config.token);
 
   // Ends the top-level async/await function.
