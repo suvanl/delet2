@@ -25,7 +25,6 @@ class EightBall extends Command {
         match. Unlike a regular magic 8 ball, delet's one has an equal number of positive and negative outcomes.
 
         OUTCOME TYPES:
-
         Positive: 14
         Neutral:  7
         Negative: 14
