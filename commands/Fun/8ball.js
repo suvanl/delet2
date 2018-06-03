@@ -14,20 +14,22 @@ class EightBall extends Command {
 
   async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
 
-      // SUBMITTING OUTCOMES
-      // If you wish to submit a outcome, please fork this repository, add the outcome to the "outcomes" array, and
-      // create a pull request. Please add a comment next to it, stating whether it is positive, negative, or neutral.
-      // If you're unsure, leave it blank. If you do state if it's positive, neutral or negative, please update the
-      // "OUTCOME TYPES" comments accordingly. 
-      
-      // Please ensure your outcome has an "opposite" outcome to it too, so the number of positive and negative outcomes
-      // match. Unlike a regular magic 8 ball, delet's one has an equal number of positive and negative outcomes.
+      /*
+        SUBMITTING OUTCOMES
+        If you wish to submit a outcome, please fork this repository, add the outcome to the "outcomes" array, and
+        create a pull request. Please add a comment next to it, stating whether it is positive, negative, or neutral.
+        If you're unsure, leave it blank. If you do state if it's positive, neutral or negative, please update the
+        "OUTCOME TYPES" comments accordingly. 
+        
+        Please ensure your outcome has an "opposite" outcome to it too, so the number of positive and negative outcomes
+        match. Unlike a regular magic 8 ball, delet's one has an equal number of positive and negative outcomes.
 
-      // OUTCOME TYPES:
+        OUTCOME TYPES:
 
-      // Positive: 14
-      // Neutral:  7
-      // Negative: 14
+        Positive: 14
+        Neutral:  7
+        Negative: 14
+      */
 
       const outcomes = [
         "Yes.", // Positive
