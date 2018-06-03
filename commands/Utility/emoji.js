@@ -20,7 +20,7 @@ class Emoji extends Command {
         const name = args[1];
         let imgLink;
 
-        if (!image) return message.channel.send("You must provide an **Imgur** or **vgy.me** image link, for the emoji's image.");
+        if (!image) return message.channel.send("You must provide a valid **Imgur** or **vgy.me** image link, to create an emoji from.");
 
         if (image.match(/^https?:\/\/(\w+\.)?imgur.com\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/) || image.match(/^https?:\/\/(\w+\.)?vgy.me\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/)) {
           imgLink = true;
