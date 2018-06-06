@@ -6,6 +6,7 @@ class Avatar extends Command {
       super(client, {
         name: "avatar",
         description: "Sends the mentioned user's avatar.",
+        category: "Information",
         usage: "avatar [@mention]",
         aliases: ["avy"]
       });
