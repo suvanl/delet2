@@ -9,7 +9,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": ">=9"
+    "node": ">=8"
   },
   "nodemonConfig": {
     "ignore": [
