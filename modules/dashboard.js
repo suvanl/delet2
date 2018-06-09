@@ -377,4 +377,6 @@ module.exports = (client) => {
   });
   
   client.site = app.listen(client.config.dashboard.port);
+
+  client.logger.panel(`Dashboard initialised. Running at ${client.config.dashboard.domain}:${client.config.dashboard.port}.`);
 };
