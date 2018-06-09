@@ -25,6 +25,9 @@ class Logger {
       case "cmd": {
         return console.log(`${timestamp} ${chalk.black.bgWhite(type.toUpperCase())} ${content}`);
       }
+      case "panel": {
+        return console.log(`${timestamp} ${chalk.black.bgCyan(type.toUpperCase())} ${content}`);
+      }
       case "ready": {
         return console.log(`${timestamp} ${chalk.black.bgGreen(type.toUpperCase())} ${content}`);
       } 
@@ -51,6 +54,9 @@ class Logger {
   static cmd(content) {
     return this.log(content, "cmd");
   } 
+  static panel(content) {
+    return this.log(content, "panel");
+  }
 }
 
 module.exports = Logger;
