@@ -53,7 +53,7 @@ class Weather extends Command {
             • Wind: **${current.winddisplay.toLowerCase()}** (${current.winddisplay.toLowerCase().replace(/[^0-9]/g,"") * 0.621371} mph)
             `)
             .setThumbnail(current.imageUrl)
-            .setFooter(`Correct as of ${current.observationtime} local time`)
+            .setFooter(`Correct as of ${current.observationtime.slice(0, -3)} local time`)
             .setTimestamp();
 
             message.channel.send({embed});
