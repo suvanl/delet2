@@ -69,7 +69,8 @@
     "snekfetch": "^4.0.0",
     "strict-uri-encode": "^2.0.0",
     "table": "^4.0.3",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "winston": "^2.4.2"
   },
   "optionalDependencies": {
     "canvas": "^1.6.10",
