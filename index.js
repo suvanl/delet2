@@ -32,8 +32,7 @@ class Delet extends Discord.Client {
 
     // Loads the config.js file that contains the token and prefix values.
     this.config = require("./config.js");
-    // client.config.token = bot's token
-    // client.config.prefix = bot's message prefix
+    // E.g. `client.config.token` = bot's token
 
     // Aliases and commands are put in collections where they can be read from,
     // catalogued, listed, etc.
