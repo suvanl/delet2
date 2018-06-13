@@ -19,3 +19,5 @@ d::::::ddddd::::::dde::::::::e         l::::::le::::::::e                t::::::
    ddddddddd   ddddd    eeeeeeeeeeeeee llllllll    eeeeeeeeeeeeee            ttttttttttt  
                                                                                                                                                                             
 `);
+
+console.log(`Build completed @ ${new Date()}.`);
