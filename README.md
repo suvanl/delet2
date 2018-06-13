@@ -35,5 +35,5 @@ Full support for self-hosting may be added in a future update, if there is enoug
 Obviously, you *are* free to clone this repository, for whatever reason you wish.
 
 ### Further Information
-- **License**: [GPL-3.0](https://github.com/DS-Development/delet/blob/master/LICENSE)
+- **License**: [GNU General Public License v3.0](https://github.com/DS-Development/delet/blob/master/LICENSE)
 - **ETA**: Summer 2018 (Subject to change)
