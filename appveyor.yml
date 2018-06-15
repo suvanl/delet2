@@ -12,7 +12,8 @@ version: "{build}"
 # What combinations to test
 environment:
   matrix:
-    - nodejs_version: 9
+    - nodejs_version: "8"
+    - nodejs_version: "9"
 
 branches:
   only:
@@ -25,10 +26,10 @@ branches:
 install:
   # Get the latest stable version of Node.js
   - ps: Install-Product node $env:nodejs_version
-  # Install node-gyp
-  - npm install -g node-gyp
   # Install latest version of npm
   - npm install npm@latest -g
+  # Install node-gyp
+  - npm install -g node-gyp
   # Install modules
   - npm install
 
