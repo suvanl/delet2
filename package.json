@@ -39,6 +39,7 @@
     "chalk": "^2.3.0",
     "common-tags": "^1.7.2",
     "discord.js": "^11.3.2",
+    "dotenv": "^6.0.0",
     "ejs": "^2.5.7",
     "enmap": "^0.4.2",
     "enmap-level": "^1.0.0",
