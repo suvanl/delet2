@@ -190,7 +190,7 @@ const init = async () => {
   }
 
   // Logs the client into Discord.
-  client.login(client.config.token);
+  client.login(process.env.DELET_TOKEN);
 
   // Ends the top-level async/await function.
 };

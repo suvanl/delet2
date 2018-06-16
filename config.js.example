@@ -5,9 +5,6 @@ const config = {
   // Bot Support, level 8 by default. Array of user ID strings.
   "support": [],
 
-  // Bot's token
-  "token": "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0",
-
   // Dashboard settings
   "dashboard" : {
     "oauthSecret": "",
