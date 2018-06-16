@@ -4,8 +4,8 @@
 const Command = require("../../base/Command.js");
 const snekfetch = require("snekfetch");
 const { RichEmbed } = require("discord.js");
-const { TWITTER_API_KEY, TWITTER_SECRET } = require("../../util/keys.js");
 const { base64 } = require("../../util/Utils.js");
+const { TWITTER_API_KEY, TWITTER_SECRET } = process.env;
 
 class Twitter extends Command {
   constructor(client) {

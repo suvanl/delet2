@@ -1,6 +1,6 @@
 const Command = require("../../base/Command.js");
-const { GOOGLE_API_KEY } = require("../../util/keys.js");
 const YouTube = require("simple-youtube-api");
+const { GOOGLE_API_KEY } = process.env;
 
 const yt = new YouTube(GOOGLE_API_KEY);
 

@@ -151,7 +151,10 @@ const client = new Delet({
 
 console.log(client.config.permLevels.map(p => `${p.level} : ${p.name}`));
 
-// Starts by getting some useful functions that will be used
+// Loads in environment variables
+require("dotenv").config();
+
+// Loads in some useful functions that will be used
 // throughout the bot, such as logs and elevation features.
 require("./modules/functions.js")(client);
 
