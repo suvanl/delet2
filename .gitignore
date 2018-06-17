@@ -75,6 +75,7 @@ docs/generic.html
 indev
 /test/
 /notes/
+/security/
 /docker-compose.yml
 
 # Temporary
