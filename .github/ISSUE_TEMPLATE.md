@@ -1,5 +1,5 @@
-Please be sure to read through other issues as well, to make sure what you are suggesting/reporting has not already
-been suggested/reported.
+<!-- Please be sure to read through other issues as well, to make sure what you are suggesting/reporting has not already
+been suggested/reported. -->
 
 **Type**
 
