@@ -71,8 +71,8 @@ class Help extends Command {
         
         if (this.client.commands.has(command)) {
           command = this.client.commands.get(command);
-          if (level < this.client.levelCache[command.conf.permLevel]) return;
-          message.channel.send(`= ${command.help.name} = \n${command.help.description}\nusage   :: ${settings.prefix}${command.help.usage}\naliases :: ${command.conf.aliases.join(", ")}`, {code:"asciidoc"});
+          if (level < this.client.levelCache[command.conf.permLevel]) return;          
+          message.channel.send(`= ${command.help.name} = \n${command.help.description}\nusage   :: ${settings.prefix}${command.help.usage}\naliases :: ${command.conf.aliases.map(a => settings.prefix + a).join(", ")}`, {code:"asciidoc"});
         }
       }
     }
