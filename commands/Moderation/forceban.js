@@ -35,11 +35,11 @@ class ForceBan extends Command {
         }
 
         const embed = new RichEmbed()
-        .setTitle(`🚫 Member force-banned from ${message.guild.name}`)
-        .setColor(13838185)
-        .setDescription(`\`\`\`css\nTarget: ${userID}\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-        .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
-        .setTimestamp();
+          .setTitle(`🚫 Member force-banned from ${message.guild.name}`)
+          .setColor(13838185)
+          .setDescription(`\`\`\`css\nTarget: ${userID}\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
+          .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+          .setTimestamp();
 
         this.client.channels.get(modLog.id).send({embed});
     }

@@ -53,11 +53,11 @@ class Ban extends Command {
             const lastMessage = message.guild.member(user).lastMessageID;
 
             const embed = new RichEmbed()
-            .setTitle(`🚫 Member banned from ${message.guild.name}`)
-            .setColor(10944512)
-            .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nLast message: ${lastMessage}\`\`\``)
-            .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
-            .setTimestamp();
+              .setTitle(`🚫 Member banned from ${message.guild.name}`)
+              .setColor(10944512)
+              .setDescription(`\`\`\`css\nTarget: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nLast message: ${lastMessage}\`\`\``)
+              .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+              .setTimestamp();
     
             this.client.channels.get(modLog.id).send({embed});
 

@@ -54,11 +54,11 @@ class Mute extends Command {
     const lastMessage = message.guild.member(user).lastMessageID;
 
     const embed = new RichEmbed()
-    .setTitle(`🔇 Member muted in #${message.channel.name}`)
-    .setColor(16758125)
-    .setDescription(`\`\`\`fix\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nChannel ID: ${message.channel.id}\nLast message: ${lastMessage}\`\`\``)
-    .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
-    .setTimestamp();
+      .setTitle(`🔇 Member muted in #${message.channel.name}`)
+      .setColor(16758125)
+      .setDescription(`\`\`\`fix\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nChannel ID: ${message.channel.id}\nLast message: ${lastMessage}\`\`\``)
+      .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+      .setTimestamp();
 
     if (message.guild.roles.find("name", "Muted") && message.guild.member(user).roles.has(muteRole.id)) {
       return message.channel.send("The mentioned user is already muted.");

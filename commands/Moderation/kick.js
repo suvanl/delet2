@@ -55,11 +55,11 @@ class Kick extends Command {
           const lastMessage = message.guild.member(user).lastMessageID;
 
           const embed = new RichEmbed()
-          .setTitle(`👢 Member kicked in #${message.channel.name}`)
-          .setColor(16733525)
-          .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nLast message: ${lastMessage}\`\`\``)
-          .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
-          .setTimestamp();
+            .setTitle(`👢 Member kicked in #${message.channel.name}`)
+            .setColor(16733525)
+            .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nLast message: ${lastMessage}\`\`\``)
+            .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+            .setTimestamp();
 
           this.client.channels.get(modLog.id).send({embed});
         } catch (error) {

@@ -43,11 +43,11 @@ class Warn extends Command {
       if (reason) {
         try {
           const embed = new RichEmbed()
-          .setTitle(`⚠️ Warning issued in #${message.channel.name}`)
-          .setColor(16381497)
-          .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-          .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
-          .setTimestamp();
+            .setTitle(`⚠️ Warning issued in #${message.channel.name}`)
+            .setColor(16381497)
+            .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
+            .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+            .setTimestamp();
     
           this.client.channels.get(modLog.id).send({embed});
   

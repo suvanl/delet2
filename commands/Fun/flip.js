@@ -33,13 +33,13 @@ class Flip extends Command {
 
       if (variable === "Heads") {
         const embed = new RichEmbed()
-        .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
-        .setThumbnail("https://vgy.me/yvnN22.png");
+          .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
+          .setThumbnail("https://vgy.me/yvnN22.png");
         message.channel.send({embed});
       } else {
         const embed = new RichEmbed()
-        .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
-        .setThumbnail("https://vgy.me/PfWWql.png");
+          .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
+          .setThumbnail("https://vgy.me/PfWWql.png");
         message.channel.send({embed});
       }
     }
@@ -48,13 +48,13 @@ class Flip extends Command {
     if (settings.currency === "EUR") {
       if (variable === "Heads") {
         const embed = new RichEmbed()
-        .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
-        .setThumbnail("https://vgy.me/QgVomc.png");
+          .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
+          .setThumbnail("https://vgy.me/QgVomc.png");
         message.channel.send({embed});
       } else {
         const embed = new RichEmbed()
-        .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
-        .setThumbnail("https://vgy.me/g4ispA.png");
+          .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
+          .setThumbnail("https://vgy.me/g4ispA.png");
         message.channel.send({embed});
       }
     }
@@ -63,13 +63,13 @@ class Flip extends Command {
     if (settings.currency === "USD") {
       if (variable === "Heads") {
         const embed = new RichEmbed()
-        .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
-        .setThumbnail("https://vgy.me/e08J8X.png");
+          .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
+          .setThumbnail("https://vgy.me/e08J8X.png");
         message.channel.send({embed});
       } else {
         const embed = new RichEmbed()
-        .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
-        .setThumbnail("https://vgy.me/mYy2Fv.png");
+          .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
+          .setThumbnail("https://vgy.me/mYy2Fv.png");
         message.channel.send({embed});
       }
     }
@@ -78,13 +78,13 @@ class Flip extends Command {
     if (settings.currency === "NOK") {
       if (variable === "Heads") {
         const embed = new RichEmbed()
-        .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
-        .setThumbnail("https://vgy.me/NbbKna.png");
+          .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
+          .setThumbnail("https://vgy.me/NbbKna.png");
         message.channel.send({embed});
       } else {
         const embed = new RichEmbed()
-        .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
-        .setThumbnail("https://vgy.me/VbieZr.png");
+          .setDescription(`This flip's result was ${coinFlip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
+          .setThumbnail("https://vgy.me/VbieZr.png");
         message.channel.send({embed});
       }
     }

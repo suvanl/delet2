@@ -26,11 +26,11 @@ class Unmute extends Command {
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("I do not have the required permission(s) to carry this out. Please ensure I have the \"Manage Roles\" permission.");
 
     const embed = new RichEmbed()
-    .setTitle("🔊 Member unmuted")
-    .setColor(12451456)
-    .setDescription(`\`\`\`fix\nUser: ${user.tag} (${user.id})\nUndone by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-    .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
-    .setTimestamp();
+      .setTitle("🔊 Member unmuted")
+      .setColor(12451456)
+      .setDescription(`\`\`\`fix\nUser: ${user.tag} (${user.id})\nUndone by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
+      .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+      .setTimestamp();
 
     if (message.guild.member(user).roles.has(muteRole.id)) {
       message.guild.member(user).removeRole(muteRole).then(() => {
