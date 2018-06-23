@@ -63,7 +63,7 @@ class Help extends Command {
         
         if (message.channel.type === "dm") {
           await this.client.wait(2000);
-          message.author.send("Please note that due to the `help` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.");
+          message.author.send(texts.help.dmCommands);
         }
       } else {
         // Shows help for individual commands.
@@ -73,7 +73,7 @@ class Help extends Command {
         if (this.client.commands.has(command)) {
           command = this.client.commands.get(command);
           if (level < this.client.levelCache[command.conf.permLevel]) return;          
-          message.channel.send(`= ${command.help.name} = \n${command.help.description}\nusage   :: ${settings.prefix}${command.help.usage}\naliases :: ${command.conf.aliases.map(a => settings.prefix + a).join(", ")}`, {code:"asciidoc"});
+          message.channel.send(`= ${command.help.name} = \n${command.help.description}\n${texts.help.usage}   :: ${settings.prefix}${command.help.usage}\n${texts.help.aliases} :: ${command.conf.aliases.map(a => settings.prefix + a).join(", ")}`, { code:"asciidoc" });
         }
       }
     }

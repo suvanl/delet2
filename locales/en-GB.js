@@ -23,7 +23,10 @@ exports.cmd = {
 // Help messages
 exports.help = {
     mentionHelp: "Hey! Looking for help? Use `{{prefix}}help` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix and language for this server.",
-    dmNotSent: "Oops, looks like the message didn't make it to your DMs, {{author}}. Please ensure \"**Allow direct messages from server members**\" is on in your privacy settings for this server."
+    dmNotSent: "Oops, looks like the message didn't make it to your DMs, {{author}}. Please ensure \"**Allow direct messages from server members**\" is on in your privacy settings for this server.",
+    dmCommands: "Please note that due to the `help` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.",
+    usage: "usage",
+    aliases: "aliases"
 };
 
 // Music system specific messages
