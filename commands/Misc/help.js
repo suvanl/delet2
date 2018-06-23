@@ -49,16 +49,17 @@ class Help extends Command {
 
       // Sends the output to the message author, and catches any errors that occur
         message.channel.send(`${message.author}, sending a list of commands available for your permission level to your DMs... 📝`);
-        message.author.send(output, { code:"asciidoc", split: { char: "\u200b" } }).catch(e => {
-          if (e.toString().startsWith("DiscordAPIError: Cannot send messages to this user")) {
-            return message.channel.send(`Oops, looks like the message didn't make it to your DMs, ${message.author}. Please ensure "**Allow direct messages from server members**" is on in your privacy settings for this server.`, {
-              file: image
-            });
-          } else {
-            this.client.logger.error(e);
-            return message.channel.send(texts.general.error.replace(/{{err}}/g, e.message));
-          }
-        });
+        message.author.send(output, { code:"asciidoc", split: { char: "\u200b" } })
+          .catch(e => {
+            if (e.toString().startsWith("DiscordAPIError: Cannot send messages to this user")) {
+              return message.channel.send(texts.help.dmNotSent.replace(/{{author}}/g, message.author), {
+                file: image
+              });
+            } else {
+              this.client.logger.error(e);
+              return message.channel.send(texts.general.error.replace(/{{err}}/g, e.message));
+            }
+          });
         
         if (message.channel.type === "dm") {
           await this.client.wait(2000);
