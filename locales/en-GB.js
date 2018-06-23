@@ -1,4 +1,4 @@
-// Messages (strings)
+// General messages (strings)
 exports.modLogNotFound = "Modlog channel not found. If you're an admin (or owner) on this server, please use:```{{prefix}}set edit modLogChannel [channel-name]```\nFor example: `{{prefix}}set edit modLogChannel cool-channel-name`.";
 
 exports.poweredBy = "Moderation system powered by delet";
@@ -9,14 +9,17 @@ exports.missingPerm = "I cannot run this command as I have insufficient permissi
 
 exports.missingPerms = "I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"{{perms}}\" permissions.";
 
-exports.mentionHelp = "Hey! Looking for help? Use `{{prefix}}help` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix and language for this server.";
-
 exports.guildOnly = "This command is unavailable via direct message. Please run this command in a guild (server).";
 
 exports.cmdDisabled = "This command is unavailable as it has been temporarily disabled, or is still in development.";
 
 exports.noResultsFound = "No search results found.";
 
+// Mention help (i.e. "@delet help pls")
+exports.mentionHelp = "Hey! Looking for help? Use `{{prefix}}help` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix and language for this server.";
+
+// Rate command
+exports.noRate = "You must provide something for me to rate.";
 
 // Messages (strings) for music system
 exports.noVoiceChannel = "You must be in a voice channel to use this command.";

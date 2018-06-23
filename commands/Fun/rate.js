@@ -10,10 +10,10 @@ class Rate extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
       const rateObject = args.join(" ");
+      if (!rateObject) return message.channel.send(texts.noRate);
       const rate = Math.floor(Math.random() * 10) +1;
-      if (!rateObject) return message.channel.send("You must provide something for me to rate.");
 
       let rateMsg;
 
