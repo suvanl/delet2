@@ -14,7 +14,7 @@ class Weather extends Command {
     }
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-        weather.find({ search: args.join(" "), degreeType: "C" }, function(err, result) {
+        weather.find({ search: args.join(" "), degreeType: "C" }, function(err, result) {            
             if (err === "missing search input") return message.channel.send(`You must provide a place to look up weather information for.\nTo see how to use this command, use \`${settings.prefix}help weather\`.`); 
             if (err) return message.channel.send(`${texts.general.error.replace(/{{err}}/g, err.message)}\nTo see how to use this command, use \`${settings.prefix}help weather\`.`);
 
@@ -23,7 +23,14 @@ class Weather extends Command {
                 return message.channel.send(`${JSON.stringify(result[0].current, null, 2)}`, { code: "json" });
             }
 
-            const current = result[0].current;
+            try {
+                var current = result[0].current;
+            } catch (error) {
+                if (error.message === "Cannot read property 'current' of undefined") return message.channel.send("Invalid location provided.");
+                console.error(error.message);
+                return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+            }
+
             const location = result[0].location; // eslint-disable-line no-unused-vars
             const ct = current.temperature;
 
