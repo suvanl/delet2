@@ -39,7 +39,7 @@ class GitHub extends Command {
                 .addField("❯ Forks", body.forks, true)
                 .addField("❯ Issues", body.open_issues, true)
                 .addField("❯ Language", body.language || "No language", true)
-                .addField("❯ License", body.license.spdx_id, true)
+                .addField("❯ License", body.license ? body.license.spdx_id : "Unlicensed", true)
                 .addField("❯ Archived?", body.archived.toString().toProperCase(), true)
                 .setFooter("All times are UTC")
                 .setTimestamp();
