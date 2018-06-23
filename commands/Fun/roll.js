@@ -11,7 +11,7 @@ class Roll extends Command {
       });
     }
 
-    async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         const numbers = [
             ":one:",
             ":two:",

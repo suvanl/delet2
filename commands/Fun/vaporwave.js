@@ -17,7 +17,7 @@ class Vaporwave extends Command {
       });
     }
 
-    async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
       const voiceChannel = message.member.voiceChannel;
       if (!voiceChannel) return message.channel.send("You must be in a voice channel to be able to play ＶＡＰＯＲＷＡＶＥ　ＭＵＳＩＣ　可益ビ.");
 

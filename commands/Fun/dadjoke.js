@@ -12,7 +12,7 @@ class DadJoke extends Command {
       });
     }
 
-    async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         try {
           const { raw } = await get("https://icanhazdadjoke.com/").set("Accept", "text/plain");
           const text = raw.toString();

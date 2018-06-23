@@ -12,7 +12,7 @@ class Shorten extends Command {
     });
   }
 
-  async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
       if (!args[0]) return message.channel.send("Please provide a link to shorten.");
       if (!args[1]) {
           shortener.shorten(args[0], function(res) {

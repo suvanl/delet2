@@ -20,7 +20,7 @@ class Twitter extends Command {
     this.token = null;
   }
 
-  async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
     const user = args[0];
     if (!user) return message.channel.send("You must specify a Twitter user to get information on.");
 

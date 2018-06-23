@@ -14,7 +14,7 @@ class About extends Command {
       });
     }
 
-    async run(message, args, level, texts) {
+    async run(message, args, level, settings, texts) {
       let displayColor;
       if (message.channel.type === "text") displayColor = message.guild.me.displayColor;
       else if (message.channel.type === "dm" || message.channel.type === "group") {
