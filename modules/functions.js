@@ -85,7 +85,7 @@ module.exports = (client) => {
 
   // File logging
   const winston = require("winston");
-  const fileLogger = new (winston.Logger)({
+  const fileLogger = winston.createLogger({
     transports: [
       new (winston.transports.File)({ filename: "errors.log" })
     ]
