@@ -156,7 +156,7 @@ module.exports = (client) => {
   // then throws the user to the Discord OAuth2 login page.
   app.get("/login", (req, res, next) => {
     if (req.session.backURL) {
-      req.session.backURL = req.session.backURL;
+      req.session.backURL = req.session.backURL; // eslint-disable-line no-self-assign
     } else if (req.headers.referer) {
       const parsed = url.parse(req.headers.referer);
       if (parsed.hostname === app.locals.domain) {
