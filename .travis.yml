@@ -13,10 +13,10 @@ addons:
 
 sudo: enabled
 
-# after_success:
-#   - wget https://raw.githubusercontent.com/DS-Development/delet/master/ci/travis/send.sh
-#   - chmod +x send.sh
-#   - ./send.sh success $WEBHOOK_URL
+after_success:
+  - wget https://raw.githubusercontent.com/DS-Development/delet/master/ci/travis/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
 after_failure:
   - wget https://raw.githubusercontent.com/DS-Development/delet/master/ci/travis/send.sh
   - chmod +x send.sh
