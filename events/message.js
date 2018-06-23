@@ -57,7 +57,7 @@ module.exports = class {
       return message.channel.send(texts.general.guildOnly);
 
     if (cmd && cmd.conf.enabled === false)
-      return message.channel.send(texts.cmdDisabled);
+      return message.channel.send(texts.general.cmdDisabled);
 
     // Prevents users from running commands that aren't available for their permLevel.
     if (level < this.client.levelCache[cmd.conf.permLevel]) {
