@@ -43,7 +43,7 @@ class About extends Command {
         message.channel.send({embed});
       } catch (error) {
         this.client.logger.error(error);
-        return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
+        return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
       }
     }
 }

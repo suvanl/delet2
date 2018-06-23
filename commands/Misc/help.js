@@ -56,7 +56,7 @@ class Help extends Command {
             });
           } else {
             this.client.logger.error(e);
-            return message.channel.send(texts.error.replace(/{{err}}/g, e.message));
+            return message.channel.send(texts.general.error.replace(/{{err}}/g, e.message));
           }
         });
         

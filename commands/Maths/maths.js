@@ -27,7 +27,7 @@ class Maths extends Command {
           if (error.toString().startsWith("SyntaxError:") || error.message.startsWith("Undefined symbol")) return msg.edit(`**\`SyntaxError:\`** \`${error.message}\``);
 
           this.client.logger.error(error);
-          msg.edit(texts.error.replace(/{{err}}/g, error));
+          msg.edit(texts.general.error.replace(/{{err}}/g, error));
         }
     }
 }

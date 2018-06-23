@@ -36,7 +36,7 @@ class Purge extends Command {
         message.channel.bulkDelete(messages);
       } catch (error) {
         this.client.logger.error(error);
-        message.channel.send(texts.error.replace(/{{err}}/g, error.message));
+        message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
       }
 
       return message.channel.send(`**${amount}** messages were purged.`);
@@ -49,7 +49,7 @@ class Purge extends Command {
       message.channel.bulkDelete(messages);
     } catch (error) {
       this.client.logger.error(error);
-      message.channel.send(texts.error.replace(/{{err}}/g, error.message));
+      message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
     }
 
     message.channel.send(`**${amount}** messages were purged.`);

@@ -90,7 +90,7 @@ class EightBall extends Command {
           }
         } catch (error) {
           this.client.logger.error(error);
-          message.channel.send(`My magic 8 ball says: ${texts.error.replace(/{{err}}/g, error.message)}`);
+          message.channel.send(`My magic 8 ball says: ${texts.general.error.replace(/{{err}}/g, error.message)}`);
         }
       } else {
         message.channel.send(`Unsure how to use this command? Use \`${settings.prefix}help 8ball\` to see how.`);

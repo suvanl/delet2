@@ -20,7 +20,7 @@ class HeapDump extends Command {
         message.channel.send(`Created new heap-dump @ \`${fileName}\`.`);
     } catch (e) {
         this.client.logger.error(e.stack);
-        return message.channel.send(texts.error.replace(/{{err}}/g, e.message));
+        return message.channel.send(texts.general.error.replace(/{{err}}/g, e.message));
     }
   }
 }

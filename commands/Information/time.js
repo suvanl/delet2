@@ -19,7 +19,7 @@ class Time extends Command {
             return message.channel.send(`The time in **${timeZone}** is currently **${time}**.`);
         } catch (err) {
             message.channel.send(stripIndents`
-            ${texts.error.replace(/{{err}}/g, err.message)}
+            ${texts.general.error.replace(/{{err}}/g, err.message)}
             For a full list of timezones, refer to the "TZ" column here: **<https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List>**.
 
             • Please ensure you are using the correct format, e.g. \`${settings.prefix}time europe/london\`.

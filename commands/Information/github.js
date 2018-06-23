@@ -49,7 +49,7 @@ class GitHub extends Command {
             if (error.status === 404) return message.channel.send(texts.general.noResultsFound);
 
             this.client.logger.error(error);
-            return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
+            return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
         }
     }
 }

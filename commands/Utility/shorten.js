@@ -21,7 +21,7 @@ class Shorten extends Command {
           });
       } else {
           shortener.custom(args[0], args[1], function(res) {
-              if (res.startsWith("Error:")) return message.channel.send(texts.error.replace(/{{err}}/g, res.slice(7)));
+              if (res.startsWith("Error:")) return message.channel.send(texts.general.error.replace(/{{err}}/g, res.slice(7)));
               message.channel.send(`Your shortened link: **<${res}>**.`);
           });
       }

@@ -35,7 +35,7 @@ class Vaporwave extends Command {
           const connection = await voiceChannel.join(); // eslint-disable-line no-unused-vars
       } catch (error) {
           this.client.logger.error(`Couldn't join voice channel: ${error}`);
-          return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
+          return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
       }
 
       const connection = await voiceChannel.join();
