@@ -1,6 +1,6 @@
 {
   "name": "delet",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "An in-development, open-source bot for Discord written in JavaScript, using the Discord.js API library",
   "main": "index.js",
   "scripts": {
@@ -35,15 +35,15 @@
   "dependencies": {
     "@google/maps": "^0.4.6",
     "array-sort": "^1.0.0",
-    "body-parser": "^1.18.2",
-    "chalk": "^2.3.0",
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.1",
     "common-tags": "^1.7.2",
     "discord.js": "^11.3.2",
     "dotenv": "^6.0.0",
     "ejs": "^2.5.7",
-    "enmap": "^0.4.2",
-    "enmap-level": "^1.0.0",
-    "express": "^4.16.2",
+    "enmap": "^0.4.6",
+    "enmap-level": "^1.0.1",
+    "express": "^4.16.3",
     "express-passport": "^0.1.0",
     "express-session": "^1.15.6",
     "ffmpeg": "0.0.4",
@@ -52,12 +52,12 @@
     "heapdump": "^0.3.9",
     "helmet": "^3.9.0",
     "html-entities": "^1.2.1",
-    "inquirer": "^5.1.0",
+    "inquirer": "^6.0.0",
     "isgd": "^1.1.3",
     "klaw": "^2.1.1",
     "level-session-store": "^2.1.0",
     "marked": "^0.4.0",
-    "mathjs": "^4.4.2",
+    "mathjs": "^5.0.0",
     "memejs": "^1.0.7",
     "moment": "^2.20.1",
     "moment-duration-format": "^2.2.2",
@@ -68,11 +68,11 @@
     "request": "^2.87.0",
     "sequelize": "^4.34.1",
     "simple-youtube-api": "^5.0.2",
-    "snekfetch": "^4.0.0",
+    "snekfetch": "^4.0.4",
     "strict-uri-encode": "^2.0.0",
     "table": "^4.0.3",
     "weather-js": "^2.0.0",
-    "winston": "^2.4.2"
+    "winston": "^3.0.0"
   },
   "optionalDependencies": {
     "canvas": "^1.6.10",
@@ -82,6 +82,6 @@
     "ytdl-core": "^0.20.4"
   },
   "devDependencies": {
-    "eslint": "^4.19.1"
+    "eslint": "^5.0.0"
   }
 }
