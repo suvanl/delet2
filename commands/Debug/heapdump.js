@@ -14,7 +14,7 @@ class HeapDump extends Command {
     });
   }
 
-  async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
     try {
         const fileName = await writeSnapshot(`./${Date.now()}.heapsnapshot`);
         message.channel.send(`Created new heap-dump @ \`${fileName}\`.`);

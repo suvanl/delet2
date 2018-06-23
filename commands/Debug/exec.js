@@ -17,7 +17,7 @@ class Exec extends Command {
     });
   }
 
-  async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
     this.client.logger.warn("Exec command used");
 
     try {

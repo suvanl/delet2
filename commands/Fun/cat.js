@@ -11,7 +11,7 @@ class Cat extends Command {
       });
     }
 
-    async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         const { body } = await snekfetch.get("http://aws.random.cat/meow");
         try {
             return message.channel.send({files: [body.file] });
