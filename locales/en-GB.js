@@ -25,7 +25,7 @@ exports.help = {
     mentionHelp: "Hey! Looking for help? Use `{{prefix}}help` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix and language for this server."
 };
 
-// Music system messages
+// Music system specific messages
 exports.music = {
     noVoiceChannel: "You must be in a voice channel to use this command.",
     noConnect: "I cannot connect to your voice channel, due to insufficient permissions.",
