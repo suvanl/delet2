@@ -20,7 +20,7 @@ class ForceBan extends Command {
         const userID = args[0];
         const reason = args.slice(1).join(" ");
         const modLog = message.guild.channels.find("name", settings.modLogChannel);
-        if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
+        if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
         if (!userID) return message.channel.send("You must provide a user ID to ban.");
         if (!reason) return message.channel.send("Please provide a reason for the punishment.");
         if (userID === message.author.id) return message.channel.send("You cannot ban yourself. <a:aThinking:444074885367595009>");
@@ -38,7 +38,7 @@ class ForceBan extends Command {
           .setTitle(`🚫 Member force-banned from ${message.guild.name}`)
           .setColor(13838185)
           .setDescription(`\`\`\`css\nTarget: ${userID}\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-          .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+          .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
           .setTimestamp();
 
         this.client.channels.get(modLog.id).send({embed});

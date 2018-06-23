@@ -22,7 +22,7 @@ class Mute extends Command {
     const user = message.mentions.users.first();
     const reason = args.slice(1).join(" ");
     const modLog = message.guild.channels.find("name", settings.modLogChannel);
-    if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
+    if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
     if (!user) return message.channel.send("You must mention a user to mute.");
     if (!reason) return message.channel.send("Please provide a reason for the punishment.");
     if (user.id === message.author.id) return message.reply("you cannot mute yourself!");
@@ -57,7 +57,7 @@ class Mute extends Command {
       .setTitle(`🔇 Member muted in #${message.channel.name}`)
       .setColor(16758125)
       .setDescription(`\`\`\`fix\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nDuration: Permanent\nChannel ID: ${message.channel.id}\nLast message: ${lastMessage}\`\`\``)
-      .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+      .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
       .setTimestamp();
 
     if (message.guild.roles.find("name", "Muted") && message.guild.member(user).roles.has(muteRole.id)) {

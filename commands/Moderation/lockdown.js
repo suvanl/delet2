@@ -19,7 +19,7 @@ class Lockdown extends Command {
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
         const modLog = message.guild.channels.find("name", settings.modLogChannel);
-        if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
+        if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
 
         if (!this.client.lockit) this.client.lockit = [];
         const time = args.join(" ");
@@ -43,7 +43,7 @@ class Lockdown extends Command {
                         .setTitle("🔒 Channel locked down")
                         .setColor(16753762)
                         .setDescription(`\`\`\`ruby\nChannel: #${message.channel.name} (${message.channel.id})\nDuration: ${ms(ms(time), { long: true })}\nIssued by: ${message.author.tag}\`\`\``)
-                        .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+                        .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
                         .setTimestamp();
                     this.client.channels.get(modLog.id).send({embed}).then (() => {
                         this.client.lockit[message.channel.id] = setTimeout(() => {

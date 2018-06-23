@@ -17,7 +17,7 @@ class Unmute extends Command {
     const user = message.mentions.users.first();
     const reason = args.slice(1).join(" ");
     const modLog = message.guild.channels.find("name", settings.modLogChannel);
-    if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
+    if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
     if (!user) return message.channel.send("You must mention a user to unmute.");
     if (!reason) return message.channel.send("Please provide a reason.");
 
@@ -29,7 +29,7 @@ class Unmute extends Command {
       .setTitle("🔊 Member unmuted")
       .setColor(12451456)
       .setDescription(`\`\`\`fix\nUser: ${user.tag} (${user.id})\nUndone by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-      .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+      .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
       .setTimestamp();
 
     if (message.guild.member(user).roles.has(muteRole.id)) {

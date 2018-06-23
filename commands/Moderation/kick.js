@@ -20,7 +20,7 @@ class Kick extends Command {
       const user = message.mentions.users.first();
       let reason = args.slice(1).join(" ") || undefined;
       const modLog = message.guild.channels.find("name", settings.modLogChannel);
-      if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
+      if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
       if (!user) return message.channel.send("You must mention a user to kick.");
       if (user === message.author) return message.channel.send("You cannot kick yourself. <a:aThinking:444074885367595009>");
       if (!reason) {
@@ -58,7 +58,7 @@ class Kick extends Command {
             .setTitle(`👢 Member kicked in #${message.channel.name}`)
             .setColor(16733525)
             .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\nLast message: ${lastMessage}\`\`\``)
-            .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+            .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
             .setTimestamp();
 
           this.client.channels.get(modLog.id).send({embed});

@@ -21,7 +21,7 @@ class Warn extends Command {
       const user = message.mentions.users.first();
       let reason = args.slice(1).join(" ") || undefined;
       const modLog = message.guild.channels.find("name", settings.modLogChannel);
-      if (!modLog) return message.channel.send(`${texts.modLogNotFound.replace(/{{prefix}}/g, settings.prefix)}`);
+      if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
       if (!user) return message.channel.send("You must mention a user to warn.");
       if (!reason) {
         message.channel.send("Please enter a reason for the warning...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.");
@@ -46,7 +46,7 @@ class Warn extends Command {
             .setTitle(`⚠️ Warning issued in #${message.channel.name}`)
             .setColor(16381497)
             .setDescription(`\`\`\`ruby\nIssued to: ${user.tag} (${user.id})\nIssued by: ${message.author.tag} (${message.author.id})\nReason: ${reason}\`\`\``)
-            .setFooter(texts.poweredBy, this.client.user.displayAvatarURL)
+            .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
             .setTimestamp();
     
           this.client.channels.get(modLog.id).send({embed});
