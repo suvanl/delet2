@@ -1,6 +1,6 @@
 // General messages (used throughout delet)
 exports.general = {
-    error: "An error occurred:\n```{{err}}```", // TODO: replace all `texts.error` methods with `texts.general.error`.
+    error: "An error occurred:\n```{{err}}```",
     missingPerm: "I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"{{perm}}\" permission.",
     missingPerms: "I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"{{perms}}\" permissions.",
     guildOnly: "This command is unavailable via direct message. Please run this command in a guild (server).",
