@@ -6,7 +6,7 @@ class Purge extends Command {
       name: "purge",
       description: "Purges (bulk-deletes) between 2 and 99 messages.",
       category: "Moderation",
-      usage: "purge [user] [number]\n           purge [number]", // TODO: clean up this line of spaghetti code
+      usage: "purge ([user]) [number]",
       aliases: ["prune", "delet", "bulkdelete"],
       permLevel: "Moderator",
       guildOnly: true
@@ -32,15 +32,25 @@ class Purge extends Command {
       this.client.emit("messageDeleteBulk", messages);
       for (const msg of messages) msg.channel.messages.delete(msg.id);
       
-      message.channel.bulkDelete(messages).catch(error => this.client.logger.error(error));
+      try {
+        message.channel.bulkDelete(messages);
+      } catch (error) {
+        this.client.logger.error(error);
+        message.channel.send(texts.error.replace(/{{err}}/g, error.message));
+      }
 
-      return message.channel.send(`${amount} messages were purged.`);
+      return message.channel.send(`**${amount}** messages were purged.`);
     }
 
     this.client.emit("messageDeleteBulk", messages);
     for (const msg of messages.values()) msg.channel.messages.delete(msg.id);
     
-    message.channel.bulkDelete(messages).catch(error => this.client.logger.error(error));
+    try {
+      message.channel.bulkDelete(messages);
+    } catch (error) {
+      this.client.logger.error(error);
+      message.channel.send(texts.error.replace(/{{err}}/g, error.message));
+    }
 
     message.channel.send(`**${amount}** messages were purged.`);
   }
