@@ -40,7 +40,7 @@ class Tweet extends Command {
     } catch (error) {
         this.client.logger.error(error);
         if (error.statusCode === 401) await this.fetchToken();
-        if (error.statusCode === 404) return message.channel.send(texts.noResultsFound);
+        if (error.statusCode === 404) return message.channel.send(texts.general.noResultsFound);
         return message.channel.send(texts.error.replace(/{{err}}/g, error.message));
     }
   }

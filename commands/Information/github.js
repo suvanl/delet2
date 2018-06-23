@@ -46,7 +46,7 @@ class GitHub extends Command {
 
             return message.channel.send({embed});
         } catch (error) {
-            if (error.status === 404) return message.channel.send(texts.noResultsFound);
+            if (error.status === 404) return message.channel.send(texts.general.noResultsFound);
 
             this.client.logger.error(error);
             return message.channel.send(texts.error.replace(/{{err}}/g, error.message));

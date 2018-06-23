@@ -81,7 +81,7 @@ client.on("message", async message => {
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id); // eslint-disable-line no-redeclare
 				} catch (err) {
 					console.error(err);
-					return message.channel.send(texts.noResultsFound);
+					return message.channel.send(texts.general.noResultsFound);
 				}
 			}
 			return handleVideo(video, message, voiceChannel);
