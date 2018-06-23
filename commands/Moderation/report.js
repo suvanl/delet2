@@ -14,7 +14,7 @@ class Report extends Command {
     
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-        if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send(`${texts.missingPerm.replace(/{{perm}}/g, "Embed Links")}`);
+        if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send(texts.general.missingPerm.replace(/{{perm}}/g, "Embed Links"));
 
         const user = message.mentions.users.first();
         const reason = args.slice(1).join(" ");

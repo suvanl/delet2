@@ -15,7 +15,7 @@ class Bans extends Command {
 
     async run(message, args, level, texts) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-        if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send(`${texts.missingPerm.replace(/{{perm}}/g, "Ban Members")}`);
+        if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send(texts.general.missingPerm.replace(/{{perm}}/g, "Ban Members"));
         try {
             message.guild.fetchBans()
                 .then(bans => {

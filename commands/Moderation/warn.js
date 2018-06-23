@@ -16,7 +16,7 @@ class Warn extends Command {
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
       if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-      if (!message.guild.me.permissions.has(["EMBED_LINKS", "ADD_REACTIONS"])) return message.channel.send(`${texts.missingPerms.replace(/{{perms}}/g, "\"Embed Links\" & \"Add Reactions\"")}`);
+      if (!message.guild.me.permissions.has(["EMBED_LINKS", "ADD_REACTIONS"])) return message.channel.send(texts.general.missingPerms.replace(/{{perms}}/g, "\"Embed Links\" & \"Add Reactions\""));
 
       const user = message.mentions.users.first();
       let reason = args.slice(1).join(" ") || undefined;
