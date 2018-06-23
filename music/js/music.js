@@ -36,11 +36,11 @@ client.on("message", async message => {
 	// PLAY COMMAND
 	if (command === "play") {
 		const voiceChannel = message.member.voiceChannel;
-		if (!voiceChannel) return message.channel.send(texts.noVoiceChannel);
+		if (!voiceChannel) return message.channel.send(texts.music.noVoiceChannel);
 
 		const permissions = voiceChannel.permissionsFor(message.client.user);
-		if (!permissions.has("CONNECT")) return message.channel.send(texts.noConnect);
-		if (!permissions.has("SPEAK")) return message.channel.send(texts.noSpeak);
+		if (!permissions.has("CONNECT")) return message.channel.send(texts.music.noConnect);
+		if (!permissions.has("SPEAK")) return message.channel.send(texts.music.noSpeak);
 
 		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
 			const playlist = await youtube.getPlaylist(url);
@@ -50,7 +50,7 @@ client.on("message", async message => {
 				const video2 = await youtube.getVideoByID(video.id);
 				await handleVideo(video2, message, voiceChannel, true);
 			}
-			return message.channel.send(texts.playlistAdded.replace(/{{playlist}}/g, playlist.title));
+			return message.channel.send(texts.music.playlistAdded.replace(/{{playlist}}/g, playlist.title));
 		} else {
 			try {
 				var video = await youtube.getVideo(url);
@@ -61,11 +61,11 @@ client.on("message", async message => {
 					let index = 0;
 
 					message.channel.send(stripIndents`
-					__**${texts.songSelection}**__
+					__**${texts.music.songSelection}**__
 
 					${videos.map(video2 => `**${++index} -** ${video2.title}`).join("\n")}
 
-					${texts.songSelectionInfo}
+					${texts.music.songSelectionInfo}
 					`);
 					try {
 						var response = await message.channel.awaitMessages(message2 => message2.content > 0 && message2.content < 11, {
@@ -75,7 +75,7 @@ client.on("message", async message => {
 						});
 					} catch (err) {
 						console.error(err);
-						return message.channel.send(texts.songSelectionCancel);
+						return message.channel.send(texts.music.songSelectionCancel);
 					}
 					const videoIndex = parseInt(response.first().content);
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id); // eslint-disable-line no-redeclare
@@ -89,14 +89,14 @@ client.on("message", async message => {
 
 		// SKIP COMMAND
 	} else if (command === "skip") {
-		if (!message.member.voiceChannel) return message.channel.send(texts.noVoiceChannel);
+		if (!message.member.voiceChannel) return message.channel.send(texts.music.noVoiceChannel);
 		if (!serverQueue) return message.channel.send("There is nothing currently playing that can be skipped.");
 		serverQueue.connection.dispatcher.end("Skip command used");
 		return;
 
 		// STOP COMMAND
 	} else if (command === "stop") {
-		if (!message.member.voiceChannel) return message.channel.send(texts.noVoiceChannel);
+		if (!message.member.voiceChannel) return message.channel.send(texts.music.noVoiceChannel);
 		if (!serverQueue) return message.channel.send("There is nothing currently playing that can be stopped.");
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end("Stop command used");
@@ -104,7 +104,7 @@ client.on("message", async message => {
 
 		// VOLUME COMMAND
 	} else if (command === "volume" || command === "vol") {
-		if (!message.member.voiceChannel) return message.channel.send(texts.noVoiceChannel);
+		if (!message.member.voiceChannel) return message.channel.send(texts.music.noVoiceChannel);
 		if (!serverQueue) return message.channel.send("There is nothing currently playing.");
 		if (!args[1]) return message.channel.send(`The current volume is **${serverQueue.volume}**.`);
 		serverQueue.volume = args[1];
