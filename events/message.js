@@ -54,7 +54,7 @@ module.exports = class {
     // Some commands may not be usable in DMs. This check prevents those commands from running
     // and returns a friendly error message.
     if (cmd && !message.guild && cmd.conf.guildOnly)
-      return message.channel.send(texts.guildOnly);
+      return message.channel.send(texts.general.guildOnly);
 
     if (cmd && cmd.conf.enabled === false)
       return message.channel.send(texts.cmdDisabled);
