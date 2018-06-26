@@ -16,7 +16,7 @@ class EightBall extends Command {
 
       /*
         SUBMITTING OUTCOMES
-        If you wish to submit a outcome, please fork this repository, add the outcome to the "outcomes" array, and
+        If you wish to submit an outcome, please fork this repository, add the outcome to the "outcomes" array, and
         create a pull request. Please add a comment next to it, stating whether it is positive, negative, or neutral.
         If you're unsure, leave it blank. If you do state if it's positive, neutral or negative, please update the
         "OUTCOME TYPES" comments accordingly. 
