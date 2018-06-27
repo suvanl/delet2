@@ -50,10 +50,10 @@ class Weather extends Command {
             .setDescription(stripIndents`
             The weather is **${current.skytext.toLowerCase()}** at the moment.
 
-            • Temperature: **${ct}°C**
-            • Feels like: **${current.feelslike}°C**
+            • Temperature: **${ct}°C** / ${((1.8 * ct) + 32).toFixed(0)}°F
+            • Feels like: **${current.feelslike}°C** / ${((1.8 * current.feelslike) + 32).toFixed(0)}°F
             • Humidity: **${current.humidity}%**
-            • Wind: **${current.winddisplay.toLowerCase()}** (${current.winddisplay.toLowerCase().replace(/[^0-9]/g,"") * 0.621371} mph)
+            • Wind: **${current.winddisplay.toLowerCase()}** / ~${(current.winddisplay.toLowerCase().replace(/[^0-9]/g,"") * 0.621).toFixed(1)} mph
             `)
             .setThumbnail(current.imageUrl)
             .setFooter(`Correct as of ${current.observationtime.slice(0, -3)} local time`)
