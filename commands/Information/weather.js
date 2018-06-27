@@ -18,11 +18,6 @@ class Weather extends Command {
             if (err === "missing search input") return message.channel.send(`You must provide a place to look up weather information for.\nTo see how to use this command, use \`${settings.prefix}help weather\`.`); 
             if (err) return message.channel.send(`${texts.general.error.replace(/{{err}}/g, err.message)}\nTo see how to use this command, use \`${settings.prefix}help weather\`.`);
 
-            if (message.content.startsWith(`${settings.prefix}weather json`)) {
-                if (!args[1]) return message.channel.send("You must provide a place to look up weather information for.");
-                return message.channel.send(`${JSON.stringify(result[0].current, null, 2)}`, { code: "json" });
-            }
-
             try {
                 var current = result[0].current;
             } catch (error) {
