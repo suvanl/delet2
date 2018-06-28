@@ -7,8 +7,7 @@ class Expand extends Command {
         name: "expand",
         description: "Makes the specified text thicc.",
         category: "Fun",
-        usage: "expand [text]",
-        aliases: [""]
+        usage: "expand [text]"
       });
     }
 
