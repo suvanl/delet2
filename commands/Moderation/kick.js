@@ -23,6 +23,7 @@ class Kick extends Command {
       if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
       if (!user) return message.channel.send("You must mention a user to kick.");
       if (user === message.author) return message.channel.send("You cannot kick yourself. <a:aThinking:444074885367595009>");
+      if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot kick this user as they have a higher role than you.");
       if (!reason) {
         message.channel.send("Please enter a reason for the punishment...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.");
         await message.channel.awaitMessages(m => m.author.id === message.author.id, {
