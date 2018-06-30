@@ -15,7 +15,7 @@ class Say extends Command {
       const ttsArgs = message.content.split(" ").slice(2);
 
       if (message.content.startsWith(`${settings.prefix}say tts`)) {
-        message.channel.send(ttsArgs.join(" "), {tts: true});
+        message.channel.send(ttsArgs.join(" "), { tts: true });
       } else {
         message.channel.send(args.join(" "));
       }
