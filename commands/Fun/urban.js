@@ -44,7 +44,7 @@ class Urban extends Command {
                     return message.channel.send(texts.general.error.replace(/{{err}}/g, err.message));
                 }
             } else {
-                message.channel.send("No entry found.");
+                message.channel.send(texts.general.noResultsFound);
             }
         });
     }
