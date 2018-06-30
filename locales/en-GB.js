@@ -16,6 +16,10 @@ exports.moderation = {
 
 // Command-specific messages
 exports.cmd = {
+    // Roll command
+    rolling: "Rolling...",
+    rolled: "You rolled a {{result}}!",
+
     // Rate command
     noRate: "You must provide something for me to rate."
 };

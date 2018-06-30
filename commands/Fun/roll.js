@@ -20,10 +20,11 @@ class Roll extends Command {
             ":five:",
             ":six:"
         ];
+        
         try {
             const roll = numbers.random();
-            const msg = await message.channel.send("Rolling... 🎲");
-            msg.edit(`You rolled a ${roll}!`);
+            const msg = await message.channel.send(`${texts.cmd.rolling} 🎲`);
+            msg.edit(texts.cmd.rolled.replace(/{{result}}/g, roll));
         } catch (error) {
             return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
         }
