@@ -40,7 +40,7 @@
     "common-tags": "^1.7.2",
     "discord.js": "^11.3.2",
     "dotenv": "^6.0.0",
-    "ejs": "^2.5.7",
+    "ejs": "^2.6.1",
     "enmap": "^0.4.6",
     "enmap-level": "^1.0.1",
     "express": "^4.16.3",
@@ -66,7 +66,7 @@
     "passport": "^0.4.0",
     "passport-discord": "^0.1.3",
     "request": "^2.87.0",
-    "sequelize": "^4.34.1",
+    "sequelize": "^4.38.0",
     "simple-youtube-api": "^5.0.2",
     "snekfetch": "^4.0.4",
     "strict-uri-encode": "^2.0.0",
@@ -75,13 +75,13 @@
     "winston": "^3.0.0"
   },
   "optionalDependencies": {
-    "canvas": "^1.6.10",
+    "canvas": "^1.6.11",
     "canvas-constructor": "^1.0.1",
     "cleverbot.io": "^1.0.4",
     "node-opus": "^0.3.0",
     "ytdl-core": "^0.20.4"
   },
   "devDependencies": {
-    "eslint": "^5.0.0"
+    "eslint": "^5.0.1"
   }
 }
