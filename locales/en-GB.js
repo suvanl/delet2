@@ -16,12 +16,18 @@ exports.moderation = {
 
 // Command-specific messages
 exports.cmd = {
+    // "FUN" CATEGORY
+
+    // Rate command
+    noRate: "You must provide something for me to rate.",
+
     // Roll command
     rolling: "Rolling...",
     rolled: "You rolled a {{result}}!",
 
-    // Rate command
-    noRate: "You must provide something for me to rate."
+    // Slots command
+    slotWin: "**You won!** That was definitely down to your immense skill.",
+    slotLoss: "**You lost!** It was just down to bad luck, of course."
 };
 
 // Help messages
