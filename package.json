@@ -61,7 +61,7 @@
     "memejs": "^1.0.7",
     "moment": "^2.20.1",
     "moment-duration-format": "^2.2.2",
-    "moment-timezone": "^0.5.14",
+    "moment-timezone": "^0.5.21",
     "ms": "^2.1.1",
     "passport": "^0.4.0",
     "passport-discord": "^0.1.3",
