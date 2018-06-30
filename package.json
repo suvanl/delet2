@@ -59,7 +59,7 @@
     "marked": "^0.4.0",
     "mathjs": "^5.0.0",
     "memejs": "^1.0.7",
-    "moment": "^2.20.1",
+    "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
     "moment-timezone": "^0.5.21",
     "ms": "^2.1.1",
