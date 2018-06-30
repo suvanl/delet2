@@ -42,7 +42,7 @@
     "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
     "enmap": "^0.4.6",
-    "enmap-level": "^1.0.1",
+    "enmap-level": "^2.1.0",
     "express": "^4.16.3",
     "express-passport": "^0.1.0",
     "express-session": "^1.15.6",
