@@ -75,7 +75,7 @@
     "winston": "^3.0.0"
   },
   "optionalDependencies": {
-    "canvas": "^1.6.10",
+    "canvas": "^1.6.11",
     "canvas-constructor": "^1.0.1",
     "cleverbot.io": "^1.0.4",
     "node-opus": "^0.3.0",
