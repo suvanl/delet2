@@ -179,7 +179,10 @@ const init = async () => {
     const event = new (require(`./events/${file}`))(client);
 
     client.on(eventName, (...args) => event.run(...args));
+    const mod = require.cache[require.resolve(`./events/${file}`)];
     delete require.cache[require.resolve(`./events/${file}`)];
+    const index = mod.parent.children.indexOf(mod);
+    if (index !== -1) mod.parent.children.splice(index, 1);
   });
 
   client.levelCache = {};
