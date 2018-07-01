@@ -20,7 +20,6 @@ class Event extends Command {
         const member = message.mentions.members.first() || message.member;
 
         await this.client.emit("guildMemberAdd", member);
-        await this.client.emit("guildMemberRemove", member);
     }
 }
 
