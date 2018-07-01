@@ -1,5 +1,5 @@
 # Contributing
-Currently, contributing is mainly limited to members of the DS Development Group. However, we do currently accept contributions for:
+Full write/push access is limited to members of the DS Development Group. However, we do currently accept contributions for:
 - Fortunes for the [8ball command](https://github.com/DS-Development/delet/blob/master/commands/Fun/8ball.js)
 - Translations
 - Commands
