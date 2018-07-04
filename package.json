@@ -33,7 +33,7 @@
   },
   "homepage": "https://delet.js.org",
   "dependencies": {
-    "@google/maps": "^0.5.0",
+    "@google/maps": "^0.5.3",
     "array-sort": "^1.0.0",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
