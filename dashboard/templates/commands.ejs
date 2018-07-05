@@ -18,7 +18,7 @@ bot.commands.forEach((command) => {
           <h3 class="card-header"><%= command.help.name.toProperCase() %></h3>
           <div class="card-body">
             <p class="card-text"><%= command.help.description %></p>
-            <h6 class="card-subtitle text-muted">Permission: <%= command.conf.permLevel %><br /><a href="#" data-toggle="modal" data-target="#<%= `${command.help.name}` %>Modal">more...</a></h6>
+            <h6 class="card-subtitle text-muted">Permission level: <strong><%= command.conf.permLevel %></strong><br /><a href="#" data-toggle="modal" data-target="#<%= `${command.help.name}` %>Modal">more...</a></h6>
           </div>
         </div>
         <div id="<%= `${command.help.name}` %>Modal" class="modal fade" role="dialog">
