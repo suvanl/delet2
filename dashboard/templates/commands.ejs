@@ -1,5 +1,7 @@
 <%- include('blocks/header', {bot, user, path}) %>
 
+<p>To see the command prefix for your server, use the <strong>prefix</strong> command.</p>
+
 <% const help = {};
 bot.commands.forEach((command) => {
   const cat = command.help.category;
