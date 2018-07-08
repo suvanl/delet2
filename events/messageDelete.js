@@ -4,6 +4,6 @@ module.exports = class {
     }
   
     async run(message) { // eslint-disable-line no-unused-vars
-        this.client.on("messageDelete", () => this.client.logger.debug("Message deleted."));
+        //this.client.on("messageDelete", () => this.client.logger.debug("Message deleted."));
     }
   };
