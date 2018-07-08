@@ -12,6 +12,10 @@ module.exports = class {
     // If welcome is off, don't proceed (doesn't welcome the user).
     if (settings.welcomeEnabled.toLowerCase() !== "true") return;
 
+    // Checks if the welcomeChannel exists
+    const welcomeChannel = member.guild.channels.find("name", settings.welcomeChannel);
+    if (!welcomeChannel) return;
+
     // Replaces the placeholder in the welcome message with actual data.
     const welcomeMessage = settings.welcomeMessage.replace("{{user}}", member.user.tag);
 
