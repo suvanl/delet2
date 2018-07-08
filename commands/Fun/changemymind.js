@@ -16,9 +16,12 @@ class ChangeMyMind extends Command {
       const text = args.join(" ");
       if (!text) return message.channel.send("You must provide some text to appear on the image.");
 
+      const msg = await message.channel.send("Generating...");
+
       try {
         const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=changemymind&text=${encodeURIComponent(text)}`);
         message.channel.send("", { file: body.message });
+        msg.delete();
       } catch (error) {
         this.client.logger.error(error);
         return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
