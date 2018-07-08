@@ -6,7 +6,10 @@ module.exports = class {
   }
 
   async run(member) {
-  // Loads the guild's settings
+    // Return if guild is unavailable
+    if (!member.guild.available) return;
+
+    // Loads the guild's settings
     const settings = this.client.getSettings(member.guild.id);
   
     // If welcome is off, don't proceed (doesn't welcome the user).
