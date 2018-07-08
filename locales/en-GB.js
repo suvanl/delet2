@@ -27,7 +27,13 @@ exports.cmd = {
 
     // Slots command
     slotWin: "**You won!** That was definitely down to your immense skill.",
-    slotLoss: "**You lost!** It was just down to bad luck, of course."
+    slotLoss: "**You lost!** It was just down to bad luck, of course.",
+
+
+    // "INFORMATION" CATEGORY
+
+    // Avatar command
+    avatar: "{{user}}'s avatar"
 };
 
 // Help messages
