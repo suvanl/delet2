@@ -1,4 +1,4 @@
-// This event executes when a new member joins a server. Welcomes the new user to the server.
+// This event executes when a new member joins a server.
 
 module.exports = class {
   constructor(client) {
@@ -28,5 +28,14 @@ module.exports = class {
     // Checks if the modLogChannel exists
     const modLog = member.guild.channels.find("name", settings.modLogChannel);
     if (!modLog) return;
+
+    const { RichEmbed } = require("discord.js");
+    const embed = new RichEmbed()
+      .setColor(11861937)
+      .setTitle("🎉 User Joined")
+      .setDescription(`**${member.user.tag}** (${member.user.id})`)
+      .setFooter(`Member #${member.guild.memberCount}`)
+      .setTimestamp();
+    return member.guild.channels.get(modLog.id).send({embed});
   }
 };
