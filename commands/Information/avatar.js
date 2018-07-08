@@ -8,26 +8,17 @@ class Avatar extends Command {
         description: "Sends the mentioned user's avatar.",
         category: "Information",
         usage: "avatar [@mention]",
-        aliases: ["avy"]
+        aliases: ["ava", "avy"]
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
-        const user = message.mentions.users.first();
-
-        if (!user || !message.mentions.users.size) {
-            const embed = new RichEmbed()
-            .setTitle(`🖼️ ${message.author.tag}'s avatar`)
-            .setImage(message.author.displayAvatarURL);
-        
-        return message.channel.send({embed});
-        }
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
+        const user = message.mentions.users.first() || message.author;
 
         const embed = new RichEmbed()
-            .setTitle(`${user.tag}'s avatar`)
+            .setTitle(`🖼️ ${texts.cmd.avatar.replace(/{{user}}/g, user.tag)}`)
             .setImage(user.displayAvatarURL);
-            
-        message.channel.send({embed});
+        return message.channel.send({embed});
     }
 }
 
