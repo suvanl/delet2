@@ -29,6 +29,7 @@ module.exports = class {
     const modLog = member.guild.channels.find("name", settings.modLogChannel);
     if (!modLog) return;
 
+    // Creates and sends embed
     const { RichEmbed } = require("discord.js");
     const embed = new RichEmbed()
       .setColor(11861937)
