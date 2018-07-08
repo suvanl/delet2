@@ -19,14 +19,14 @@ module.exports = class {
     const welcomeChannel = member.guild.channels.find("name", settings.welcomeChannel);
     if (!welcomeChannel) return;
 
-    // Checks if the modLogChannel exists
-    const modLog = member.guild.channels.find("name", settings.modLogChannel);
-    if (!modLog) return;
-
     // Replaces the placeholder in the welcome message with actual data.
     const welcomeMessage = settings.welcomeMessage.replace("{{user}}", member.user.tag);
 
     // Sends the welcome message to the welcome channel.
     member.guild.channels.find("name", settings.welcomeChannel).send(welcomeMessage).catch(console.error);
+
+    // Checks if the modLogChannel exists
+    const modLog = member.guild.channels.find("name", settings.modLogChannel);
+    if (!modLog) return;
   }
 };
