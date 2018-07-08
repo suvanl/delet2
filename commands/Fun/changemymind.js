@@ -21,7 +21,7 @@ class ChangeMyMind extends Command {
       try {
         const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=changemymind&text=${encodeURIComponent(text)}`);
         message.channel.send("", { file: body.message });
-        msg.delete();
+        msg.edit("Done!");
       } catch (error) {
         this.client.logger.error(error);
         return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
