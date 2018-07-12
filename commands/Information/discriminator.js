@@ -11,7 +11,7 @@ class Discriminator extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         let discrim = args[0];
         if (!discrim) {
             discrim = message.author.discriminator;
@@ -23,10 +23,10 @@ class Discriminator extends Command {
 
         if (/^[0-9]+$/.test(discrim) && discrim.length === 4) {
             const users = this.client.users.filter(user => user.discriminator === discrim).map(user => user.username);
-            if (users.length === 0) return message.channel.send(`After searching all my servers, no one with the discriminator **#${discrim}** could be found. <:feelsbadman:379645743583199232>`);
-            return message.channel.send(`**${users.length}** user(s) found with the discriminator **#${discrim}**:\n\`\`\`yml\n${users.join(", ")}\`\`\``);
+            if (users.length === 0) return message.channel.send(`${texts.cmd.discrimNotFound.replace(/{{discrim}}/g, discrim)} <:feelsbadman:379645743583199232>`);
+            return message.channel.send(`**${users.length}** ${texts.cmd.discrim.replace(/{{discrim}}/g, discrim)}:\n\`\`\`yml\n${users.join(", ")}\`\`\``);
         } else {
-            return message.channel.send("Invalid discriminator provided.");
+            return message.channel.send(texts.cmd.invalidDiscrim);
         }
     }
 }

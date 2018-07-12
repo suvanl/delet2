@@ -33,7 +33,12 @@ exports.cmd = {
     // "INFORMATION" CATEGORY
 
     // Avatar command
-    avatar: "{{user}}'s avatar"
+    avatar: "{{user}}'s avatar",
+
+    // Discriminator command
+    invalidDiscrim: "Invalid discriminator provided.",
+    discrimNotFound: "After searching all my servers, no one with the discriminator **#{{discrim}}** could be found.",
+    discrim: "user(s) found with the discriminator **#{{discrim}}**"
 };
 
 // Help messages
