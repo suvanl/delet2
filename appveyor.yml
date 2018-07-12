@@ -15,6 +15,9 @@ environment:
     - nodejs_version: "8"
     - nodejs_version: "9"
 
+cache:
+  - node_modules
+
 branches:
   only:
     - master
