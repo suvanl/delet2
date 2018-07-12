@@ -13,7 +13,7 @@ class EmojiImage extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        if (!args[0]) return message.channel.send("You must provide an emoji for me to look up info for.");
+        if (!args[0]) return message.channel.send("You must provide an emoji for me to look up.");
         if (args[0].charCodeAt(0) >= 55296) return message.channel.send(`${args[0]} is a regular Discord emoji, from Twemoji.\nhttps://twitter.github.io/twemoji/`);
 
         const match = args[0].match(/<:[a-zA-Z0-9_-]+:(\d{18})>/);
