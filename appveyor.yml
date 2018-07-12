@@ -15,6 +15,7 @@ environment:
     - nodejs_version: "8"
     - nodejs_version: "9"
 
+# Caches the directory containing all installed npm modules
 cache:
   - node_modules
 
