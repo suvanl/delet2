@@ -16,7 +16,7 @@ class JPEG extends Command {
       const url = args[0];
       if (!url) return message.channel.send("You must provide a valid image URL to JPEGify.");
 
-      const msg = await message.channel.send("Generating...");
+      const msg = await message.channel.send("<a:loading:456928252502605834> Generating...");
 
       try {
         const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=jpeg&url=${url}`);

@@ -13,7 +13,7 @@ class Invite extends Command {
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
         this.client.generateInvite(botPerms).then(link => {
-            message.channel.send("Generating...")
+            message.channel.send("<a:loading:456928252502605834> Generating...")
             .then(msg => {
                 msg.edit(`Generated invite link for delet:\n**<${link}>**`);
             });

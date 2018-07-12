@@ -19,7 +19,7 @@ class FakeTweet extends Command {
       const text = await this.client.awaitReply(message, "Please enter the tweet's message...\nReply with `cancel` to exit this text-entry period.", 30000);
       if (text.toLowerCase() === "cancel") return message.channel.send("Cancelled.");
 
-      const msg = await message.channel.send("Generating...");
+      const msg = await message.channel.send("<a:loading:456928252502605834> Generating...");
 
       try {
         const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=tweet&username=${user}&text=${encodeURIComponent(text)}`);
