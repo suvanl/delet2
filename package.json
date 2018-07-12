@@ -33,7 +33,7 @@
   },
   "homepage": "https://delet.js.org",
   "dependencies": {
-    "@google/maps": "^0.5.3",
+    "@google/maps": "^0.5.4",
     "array-sort": "^1.0.0",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
@@ -47,7 +47,7 @@
     "express-passport": "^0.1.0",
     "express-session": "^1.15.6",
     "ffmpeg": "0.0.4",
-    "ffmpeg-binaries": "^3.2.2",
+    "ffmpeg-binaries": "^4.0.0",
     "fs-nextra": "^0.3.5",
     "heapdump": "^0.3.9",
     "helmet": "^3.12.1",
@@ -57,7 +57,7 @@
     "klaw": "^2.1.1",
     "level-session-store": "^2.1.0",
     "marked": "^0.4.0",
-    "mathjs": "^5.0.1",
+    "mathjs": "^5.0.2",
     "memejs": "^1.0.7",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
@@ -81,6 +81,6 @@
     "ytdl-core": "^0.20.4"
   },
   "devDependencies": {
-    "eslint": "^5.0.1"
+    "eslint": "^5.1.0"
   }
 }
