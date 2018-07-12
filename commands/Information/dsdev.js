@@ -11,8 +11,8 @@ class DSDev extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
-        message.channel.send("Interested in joining the team that develops and maintains me?\nVisit this link: **https://delet.js.org/go/join**.");
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
+        message.channel.send(`${texts.cmd.dsDev} **https://delet.js.org/go/join**.`);
     }
 }
 

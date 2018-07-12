@@ -38,7 +38,10 @@ exports.cmd = {
     // Discriminator command
     invalidDiscrim: "Invalid discriminator provided.",
     discrimNotFound: "After searching all my servers, no one with the discriminator **#{{discrim}}** could be found.",
-    discrim: "user(s) found with the discriminator **#{{discrim}}**"
+    discrim: "user(s) found with the discriminator **#{{discrim}}**",
+
+    // DSDev command
+    dsDev: "Interested in joining the team that develops and maintains me?\nVisit this link:"
 };
 
 // Help messages
