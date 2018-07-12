@@ -41,7 +41,12 @@ exports.cmd = {
     discrim: "user(s) found with the discriminator **#{{discrim}}**",
 
     // DSDev command
-    dsDev: "Interested in joining the team that develops and maintains me?\nVisit this link:"
+    dsDev: "Interested in joining the team that develops and maintains me?\nVisit this link:",
+
+    // EmojiImage command
+    noEmoji: "You must provide an emoji for me to look up.",
+    regularEmoji: "{{emoji}} is a regular Discord emoji, from Twemoji.",
+    invalidEmoji: "You must provide a valid emoji."
 };
 
 // Help messages
