@@ -13,10 +13,10 @@ class Announce extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
     const content = args.join(" ");
-    if (!content) return message.channel.send("You must provide a message to send.");
-    const id = await this.client.awaitReply(message, "Please enter the channel ID of the channel the message should be sent to...", 30000);
+    if (!content) return message.channel.send(texts.cmd.noMessage);
+    const id = await this.client.awaitReply(message, texts.cmd.idRequest, 30000);
     
     message.guild.channels.get(id).send(content);
     message.react("✅");

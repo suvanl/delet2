@@ -49,6 +49,10 @@ exports.cmd = {
     invalidEmoji: "You must provide a valid emoji.",
 
     
+    // "SYSTEM" CATEGORY
+    noMessage: "You must provide a message to send.",
+    idRequest: "Please enter the channel ID of the channel the message should be sent to...",
+
     // "UTILITY" CATEGORY
     
     // Shorten command
