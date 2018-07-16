@@ -31,14 +31,14 @@ class Flip extends Command {
       // Pounds [£] (GBP)
       if (settings.currency === "GBP") {
 
-      if (flip === "Heads") {
+      if (flip === "heads") {
         const embed = new RichEmbed()
-          .setDescription(`This flip's result was ${flip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
+          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
           .setThumbnail("https://vgy.me/yvnN22.png");
         message.channel.send({embed});
       } else {
         const embed = new RichEmbed()
-          .setDescription(`This flip's result was ${flip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
+          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
           .setThumbnail("https://vgy.me/PfWWql.png");
         message.channel.send({embed});
       }
@@ -46,14 +46,14 @@ class Flip extends Command {
 
     // Euros [€] (EUR)
     if (settings.currency === "EUR") {
-      if (flip === "Heads") {
+      if (flip === "heads") {
         const embed = new RichEmbed()
-          .setDescription(`This flip's result was ${flip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
+          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
           .setThumbnail("https://vgy.me/QgVomc.png");
         message.channel.send({embed});
       } else {
         const embed = new RichEmbed()
-          .setDescription(`This flip's result was ${flip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
+          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
           .setThumbnail("https://vgy.me/g4ispA.png");
         message.channel.send({embed});
       }
@@ -61,14 +61,14 @@ class Flip extends Command {
 
     // US Dollars [$] (USD)
     if (settings.currency === "USD") {
-      if (flip === "Heads") {
+      if (flip === "heads") {
         const embed = new RichEmbed()
-          .setDescription(`This flip's result was ${flip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
+          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
           .setThumbnail("https://vgy.me/e08J8X.png");
         message.channel.send({embed});
       } else {
         const embed = new RichEmbed()
-          .setDescription(`This flip's result was ${flip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
+          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
           .setThumbnail("https://vgy.me/mYy2Fv.png");
         message.channel.send({embed});
       }
@@ -76,14 +76,14 @@ class Flip extends Command {
 
     // Norwegian Krone [kr] (NOK)
     if (settings.currency === "NOK") {
-      if (flip === "Heads") {
+      if (flip === "heads") {
         const embed = new RichEmbed()
-          .setDescription(`This flip's result was ${flip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
+          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
           .setThumbnail("https://vgy.me/NbbKna.png");
         message.channel.send({embed});
       } else {
         const embed = new RichEmbed()
-          .setDescription(`This flip's result was ${flip}!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
+          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
           .setThumbnail("https://vgy.me/VbieZr.png");
         message.channel.send({embed});
       }
