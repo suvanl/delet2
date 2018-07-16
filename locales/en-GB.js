@@ -46,7 +46,15 @@ exports.cmd = {
     // EmojiImage command
     noEmoji: "You must provide an emoji for me to look up.",
     regularEmoji: "{{emoji}} is a regular Discord emoji, from Twemoji.",
-    invalidEmoji: "You must provide a valid emoji."
+    invalidEmoji: "You must provide a valid emoji.",
+
+    
+    // "UTILITY" CATEGORY
+    
+    // Shorten command
+    noLink: "Please provide a link to shorten.",
+    invalidURL: "Invalid URL provided.",
+    shortened: "Your shortened link:"
 };
 
 // Help messages
