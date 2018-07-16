@@ -4,7 +4,7 @@ class ClearNick extends Command {
   constructor(client) {
     super(client, {
       name: "clearnick",
-      description: "Clear's a user's nickname.",
+      description: "Clears a user's nickname.",
       category: "Moderation",
       usage: "clearnick",
       aliases: ["clearnickname", "cn"],
