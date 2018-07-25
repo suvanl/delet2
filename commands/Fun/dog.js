@@ -14,7 +14,7 @@ class Dog extends Command {
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         const { body } = await snekfetch.get("https://dog.ceo/api/breeds/image/random");
         try {
-            return message.channel.send({files: [body.message] });
+            return message.channel.send({ files: [body.message] });
         } catch (error) {
             this.client.logger.error(error);
             return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
