@@ -7,7 +7,7 @@ class Joke extends Command {
       super(client, {
         name: "joke",
         description: "Tells a general or programming-related joke.",
-        category: "Information",
+        category: "Fun",
         usage: "joke",
         aliases: ["humour", "humor"]
       });
