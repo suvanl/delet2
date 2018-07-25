@@ -12,9 +12,9 @@ class Cat extends Command {
     }
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-        const { body } = await snekfetch.get("http://aws.random.cat/meow");
         try {
-            return message.channel.send({files: [body.file] });
+            const { body } = await snekfetch.get("http://aws.random.cat/meow");
+            return message.channel.send({ file: body.file });
         } catch (error) {
             this.client.logger.error(error);
             return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
