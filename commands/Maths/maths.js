@@ -14,13 +14,13 @@ class Maths extends Command {
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         const exp = args.join(" ");
-        if (!exp) return message.channel.send(`You must provide an expression to evaluate/calculate.\nExample usage: \`${settings.prefix}maths 2 + 2 * 5\``);
+        if (!exp) return message.channel.send(texts.cmd.math.noExp.replace(/{{prefix}}/g, settings.prefix));
 
-        const msg = await message.channel.send("<a:loading:456928252502605834> Calculating...");
+        const msg = await message.channel.send(texts.cmd.math.calculating);
 
         try {
           let evaled = math.eval(exp);
-          if (isNaN(evaled)) evaled = "NaN (not a number).";
+          if (isNaN(evaled)) evaled = texts.cmd.math.isNaN;
           
           msg.edit(`${exp} = **${evaled}**`);
         } catch (error) {

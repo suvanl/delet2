@@ -49,6 +49,19 @@ exports.cmd = {
         invalidEmoji: "You must provide a valid emoji."
     },
 
+    // "MATHS" CATEGORY
+    math: {
+        // Maths command
+        noExp: "You must provide an expression to evaluate/calculate.\nExample usage: `{{prefix}}maths 2 + 2 * 5`",
+        calculating: "<a:loading:456928252502605834> Calculating...",
+        isNaN: "NaN (not a number).",
+
+        // Prime command
+        noNum: "You must specify a number to check.",
+        isPrime: "is a prime number",
+        isNotPrime: "is not a prime number"
+    },
+
     // "SYSTEM" CATEGORY
     system: {
         // Announce command

@@ -11,9 +11,9 @@ class Prime extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         const n = parseInt(args[0]);
-        if (!n) return message.channel.send("You must specify a number to check.");
+        if (!n) return message.channel.send(texts.cmd.math.noNum);
         
         function isPrime(n) {
             if (isNaN(n) || !isFinite(n) || n%1 || n < 2) return false;
@@ -30,11 +30,11 @@ class Prime extends Command {
         }
 
         if (isPrime(n) === true) {
-            message.channel.send(`<:tick:398228298842374154> **${n}** is a prime number.`);
+            message.channel.send(`<:tick:398228298842374154> **${n}** ${texts.cmd.math.isPrime}.`);
         }
 
         if (isPrime(n) === false) {
-            message.channel.send(`<:redX:398228298708025344> **${n}** is not a prime number.`);
+            message.channel.send(`<:redX:398228298708025344> **${n}** ${texts.cmd.math.isNotPrime}.`);
         }
     }
 }
