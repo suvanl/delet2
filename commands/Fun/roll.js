@@ -23,8 +23,8 @@ class Roll extends Command {
         
         try {
             const roll = numbers.random();
-            const msg = await message.channel.send(`${texts.cmd.rolling} 🎲`);
-            msg.edit(texts.cmd.rolled.replace(/{{result}}/g, roll));
+            const msg = await message.channel.send(`${texts.cmd.fun.rolling} 🎲`);
+            msg.edit(texts.cmd.fun.rolled.replace(/{{result}}/g, roll));
         } catch (error) {
             return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
         }

@@ -12,7 +12,7 @@ class Rate extends Command {
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
       const rateObject = args.join(" ");
-      if (!rateObject) return message.channel.send(texts.cmd.noRate);
+      if (!rateObject) return message.channel.send(texts.cmd.fun.noRate);
       const rate = Math.floor(Math.random() * 10) +1;
 
       let rateMsg;

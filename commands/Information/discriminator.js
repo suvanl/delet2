@@ -23,10 +23,10 @@ class Discriminator extends Command {
 
         if (/^[0-9]+$/.test(discrim) && discrim.length === 4) {
             const users = this.client.users.filter(user => user.discriminator === discrim).map(user => user.username);
-            if (users.length === 0) return message.channel.send(`${texts.cmd.discrimNotFound.replace(/{{discrim}}/g, discrim)} <:feelsbadman:379645743583199232>`);
-            return message.channel.send(`**${users.length}** ${texts.cmd.discrim.replace(/{{discrim}}/g, discrim)}:\n\`\`\`yml\n${users.join(", ")}\`\`\``);
+            if (users.length === 0) return message.channel.send(`${texts.cmd.info.discrimNotFound.replace(/{{discrim}}/g, discrim)} <:feelsbadman:379645743583199232>`);
+            return message.channel.send(`**${users.length}** ${texts.cmd.info.discrim.replace(/{{discrim}}/g, discrim)}:\n\`\`\`yml\n${users.join(", ")}\`\`\``);
         } else {
-            return message.channel.send(texts.cmd.invalidDiscrim);
+            return message.channel.send(texts.cmd.info.invalidDiscrim);
         }
     }
 }

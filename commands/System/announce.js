@@ -15,8 +15,8 @@ class Announce extends Command {
 
   async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
     const content = args.join(" ");
-    if (!content) return message.channel.send(texts.cmd.noMessage);
-    const id = await this.client.awaitReply(message, texts.cmd.idRequest, 30000);
+    if (!content) return message.channel.send(texts.cmd.system.noMessage);
+    const id = await this.client.awaitReply(message, texts.cmd.system.idRequest, 30000);
     
     message.guild.channels.get(id).send(content);
     message.react("✅");

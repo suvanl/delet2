@@ -17,48 +17,52 @@ exports.moderation = {
 // Command-specific messages
 exports.cmd = {
     // "FUN" CATEGORY
+    fun: {
+        // Rate command
+        noRate: "You must provide something for me to rate.",
 
-    // Rate command
-    noRate: "You must provide something for me to rate.",
+        // Roll command
+        rolling: "Rolling...",
+        rolled: "You rolled a {{result}}!",
 
-    // Roll command
-    rolling: "Rolling...",
-    rolled: "You rolled a {{result}}!",
-
-    // Slots command
-    slotWin: "**You won!** That was definitely down to your immense skill.",
-    slotLoss: "**You lost!** It was just down to bad luck, of course.",
-
+        // Slots command
+        slotWin: "**You won!** That was definitely down to your immense skill.",
+        slotLoss: "**You lost!** It was just down to bad luck, of course."
+    },
 
     // "INFORMATION" CATEGORY
+    info: {
+        // Avatar command
+        avatar: "{{user}}'s avatar",
 
-    // Avatar command
-    avatar: "{{user}}'s avatar",
+        // Discriminator command
+        invalidDiscrim: "Invalid discriminator provided.",
+        discrimNotFound: "After searching all my servers, no one with the discriminator **#{{discrim}}** could be found.",
+        discrim: "user(s) found with the discriminator **#{{discrim}}**",
 
-    // Discriminator command
-    invalidDiscrim: "Invalid discriminator provided.",
-    discrimNotFound: "After searching all my servers, no one with the discriminator **#{{discrim}}** could be found.",
-    discrim: "user(s) found with the discriminator **#{{discrim}}**",
+        // DSDev command
+        dsDev: "Interested in joining the team that develops and maintains me?\nVisit this link:",
 
-    // DSDev command
-    dsDev: "Interested in joining the team that develops and maintains me?\nVisit this link:",
+        // EmojiImage command
+        noEmoji: "You must provide an emoji for me to look up.",
+        regularEmoji: "{{emoji}} is a regular Discord emoji, from Twemoji.",
+        invalidEmoji: "You must provide a valid emoji."
+    },
 
-    // EmojiImage command
-    noEmoji: "You must provide an emoji for me to look up.",
-    regularEmoji: "{{emoji}} is a regular Discord emoji, from Twemoji.",
-    invalidEmoji: "You must provide a valid emoji.",
-
-    
     // "SYSTEM" CATEGORY
-    noMessage: "You must provide a message to send.",
-    idRequest: "Please enter the channel ID of the channel the message should be sent to...",
-
-    // "UTILITY" CATEGORY
+    system: {
+        // Announce command
+        noMessage: "You must provide a message to send.",
+        idRequest: "Please enter the channel ID of the channel the message should be sent to..."
+    },
     
-    // Shorten command
-    noLink: "Please provide a link to shorten.",
-    invalidURL: "Invalid URL provided.",
-    shortened: "Your shortened link:"
+    // "UTILITY" CATEGORY
+    util: {
+        // Shorten command
+        noLink: "Please provide a link to shorten.",
+        invalidURL: "Invalid URL provided.",
+        shortened: "Your shortened link:"
+    }
 };
 
 // Help messages

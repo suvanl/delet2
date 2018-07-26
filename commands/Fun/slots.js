@@ -21,12 +21,12 @@ class Slots extends Command {
     if (slotOne === slotTwo && slotOne === slotThree) {
         return message.channel.send(stripIndents`
         ${slotOne}|${slotTwo}|${slotThree}
-        ${texts.cmd.slotWin}
+        ${texts.cmd.fun.slotWin}
         `);
     }
     return message.channel.send(stripIndents`
     ${slotOne}|${slotTwo}|${slotThree}
-    ${texts.cmd.slotLoss}
+    ${texts.cmd.fun.slotLoss}
     `);
   }
 }

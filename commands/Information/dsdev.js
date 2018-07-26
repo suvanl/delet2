@@ -12,7 +12,7 @@ class DSDev extends Command {
     }
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-        message.channel.send(`${texts.cmd.dsDev} **https://delet.js.org/go/join**.`);
+        message.channel.send(`${texts.cmd.info.dsDev} **https://delet.js.org/go/join**.`);
     }
 }
 
