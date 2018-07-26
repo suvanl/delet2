@@ -5,7 +5,8 @@ exports.general = {
     missingPerms: "I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"{{perms}}\" permissions.",
     guildOnly: "This command is unavailable via direct message. Please run this command in a guild (server).",
     cmdDisabled: "This command is unavailable as it has been temporarily disabled, or is still in development.",
-    noResultsFound: "No search results found."
+    noResultsFound: "No search results found.",
+    generating: "<a:loading:456928252502605834> Generating..."
 };
 
 // Moderation system messages
@@ -62,6 +63,27 @@ exports.cmd = {
         isNotPrime: "is not a prime number"
     },
 
+    // "MISC" CATEGORY
+    misc: {
+        // Invite command
+        generated: "Generated invite link for delet",
+
+        // Invites command
+        noInvites: "This server doesn't have any currently active invites.",
+
+        // LastMessage command
+        noMember: "You must mention a user whose last message you'd like to see.",
+
+        // MyLevel command
+        permLevel: "your permission level is",
+
+        // Tutorial command
+        tutorial: "First time using delet? Need help getting started? Simply forgotten how to use delet?\nCheck out the docs: **https://delet.js.org/#docs**.",
+
+        // YouTube command
+        noVid: "You must provide a video title for me to get a link for."
+    },
+
     // "SYSTEM" CATEGORY
     system: {
         // Announce command
@@ -81,8 +103,8 @@ exports.cmd = {
 // Help messages
 exports.help = {
     mentionHelp: "Hey! Looking for help? Use `{{prefix}}help` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix and language for this server.",
+    dmSending: "{{author}}, sending a list of commands available for your permission level to your DMs... 📝",
     dmNotSent: "Oops, looks like the message didn't make it to your DMs, {{author}}. Please ensure \"**Allow direct messages from server members**\" is on in your privacy settings for this server.",
-    dmCommands: "Please note that due to the `help` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.",
     usage: "usage",
     aliases: "aliases"
 };
