@@ -8,7 +8,7 @@ class Leave extends Command {
         category: "System",
         usage: "leave",
         guildOnly: true,
-        permLevel: "Bot Admin"
+        permLevel: "Bot Admin" // users with lower permLevels can simply kick delet from within Discord's tooltip menu
       });
     }
 
