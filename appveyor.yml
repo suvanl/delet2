@@ -1,6 +1,5 @@
 # AppVeyor file
 # http://www.appveyor.com/docs/appveyor-yml
-# Based on the ESLint AppVeyor configuration
 
 #---------------------------------#
 #      General Configuration      #
