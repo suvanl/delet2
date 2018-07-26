@@ -16,7 +16,7 @@ class YouTubeSearch extends Command {
 
   async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
     const searchString = args.join(" ");
-    if (!searchString) return message.channel.send("You must provide a video title for me to find.");
+    if (!searchString) return message.channel.send(texts.cmd.misc.noVid);
 
     try {
       const video = await yt.searchVideos(searchString, 1);

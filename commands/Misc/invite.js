@@ -11,11 +11,11 @@ class Invite extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         this.client.generateInvite(botPerms).then(link => {
-            message.channel.send("<a:loading:456928252502605834> Generating...")
+            message.channel.send(texts.general.generating)
             .then(msg => {
-                msg.edit(`Generated invite link for delet:\n**<${link}>**`);
+                msg.edit(`${texts.cmd.misc.generated}:\n**<${link}>**`);
             });
         });
     }

@@ -14,7 +14,7 @@ class LastMessage extends Command {
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
       const member = message.mentions.members.first();
-      if (!member) return message.channel.send("You must mention a user whose last message you'd like to see.");
+      if (!member) return message.channel.send(texts.cmd.misc.noMember);
 
       const lastMsg = message.guild.member(member).lastMessage;
       if (!lastMsg) return message.channel.send("This user's last message could not be found, or they simply may not have sent any messages here.");

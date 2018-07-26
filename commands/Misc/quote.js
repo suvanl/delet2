@@ -13,7 +13,7 @@ class Quote extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
     const id = args[0];
     if (!id) return message.channel.send(stripIndents`
     You must provide a message ID.
@@ -32,7 +32,7 @@ class Quote extends Command {
         message.channel.send({embed});
       }).catch(error => {
         this.client.logger.error(error);
-        message.channel.send(`An error occured:\n\`\`\`${error.message}\`\`\``);
+        message.channel.send(texts.general.error.replace(/{{err}}/g, error));
       });
   }
 }

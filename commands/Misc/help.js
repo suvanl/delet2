@@ -48,7 +48,7 @@ class Help extends Command {
       }
 
       // Sends the output to the message author, and catches any errors that occur
-        message.channel.send(`${message.author}, sending a list of commands available for your permission level to your DMs... 📝`);
+        message.channel.send(texts.help.dmSending.replace(/{{author}}/g, message.author));
         message.author.send(output, { code:"asciidoc", split: { char: "\u200b" } })
           .catch(e => {
             if (e.toString().startsWith("DiscordAPIError: Cannot send messages to this user")) {
@@ -63,7 +63,7 @@ class Help extends Command {
         
         if (message.channel.type === "dm") {
           await this.client.wait(2000);
-          message.author.send(texts.help.dmCommands);
+          message.author.send("Please note that due to the `help` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.");
         }
       } else {
         // Shows help for individual commands.

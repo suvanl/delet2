@@ -13,9 +13,9 @@ class Invites extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         let invites = await message.guild.fetchInvites();
-        if (invites.size === 0) return message.channel.send("This server doesn't have any currently active invites.");
+        if (invites.size === 0) return message.channel.send(texts.cmd.misc.noInvites);
         invites = invites.array();
 
         arraySort(invites, "uses", { reverse: true });

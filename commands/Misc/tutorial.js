@@ -15,8 +15,8 @@ class Tutorial extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
-    message.channel.send("First time using delet? Need help getting started? Simply forgotten how to use delet?\nCheck out the docs: **https://delet.js.org/#docs**.");
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
+    message.channel.send(texts.cmd.misc.tutorial);
   }
 }
 
