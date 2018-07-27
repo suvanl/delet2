@@ -18,11 +18,8 @@ class Bans extends Command {
         if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send(texts.general.missingPerm.replace(/{{perm}}/g, "Ban Members"));
         message.guild.fetchBans()
             .then(bans => {
-                let plurality;
-                if (bans.size === 1) plurality = "user";
-                else plurality = "users";
-
-                message.channel.send(`This server has **${bans.size}** banned ${plurality}.`);
+                // TODO: change to "user(s)" when multi-locale support is added
+                message.channel.send(`This server has **${bans.size}** banned ${bans.size === 1 ? "user" : "users"}.`);
             })
             .catch(error => {
                 this.client.logger.error(error);
