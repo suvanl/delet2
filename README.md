@@ -25,12 +25,8 @@ delet comes with a full moderation system, with even more features currently bei
 We're big fans of open-source here at DS Development. delet is an open-source project; which is why it can be found here, on GitHub. It is licensed under the GPL-3.0 license. This bot is open source for the reason of allowing others view its code and learn from it, and also to gain inspiration for their own ideas. However, please do not directly copy entire chunks of code, as that can be considered bad practice.
 For further information regarding permissions, limitations and conditions of this project, please see the [LICENSE](https://github.com/DS-Development/delet/blob/master/LICENSE) file.
 
-## Self-Hosting/Portability
-A project/product being open-source doesn't necessarily mean that it is portable, and in this case, delet is not portable. This is due to the reason that it wasn't built for the purpose of portability, and depends on various things (such as configs, settings databases, etc.) in order to be fully functional, which instructions for setting up are not stated here. Furthermore, delet is still in-development, meaning some things may not work, and many things will be changing quite often, thus not being very suitable for self-hosting. Essentially, this project is open-source for educational purposes; so that people who are interested can see how everything works. **Self-hosting is NOT currently supported**.
-
-
-If you believe you do have the required knowledge to self-host this bot, you are required to contact us beforehand for approval. If we do allow you to self-host delet, you must give full credit to the **DS Development Group** as the original authors. Please see the [LICENSE](https://github.com/DS-Development/delet/blob/master/LICENSE) file for further information. 
-
+## Self-Hosting
+**We currently do not support self-hosting delet.** This is due to the reason that it wasn't initially built for the purpose of being self-hostable, and also depends on various things (such as configs, settings databases, etc.) in order to be fully functional, which instructions for setting up are not stated here. Furthermore, delet is still in-development, meaning some things may not work, and many things will be changing quite often, thus not being very suitable for self-hosting. Essentially, this project is open-source for educational purposes; so that people who are interested can see how everything works.
 
 Full support for self-hosting may be added in a future update, if there is enough demand for it.
 Obviously, you *are* free to clone this repository, for whatever reason you wish.
