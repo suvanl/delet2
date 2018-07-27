@@ -16,7 +16,7 @@ class Shorten extends Command {
       if (!args[0]) return message.channel.send(texts.cmd.util.noLink);
       if (!args[1]) {
           shortener.shorten(args[0], function(res) {
-              if (res.startsWith("Error:")) return message.channel.send(texts.cmd.util.invalidURL);
+              if (res.startsWith("Error:")) return message.channel.send(texts.general.invalidURL);
               message.channel.send(`${texts.cmd.util.shortened} **<${res}>**.`);
           });
       } else {
