@@ -6,7 +6,8 @@ exports.general = {
     guildOnly: "This command is unavailable via direct message. Please run this command in a guild (server).",
     cmdDisabled: "This command is unavailable as it has been temporarily disabled, or is still in development.",
     noResultsFound: "No search results found.",
-    generating: "<a:loading:456928252502605834> Generating..."
+    generating: "<a:loading:456928252502605834> Generating...",
+    invalidURL: "Invalid URL provided."
 };
 
 // Moderation system messages
@@ -95,7 +96,6 @@ exports.cmd = {
     util: {
         // Shorten command
         noLink: "Please provide a link to shorten.",
-        invalidURL: "Invalid URL provided.",
         shortened: "Your shortened link:"
     }
 };
