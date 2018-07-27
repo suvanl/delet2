@@ -9,7 +9,7 @@ module.exports = class {
 
   async run(guild) {
     // Updates number of guilds (servers) on the bot's status
-    this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:"WATCHING"});
+    this.client.user.setActivity(`over ${this.client.guilds.size} servers`, { type: "WATCHING" });
 
     // Logs it
     this.client.logger.log(`New guild has been joined: ${guild.name} (${guild.id}) with ${guild.memberCount - 1} members`);

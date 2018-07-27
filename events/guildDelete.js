@@ -10,7 +10,7 @@ module.exports = class {
     this.client.logger.log(`Left guild: ${guild.name} (${guild.id}) with ${guild.memberCount - 1} members`);
 
     // Updates number of guilds (servers) on the bot's status.
-    this.client.user.setActivity(`over ${this.client.guilds.size} servers`, {type:"WATCHING"});
+    this.client.user.setActivity(`over ${this.client.guilds.size} servers`, { type: "WATCHING" });
     
     // Well, they're gone :^) (removes them from the settings database)
     if (this.client.settings.has(guild.id)) {
