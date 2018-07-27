@@ -1,5 +1,7 @@
 // This event executes whenever a new guild (server) is joined.
 
+const { stripIndents } = require("common-tags");
+
 module.exports = class {
   constructor(client) {
     this.client = client;
@@ -14,10 +16,10 @@ module.exports = class {
 
     // Notifies server owner
     const guildOwner = guild.owner;
-    guildOwner.send(`
-Hey! I'm delet, and I was invited to your server "**${guild.name}**" by someone with the Manage Server permission there. My prefix is **\`%\`**.
-To see how to get started, please go to **https://delet.js.org/#docs**.
+    guildOwner.send(stripIndents`
+    Hey! I'm delet, and I was invited to your server "**${guild.name}**" by someone with the Manage Server permission there. My prefix is **\`%\`** (but can be changed).
+    To see how to get started, please go to **https://delet.js.org/#docs**.
 
-Hope to be of service to you and your server!`);
+    Hope to be of service to you and your server!`);
   }
 };
