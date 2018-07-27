@@ -119,7 +119,7 @@ class Set extends Command {
       });
       await message.channel.send(stripIndents`
       = Current Server Settings =
-      ${array.join("\n")}`, {code: "asciidoc"});
+      ${array.join("\n")}`, { code: "asciidoc" });
     }
   }
 }
