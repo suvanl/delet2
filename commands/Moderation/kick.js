@@ -21,36 +21,35 @@ class Kick extends Command {
       let reason = args.slice(1).join(" ") || undefined;
       const modLog = message.guild.channels.find("name", settings.modLogChannel);
       if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
-      if (!user) return message.channel.send("You must mention a user to kick.");
-      if (user === message.author) return message.channel.send("You cannot kick yourself. <a:aThinking:444074885367595009>");
-      if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot kick this user as they have a higher role than you.");
+      if (!user) return message.channel.send(texts.moderation.noUser);
+      if (user === message.author) return message.channel.send(`${texts.moderation.selfPunish} <a:aThinking:444074885367595009>`);
+      if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send(texts.moderation.insufficientRole);
       if (!reason) {
-        message.channel.send("Please enter a reason for the punishment...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.");
+        message.channel.send(texts.moderation.awaitReason);
         await message.channel.awaitMessages(m => m.author.id === message.author.id, {
           "errors": ["time"],
           "max": 1,
           time: 30000
         }).then(resp => {
-          if (!resp) return message.channel.send("Timed out. The user has not been kicked.");
+          if (!resp) return message.channel.send(texts.moderation.timedOut);
           resp = resp.array()[0];
-          if (resp.content.toLowerCase() === "cancel") return message.channel.send("Cancelled. The user has not been kicked.");
+          if (resp.content.toLowerCase() === "cancel") return message.channel.send(texts.moderation.cancel);
           reason = resp.content;
           if (resp) resp.react("✅");
         }).catch(error => { // eslint-disable-line no-unused-vars
-          message.channel.send("Timed out. The user has not been kicked.");
+          message.channel.send(texts.moderation.timedOut);
         });
       }
 
       if (reason) {
-        //code
         try {
-          if (!message.guild.member(user).kickable) return message.reply("I cannot kick that user from this server!\nThis may be because I do not have the required permissions to do so, or they may be the server owner.");
-          if (user === message.author) return message.channel.send("You cannot kick yourself.");
+          if (!message.guild.member(user).kickable) return message.reply(texts.moderation.insufficientPerms);
+          if (user === message.author) return message.channel.send(texts.moderation.selfPunish);
           try {
             message.guild.member(user).kick(`${reason} (Issued by ${message.author.tag})`);
             message.react("👌");
           } catch (error) {
-            return message.channel.send("An error occurred whilst trying to kick the mentioned user.");
+            return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
           }
 
           const embed = new RichEmbed()
@@ -60,7 +59,7 @@ class Kick extends Command {
             .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
             .setTimestamp();
 
-          this.client.channels.get(modLog.id).send({embed});
+          this.client.channels.get(modLog.id).send({ embed });
         } catch (error) {
           this.client.logger.error(error);
           return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
