@@ -17,6 +17,7 @@ exports.moderation = {
     noWarnUser: "You must mention a user to warn.",
     selfPunish: "You cannot punish yourself.",
     awaitReason: "Please enter a reason for the punishment...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.",
+    awaitWarnReason: "Please enter a reason for the warning...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.",
     cancel: "Cancelled.",
     timedOut: "Timed out.",
     issuedBy: "Issued by {{user}}",
