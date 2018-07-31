@@ -22,10 +22,10 @@ class Warn extends Command {
       let reason = args.slice(1).join(" ") || undefined;
       const modLog = message.guild.channels.find("name", settings.modLogChannel);
       if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
-      if (!user) return message.channel.send("You must mention a user to warn.");
+      if (!user) return message.channel.send(texts.moderation.noWarnUser);
       if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot warn this user as they have a higher role than you.");
       if (!reason) {
-        message.channel.send("Please enter a reason for the warning...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.");
+        message.channel.send(texts.moderation.awaitWarnReason);
         await message.channel.awaitMessages(m => m.author.id === message.author.id, {
           "errors": ["time"],
           "max": 1,
@@ -52,7 +52,7 @@ class Warn extends Command {
     
           this.client.channels.get(modLog.id).send({embed});
   
-          user.send(`Hello,\nYou were warned in **${message.guild.name}** for the reason "**${reason}**".\nPlease make sure you always follow the rules, because, not doing so can lead to punishments. <:feelsbanman:405126279025917962>`);
+          user.send(`Hello,\nYou were warned in **${message.guild.name}** for the reason "**${reason}**".\nPlease make sure you always follow the rules, because not doing so can lead to punishments. <:feelsbanman:405126279025917962>`);
           message.react("👌");
         } catch (error) {
           this.client.logger.error(error);
