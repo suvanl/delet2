@@ -14,9 +14,8 @@ exports.general = {
 exports.moderation = {
     modLogNotFound: "Modlog channel not found. If you're an admin (or owner) on this server, please use:```{{prefix}}set edit modLogChannel [channel-name]```\nFor example: `{{prefix}}set edit modLogChannel cool-channel-name`.",
     noUser: "You must mention a user to punish.",
+    noWarnUser: "You must mention a user to warn.",
     selfPunish: "You cannot punish yourself.",
-    insufficientRole: "You cannot ban this user as they have a higher role than you.",
-    insufficientPerms: "I cannot ban that user from this server!\nThis may be because I do not have the required permissions to do so, or they may be the server owner.",
     awaitReason: "Please enter a reason for the punishment...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.",
     cancel: "Cancelled.",
     timedOut: "Timed out.",

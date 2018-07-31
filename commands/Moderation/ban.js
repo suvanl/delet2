@@ -23,7 +23,7 @@ class Ban extends Command {
         if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
         if (!user) return message.channel.send(texts.moderation.noUser);
         if (user === message.author) return message.channel.send(`${texts.moderation.selfPunish} <a:aThinking:444074885367595009>`);
-        if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send(texts.moderation.insufficientRole);
+        if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot ban this user as they have a higher role than you.");
         if (!reason) {
           message.channel.send(texts.moderation.awaitReason);
           await message.channel.awaitMessages(m => m.author.id === message.author.id, {
@@ -43,7 +43,7 @@ class Ban extends Command {
 
         if (reason) {
           try {
-            if (!message.guild.member(user).bannable) return message.reply(texts.moderation.insufficientPerms);
+            if (!message.guild.member(user).bannable) return message.reply("I cannot ban that user from this server!\nThis may be because I do not have the required permissions to do so, or they may be the server owner.");
             try {
               message.guild.member(user).ban(`${reason} (${texts.moderation.issuedBy.replace(/{{user}}/g, message.author.tag)})`);
               message.react("👌");
