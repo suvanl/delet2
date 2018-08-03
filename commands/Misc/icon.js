@@ -18,7 +18,7 @@ class Icon extends Command {
             .setTitle(`Server icon of ${message.guild.name}`)
             .setImage(message.guild.iconURL);
             
-        message.channel.send({embed});
+        message.channel.send({ embed });
     }
 }
 

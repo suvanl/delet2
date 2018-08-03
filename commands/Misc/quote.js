@@ -29,7 +29,7 @@ class Quote extends Command {
           .setDescription(message.content)
           .setFooter(`#${message.channel.name}`)
           .setTimestamp();
-        message.channel.send({embed});
+        message.channel.send({ embed });
       }).catch(error => {
         this.client.logger.error(error);
         message.channel.send(texts.general.error.replace(/{{err}}/g, error));

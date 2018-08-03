@@ -40,7 +40,7 @@ class About extends Command {
         .setFooter(`Made with Discord.js (v${version})`, "https://vgy.me/ZlOMAx.png")
         .setTimestamp();
 
-        message.channel.send({embed});
+        message.channel.send({ embed });
       } catch (error) {
         this.client.logger.error(error);
         return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));

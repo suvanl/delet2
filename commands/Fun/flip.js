@@ -35,12 +35,12 @@ class Flip extends Command {
         const embed = new RichEmbed()
           .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
           .setThumbnail("https://vgy.me/yvnN22.png");
-        return message.channel.send({embed});
+        return message.channel.send({ embed });
       } else {
         const embed = new RichEmbed()
           .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
           .setThumbnail("https://vgy.me/PfWWql.png");
-        return message.channel.send({embed});
+        return message.channel.send({ embed });
       }
     }
 
@@ -50,12 +50,12 @@ class Flip extends Command {
         const embed = new RichEmbed()
           .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
           .setThumbnail("https://vgy.me/QgVomc.png");
-        return message.channel.send({embed});
+        return message.channel.send({ embed });
       } else {
         const embed = new RichEmbed()
           .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
           .setThumbnail("https://vgy.me/g4ispA.png");
-        return message.channel.send({embed});
+        return message.channel.send({ embed });
       }
     }
 
@@ -65,12 +65,12 @@ class Flip extends Command {
         const embed = new RichEmbed()
           .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
           .setThumbnail("https://vgy.me/e08J8X.png");
-        return message.channel.send({embed});
+        return message.channel.send({ embed });
       } else {
         const embed = new RichEmbed()
           .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
           .setThumbnail("https://vgy.me/mYy2Fv.png");
-        return message.channel.send({embed});
+        return message.channel.send({ embed });
       }
     }
 
@@ -80,12 +80,12 @@ class Flip extends Command {
         const embed = new RichEmbed()
           .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
           .setThumbnail("https://vgy.me/NbbKna.png");
-        return message.channel.send({embed});
+        return message.channel.send({ embed });
       } else {
         const embed = new RichEmbed()
           .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
           .setThumbnail("https://vgy.me/VbieZr.png");
-        return message.channel.send({embed});
+        return message.channel.send({ embed });
       }
     }
   }

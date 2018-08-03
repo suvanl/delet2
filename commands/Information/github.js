@@ -44,7 +44,7 @@ class GitHub extends Command {
                 .setFooter("All times are UTC")
                 .setTimestamp();
 
-            return message.channel.send({embed});
+            return message.channel.send({ embed });
         } catch (error) {
             if (error.status === 404) return message.channel.send(texts.general.noResultsFound);
 

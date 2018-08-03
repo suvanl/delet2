@@ -59,7 +59,7 @@ class Weather extends Command {
             .setFooter(`Correct as of ${current.observationtime.slice(0, -3)} local time`)
             .setTimestamp();
 
-            message.channel.send({embed});
+            message.channel.send({ embed });
         });
     }
 }

@@ -26,7 +26,7 @@ class LastMessage extends Command {
         .setFooter(`#${message.channel.name}`)
         .setTimestamp();
 
-        message.channel.send({embed});
+        message.channel.send({ embed });
   }
 }
 

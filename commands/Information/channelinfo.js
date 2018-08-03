@@ -44,7 +44,7 @@ class ChannelInfo extends Command {
             .setFooter(`Channel ID: ${chan.id}`, "https://vgy.me/167efD.png")
             .setTimestamp();
 
-        message.channel.send({embed});
+        message.channel.send({ embed });
     }
 }
 

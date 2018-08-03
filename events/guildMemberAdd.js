@@ -37,6 +37,6 @@ module.exports = class {
       .setDescription(`**${member.user.tag}** (${member.user.id})`)
       .setFooter(`Member #${member.guild.memberCount}`)
       .setTimestamp();
-    return member.guild.channels.get(modLog.id).send({embed});
+    return member.guild.channels.get(modLog.id).send({ embed });
   }
 };

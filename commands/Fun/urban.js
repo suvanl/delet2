@@ -38,7 +38,7 @@ class Urban extends Command {
                     .addField("» Example", `${result.example}`)
                     .setFooter(`Definition requested by ${message.author.tag}`, `${message.author.avatarURL}`);
 
-                message.channel.send({embed});
+                message.channel.send({ embed });
                 } catch (err) {
                     this.client.logger.error(err);
                     return message.channel.send(texts.general.error.replace(/{{err}}/g, err.message));

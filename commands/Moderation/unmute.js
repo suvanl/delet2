@@ -34,7 +34,7 @@ class Unmute extends Command {
 
     if (message.guild.member(user).roles.has(muteRole.id)) {
       message.guild.member(user).removeRole(muteRole).then(() => {
-          this.client.channels.get(modLog.id).send({embed});
+          this.client.channels.get(modLog.id).send({ embed });
           user.send(`You have been unmuted in **${message.guild.name}**. Please ensure you always follow the rules to prevent being muted again!`);
           message.react("👌");
       });

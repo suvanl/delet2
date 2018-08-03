@@ -50,7 +50,7 @@ class Warn extends Command {
             .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
             .setTimestamp();
     
-          this.client.channels.get(modLog.id).send({embed});
+          this.client.channels.get(modLog.id).send({ embed });
   
           user.send(`Hello,\nYou were warned in **${message.guild.name}** for the reason "**${reason}**".\nPlease make sure you always follow the rules, because not doing so can lead to punishments. <:feelsbanman:405126279025917962>`);
           message.react("👌");

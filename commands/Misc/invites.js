@@ -31,7 +31,7 @@ class Invites extends Command {
             .setDescription(`for **${message.guild.name}**\n\`\`\`${t.table(usedInvites)}\`\`\``)
             .setTimestamp();
         
-        message.channel.send({embed});
+        message.channel.send({ embed });
     }
 }
 

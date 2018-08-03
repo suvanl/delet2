@@ -41,7 +41,7 @@ class ForceBan extends Command {
           .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
           .setTimestamp();
 
-        this.client.channels.get(modLog.id).send({embed});
+        this.client.channels.get(modLog.id).send({ embed });
     }
 }
 

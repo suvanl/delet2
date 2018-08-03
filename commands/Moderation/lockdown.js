@@ -45,7 +45,7 @@ class Lockdown extends Command {
                         .setDescription(`\`\`\`ruby\nChannel: #${message.channel.name} (${message.channel.id})\nDuration: ${ms(ms(time), { long: true })}\nIssued by: ${message.author.tag}\`\`\``)
                         .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
                         .setTimestamp();
-                    this.client.channels.get(modLog.id).send({embed}).then (() => {
+                    this.client.channels.get(modLog.id).send({ embed }).then (() => {
                         this.client.lockit[message.channel.id] = setTimeout(() => {
                             message.channel.overwritePermissions(message.guild.id, {
                                 SEND_MESSAGES: null

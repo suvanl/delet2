@@ -76,7 +76,7 @@ class ServerInfo extends Command {
 
         .setFooter(`Info requested by ${message.author.tag} • All times are UTC`, message.author.displayAvatarURL);
         
-        message.channel.send({embed});
+        message.channel.send({ embed });
     }
 }
 
