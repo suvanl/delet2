@@ -6,10 +6,10 @@ class Feedback extends Command {
     constructor(client) {
       super(client, {
         name: "feedback",
-        description: "Sends the link to the \"Suggestions & Feedback\" Typeform.",
+        description: "Want to give feedback? Encountered any bugs?",
         category: "Information",
         usage: "feedback",
-        aliases: ["suggestion", "suggestions", "suggest"]
+        aliases: ["suggestion", "suggestions", "suggest", "bug", "bugs"]
       });
     }
 
