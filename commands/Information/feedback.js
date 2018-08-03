@@ -13,15 +13,15 @@ class Feedback extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         const suggest = "<https://delet.js.org/suggest>";
         const issues = `<${delet.bugs.url}>`;
 
         message.channel.send(stripIndents`
-        Want to suggest something, or give feedback? Encountering any bugs/issues?
+        ${texts.cmd.info.feedbackQuestion}
 
-        **Suggestions & feedback**: ${suggest}.
-        **Bugs/issues**: ${issues}.`);
+        **${texts.cmd.info.suggestions}**: ${suggest}.
+        **${texts.cmd.info.issues}**: ${issues}.`);
     }
 }
 
