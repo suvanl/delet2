@@ -15,6 +15,7 @@ class Robot extends Command {
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         const query = args.join(" ");
         if (!query) return message.channel.send("You must some text to use to generate the robot.");
+        if (query.match(/[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/g)) return message.channel.send("Your query cannot include symbols.");
 
         try {
           const { raw } = await get(`https://robohash.org/${query}.png`);
