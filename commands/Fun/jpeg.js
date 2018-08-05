@@ -20,10 +20,10 @@ class JPEG extends Command {
 
       try {
         const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=jpeg&url=${url}`);
+        if (body.message.startsWith("cannot identify image file")) return msg.edit("Invalid URL. Please ensure the URL you're providing is an image URL.");
         message.channel.send("", { file: body.message });
         msg.edit("Done!");
       } catch (error) {
-        if (error.startsWith("cannot identify image file")) return message.channel.send("Invalid URL. Please ensure the URL you're providing is an image URL.");
         this.client.logger.error(error);
         return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
       }
