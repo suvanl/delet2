@@ -22,7 +22,7 @@ class FakeTweet extends Command {
       const msg = await message.channel.send("<a:loading:456928252502605834> Generating...");
 
       try {
-        const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=tweet&username=${user}&text=${encodeURIComponent(text)}`);
+        const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=${user.toLowerCase() === "realdonaldtrump" ? "trumptweet" : "tweet"}&username=${user.startsWith("@") ? user.slice(1) : user}&text=${encodeURIComponent(text)}`);
         message.channel.send("", { file: body.message });
         msg.edit("Done!");
       } catch (error) {
