@@ -5,7 +5,7 @@ class Expand extends Command {
     constructor(client) {
       super(client, {
         name: "expand",
-        description: "Makes the specified text thicc.",
+        description: "Makes the specified text T H I C C",
         category: "Fun",
         usage: "expand [text]"
       });
@@ -16,10 +16,11 @@ class Expand extends Command {
         if (!text) return message.channel.send("You must provide some text to expand.");
         try {
             const { body } = await snekfetch.get(`http://artii.herokuapp.com/make?text=${text}`);
-            message.channel.send(body.toString(), { code: "fix" });
+            if (body.length > 2000) return message.channel.send("Unfortunately, the specified text is too long. Please try again with something a little shorter.");
+            return message.channel.send(body, { code: "fix" });
         } catch (error) {
             this.client.logger.error(error);
-            message.channel.send(texts.general.error.replace(/{{err}}/g, error));
+            return message.channel.send(texts.general.error.replace(/{{err}}/g, error));
         }
     }
 }
