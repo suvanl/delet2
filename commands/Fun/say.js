@@ -12,13 +12,11 @@ class Say extends Command {
     }
 
     async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
-      const ttsArgs = message.content.split(" ").slice(2);
+      const msg = args.join(" ");
+      if (!msg) return message.channel.send("You must provide a message for me to repeat.");
+      if (args[0].toLowerCase() === "tts" && !args[1]) return message.channel.send("You must provide a message for me to repeat with TTS.");
 
-      if (message.content.toLowerCase().startsWith(`${settings.prefix}say tts`)) {
-        message.channel.send(ttsArgs.join(" "), { tts: true });
-      } else {
-        message.channel.send(args.join(" "));
-      }
+      return message.channel.send(args[0].toLowerCase() === "tts" ? msg.slice(4) : msg, { tts: args[0].toLowerCase() === "tts" ? true : false });
     }
 }
 
