@@ -25,7 +25,7 @@ class Giphy extends Command {
                     api_key: GIPHY_API_KEY,
                     rating: "pg"
                 });
-            if (!body.data.length) return message.channel.send(texts.general.noResultsFound);
+            if (!body.data.length) return message.channel.send("No GIFs found.");
             return message.channel.send(body.data.random().images.original.url);
         } catch (error) {
             this.client.logger.error(error);
