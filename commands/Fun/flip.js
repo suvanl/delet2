@@ -28,9 +28,10 @@ class Flip extends Command {
 
       const flip = coinFlip();
 
+      // TODO: refactor; currently too messy (and inefficient(?))
+
       // Pounds [£] (GBP)
       if (settings.currency === "GBP") {
-
       if (flip === "heads") {
         const embed = new RichEmbed()
           .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
