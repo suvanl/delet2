@@ -71,7 +71,7 @@ class Set extends Command {
 
       // Currency
       if (key === "currency") {
-        if (!currencies.includes(value.join(" "))) return message.channel.send(`"${value.join(" ")}" is not a valid/settable currency.\nThe valid currencies are: ${currencies.map(c => "`" + c + "`").join(", ")}`);
+        if (!currencies.includes(value.join(" "))) return message.channel.send(`"${value.join(" ")}" is not a valid/settable currency.\nThe valid currencies are: ${currencies.map(c => "`" + c + "`").join(", ")}.`);
       }
 
       // TODO: true/false checks
@@ -79,7 +79,7 @@ class Set extends Command {
       settings[key] = value.join(" ");
 
       this.client.settings.set(message.guild.id, settings);
-      message.reply(`${key} was successfully edited to ${value.join(" ")}`);
+      message.reply(`${key} was successfully edited to **${value.join(" ")}**.`);
     } else
   
     // Thirdly, if a user does `set del <key>`, let's ask the user if they're sure...
