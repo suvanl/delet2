@@ -14,6 +14,8 @@ class Urban extends Command {
     }
 
     async run(message, args, level, settings, texts, resultNum) { // eslint-disable-line no-unused-vars
+        if (!args[0]) return message.channel.send("You must provide a term to search for.");
+
         const baseURL = "http://api.urbandictionary.com/v0/define?term=";
         const URL = baseURL + args;
 
