@@ -13,8 +13,8 @@ const verificationLevels = {
 
 const contentFilterLevels = {
     0: "None",
-    1: "Scan messages from members without a role",
-    2: "Scan messages sent by all members"
+    1: "Medium",
+    2: "High"
 };
 
 class ServerInfo extends Command {
@@ -64,7 +64,7 @@ class ServerInfo extends Command {
         .addField("❯ Channels", stripIndents`
         • Text: **${message.guild.channels.filter(ch => ch.type === "text").size}**
         • Voice: **${message.guild.channels.filter(ch => ch.type === "voice").size}**
-        • AFK: **${message.guild.afkChannel.name}**
+        • AFK: **${message.guild.afkChannel || "None"}**
         `, true)
 
         .addField("❯ Other", stripIndents`
