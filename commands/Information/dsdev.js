@@ -7,7 +7,7 @@ class DSDev extends Command {
         description: "Interested in joining my development team?",
         category: "Information",
         usage: "dsdev",
-        aliases: ["hireme", "joinus"]
+        aliases: ["hireme", "joinus", "ds-development"]
       });
     }
 
