@@ -12,10 +12,9 @@ class UserID extends Command {
     }
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-        const user = message.mentions.users.first();
-        if (!user) return message.channel.send("You must mention a user to return an ID for.");
+        const user = message.mentions.users.first() || message.author;
 
-        message.channel.send(`${user.tag}'s user ID is: \`${user.id}\`.`)
+        message.channel.send(`**${user.tag}**'s user ID is: \`${user.id}\`.`)
             .catch((e) => {
                 this.client.logger.error(e.stack);
                 return message.channel.send(texts.general.error.replace(/{{err}}/g, e.message));
