@@ -56,7 +56,7 @@ exports.cmd = {
         // EmojiImage command
         noEmoji: "You must provide an emoji for me to look up.",
         regularEmoji: "{{emoji}} is a regular Discord emoji, from Twemoji.",
-        invalidEmoji: "You must provide a valid emoji.",
+        invalidEmoji: "You must provide a valid emoji, from a server I am on.",
 
         // Feedback command
         feedbackQuestion: "Want to suggest something, or give feedback? Encountering any bugs/issues?",
