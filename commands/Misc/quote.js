@@ -19,7 +19,7 @@ class Quote extends Command {
     You must provide a message ID.
     To do so, you need to have developer mode turned on to obtain a message ID (Settings → Appearance → Developer Mode).
     Then, upon right-clicking a message, you'll be presented with an option called "Copy ID".`,
-    { file: "https://vgy.me/cQbRf7.png "});
+    { file: !message.guild.me.hasPermission("ATTACH_FILES") ? null : "https://vgy.me/cQbRf7.png" });
     
     message.channel.fetchMessage(id)
       .then(message => {
