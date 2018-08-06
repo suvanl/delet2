@@ -13,8 +13,9 @@ class Maths extends Command {
     }
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-        const exp = args.join(" ");
+        let exp = args.join(" ");
         if (!exp) return message.channel.send(texts.cmd.math.noExp.replace(/{{prefix}}/g, settings.prefix));
+        if (exp.includes("°")) exp = exp.replace(/°/g, "deg");
 
         const msg = await message.channel.send(texts.cmd.math.calculating);
 
