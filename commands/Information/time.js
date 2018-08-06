@@ -23,7 +23,7 @@ class Time extends Command {
             For a full list of timezones, refer to the "TZ" column here: **<https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List>**.
 
             • Please ensure you are using the correct format, e.g. \`${settings.prefix}time europe/london\`.
-            • Note that the continent of North America is split into \`America\` and \`Canada\`.
+            • Note that the continent of North America is split into **America** and **Canada**, e.g. \`${settings.prefix}time america/new york\`.
             `);
         }
     }
