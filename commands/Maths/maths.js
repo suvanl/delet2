@@ -22,6 +22,7 @@ class Maths extends Command {
         try {
           let evaled = math.eval(exp);
           if (isNaN(evaled)) evaled = texts.cmd.math.isNaN;
+          if (exp.length + evaled.length > 2000) return message.channel.send("Output is too long to fit into a message!");
           
           msg.edit(`${exp} = **${evaled}**`);
         } catch (error) {
