@@ -12,12 +12,7 @@ class ChannelID extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-      let channelID;
-      
-      if (!args[0]) channelID = message.channel.id;
-      else channelID = this.client.channels.get(args[0].id);
-
-      message.channel.send(channelID);
+      message.channel.send(`${message.channel}'s ID is \`${message.channel.id}\`.`);
     }
 }
 
