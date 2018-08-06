@@ -25,7 +25,7 @@ class EmojiImage extends Command {
 
         const embed = new RichEmbed()
             .setColor(2934736)
-            .setTitle(`*${emoji.name}*`)
+            .setTitle(emoji.name)
             .setImage(emoji.url);
 
         return message.channel.send({ embed });
