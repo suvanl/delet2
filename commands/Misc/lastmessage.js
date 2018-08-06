@@ -12,7 +12,7 @@ class LastMessage extends Command {
     });
   }
 
-  async run(message, args, level) { // eslint-disable-line no-unused-vars
+  async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
       const member = message.mentions.members.first();
       if (!member) return message.channel.send(texts.cmd.misc.noMember);
 
