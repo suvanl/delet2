@@ -15,7 +15,7 @@ class LoremIpsum extends Command {
         try {
           const { raw } = await get("https://loripsum.net/api").set("Accept", "text/plain");
           const text = raw.toString();
-          message.channel.send(text, { code: "html" });
+          message.channel.send(text.length >= 2000 ? text.substring(0, 1980) + "... </p>" : text, { code: "html" });
         } catch (error) {
           this.client.logger.error(error);
           return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
