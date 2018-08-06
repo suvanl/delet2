@@ -22,7 +22,7 @@ class Version extends Command {
             body = "[Error occurred whilst fetching date]";
         }
         
-        message.channel.send(`**Version:** ${version}\n**Last updated:** ${moment.utc(body.updated_at).format("dddd MMMM YYYY @ HH:mm:ss") + " UTC" || body}`);
+        message.channel.send(`**Version:** ${version}\n**Last updated:** ${moment.utc(body.updated_at).format("dddd Do MMMM YYYY") || body}`);
     }
 }
 
