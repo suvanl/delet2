@@ -46,7 +46,7 @@ class Set extends Command {
         if (value.join(" ").startsWith("<" || "#")) return message.channel.send("Please specify a channel **name**, not the channel itself.\nE.g. `general`, not `#general`.");
 
         const channel = message.guild.channels.find("name", value.join(" "));
-        if (!channel) return message.channel.send(`The channel "${value.join(" ")}" does not exist on this server.`);
+        if (!channel) return message.channel.send(`A channel with the name "${value.join(" ")}" does not exist on this server.`);
       }
 
       // Roles
