@@ -18,6 +18,7 @@ class Reboot extends Command {
       this.client.commands.forEach(async cmd => {
         await this.client.unloadCommand(cmd);
       });
+      // Exiting with a code of 1 triggers an automatic restart for the PM2 process
       process.exit(1);
     } catch (e) {
       this.client.logger.error(e);
