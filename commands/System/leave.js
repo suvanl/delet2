@@ -12,7 +12,7 @@ class Leave extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
         message.reply("are you sure you want me to leave this guild? I can only be added back by users with the `MANAGE_GUILD` (Manage Server) permission. **(Y/N)**");
@@ -35,13 +35,12 @@ class Leave extends Command {
                     return message.channel.send("Cool, looks like I won't be leaving. <:feelsgoodman:319952439602184232>");
                 } else if (resp.content === "Y" || resp.content === "y") {
                     message.channel.send("Use this if you ever want to add me back!\n**<https://delet.js.org/go/invite>**");
-                    try {
                         message.guild.leave()
-                            .then(g => this.client.logger.info(`Left guild via command: ${g}`));
-                    } catch (e) {
-                        this.client.logger.error(e);
-                        message.channel.send(`I tried to leave, but couldn't.\nAn error occurred: ${e.message}`);
-                    }
+                            .then(g => this.client.logger.info(`Left guild via command: ${g}`))
+                            .catch(e => {
+                                this.client.logger.error(e);
+                                returnmessage.channel.send(`I tried to leave, but couldn't. ${texts.general.error.replace(/{{err}}/g, e.message)}`);
+                            });
                 }
             }
         });
