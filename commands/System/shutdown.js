@@ -14,7 +14,7 @@ class Shutdown extends Command {
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
     try {
-      await message.channel.send("Shutting down...");
+      await message.channel.send("Shutting down... :wave:");
       this.client.commands.forEach(async cmd => {
         await this.client.unloadCommand(cmd);
       });
