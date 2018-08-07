@@ -18,22 +18,23 @@ class Emoji extends Command {
         
         const image = args[0];
         const name = args[1];
-        let imgLink;
+        let isImgLink;
 
         if (!image) return message.channel.send("You must provide a valid **Imgur** or **vgy.me** image link, to create an emoji from.");
 
         if (image.match(/^https?:\/\/(\w+\.)?imgur.com\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/) || image.match(/^https?:\/\/(\w+\.)?vgy.me\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/)) {
-          imgLink = true;
+          isImgLink = true;
         } else {
-          imgLink = false;
+          isImgLink = false;
         }
 
-        if (imgLink === false) return message.channel.send("Invalid image link. Please provide an **Imgur** or **vgy.me** image link.");
+        if (isImgLink === false) return message.channel.send("Invalid image link. Please provide an **Imgur** or **vgy.me** image link.");
         if (!name) return message.channel.send("You must provide a name for the new emoji.");
 
         message.guild.createEmoji(image, name)
-          .then(emoji => message.channel.send(`Created new emoji: \`:${emoji.name}:\`.`))
+          .then(emoji => message.channel.send(`Created new emoji: <:${emoji.name}:${emoji.id}>.`))
           .catch(error => {
+            if (error.message === "404 Not Found") return message.reply("an image could not be found at that link.");
             this.client.logger.error(error);
             message.channel.send(`An error occurred: \`\`\`${error.message}\`\`\``);
           });
