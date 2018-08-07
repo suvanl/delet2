@@ -12,7 +12,7 @@ class Reload extends Command {
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
-    if (!args || args.size < 1) return message.reply("you must provide a command to reload.");
+    if (!args[0]) return message.reply("you must provide a command to reload.");
     
     const commands = this.client.commands.get(args[0]) || this.client.commands.get(this.client.aliases.get(args[0]));
     if (!commands) return message.reply(`the command \`${args[0]}\` does not exist, nor is it an alias.`);
