@@ -11,23 +11,10 @@ module.exports = class {
 
     // Loads the guild's settings
     const settings = this.client.getSettings(member.guild.id);
-  
-    // If welcome is off, don't proceed (doesn't welcome the user).
-    if (settings.welcomeEnabled.toLowerCase() !== "true") return;
-
-    // Checks if the welcomeChannel exists
-    const welcomeChannel = member.guild.channels.find("name", settings.welcomeChannel);
-    if (!welcomeChannel) return;
-
-    // Replaces the placeholder in the welcome message with actual data.
-    const welcomeMessage = settings.welcomeMessage.replace("{{user}}", member.user.tag);
-
-    // Sends the welcome message to the welcome channel.
-    member.guild.channels.find("name", settings.welcomeChannel).send(welcomeMessage).catch(console.error);
 
     // Checks if the modLogChannel exists
     const modLog = member.guild.channels.find("name", settings.modLogChannel);
-    if (!modLog) return;
+    if (!modLog) this.client.logger.info(`modLogChannel not found in "${member.guild.name}" (${member.guild.id})`);
 
     // Creates and sends embed
     const { RichEmbed } = require("discord.js");
@@ -37,6 +24,19 @@ module.exports = class {
       .setDescription(`**${member.user.tag}** (${member.user.id})`)
       .setFooter(`Member #${member.guild.memberCount}`)
       .setTimestamp();
-    return member.guild.channels.get(modLog.id).send({ embed });
+    member.guild.channels.get(modLog.id).send({ embed });
+
+    // If welcome is off, don't proceed (doesn't welcome the user).
+    if (settings.welcomeEnabled.toLowerCase() !== "true") return;
+
+    // Checks if the welcomeChannel exists
+    const welcomeChannel = member.guild.channels.find("name", settings.welcomeChannel);
+    if (!welcomeChannel) return;
+
+    // Replaces the placeholder in the welcome message with actual data.
+    const welcomeMessage = settings.welcomeMessage.replace(/{{user}}/g, member.user.tag);
+
+    // Sends the welcome message to the welcome channel.
+    member.guild.channels.find("name", settings.welcomeChannel).send(welcomeMessage).catch(console.error);
   }
 };

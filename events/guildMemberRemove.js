@@ -16,7 +16,7 @@ module.exports = class {
 
     // Checks if the modLogChannel exists
     const modLog = member.guild.channels.find("name", settings.modLogChannel);
-    if (!modLog) return;
+    if (!modLog) this.client.logger.info(`modLogChannel not found in "${member.guild.name}" (${member.guild.id})`);
 
     // Creates and sends embed
     const { RichEmbed } = require("discord.js");
