@@ -45,18 +45,20 @@ class Lockdown extends Command {
                         .setDescription(`\`\`\`ruby\nChannel: #${message.channel.name} (${message.channel.id})\nDuration: ${ms(ms(time), { long: true })}\nIssued by: ${message.author.tag}\`\`\``)
                         .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
                         .setTimestamp();
-                    this.client.channels.get(modLog.id).send({ embed }).then (() => {
-                        this.client.lockit[message.channel.id] = setTimeout(() => {
-                            message.channel.overwritePermissions(message.guild.id, {
-                                SEND_MESSAGES: null
-                            }).then(message.channel.send("Lockdown lifted."));
-                            delete this.client.lockit[message.channel.id];
-                        }, ms(time));
+                    this.client.channels.get(modLog.id).send({ embed })
+                        .then(() => {
+                            this.client.lockit[message.channel.id] = setTimeout(() => {
+                                message.channel.overwritePermissions(message.guild.id, {
+                                    SEND_MESSAGES: null
+                                })
+                                .then(message.channel.send("Lockdown lifted."));
+                                delete this.client.lockit[message.channel.id];
+                            }, ms(time));
                     });
                 });
             }
         } catch (error) {
-            message.channel.send(`An error occurred whilst trying to lock this channel down. Example command usage: \`${settings.prefix}lockdown 5 m\``);
+            message.channel.send(`An error occurred whilst trying to lock this channel down. Use \`${settings.prefix}help lockdown\` to see how to use this command.`);
         }
     }
 }
