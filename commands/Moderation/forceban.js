@@ -25,14 +25,15 @@ class ForceBan extends Command {
         if (!reason) return message.channel.send("Please provide a reason for the punishment.");
         if (userID === message.author.id) return message.channel.send("You cannot ban yourself. <a:aThinking:444074885367595009>");
 
-        if (!message.guild.member(userID).bannable) return message.reply("I cannot ban that user from this server!");
-        try {
-          message.guild.ban(userID)
-            .then(user => message.reply(`successfully banned ${user.username} (${user.id}).`));
-          message.react("👌");
-        } catch (error) {
-          return message.channel.send(`An error occurred whilst trying to ban the specified user ID:\n\`\`\`${error.message}\`\`\``);
-        }
+        message.guild.ban(userID, { reason: reason })
+          .then(() => {
+            message.reply(`successfully banned the user with the ID **${userID}**.`);
+            message.react("👌");
+          })
+          .catch(error => {
+            this.client.logger.error(error);
+            return message.channel.send(`An error occurred whilst trying to ban the specified user ID:\n\`\`\`${error.message}\`\`\``);
+          });
 
         const embed = new RichEmbed()
           .setTitle(`🚫 Member force-banned from ${message.guild.name}`)
