@@ -36,7 +36,8 @@ class Kick extends Command {
           if (resp.content.toLowerCase() === "cancel") return message.channel.send(texts.moderation.cancel);
           reason = resp.content;
           if (resp) resp.react("✅");
-        }).catch(error => { // eslint-disable-line no-unused-vars
+        }).catch(error => {
+          this.client.logger.error(error);
           message.channel.send(texts.moderation.timedOut);
         });
       }
