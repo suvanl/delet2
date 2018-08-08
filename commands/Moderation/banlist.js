@@ -32,6 +32,8 @@ class BanList extends Command {
 
             ${bList.map(bl => `**${++index} -** ${bl.user}`).join("\n")}
             `);
+
+            message.react("👌");
           });
     }
 }
