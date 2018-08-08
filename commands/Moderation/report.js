@@ -21,6 +21,7 @@ class Report extends Command {
         const modLog = message.guild.channels.find("name", settings.modLogChannel);
         if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
         if (!user) return message.channel.send("You must mention a user to report.");
+        if (!reason) return message.channel.send("You must provide a reason for the report.");
 
         message.delete();
 
@@ -31,12 +32,15 @@ class Report extends Command {
           .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
           .setTimestamp();
 
-        try {
-          this.client.channels.get(modLog.id).send({ embed });
-          message.channel.send("<:tick:398228298842374154> Report successfully sent.");
-        } catch (error) {
-          return message.channel.send("<:redX:398228298708025344> An error occurred whilst submitting the report.");
-        }
+
+        this.client.channels.get(modLog.id).send({ embed })
+          .then(() => {
+            message.channel.send("<:tick:398228298842374154> Report successfully sent.");
+          })
+          .catch(error => {
+            this.client.logger.error(error);
+            return message.channel.send("<:redX:398228298708025344> An error occurred whilst submitting the report.");
+          });
     }
 }
 
