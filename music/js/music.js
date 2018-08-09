@@ -1,9 +1,12 @@
 const { Client, Util } = require("discord.js");
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require("./config");
 const { stripIndents } = require("common-tags");
+const moment = require("moment");
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
 const texts = require("../../locales/en-GB");
+
+const timestamp = `[${moment().format("YYYY-MM-DD HH:mm:ss")}]: `;
 
 const client = new Client({ disableEveryone: true });
 
@@ -15,11 +18,11 @@ client.on("warn", console.warn);
 
 client.on("error", console.error);
 
-client.on("ready", () => console.log("Music system ready"));
+client.on("ready", () => console.log(timestamp + "Music system ready"));
 
-client.on("disconnect", () => console.log("Bot disconnecting..."));
+client.on("disconnect", () => console.log(timestamp + "Bot disconnecting..."));
 
-client.on("reconnecting", () => console.log("Reconnecting..."));
+client.on("reconnecting", () => console.log(timestamp + "Reconnecting..."));
 
 client.on("message", async message => {
 	if (message.author.bot) return;
@@ -74,13 +77,13 @@ client.on("message", async message => {
 							errors: ["time"]
 						});
 					} catch (err) {
-						console.error(err);
+						console.error(timestamp + err);
 						return message.channel.send(texts.music.songSelectionCancel);
 					}
 					const videoIndex = parseInt(response.first().content);
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id); // eslint-disable-line no-redeclare
 				} catch (err) {
-					console.error(err);
+					console.error(timestamp + err);
 					return message.channel.send(texts.general.noResultsFound);
 				}
 			}
@@ -108,7 +111,7 @@ client.on("message", async message => {
 		if (!serverQueue) return message.channel.send("There is nothing currently playing.");
 		if (!args[1]) return message.channel.send(`The current volume is **${serverQueue.volume}**.`);
 		serverQueue.volume = args[1];
-		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
+		serverQueue.connection.dispatcher.setVolumeLogarithmic((args[1].toLowerCase() === "default" ? 5 : args[1]) / 5);
 		return message.channel.send(`Volume set to **${args[1]}**.\nThe default volume level is 5.`);
 
 		// NOW PLAYING COMMAND
@@ -151,7 +154,7 @@ client.on("message", async message => {
 
 async function handleVideo(video, message, voiceChannel, playlist = false) {
 	const serverQueue = queue.get(message.guild.id);
-	console.log(video);
+	//console.log(video);
 	const song = {
 		id: video.id,
 		title: Util.escapeMarkdown(video.title),
@@ -175,7 +178,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 			queueConstruct.connection = connection;
 			play(message.guild, queueConstruct.songs[0]);
 		} catch (error) {
-			console.error(`I could not join the voice channel:\n\`\`\`${error}\`\`\``);
+			console.error(`${timestamp}I could not join the voice channel:\n\`\`\`${error}\`\`\``);
 			queue.delete(message.guild.id);
 			return message.channel.send(`I could not join the voice channel:\n\`\`\`${error}\`\`\``);
 		}
@@ -199,12 +202,12 @@ function play(guild, song) {
 
 	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
 		.on("end", reason => {
-			if (reason === "Stream is not generating quickly enough.") console.log("Song ended");
-			else console.log(reason);
+			if (reason === "Stream is not generating quickly enough.") console.log(timestamp + "Song ended");
+			else console.log(timestamp + reason);
 			serverQueue.songs.shift();
 			play(guild, serverQueue.songs[0]);
 		})
-		.on("error", error => console.error(error));
+		.on("error", error => console.error(timestamp + error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 	serverQueue.textChannel.send(`Started playing **${song.title}**.`);
