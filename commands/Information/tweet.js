@@ -10,7 +10,7 @@ class Tweet extends Command {
       name: "tweet",
       description: "Returns the specified user's latest tweet.",
       category: "Information",
-      usage: "tweet [user]",
+      usage: "tweet <user>",
       aliases: ["latesttweet", "latest-tweet"]
     });
 

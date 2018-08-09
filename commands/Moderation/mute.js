@@ -7,7 +7,7 @@ class Mute extends Command {
       name: "mute",
       description: "Mutes the mentioned user.",
       category: "Moderation",
-      usage: "mute [user] <reason>",
+      usage: "mute <user> <reason>",
       aliases: ["permmute", "perm"],
       permLevel:"Moderator",
       guildOnly: true

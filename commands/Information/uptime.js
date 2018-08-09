@@ -7,7 +7,7 @@ class Uptime extends Command {
     constructor(client) {
       super(client, {
         name: "uptime",
-        description: "Returns delet's uptime.",
+        description: "Displays delet's uptime.",
         category: "Information",
         usage: "uptime"
       });

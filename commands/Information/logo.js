@@ -7,7 +7,7 @@ class Logo extends Command {
         name: "logo",
         description: "Sends a website's logo.",
         category: "Information",
-        usage: "logo [url]"
+        usage: "logo <url>"
       });
     }
 

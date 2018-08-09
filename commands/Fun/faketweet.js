@@ -7,7 +7,7 @@ class FakeTweet extends Command {
         name: "faketweet",
         description: "Creates a fake tweet.",
         category: "Fun",
-        usage: "faketweet [username] [message]",
+        usage: "faketweet <username> <message>",
         aliases: ["fake-tweet"]
       });
     }

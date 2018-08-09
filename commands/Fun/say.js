@@ -6,7 +6,7 @@ class Say extends Command {
         name: "say",
         description: "Repeats your message.",
         category: "Fun",
-        usage: "say [message]",
+        usage: "say [tts] <message>",
         aliases: ["repeat", "echo"]
       });
     }

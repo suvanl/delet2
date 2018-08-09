@@ -5,6 +5,8 @@
 // help command, its extended help is shown.
 
 const Command = require("../../base/Command.js");
+const { stripIndents } = require("common-tags");
+
 class Help extends Command {
   constructor(client) {
     super(client, {
@@ -73,7 +75,12 @@ class Help extends Command {
         if (this.client.commands.has(command)) {
           command = this.client.commands.get(command);
           if (level < this.client.levelCache[command.conf.permLevel]) return;          
-          message.channel.send(`= ${command.help.name} = \n${command.help.description}\n${texts.help.usage}   :: ${settings.prefix}${command.help.usage}\n${texts.help.aliases} :: ${command.conf.aliases.map(a => settings.prefix + a).join(", ")}`, { code:"asciidoc" });
+          message.channel.send(stripIndents`
+          = ${command.help.name} =
+          ${command.help.description}
+
+          ${texts.help.usage}   :: ${settings.prefix}${command.help.usage}
+          ${texts.help.aliases} :: ${command.conf.aliases.map(a => settings.prefix + a).join(", ")} ${command.help.usage.includes("<") ? "\n\n<> - Required parameter" : "\u200b"} ${command.help.usage.includes("[") ? "\n[] - Optional parameter" : "\u200b"}`, { code:"asciidoc" });
         }
       }
     }

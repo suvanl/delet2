@@ -7,7 +7,7 @@ class Magik extends Command {
         name: "magik",
         description: "Adds a \"magik\" effect to the specified image.",
         category: "Fun",
-        usage: "magik [image-url]"
+        usage: "magik <image-url>"
       });
     }
 

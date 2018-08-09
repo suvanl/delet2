@@ -6,7 +6,7 @@ class Prime extends Command {
         name: "prime",
         description: "Checks if a number is a prime number.",
         category: "Maths",
-        usage: "prime [number]",
+        usage: "prime <number>",
         aliases: ["primenumber", "isprime"]
       });
     }

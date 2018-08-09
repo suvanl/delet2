@@ -7,7 +7,7 @@ class Maths extends Command {
         name: "maths",
         description: "Evaluates/calculates a given mathematical expression.",
         category: "Maths",
-        usage: "maths [expression]",
+        usage: "maths <expression>",
         aliases: ["math", "calculate"]
       });
     }

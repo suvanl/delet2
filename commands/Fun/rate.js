@@ -6,7 +6,7 @@ class Rate extends Command {
         name: "rate",
         description: "Rates something out of 10.",
         category: "Fun",
-        usage: "rate [query]"
+        usage: "rate <query>"
       });
     }
 

@@ -8,7 +8,7 @@ class Giphy extends Command {
         name: "giphy",
         description: "Returns a GIF from Giphy based on your query.",
         category: "Fun",
-        usage: "giphy [query]",
+        usage: "giphy <query>",
         aliases: ["gif"]
       });
     }

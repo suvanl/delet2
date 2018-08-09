@@ -7,7 +7,7 @@ class Kick extends Command {
         name: "kick",
         description: "Kicks the mentioned user from the server.",
         category: "Moderation",
-        usage: "kick [user] <reason/info>",
+        usage: "kick <user> <reason>",
         guildOnly: true,
         aliases: ["boot"],
         permLevel: "Moderator"

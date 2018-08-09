@@ -13,7 +13,7 @@ class Twitter extends Command {
       name: "twitter",
       description: "Returns info about a Twitter user.",
       category: "Information",
-      usage: "twitter [user]",
+      usage: "twitter <user>",
       aliases: ["twitterinfo", "twitter-info", "tinfo"]
     });
 

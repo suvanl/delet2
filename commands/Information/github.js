@@ -9,7 +9,7 @@ class GitHub extends Command {
         name: "github",
         description: "Returns information about the specified GitHub repository.",
         category: "Information",
-        usage: "github [repo-owner] [repo-name]",
+        usage: "github <repo-owner> <repo-name>",
         aliases: ["repo", "repo-info", "repository-info"]
       });
     }

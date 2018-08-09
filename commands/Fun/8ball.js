@@ -7,7 +7,7 @@ class EightBall extends Command {
       name: "8ball",
       description: "Consults my magic 8-ball!",
       category: "Fun",
-      usage: "8ball [question]",
+      usage: "8ball <question>",
       aliases: ["8-ball", "eightball", "fortune"]
     });
   }

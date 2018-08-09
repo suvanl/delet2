@@ -7,7 +7,7 @@ class Quote extends Command {
     super(client, {
       name: "quote",
       description: "Quotes the specified message (by ID).",
-      usage: "quote [message ID]",
+      usage: "quote <message ID>",
       aliases: ["q"],
       guildOnly: true
     });

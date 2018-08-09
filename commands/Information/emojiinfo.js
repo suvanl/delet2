@@ -8,7 +8,7 @@ class EmojiInfo extends Command {
         name: "emojiinfo",
         description: "Displays information about the specified emoji.",
         category: "Information",
-        usage: "emojiinfo [emoji]",
+        usage: "emojiinfo <emoji>",
         aliases: ["emoji-info", "einfo"]
       });
     }

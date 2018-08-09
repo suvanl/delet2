@@ -8,8 +8,8 @@ class Urban extends Command {
         name: "urban",
         description: "Searches the Urban Dictionary for the specified query.",
         category: "Fun",
-        usage: "urban [query]",
-        aliases: ["urbandictionary", "udictionary"]
+        usage: "urban <query>",
+        aliases: ["urbandictionary", "udictionary", "urban-dictionary"]
       });
     }
 

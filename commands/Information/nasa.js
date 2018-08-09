@@ -7,7 +7,7 @@ class NASA extends Command {
     super(client, {
       name: "nasa",
       description: "Searches NASA's image database.",
-      usage: "nasa [image]",
+      usage: "nasa <image>",
       aliases: ["space"]
     });
   }

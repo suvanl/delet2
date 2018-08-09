@@ -7,7 +7,7 @@ class Robot extends Command {
         name: "robot",
         description: "Generates a picture of a robot from some given text.",
         category: "Fun",
-        usage: "robot [text]",
+        usage: "robot <text>",
         aliases: ["robohash"]
       });
     }

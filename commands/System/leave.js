@@ -4,7 +4,7 @@ class Leave extends Command {
     constructor(client) {
       super(client, {
         name: "leave",
-        description: "Leaves the server the message is run in.",
+        description: "Leaves the current server.",
         category: "System",
         usage: "leave",
         guildOnly: true,

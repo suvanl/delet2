@@ -8,7 +8,7 @@ class ChannelInfo extends Command {
         name: "channelinfo",
         description: "Displays information about the specified channel.",
         category: "Information",
-        usage: "channelinfo [channel]",
+        usage: "channelinfo",
         aliases: ["channel", "cinfo"],
         guildOnly: true
       });

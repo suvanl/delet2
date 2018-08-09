@@ -6,7 +6,7 @@ class ClearNick extends Command {
       name: "clearnick",
       description: "Clears a user's nickname.",
       category: "Moderation",
-      usage: "clearnick [@user]",
+      usage: "clearnick <@user>",
       aliases: ["clearnickname", "cn"],
       permLevel: "Moderator",
       guildOnly: true

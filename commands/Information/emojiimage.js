@@ -7,7 +7,7 @@ class EmojiImage extends Command {
         name: "emojiimage",
         description: "Sends the specified emoji as an image.",
         category: "Information",
-        usage: "emojiimage [emoji]",
+        usage: "emojiimage <emoji>",
         aliases: ["emoji-image", "bigemoji", "hugemoji", "hugeemoji"]
       });
     }

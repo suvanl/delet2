@@ -6,7 +6,7 @@ class Status extends Command {
         name: "status",
         description: "Sets delet's presence/status.",
         category: "System",
-        usage: "status",
+        usage: "status <online|idle|dnd|invisible>",
         permLevel: "Bot Admin"
       });
     }

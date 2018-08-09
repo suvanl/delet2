@@ -7,7 +7,7 @@ class Time extends Command {
         name: "time",
         description: "Returns the current time in a specified timezone.",
         category: "Information",
-        usage: "time [<continent>/<city>]",
+        usage: "time <continent>/<city>",
         aliases: ["timezone", "worldtime"]
       });
     }

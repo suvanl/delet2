@@ -7,7 +7,7 @@ class ChangeMyMind extends Command {
         name: "changemymind",
         description: "Change my mind...",
         category: "Fun",
-        usage: "changemymind [text]",
+        usage: "changemymind <text>",
         aliases: ["change-my-mind", "change"]
       });
     }

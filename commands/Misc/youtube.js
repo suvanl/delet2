@@ -9,7 +9,7 @@ class YouTubeSearch extends Command {
     super(client, {
       name: "youtube",
       description: "Searches YouTube for a specified video.",
-      usage: "youtube [video name]",
+      usage: "youtube <video name>",
       aliases: ["yt"]
     });
   }

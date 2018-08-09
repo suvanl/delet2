@@ -6,7 +6,7 @@ class Play extends Command {
         name: "play",
         description: "Plays a song.",
         category: "Music",
-        usage: "play [song title OR YouTube link]",
+        usage: "play <song title OR YouTube link>",
         guildOnly: true
       });
     }

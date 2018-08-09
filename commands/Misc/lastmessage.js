@@ -6,14 +6,14 @@ class LastMessage extends Command {
     super(client, {
       name: "lastmessage",
       description: "Returns the mentioned user's last message.",
-      usage: "lastmessage",
+      usage: "lastmessage [user]",
       aliases: ["lm"],
       guildOnly: true
     });
   }
 
   async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-      const member = message.mentions.members.first();
+      const member = message.mentions.members.first() || message.member;
       if (!member) return message.channel.send(texts.cmd.misc.noMember);
 
       const lastMsg = message.guild.member(member).lastMessage;

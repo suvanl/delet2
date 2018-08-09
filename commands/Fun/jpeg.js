@@ -7,7 +7,7 @@ class JPEG extends Command {
         name: "jpeg",
         description: "Needs more JPEG.",
         category: "Fun",
-        usage: "jpeg [image-url]",
+        usage: "jpeg <image url>",
         aliases: ["jpegify"]
       });
     }

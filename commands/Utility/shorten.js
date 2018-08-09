@@ -7,7 +7,7 @@ class Shorten extends Command {
       name: "shorten",
       description: "Shortens the specified link.",
       category: "Utility",
-      usage: "shorten [URL] [custom title]",
+      usage: "shorten <URL> [custom title]",
       aliases: ["isgd", "urlshortner", "shorten-url"]
     });
   }

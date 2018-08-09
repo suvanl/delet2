@@ -6,7 +6,7 @@ class Announce extends Command {
       name: "announce",
       description: "Sends a specified message to a specified channel.",
       category: "System",
-      usage: "announce [message]",
+      usage: "announce <message>",
       aliases: ["send"],
       permLevel: "Server Owner",
       guildOnly: true
