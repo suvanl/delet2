@@ -36,7 +36,7 @@ class Warn extends Command {
           if (resp.content.toLowerCase() === "cancel") return message.channel.send("Cancelled. The user has not been warned.");
           reason = resp.content;
           if (resp) resp.react("✅");
-        }).catch(error => { // eslint-disable-line no-unused-vars
+        }).catch(() => {
           message.channel.send("Timed out. The user has not been warned.");
         });
       }
@@ -52,7 +52,8 @@ class Warn extends Command {
     
           this.client.channels.get(modLog.id).send({ embed });
   
-          user.send(`Hello,\nYou were warned in **${message.guild.name}** for the reason "**${reason}**".\nPlease make sure you always follow the rules, because not doing so can lead to punishments. <:feelsbanman:405126279025917962>`);
+          if (!user.bot) user.send(`Hello,\nYou were warned in **${message.guild.name}** for the reason "**${reason}**".\nPlease make sure you always follow the rules, because not doing so can lead to punishments. <:feelsbanman:405126279025917962>`);
+
           message.react("👌");
         } catch (error) {
           this.client.logger.error(error);
