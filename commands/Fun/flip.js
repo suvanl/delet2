@@ -3,6 +3,13 @@ const { currencies } = require("../../util/data.js");
 const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 
+const fullName = {
+  "EUR": "Euro",
+  "GBP": "Pound Sterling",
+  "NOK": "Norwegian Kroner",
+  "USD": "US Dollar"
+};
+
 class Flip extends Command {
   constructor(client) {
     super(client, {
@@ -28,67 +35,10 @@ class Flip extends Command {
 
       const flip = coinFlip();
 
-      // TODO: refactor; currently too messy (and inefficient(?))
-
-      // Pounds [£] (GBP)
-      if (settings.currency === "GBP") {
-      if (flip === "heads") {
-        const embed = new RichEmbed()
-          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
-          .setThumbnail("https://vgy.me/yvnN22.png");
-        return message.channel.send({ embed });
-      } else {
-        const embed = new RichEmbed()
-          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Pound Sterling (GBP)`)
-          .setThumbnail("https://vgy.me/PfWWql.png");
-        return message.channel.send({ embed });
-      }
-    }
-
-    // Euros [€] (EUR)
-    if (settings.currency === "EUR") {
-      if (flip === "heads") {
-        const embed = new RichEmbed()
-          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
-          .setThumbnail("https://vgy.me/QgVomc.png");
-        return message.channel.send({ embed });
-      } else {
-        const embed = new RichEmbed()
-          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Euro (EUR)`)
-          .setThumbnail("https://vgy.me/g4ispA.png");
-        return message.channel.send({ embed });
-      }
-    }
-
-    // US Dollars [$] (USD)
-    if (settings.currency === "USD") {
-      if (flip === "heads") {
-        const embed = new RichEmbed()
-          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
-          .setThumbnail("https://vgy.me/e08J8X.png");
-        return message.channel.send({ embed });
-      } else {
-        const embed = new RichEmbed()
-          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: US Dollars (USD)`)
-          .setThumbnail("https://vgy.me/mYy2Fv.png");
-        return message.channel.send({ embed });
-      }
-    }
-
-    // Norwegian Krone [kr] (NOK)
-    if (settings.currency === "NOK") {
-      if (flip === "heads") {
-        const embed = new RichEmbed()
-          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
-          .setThumbnail("https://vgy.me/NbbKna.png");
-        return message.channel.send({ embed });
-      } else {
-        const embed = new RichEmbed()
-          .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${Math.round(this.client.ping)}ms\nCurrency: Norwegian Kroner (NOK)`)
-          .setThumbnail("https://vgy.me/VbieZr.png");
-        return message.channel.send({ embed });
-      }
-    }
+      const embed = new RichEmbed()
+        .setDescription(`This flip's result was **${flip}**!\n\nTime taken: ${(this.client.ping / 1000).toFixed(3)}s\nCurrency: ${fullName[settings.currency]} (${settings.currency})`)
+        .setThumbnail(flip === "heads" ? `https://delet.js.org/imgstore/currency/${settings.currency}/${settings.currency}heads.png` : `https://delet.js.org/imgstore/currency/${settings.currency}/${settings.currency}tails.png`);
+      return message.channel.send({ embed });
   }
 }
 
