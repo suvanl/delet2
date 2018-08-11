@@ -62,7 +62,7 @@ class Set extends Command {
       // Language
       if (key === "language") {
         const validLanguages = fs.readdirSync("locales");
-        const langs = validLanguages.map(function(l) {
+        const langs = validLanguages.map(l => {
           return l.slice(0, -3);
         });
 
