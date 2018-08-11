@@ -92,7 +92,7 @@ module.exports = (client) => {
   });
 
   // These 2 process methods will catch exceptions and give *more details* about the error and stack trace.
-  process.on("uncaughtException", (err) => {
+  process.on("uncaughtException", err => {
     const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, "g"), "./");
     console.error("Uncaught Exception: ", errorMsg);
     if (process.platform !== "win32") fileLogger.error("error", `Uncaught Exception: ${errorMsg}`); // Only writes to file on production
