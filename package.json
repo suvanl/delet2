@@ -38,7 +38,7 @@
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
     "common-tags": "^1.8.0",
-    "discord.js": "^11.4.0",
+    "discord.js": "^11.4.1",
     "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
     "enmap": "^0.4.6",
