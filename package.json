@@ -57,7 +57,7 @@
     "klaw": "^3.0.0",
     "level-session-store": "^2.1.0",
     "marked": "^0.4.0",
-    "mathjs": "^5.0.4",
+    "mathjs": "^5.1.0",
     "memejs": "^1.0.7",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
