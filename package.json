@@ -74,7 +74,7 @@
     "winston": "^3.0.0"
   },
   "optionalDependencies": {
-    "canvas": "^1.6.11",
+    "canvas": "^2.0.0-alpha.13",
     "cleverbot.io": "^1.0.4",
     "node-opus": "^0.3.0",
     "ytdl-core": "^0.24.0"
