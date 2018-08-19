@@ -45,7 +45,7 @@ class Set extends Command {
       if (key.includes("Channel")) {
         if (value.join(" ").startsWith("<" || "#")) return message.channel.send("Please specify a channel **name**, not the channel itself.\nE.g. `general`, not `#general`.");
 
-        const channel = message.guild.channels.find("name", value.join(" "));
+        const channel = message.guild.channels.find(c => c.name === value.join(" "));
         if (!channel) return message.channel.send(`A channel with the name "${value.join(" ")}" does not exist on this server.`);
       }
 
@@ -53,7 +53,7 @@ class Set extends Command {
       if (key.includes("Role")) {
         if (value.join(" ").startsWith("<" || "@")) return message.channel.send("Please specify a role **name**, not the role itself.\nE.g. `Mod`, not `@Mod`.");
 
-        const role = message.guild.roles.find("name", value.join(" "));
+        const role = message.guild.roles.find(c => c.name === value.join(" "));
         if (!role) return message.channel.send(`The role "${value.join(" ")}" does not exist on this server.`);
       }
 

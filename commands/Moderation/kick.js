@@ -19,7 +19,7 @@ class Kick extends Command {
       
       const user = message.mentions.users.first();
       let reason = args.slice(1).join(" ") || undefined;
-      const modLog = message.guild.channels.find("name", settings.modLogChannel);
+      const modLog = message.guild.channels.find(c => c.name === settings.modLogChannel);
       if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
       if (!user) return message.channel.send(texts.moderation.noUser);
       if (user === message.author) return message.channel.send(`${texts.moderation.selfPunish} <a:aThinking:444074885367595009>`);

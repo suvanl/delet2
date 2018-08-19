@@ -13,7 +13,7 @@ module.exports = class {
     const settings = this.client.getSettings(member.guild.id);
 
     // Checks if the modLogChannel exists
-    const modLog = member.guild.channels.find("name", settings.modLogChannel);
+    const modLog = member.guild.channels.find(c => c.name === settings.modLogChannel);
     if (!modLog) this.client.logger.info(`modLogChannel not found in "${member.guild.name}" (${member.guild.id})`);
 
     // Creates and sends embed
@@ -30,13 +30,13 @@ module.exports = class {
     if (settings.welcomeEnabled.toLowerCase() !== "true") return;
 
     // Checks if the welcomeChannel exists
-    const welcomeChannel = member.guild.channels.find("name", settings.welcomeChannel);
+    const welcomeChannel = member.guild.channels.find(c => c.name === settings.welcomeChannel);
     if (!welcomeChannel) return;
 
     // Replaces the placeholder in the welcome message with actual data.
     const welcomeMessage = settings.welcomeMessage.replace(/{{user}}/g, member.user.tag);
 
     // Sends the welcome message to the welcome channel.
-    member.guild.channels.find("name", settings.welcomeChannel).send(welcomeMessage).catch(console.error);
+    member.guild.channels.get(welcomeChannel.id).send(welcomeMessage).catch(console.error);
   }
 };

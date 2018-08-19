@@ -19,7 +19,7 @@ class ForceBan extends Command {
         
         const userID = args[0];
         const reason = args.slice(1).join(" ");
-        const modLog = message.guild.channels.find("name", settings.modLogChannel);
+        const modLog = message.guild.channels.find(c => c.name === settings.modLogChannel);
         if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
         if (!userID) return message.channel.send("You must provide a user ID to ban.");
         if (!reason) return message.channel.send("Please provide a reason for the punishment.");

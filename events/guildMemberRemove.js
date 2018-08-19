@@ -15,7 +15,7 @@ module.exports = class {
     // TODO: re-add leave message to settings and handle sending of said message in this event
 
     // Checks if the modLogChannel exists
-    const modLog = member.guild.channels.find("name", settings.modLogChannel);
+    const modLog = member.guild.channels.find(c => c.name === settings.modLogChannel);
     if (!modLog) this.client.logger.info(`modLogChannel not found in "${member.guild.name}" (${member.guild.id})`);
 
     // Creates and sends embed

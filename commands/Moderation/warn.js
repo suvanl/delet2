@@ -20,10 +20,10 @@ class Warn extends Command {
 
       const user = message.mentions.users.first();
       let reason = args.slice(1).join(" ") || undefined;
-      const modLog = message.guild.channels.find("name", settings.modLogChannel);
+      const modLog = message.guild.channels.find(c => c.name === settings.modLogChannel);
       if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
       if (!user) return message.channel.send(texts.moderation.noWarnUser);
-      if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot warn this user as they have a higher role than you.");
+      if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot warn this user as they have the same role or a higher role than you.");
       if (!reason) {
         message.channel.send(texts.moderation.awaitWarnReason);
         await message.channel.awaitMessages(m => m.author.id === message.author.id, {

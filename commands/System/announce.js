@@ -18,7 +18,7 @@ class Announce extends Command {
     if (!content) return message.channel.send(texts.cmd.system.noMessage);
 
     const id = await this.client.awaitReply(message, texts.cmd.system.idRequest, 30000);
-    if (!message.guild.channels.find("id", id)) return message.channel.send("A channel with that ID does not exist on this server.");
+    if (!message.guild.channels.find(c => c.id === id)) return message.channel.send("A channel with that ID does not exist on this server.");
     
     message.guild.channels.get(id).send(content)
       .then(message.react("✅"))
