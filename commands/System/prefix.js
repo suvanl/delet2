@@ -7,7 +7,8 @@ class Prefix extends Command {
       description: "Returns my command prefix/invoker for the current server.",
       category: "System",
       usage: "prefix",
-      aliases: ["invoker"]
+      aliases: ["invoker"],
+      guildOnly: true
     });
   }
 
