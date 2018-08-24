@@ -13,7 +13,7 @@
 <br>Please ensure you read the section regarding self-hosting and portability in this README document.</strong></p>
 
 ## Commands
-A variety of commands can be found in delet, ranging from system functions to fun commands. A custom command creation system is planned for a future release, allowing users to create their own basic commands from within Discord. Please note that as this bot is still in development, many more commands are still to come.
+A variety of commands can be found in delet, ranging from system functions to fun commands. delet currently has over 100 commands, with many more planned for future releases.
 
 ## Music
 delet boasts an advanced music system, with commands and features to make your listening experience as enjoyable as possible, through having a system that's easy to use, yet full of useful functions, such as a built-in YouTube search function, to avoid having to always find the song's YouTube link, as well as a full queueing system.
