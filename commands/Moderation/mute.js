@@ -25,7 +25,7 @@ class Mute extends Command {
     if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
     if (!user) return message.channel.send("You must mention a user to mute.");
     if (user.id === message.author.id) return message.reply("you cannot mute yourself!");
-    if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot ban this user as they have a higher role than you.");
+    if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot mute this user as they have a higher role than you.");
 
     const muteRole = message.guild.roles.find(role => role.name === "Muted");
     const empty = await this.isEmpty(muteRole);
