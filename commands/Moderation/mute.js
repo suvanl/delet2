@@ -19,14 +19,6 @@ class Mute extends Command {
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send(texts.general.missingPerm.replace(/{{perm}}/g, "Manage Roles"));
 
-    const user = message.mentions.users.first();
-    let reason = args.slice(1).join(" ");
-    const modLog = message.guild.channels.find(c => c.name === settings.modLogChannel);
-    if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
-    if (!user) return message.channel.send("You must mention a user to mute.");
-    if (user.id === message.author.id) return message.reply("you cannot mute yourself!");
-    if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot mute this user as they have a higher role than you.");
-
     const muteRole = message.guild.roles.find(role => role.name === "Muted");
     const empty = await this.isEmpty(muteRole);
     if (empty) {
@@ -39,9 +31,17 @@ class Mute extends Command {
             return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
           });
       } else {
-        return message.channel.send("Cancelled. I will not create a \"Muted\" role, and the mentioned user will not be muted.");
+        return message.channel.send("Cancelled. I will not create a \"Muted\" role. You will not be able to mute users without having a \"Muted\" role.");
       }
     }
+
+    const user = message.mentions.users.first();
+    let reason = args.slice(1).join(" ");
+    const modLog = message.guild.channels.find(c => c.name === settings.modLogChannel);
+    if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
+    if (!user) return message.channel.send("You must mention a user to mute.");
+    if (user.id === message.author.id) return message.reply("you cannot mute yourself!");
+    if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot mute this user as they have a higher role than you.");
 
     if (!empty) {
       if (message.guild.member(user).roles.has(muteRole.id)) {
@@ -97,6 +97,9 @@ class Mute extends Command {
             .setTimestamp();
 
           message.guild.channels.get(modLog.id).send({ embed });
+          user.send(stripIndents`
+          You were muted by staff in the **${message.guild.name}** server for the reason "${reason}".
+          Please ensure you follow all the rules of the server in the future to avoid this occurring again.`);
         } catch (error) {
           this.client.logger.error(error.stack);
           return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
