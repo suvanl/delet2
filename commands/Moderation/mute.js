@@ -1,4 +1,6 @@
 const Command = require("../../base/Command.js");
+const { RichEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 
 class Mute extends Command {
   constructor(client) {
@@ -18,13 +20,12 @@ class Mute extends Command {
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send(texts.general.missingPerm.replace(/{{perm}}/g, "Manage Roles"));
 
     const user = message.mentions.users.first();
-    const reason = args.slice(1).join(" ");
+    let reason = args.slice(1).join(" ");
     const modLog = message.guild.channels.find(c => c.name === settings.modLogChannel);
     if (!modLog) return message.channel.send(texts.moderation.modLogNotFound.replace(/{{prefix}}/g, settings.prefix));
     if (!user) return message.channel.send("You must mention a user to mute.");
-    if (!reason) return message.channel.send("Please provide a reason for the punishment.");
     if (user.id === message.author.id) return message.reply("you cannot mute yourself!");
-
+    if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot ban this user as they have a higher role than you.");
 
     const muteRole = message.guild.roles.find(role => role.name === "Muted");
     const empty = await this.isEmpty(muteRole);
@@ -43,6 +44,27 @@ class Mute extends Command {
     }
 
     if (!empty) {
+      if (message.guild.member(user).roles.has(muteRole.id)) {
+        return message.channel.send("The mentioned user is already muted.");
+      }
+
+      if (!reason) {
+        message.channel.send(texts.moderation.awaitReason);
+        await message.channel.awaitMessages(m => m.author.id === message.author.id, {
+          "errors": ["time"],
+          "max": 1,
+          time: 30000
+        }).then(resp => {
+          if (!resp) return message.channel.send(texts.moderation.timedOut);
+          resp = resp.array()[0];
+          if (resp.content.toLowerCase() === "cancel") return message.channel.send(texts.moderation.cancel);
+          reason = resp.content;
+          if (resp) resp.react("✅");
+        }).catch(() => {
+          message.channel.send(texts.moderation.timedOut);
+        });
+      }
+
       message.guild.channels.forEach(async (channel) => {
         await channel.overwritePermissions(muteRole, {
           SEND_MESSAGES: false,
@@ -60,7 +82,25 @@ class Mute extends Command {
           return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
         });
 
-        // TODO: modlog embed
+        try {
+          const embed = new RichEmbed()
+            .setTitle(`🔇 Member muted in #${message.channel.name}`)
+            .setColor(16772735)
+            .setDescription(stripIndents`
+            \`\`\`css
+              Target: ${user.tag} (${user.id})
+              Issued by: ${message.author.tag} (${message.author.id})
+              Reason: ${reason}
+            \`\`\`
+            `)
+            .setFooter(texts.moderation.poweredBy, this.client.user.displayAvatarURL)
+            .setTimestamp();
+
+          message.guild.channels.get(modLog.id).send({ embed });
+        } catch (error) {
+          this.client.logger.error(error.stack);
+          return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+        }
     }
   }
 
