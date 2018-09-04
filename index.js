@@ -176,6 +176,7 @@ const init = async () => {
   client.logger.log(`Loading a total of ${evtFiles.length} events.`, "log");
   evtFiles.forEach(file => {
     const eventName = file.split(".")[0];
+    client.logger.log(`Loading event: ${eventName}. ✅`);
     const event = new (require(`./events/${file}`))(client);
 
     client.on(eventName, (...args) => event.run(...args));
