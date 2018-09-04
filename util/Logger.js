@@ -1,5 +1,4 @@
 // Logger class for easy and aesthetically pleasing console logging
-
 const chalk = require("chalk");
 const moment = require("moment");
 
@@ -31,8 +30,8 @@ class Logger {
       case "ready": {
         return console.log(`${timestamp} ${chalk.black.bgGreen(type.toUpperCase())} ${content}`);
       } 
-      default: throw new TypeError("Logger type must be info, warn, debug, log, ready, cmd or error.");
-    } 
+      default: throw new TypeError("Logger type must be one of either log, warn, info, error, debug, cmd, panel or ready.");
+    }
   }
   
   static error(content) {
@@ -49,11 +48,12 @@ class Logger {
   
   static debug(content) {
     return this.log(content, "debug");
-  } 
+  }
   
   static cmd(content) {
     return this.log(content, "cmd");
-  } 
+  }
+
   static panel(content) {
     return this.log(content, "panel");
   }
