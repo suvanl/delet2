@@ -115,7 +115,7 @@ exports.cmd = {
 
 // Help messages
 exports.help = {
-    mentionHelp: "Hey! Looking for help? Use `{{prefix}}help` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my prefix and language for this server.",
+    mentionHelp: "Hey! Looking for help? Use `{{prefix}}help` for a list of commands, or head to **https://delet.js.org/docs** for further help, including topics such as changing my settings for this server.",
     dmSending: "{{author}}, sending a list of commands available for your permission level to your DMs... 📝",
     dmNotSent: "Oops, looks like the message didn't make it to your DMs, {{author}}. Please ensure \"**Allow direct messages from server members**\" is on in your privacy settings for this server.",
     usage: "usage",
