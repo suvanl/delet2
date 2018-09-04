@@ -44,6 +44,6 @@ module.exports = class {
     this.client.user.setActivity(`over ${this.client.guilds.size} servers`, { type: "WATCHING" });
   
     // Logs that the bot is ready to serve and run, so we know the bot accepts commands.
-    this.client.logger.log(`${this.client.user.tag}, ready to serve ${this.client.users.size} users in ${this.client.guilds.size} servers.`, "ready");  
+    this.client.logger.log(`${this.client.user.tag}, ready to serve ${this.client.users.size} users in ${this.client.guilds.size} servers.`, "ready");
   }
 };
