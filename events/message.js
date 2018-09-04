@@ -30,7 +30,8 @@ module.exports = class {
 
     // Ticks point 10 in the list of best practices (https://github.com/meew0/discord-bot-best-practices).
     // Useful for users who don't know delet's prefix, and are using delet for the first time.
-    if (message.isMemberMentioned(this.client.user) && message.content.toLowerCase().includes("help")) {
+    const mention = `<@${this.client.user.id}>`;
+    if (message.content.startsWith(mention) && message.content.toLowerCase().includes("help")) {
       return message.channel.send(texts.help.mentionHelp.replace(/{{prefix}}/g, settings.prefix));
     }
 
