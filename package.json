@@ -69,7 +69,7 @@
     "simple-youtube-api": "^5.0.2",
     "snekfetch": "^4.0.4",
     "strict-uri-encode": "^2.0.0",
-    "table": "^4.0.3",
+    "table": "^5.0.2",
     "weather-js": "^2.0.0",
     "winston": "^3.0.0"
   },
