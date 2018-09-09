@@ -28,7 +28,7 @@ class CleverBot extends Command {
                 
                 if (err) {
                     this.client.logger.error(err);
-                    return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+                    return message.channel.send(texts.general.error.replace(/{{err}}/g, err.message));
                 }
             });
         });
