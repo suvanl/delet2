@@ -21,7 +21,6 @@ const Discord = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
-const EnmapLevel = require("enmap-level");
 const klaw = require("klaw");
 const path = require("path");
 
@@ -41,7 +40,7 @@ class Delet extends Discord.Client {
     // Integrates the use of the Enhanced Map module, which essentially
     // saves a collection to disk. This is used for per-server configs,
     // and makes things extremely easy for this purpose.
-    this.settings = new Enmap({ provider: new EnmapLevel({ name: "settings" }) });
+    this.settings = new Enmap({ name: "settings" });
 
     // Requiring the Logger class for easy console logging
     this.logger = require("./util/Logger");
