@@ -34,8 +34,8 @@ class Delet extends Discord.Client {
 
     // Aliases and commands are put in collections where they can be read from,
     // catalogued, listed, etc.
-    this.commands = new Enmap();
-    this.aliases = new Enmap();
+    this.commands = new Discord.Collection();
+    this.aliases = new Discord.Collection();
 
     // Integrates the use of the Enhanced Map module, which essentially
     // saves a collection to disk. This is used for per-server configs,
