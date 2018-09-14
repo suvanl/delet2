@@ -5,7 +5,7 @@ const fs = require("fs");
 
 let baseConfig = fs.readFileSync("./util/setup_base.txt", "utf8");
 
-const defaultSettings = `{
+const defaultSettings = {
   "prefix": "%",
   "modLogChannel": "delet-this",
   "modRole": "Moderator",
@@ -16,7 +16,7 @@ const defaultSettings = `{
   "welcomeEnabled": "false",
   "currency": ">>No currency set<<",
   "language": "en-GB"
-}`;
+};
 
 const settings = new Enmap({ provider: new EnmapLevel({ name: "settings" }) });
 
