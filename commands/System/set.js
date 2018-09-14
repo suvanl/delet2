@@ -32,29 +32,43 @@ class Set extends Command {
     // Firstly, we need to retrieve current guild settings
     const settings = message.settings;
     const defaults = this.client.settings.get("default");
+    const overrides = this.client.settings.get(message.guild.id);
+    if (!this.client.settings.has(message.guild.id)) this.client.settings.set(message.guild.id, {});
   
     // Secondly, if a user does `set edit <key> <new value>`, we need to change the key
+    // TODO: comment out new override edit methods and test-run if this doesn't work
+
     if (action && action.toLowerCase() === "edit") {
       if (!key) return message.reply("you must specify a key to edit.");
       if (!settings[key]) return message.reply("this key does not exist in my settings.");
-      if (value.length < 1) return message.reply("you must specify a new value for this setting.");
+
+      const joinedValue = value.join(" ");
+      if (joinedValue.length < 1) return message.reply("you must specify a new value for this setting.");
+      if (joinedValue === settings[key]) return message.reply("this setting already has that value.");
+
+      // If the guild does not have any overrides, initialise it
+      if (!this.client.settings.has(message.guild.id)) this.client.settings.set(message.guild.id, {});
+
+      // Modify overrides directly
+      this.client.settings.set(message.guild.id, joinedValue, key);
+      message.reply(`${key} was successfully edited to **${joinedValue}**.`);
 
       // GENERAL CHECKS
 
       // Channels
       if (key.includes("Channel")) {
-        if (value.join(" ").startsWith("<" || "#")) return message.channel.send("Please specify a channel **name**, not the channel itself.\nE.g. `general`, not `#general`.");
+        if (joinedValue.startsWith("<" || "#")) return message.channel.send("Please specify a channel **name**, not the channel itself.\nE.g. `general`, not `#general`.");
 
-        const channel = message.guild.channels.find(c => c.name === value.join(" "));
-        if (!channel) return message.channel.send(`A channel with the name "${value.join(" ")}" does not exist on this server.`);
+        const channel = message.guild.channels.find(c => c.name === joinedValue);
+        if (!channel) return message.channel.send(`A channel with the name "${joinedValue}" does not exist on this server.`);
       }
 
       // Roles
       if (key.includes("Role")) {
-        if (value.join(" ").startsWith("<" || "@")) return message.channel.send("Please specify a role **name**, not the role itself.\nE.g. `Mod`, not `@Mod`.");
+        if (joinedValue.startsWith("<" || "@")) return message.channel.send("Please specify a role **name**, not the role itself.\nE.g. `Mod`, not `@Mod`.");
 
-        const role = message.guild.roles.find(c => c.name === value.join(" "));
-        if (!role) return message.channel.send(`The role "${value.join(" ")}" does not exist on this server.`);
+        const role = message.guild.roles.find(c => c.name === joinedValue);
+        if (!role) return message.channel.send(`The role "${joinedValue}" does not exist on this server.`);
       }
 
       // SPECIFIC CHECKS
@@ -66,26 +80,27 @@ class Set extends Command {
           return l.slice(0, -3);
         });
 
-        if (!langs.includes(value.join(" "))) return message.channel.send(`"${value.join(" ")}" is not a valid/settable language.`);
+        if (!langs.includes(joinedValue)) return message.channel.send(`"${joinedValue}" is not a valid/settable language.`);
       }
 
       // Currency
       if (key === "currency") {
-        if (!currencies.includes(value.join(" "))) return message.channel.send(`"${value.join(" ")}" is not a valid/settable currency.\nThe valid currencies are: ${currencies.map(c => "`" + c + "`").join(", ")}.`);
+        if (!currencies.includes(joinedValue)) return message.channel.send(`"${joinedValue}" is not a valid/settable currency.\nThe valid currencies are: ${currencies.map(c => "`" + c + "`").join(", ")}.`);
       }
 
       // TODO: true/false checks
 
-      settings[key] = value.join(" ");
+      settings[key] = joinedValue;
 
       this.client.settings.set(message.guild.id, settings);
-      message.reply(`${key} was successfully edited to **${value.join(" ")}**.`);
+      message.reply(`${key} was successfully edited to **${joinedValue}**.`);
     } else
   
-    // Thirdly, if a user does `set del <key>`, let's ask the user if they're sure...
+    // If a user does `set del <key>`, let's ask the user if they're sure...
     if (action && action.toLowerCase() === "del" || action === "reset") {
       if (!key) return message.reply("you must specify a key to reset.");
       if (!settings[key]) return message.reply("this key does not exist in my settings.");
+      if (!overrides[key]) return message.reply("this key does not have an override and is already using defaults.");
       
       // Throw the 'are you sure?' text at them.
       const response = await this.client.awaitReply(message, `Are you sure you want to reset \`${key}\` to the default \`${defaults[key]}\`?`);
@@ -94,8 +109,7 @@ class Set extends Command {
       if (["y", "yes"].includes(response)) {
 
         // We reset the `key` here.
-        delete settings[key];
-        this.client.settings.set(message.guild.id, settings);
+        this.client.settings.delete(message.guild.id, key);
         message.reply(`\`${key}\` was successfully reset to default.`);
       } else
 
@@ -112,7 +126,7 @@ class Set extends Command {
       message.reply(`the value of ${key} is currently ${settings[key]}`);
       
     } else {
-      // Otherwise, the default action is to return the whole configuration in JSON format (to be prettified!)
+      // Otherwise, the default action is to return the whole configuration
       const array = [];
       Object.entries(settings).forEach(([key, value]) => {
         array.push(`${key}${" ".repeat(20 - key.length)}::  ${value}`); 
