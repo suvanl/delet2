@@ -26,8 +26,8 @@ module.exports = class {
       this.client.settings.set("default", this.client.config.defaultSettings);
     }
 
-    // Initialises the dashboard, which must be done during the `ready` event,
-    // as otherwise some data may be missing from the dashboard. 
+    // Initialises the dashboard, which must be done during the `ready` event.
+    // Otherwise, some data may be missing from the dashboard. 
     require("../modules/dashboard.js")(this.client);
     
     // Sets the status to Do Not Disturb for 5 seconds, to visually indicate to 
