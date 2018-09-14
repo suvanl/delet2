@@ -44,6 +44,9 @@ class Delet extends Discord.Client {
 
     // Requiring the Logger class for easy console logging
     this.logger = require("./util/Logger");
+
+    // An async shortcut for a setTimeout function
+    this.wait = promisify(setTimeout);
   }
 
   // Permission level function
