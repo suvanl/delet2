@@ -12,7 +12,7 @@ https://delet.js.org/
 
 // This will check if the Node.js version the system is running is the required
 // version (8.x.x or above) and if it isn't, it will throw the following error to say so.
-if (process.version.slice(1).split(".")[0] < 8) throw new Error("Node.js 8.0.0 or higher is required. Update Node on your system.");
+if (Number(process.version.slice(1).split(".")[0]) < 8) throw new Error("Node.js 8.0.0 or higher is required. Update Node on your system.");
 
 // Loads up the Discord.js library
 const Discord = require("discord.js");
