@@ -36,8 +36,6 @@ class Set extends Command {
     if (!this.client.settings.has(message.guild.id)) this.client.settings.set(message.guild.id, {});
   
     // Secondly, if a user does `set edit <key> <new value>`, we need to change the key
-    // TODO: comment out new override edit methods and test-run if this doesn't work
-
     if (action && action.toLowerCase() === "edit") {
       if (!key) return message.reply("you must specify a key to edit.");
       if (!settings[key]) return message.reply("this key does not exist in my settings.");
@@ -48,10 +46,6 @@ class Set extends Command {
 
       // If the guild does not have any overrides, initialise it
       if (!this.client.settings.has(message.guild.id)) this.client.settings.set(message.guild.id, {});
-
-      // Modify overrides directly
-      this.client.settings.set(message.guild.id, joinedValue, key);
-      message.reply(`${key} was successfully edited to **${joinedValue}**.`);
 
       // GENERAL CHECKS
 
@@ -88,11 +82,23 @@ class Set extends Command {
         if (!currencies.includes(joinedValue)) return message.channel.send(`"${joinedValue}" is not a valid/settable currency.\nThe valid currencies are: ${currencies.map(c => "`" + c + "`").join(", ")}.`);
       }
 
-      // TODO: true/false checks
+      // systemNotice and welcomeEnabled
+      if (key === "systemNotice" || key === "welcomeEnabled") {
+        switch (joinedValue) {
+          case "true":
+          break;
+
+          case "false":
+          break;
+
+          default: return message.channel.send("This key can only be set to `true` or `false`.");
+        }
+      }
 
       settings[key] = joinedValue;
 
-      this.client.settings.set(message.guild.id, settings);
+      // Modify overrides directly
+      this.client.settings.set(message.guild.id, joinedValue, key);
       message.reply(`${key} was successfully edited to **${joinedValue}**.`);
     } else
   
@@ -103,7 +109,7 @@ class Set extends Command {
       if (!overrides[key]) return message.reply("this key does not have an override and is already using defaults.");
       
       // Throw the 'are you sure?' text at them.
-      const response = await this.client.awaitReply(message, `Are you sure you want to reset \`${key}\` to the default \`${defaults[key]}\`?`);
+      const response = await this.client.awaitReply(message, `Are you sure you want to reset \`${key}\` to the default \`${defaults[key]}\`? (y/n)`);
 
       // If they respond with y or yes, continue.
       if (["y", "yes"].includes(response)) {
@@ -114,7 +120,7 @@ class Set extends Command {
       } else
 
       // If they respond with n or no, we inform them that the action has been cancelled.
-      if (["n","no","cancel"].includes(response)) {
+      if (["n", "no", "cancel"].includes(response)) {
         message.reply(`your setting for \`${key}\` remains at \`${settings[key]}\`.`);
       }
     } else
