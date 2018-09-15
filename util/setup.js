@@ -6,7 +6,7 @@ let baseConfig = fs.readFileSync("./util/setup_base.txt", "utf8");
 
 const defaultSettings = {
   "prefix": "%",
-  "modLogChannel": "delet-this",
+  "modLogChannel": "mod-log",
   "modRole": "Moderator",
   "adminRole": "Administrator",
   "systemNotice": "false",
