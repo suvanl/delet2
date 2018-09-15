@@ -8,18 +8,17 @@ module.exports = class {
   }
 
   async run(message) {
-
     // Ignores other bots' messages. This makes the bot ignore itself
-    // and not get into a "botception" spam loop.
+    // and not get into a spam loop with other bots (or even itself).
     if (message.author.bot) return;
 
     // Cancels any attempts to run commands in servers where the bot cannot
     // respond to the user, due to insufficient permissions.
     if (message.channel.type === "text" && !message.guild.me.hasPermission("SEND_MESSAGES")) return;
 
-    // Grabs the settings for this server from the PersistentCollection
+    // Grabs the settings for this server from the Enmap
     // If there is no guild, get default conf (for DMs).
-    const settings = message.guild ? this.client.getSettings(message.guild.id) : this.client.settings.get("default");
+    const settings = this.client.getSettings(message.guild);
 
     // For ease of use in commands and functions, the settings are attached
     // to the message object, so `message.settings` is accessible.

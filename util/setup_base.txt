@@ -4,11 +4,12 @@ const config = {
   "token": {{token}},
   "dashboard" : {
     "oauthSecret": {{oauthSecret}},
-    "callbackURL": 'http://{{fullURL}}/callback',
+    "callbackURL": "http://{{fullURL}}/callback",
     "sessionSecret": {{sessionSecret}},
     "domain": {{domain}},
     "port": {{port}}
   },
+  defaultSettings: {{defaultSettings}},
   permLevels: [
     { level: 0,
       name: "User", 

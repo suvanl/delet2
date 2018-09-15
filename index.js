@@ -12,7 +12,7 @@ https://delet.js.org/
 
 // This will check if the Node.js version the system is running is the required
 // version (8.x.x or above) and if it isn't, it will throw the following error to say so.
-if (process.version.slice(1).split(".")[0] < 8) throw new Error("Node.js 8.0.0 or higher is required. Update Node on your system.");
+if (Number(process.version.slice(1).split(".")[0]) < 8) throw new Error("Node.js 8.0.0 or higher is required. Update Node on your system.");
 
 // Loads up the Discord.js library
 const Discord = require("discord.js");
@@ -21,7 +21,6 @@ const Discord = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
-const EnmapLevel = require("enmap-level");
 const klaw = require("klaw");
 const path = require("path");
 
@@ -35,16 +34,19 @@ class Delet extends Discord.Client {
 
     // Aliases and commands are put in collections where they can be read from,
     // catalogued, listed, etc.
-    this.commands = new Enmap();
-    this.aliases = new Enmap();
+    this.commands = new Discord.Collection();
+    this.aliases = new Discord.Collection();
 
     // Integrates the use of the Enhanced Map module, which essentially
     // saves a collection to disk. This is used for per-server configs,
     // and makes things extremely easy for this purpose.
-    this.settings = new Enmap({ provider: new EnmapLevel({ name: "settings" }) });
+    this.settings = new Enmap({ name: "settings" });
 
     // Requiring the Logger class for easy console logging
     this.logger = require("./util/Logger");
+
+    // An async shortcut for a setTimeout function
+    this.wait = promisify(setTimeout);
   }
 
   // Permission level function
@@ -53,7 +55,7 @@ class Delet extends Discord.Client {
   permlevel(message) {
     let permlvl = 0;
 
-    const permOrder = client.config.permLevels.slice(0).sort((p, c) => p.level < c.level ? 1 : -1);
+    const permOrder = this.config.permLevels.slice(0).sort((p, c) => p.level < c.level ? 1 : -1);
 
     while (permOrder.length) {
       const currentLevel = permOrder.shift();
@@ -74,14 +76,14 @@ class Delet extends Discord.Client {
   loadCommand(commandPath, commandName) {
     try {
       const props = new (require(`${commandPath}${path.sep}${commandName}`))(client);
-      client.logger.log(`Loading command: ${props.help.name}. 👌`, "log");
+      this.logger.log(`Loading command: ${props.help.name}. 👌`, "log");
       props.conf.location = commandPath;
       if (props.init) {
-        props.init(client);
+        props.init(this);
       }
-      client.commands.set(props.help.name, props);
+      this.commands.set(props.help.name, props);
       props.conf.aliases.forEach(alias => {
-        client.aliases.set(alias, props.help.name);
+        this.aliases.set(alias, props.help.name);
       });
       return false;
     } catch (e) {
@@ -91,15 +93,15 @@ class Delet extends Discord.Client {
 
   async unloadCommand(commandPath, commandName) {
     let command;
-    if (client.commands.has(commandName)) {
-      command = client.commands.get(commandName);
-    } else if (client.aliases.has(commandName)) {
-      command = client.commands.get(client.aliases.get(commandName));
+    if (this.commands.has(commandName)) {
+      command = this.commands.get(commandName);
+    } else if (this.aliases.has(commandName)) {
+      command = this.commands.get(this.aliases.get(commandName));
     }
     if (!command) return `The command \`${commandName}\` doesn't seem to exist, nor is it an alias.`;
 
     if (command.shutdown) {
-      await command.shutdown(client);
+      await command.shutdown(this);
     }
     delete require.cache[require.resolve(`${commandPath}${path.sep}${commandName}.js`)];
     return false;
@@ -112,13 +114,13 @@ class Delet extends Discord.Client {
 
   // getSettings merges the client defaults with the guild settings. Guild settings in
   // Enmap should only have *unique* overrides that are different from defaults.
-  getSettings(id) {
-    const defaults = client.settings.get("default");
-    let guild = client.settings.get(id);
-    if (typeof guild != "object") guild = {};
+  getSettings(guild) {
+    const defaults = client.config.defaultSettings || {};
+    const guildData = client.settings.get(guild.id) || {};
+
     const returnObject = {};
     Object.keys(defaults).forEach((key) => {
-      returnObject[key] = guild[key] ? guild[key] : defaults[key];
+      returnObject[key] = guildData[key] ? guildData[key] : defaults[key];
     });
     return returnObject;
   }
@@ -126,8 +128,8 @@ class Delet extends Discord.Client {
   // writeSettings overrides or adds any configuration item that is different
   // to the defaults. This ensures less storage wasted and to detect overrides.
   writeSettings(id, newSettings) {
-    const defaults = client.settings.get("default");
-    let settings = client.settings.get(id);
+    const defaults = this.settings.get("default");
+    let settings = this.settings.get(id);
     if (typeof settings != "object") settings = {};
     for (const key in newSettings) {
       if (defaults[key] !== newSettings[key]) {
@@ -136,7 +138,7 @@ class Delet extends Discord.Client {
         delete settings[key];
       }
     }
-    client.settings.set(id, settings);
+    this.settings.set(id, settings);
   }
 }
 

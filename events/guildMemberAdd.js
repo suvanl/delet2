@@ -10,7 +10,7 @@ module.exports = class {
     if (!member.guild.available) return;
 
     // Loads the guild's settings
-    const settings = this.client.getSettings(member.guild.id);
+    const settings = this.client.getSettings(member.guild);
 
     // Checks if the modLogChannel exists
     const modLog = member.guild.channels.find(c => c.name === settings.modLogChannel);
