@@ -31,7 +31,7 @@ const settings = new Enmap({ name: "settings", cloneLevel: "deep" });
     }
   }
 
-  const isGlitch = await inquirer.prompt([{type: "confirm", name: "glitch", message: "Are you hosted on Glitch.com?", default: false}]);
+  const isGlitch = input.keyInYN("Are you hosted on Glitch.com? ");
 
   if (isGlitch.glitch) {
     baseConfig = baseConfig
