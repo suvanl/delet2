@@ -25,7 +25,7 @@ delet comes with a full moderation system, with even more features currently bei
 Basic support for using delet in other languages (locales) has been added into some parts of the bot, but not throughout, and such support will only be fully implemented if there is enough demand for translations to be added once delet has been publicly released. Should there be enough demand, our team of translators will start translating the [base locale file](https://github.com/DS-Development/delet/blob/master/locales/en-GB.js) (once complete) into their chosen language. If you'd like to sign up to be a translator, you may do so at [delet.js.org/go/translate](https://delet.js.org/go/translate).
 
 ## Open-Source
-We're big fans of open-source here at DS Development. delet is an open-source project; which is why it can be found here, on GitHub. It is licensed under the GPL-3.0 license. This bot is open source for the reason of allowing others view its code and learn from it, and also to gain inspiration for their own ideas. However, please do not directly copy entire chunks of code, as that can be considered bad practice.
+We're big fans of open-source here at DS Development. delet is an open-source project; which is why it can be found here, on GitHub. It is licensed under the GPL-3.0 license. This bot is open source for the reason of allowing others view its code and learn from it, and also to gain inspiration for their own ideas. However, please do not directly copy entire chunks of code, as it may not work with your bot.
 For further information regarding permissions, limitations and conditions of this project, please see the [LICENSE](https://github.com/DS-Development/delet/blob/master/LICENSE) file.
 
 ## Self-Hosting
@@ -36,4 +36,4 @@ Obviously, you *are* free to clone this repository, for whatever reason you wish
 
 ### Further Information
 - **License**: [GNU General Public License v3.0](https://github.com/DS-Development/delet/blob/master/LICENSE)
-- **ETA**: Summer 2018 (Subject to change)
+- **ETA**: Very soon! delet is now in (private) beta.
