@@ -31,7 +31,7 @@ class Unmute extends Command {
     if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("You cannot unmute this user as they have a higher role than you.");
 
     if (!reason) {
-      message.channel.send(texts.moderation.awaitReason);
+      message.channel.send("Please enter a reason for unmuting this user...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.");
       await message.channel.awaitMessages(m => m.author.id === message.author.id, {
         "errors": ["time"],
         "max": 1,
