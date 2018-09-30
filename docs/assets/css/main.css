@@ -1,13 +1,13 @@
 @import url(font-awesome.min.css);
 
 /*
-delet - a multipurpose Discord bot
-© DS Development Group & Contributors 2017 - 2018
-Contributors are listed in package.json
+	delet - a multipurpose Discord bot
+	© DS Development Group & Contributors 2017 - 2018
+	Contributors are listed in package.json
 
-Licensed under the GNU General Public License v3.0.
+	Licensed under the GPL-3.0 license.
 
-https://delet.js.org/
+	https://delet.js.org/
 */
 
 /* Reset */
@@ -1715,7 +1715,7 @@ https://delet.js.org/
 		}
 
 	h1 {
-		font-size: 2.2em;
+		font-size: 2.75em;
 	}
 
 		h1.major {
@@ -3068,6 +3068,7 @@ https://delet.js.org/
 			-ms-justify-content: center;
 			justify-content: center;
 			width: 50em;
+			flex: 1; /* defined for compatibility */
 			-ms-flex: 1;
 		}
 
