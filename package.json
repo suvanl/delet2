@@ -55,7 +55,6 @@
     "klaw": "^3.0.0",
     "marked": "^0.5.1",
     "mathjs": "^5.1.2",
-    "memejs": "^1.0.7",
     "memorystore": "^1.6.0",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
