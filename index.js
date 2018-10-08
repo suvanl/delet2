@@ -115,14 +115,16 @@ class Delet extends Discord.Client {
   // getSettings merges the client defaults with the guild settings. Guild settings in
   // Enmap should only have *unique* overrides that are different from defaults.
   getSettings(guild) {
-    const defaults = client.config.defaultSettings || {};
-    const guildData = client.settings.get(guild.id) || {};
+    if (guild) {
+      const defaults = client.config.defaultSettings || {};
+      const guildData = client.settings.get(guild.id) || {};
 
-    const returnObject = {};
-    Object.keys(defaults).forEach((key) => {
-      returnObject[key] = guildData[key] ? guildData[key] : defaults[key];
-    });
-    return returnObject;
+      const returnObject = {};
+      Object.keys(defaults).forEach((key) => {
+        returnObject[key] = guildData[key] ? guildData[key] : defaults[key];
+      });
+      return returnObject;
+    }
   }
 
   // writeSettings overrides or adds any configuration item that is different
