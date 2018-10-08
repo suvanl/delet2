@@ -51,7 +51,7 @@ class Timezones extends Command {
           • NZST    :: [${moment().tz("Pacific/Auckland").format("HH:mm ZZ")}]
 
         #OTHER
-          • UNIX    :: [${unix}]`, {code: "css"});
+          • UNIX    :: [${unix}]`, { code: "css" });
     }
 }
 

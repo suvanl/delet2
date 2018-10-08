@@ -16,10 +16,8 @@ class Uptime extends Command {
     async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
         const uptime = moment.duration(this.client.uptime).format("D [days], H [hrs], m [mins], s [secs]");
         message.channel.send(stripIndents`
-        \`\`\`asciidoc
         • Uptime     :: ${uptime}
-        \`\`\`
-        For a full list of bot stats, use the \`${settings.prefix}stats\` command.`);
+        For a full list of bot stats, use the \`${settings.prefix}stats\` command.`, { code: "asciidoc" });
     }
 }
 
