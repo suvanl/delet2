@@ -17,6 +17,7 @@ class Avatar extends Command {
 
         const embed = new RichEmbed()
             .setTitle(`🖼️ ${texts.cmd.info.avatar.replace(/{{user}}/g, user.tag)}`)
+            .setDescription(`🔗 **[Direct URL](${user.displayAvatarURL})**`)
             .setImage(user.displayAvatarURL);
         return message.channel.send({ embed });
     }
