@@ -1,15 +1,19 @@
 const input = require("readline-sync");
 const Enmap = require("enmap");
+const path = require("path");
 const fs = require("fs");
+const envExamplePath = path.join(__dirname, "..", ".env.example");
+const envPath = path.join(__dirname, "..", ".env");
 
 let baseConfig = fs.readFileSync("./util/setup_base.txt", "utf8");
+let env = fs.readFileSync(envExamplePath, "utf8");
 
 const defaultSettings = {
   "prefix": "%",
   "modLogChannel": "mod-log",
   "modRole": "Moderator",
   "adminRole": "Administrator",
-  "systemNotice": "false",
+  "systemNotice": "true",
   "welcomeChannel": "general",
   "welcomeMessage": "Say hello to {{user}}, everyone! 🎉👋",
   "welcomeEnabled": "false",
@@ -62,11 +66,15 @@ const settings = new Enmap({ name: "settings", cloneLevel: "deep" });
     .replace("{{fullURL}}", host)
     .replace("{{domain}}", `"${host.split(":")[0]}"`)
     .replace("{{port}}", port)
-    .replace("{{token}}", `"${token}"`)
+    // .replace("{{token}}", `"${token}"`)
     .replace("{{oauthSecret}}", `"${oauthSecret}"`)
     .replace("{{sessionSecret}}", `"${saltyKey}"`);
+
+  env = env
+    .replace("TOKEN_HERE", token);
   
   fs.writeFileSync("./config.js", baseConfig);
+  fs.writeFileSync(envPath, env);
   console.log("REMEMBER TO NEVER SHARE YOUR TOKEN WITH ANYONE!");
   console.log("Configuration has been written, enjoy!");
   await settings.close();
