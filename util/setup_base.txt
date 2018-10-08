@@ -1,7 +1,6 @@
 const config = {
   "admins": [],
   "support": [],
-  "token": {{token}},
   "dashboard" : {
     "oauthSecret": {{oauthSecret}},
     "callbackURL": "http://{{fullURL}}/callback",
