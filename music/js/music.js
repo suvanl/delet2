@@ -26,6 +26,7 @@ client.on("reconnecting", () => console.log(timestamp + "Reconnecting..."));
 
 client.on("message", async message => {
 	if (message.author.bot) return;
+	if (!message.guild) return;
 	if (!message.content.startsWith(PREFIX)) return;
 
 	const args = message.content.split(" ");
@@ -178,7 +179,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 			queueConstruct.connection = connection;
 			play(message.guild, queueConstruct.songs[0]);
 		} catch (error) {
-			console.error(`${timestamp}I could not join the voice channel:\n\`\`\`${error}\`\`\``);
+			console.error(`${timestamp}I could not join the voice channel: ${error}`);
 			queue.delete(message.guild.id);
 			return message.channel.send(`I could not join the voice channel:\n\`\`\`${error}\`\`\``);
 		}
