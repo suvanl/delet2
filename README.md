@@ -9,7 +9,7 @@
 <a href="https://david-dm.org/DS-Development/delet?type=dev" title="devDependencies status"><img src="https://david-dm.org/DS-Development/delet/dev-status.svg"/></a>
 </p>
 
-<p align="center"><strong>delet is a powerful and configurable multipurpose Discord bot, made using the Discord.js library for the Discord API.
+<p align="center"><strong>delet is a powerful, configurable and multipurpose Discord bot, made using the Discord.js library for the Discord API.
 <br>Please ensure you read the section regarding self-hosting and portability in this README document.</strong></p>
 
 ## Commands
