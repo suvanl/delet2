@@ -24,10 +24,10 @@ class BigLetter extends Command {
 
         let output = "";
 
-        for (var i = 0; i < text.length; i++) {
+        for (let i = 0; i < text.length; i++) {
           const char = text.charAt(i);
           if (char === " ") output += char;
-          else if (text.includes(numbers) || numbers.includes(char)) output += numberToString(char);
+          else if (numbers.includes(char)) output += numberToString(char);
           else output += `:regional_indicator_${char}: `;
         }
 
