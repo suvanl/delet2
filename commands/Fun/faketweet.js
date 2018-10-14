@@ -14,17 +14,20 @@ class FakeTweet extends Command {
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
       const user = args[0];
+      let text = args.slice(1).join(" ") || undefined;
       if (!user) return message.channel.send("You must provide a Twitter username, to have as the author of the tweet.");
 
-      const text = await this.client.awaitReply(message, "Please enter the tweet's message...\nReply with `cancel` to exit this text-entry period.", 30000);
-      if (text.toLowerCase() === "cancel") return message.channel.send("Cancelled.");
+      if (!text) {
+        text = await this.client.awaitReply(message, "Please enter the tweet's message...\nReply with `cancel` to exit this text-entry period.", 30000);
+        if (text.toLowerCase() === "cancel") return message.channel.send("Cancelled.");
+      }
 
-      const msg = await message.channel.send("<a:loading:456928252502605834> Generating...");
+      message.channel.startTyping();
 
       try {
         const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=${user.toLowerCase() === "realdonaldtrump" ? "trumptweet" : "tweet"}&username=${user.startsWith("@") ? user.slice(1) : user}&text=${encodeURIComponent(text)}`);
         message.channel.send("", { file: body.message });
-        msg.edit("Done!");
+        message.channel.stopTyping(true);
       } catch (error) {
         this.client.logger.error(error);
         return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
