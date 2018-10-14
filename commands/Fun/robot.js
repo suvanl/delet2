@@ -17,9 +17,12 @@ class Robot extends Command {
         if (!query) return message.channel.send("You must some text to use to generate the robot.");
         if (query.match(/[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/g)) return message.channel.send("Your query cannot include symbols.");
 
+        message.channel.startTyping();
+
         try {
           const { raw } = await get(`https://robohash.org/${query}.png`);
-          message.channel.send(`*"${query}"*`, { file: raw });
+          message.channel.stopTyping();
+          return message.channel.send(`*"${query}"*`, { file: raw });
         } catch (error) {
           this.client.logger.error(error);
           return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
