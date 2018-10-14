@@ -129,7 +129,7 @@ class Set extends Command {
     if (action && action.toLowerCase() === "get") {
       if (!key) return message.reply("you must specify a key to view.");
       if (!settings[key]) return message.reply("this key does not exist in my settings.");
-      message.reply(`the value of ${key} is currently ${settings[key]}`);
+      message.reply(`the value of \`${key}\` is currently \`${settings[key]}\`.`);
       
     } else {
       // Otherwise, the default action is to return the whole configuration
