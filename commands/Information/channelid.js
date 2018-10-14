@@ -12,7 +12,7 @@ class ChannelID extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-      message.channel.send(`${message.channel}'s ID is \`${message.channel.id}\`.`);
+      message.channel.send(`This channel (${message.channel}) has an ID of \`${message.channel.id}\`.`);
     }
 }
 
