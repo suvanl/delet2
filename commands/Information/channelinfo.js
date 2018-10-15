@@ -6,7 +6,7 @@ class ChannelInfo extends Command {
     constructor(client) {
       super(client, {
         name: "channelinfo",
-        description: "Displays information about the specified channel.",
+        description: "Displays information about the current channel.",
         category: "Information",
         usage: "channelinfo",
         aliases: ["channel", "cinfo"],
@@ -15,9 +15,7 @@ class ChannelInfo extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        let chan;
-        if (!args[0]) chan = message.channel;
-        else chan = this.client.channels.get(args[0]);
+        const chan = message.channel;
 
         let topic;
         if (chan.topic && chan.topic.length > 2048) topic = "[Too long to display!]";
