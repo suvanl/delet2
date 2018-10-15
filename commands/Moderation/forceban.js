@@ -7,7 +7,7 @@ class ForceBan extends Command {
         name: "forceban",
         description: "Bans a user, even if they aren't in your server.",
         category: "Moderation",
-        usage: "ban <user ID> <reason>",
+        usage: "ban <userID> <reason>",
         guildOnly: true,
         aliases: ["hackban", "xban"],
         permLevel: "Moderator"
