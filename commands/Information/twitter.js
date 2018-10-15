@@ -50,9 +50,9 @@ class Twitter extends Command {
 
         return message.channel.send({ embed });
     } catch (error) {
-        this.client.logger.error(error);
         if (error.statusCode === 401) await this.fetchToken();
         if (error.statusCode === 404) return message.channel.send(texts.general.noResultsFound);
+        this.client.logger.error(error);
         return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
     }
   }
