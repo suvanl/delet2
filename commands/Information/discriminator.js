@@ -6,7 +6,7 @@ class Discriminator extends Command {
         name: "discriminator",
         description: "Searches for users with the specified discriminator.",
         category: "Information",
-        usage: "discriminator [user's discriminator]",
+        usage: "discriminator [#xxxx]",
         aliases: ["discrim", "discriminator-search", "discrim-search"]
       });
     }
