@@ -17,7 +17,7 @@ module.exports = class {
     // Notifies server owner
     const guildOwner = guild.owner;
     guildOwner.send(stripIndents`
-    Hey! I'm delet, and I was invited to your server "**${guild.name}**" by someone with the Manage Server permission there. My prefix is **\`%\`** (but can be changed).
+    Hey! I'm delet, and I was invited to your server "**${guild.name}**" by someone with the Manage Server permission there. My prefix is \`%\` (but can be changed).
     To see how to get started, please go to **https://delet.js.org/#docs**.
 
     Hope to be of service to you and your server!`);
