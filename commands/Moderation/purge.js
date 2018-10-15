@@ -6,7 +6,7 @@ class Purge extends Command {
       name: "purge",
       description: "Purges (bulk-deletes) between 2 and 99 messages.",
       category: "Moderation",
-      usage: "purge <user> [number]",
+      usage: "purge <@user> [number]",
       aliases: ["prune", "delet", "bulkdelete"],
       permLevel: "Moderator",
       guildOnly: true

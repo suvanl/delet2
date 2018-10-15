@@ -7,7 +7,7 @@ class Report extends Command {
         name: "report",
         description: "Reports a user to the server's staff.",
         category: "Moderation",
-        usage: "report <user> <reason/info>",
+        usage: "report <@user> <reason/info>",
         guildOnly: true
       });
     }

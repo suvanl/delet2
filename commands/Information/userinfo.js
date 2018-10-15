@@ -9,7 +9,7 @@ class UserInfo extends Command {
         name: "userinfo",
         description: "Displays information about the mentioned user.",
         category: "Information",
-        usage: "userinfo [user]",
+        usage: "userinfo [@user]",
         aliases: ["uinfo", "user", "whois"],
         guildOnly: true
       });

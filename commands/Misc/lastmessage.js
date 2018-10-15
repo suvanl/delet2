@@ -6,7 +6,7 @@ class LastMessage extends Command {
     super(client, {
       name: "lastmessage",
       description: "Returns the mentioned user's last message.",
-      usage: "lastmessage [user]",
+      usage: "lastmessage [@user]",
       aliases: ["lm"],
       guildOnly: true
     });

@@ -7,7 +7,7 @@ class Ban extends Command {
         name: "ban",
         description: "Bans the mentioned user from the server.",
         category: "Moderation",
-        usage: "ban <user> <reason>",
+        usage: "ban <@user> <reason>",
         guildOnly: true,
         aliases: ["banish", "permban"],
         permLevel: "Moderator"

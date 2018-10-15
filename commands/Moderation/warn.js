@@ -7,7 +7,7 @@ class Warn extends Command {
         name: "warn",
         description: "Issues a warning to the specified user.",
         category: "Moderation",
-        usage: "warn <user> <reason/info>",
+        usage: "warn <@user> <reason/info>",
         guildOnly: true,
         aliases: ["w"],
         permLevel: "Moderator"
