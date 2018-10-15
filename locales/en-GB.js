@@ -92,7 +92,7 @@ exports.cmd = {
         permLevel: "your permission level is",
 
         // Tutorial command
-        tutorial: "First time using delet? Need help getting started? Simply forgotten how to use delet?\nCheck out the docs: **https://delet.js.org/#docs**.",
+        tutorial: "First time using delet? Need help getting started? Simply forgotten how to use delet?\nCheck out the documentation section here: **https://delet.js.org**.",
 
         // YouTube command
         noVid: "You must provide a video title for me to get a link for."
