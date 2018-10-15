@@ -16,19 +16,19 @@ class Emoji extends Command {
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
         if (!message.member.hasPermission("MANAGE_EMOJIS")) return message.reply("as you do not have the \"Manage Emojis\" permission, you cannot use this command.");
         
-        const image = args[0];
+        const image = args[0] ? args[0].replace(/<(.+)>/g, "$1") : null;
         const name = args[1];
         let isImgLink;
 
         if (!image) return message.channel.send("You must provide a valid **Imgur** or **vgy.me** image link, to create an emoji from.");
 
-        if (image.match(/^https?:\/\/(\w+\.)?imgur.com\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/) || image.match(/^https?:\/\/(\w+\.)?vgy.me\/(\w*\d\w*)+(\.[a-zA-Z]{3})?$/)) {
+        if (image.startsWith("https://i.imgur") || image.startsWith("https://vgy.me")) {
           isImgLink = true;
         } else {
           isImgLink = false;
         }
 
-        if (isImgLink === false) return message.channel.send("Invalid image link. Please provide an **Imgur** or **vgy.me** image link.");
+        if (isImgLink === false) return message.channel.send("Invalid image link. Please ensure the image link you've provided is from either Imgur or vgy.me, and starts with `https://`.");
         if (!name) return message.channel.send("You must provide a name for the new emoji.");
 
         message.guild.createEmoji(image, name)
