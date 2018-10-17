@@ -73,7 +73,7 @@
     "winston": "^3.1.0"
   },
   "optionalDependencies": {
-    "canvas": "^2.0.0-alpha.18",
+    "canvas": "^2.0.1",
     "node-opus": "^0.3.0",
     "ytdl-core": "^0.26.1"
   },
