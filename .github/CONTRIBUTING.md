@@ -1,17 +1,48 @@
 # Contributing
-Full write/push access is limited to members of the DS Development Group. However, we do currently accept contributions for:
-- Fortunes for the [8ball command](https://github.com/DS-Development/delet/blob/master/commands/Fun/8ball.js)
-- Translations
-- Commands
+**We accept contributions for anything!** Just fork this repository, make any changes you desire, and submit a pull request!
+Examples of things you can contribute are fortunes for the 8ball command, translations and commands, but you can submit a PR for basically anything.
 
 ## Fortunes for the 8ball command
 Check the comments in the file [here](https://github.com/DS-Development/delet/blob/master/commands/Fun/8ball.js).
 
 ## Translations
-If you'd like to sign up as a translator for delet, you can do so [here](https://delet.js.org/go/translate). Note that the process of submitting translations has not started yet.
+If you'd like to sign up to be a translator for delet, you can do so [here](https://delet.js.org/go/translate). Note that the process of adding translations to the bot has not started yet.
 
 ## Commands
-(Coming soon)
+The default command base we use is as follows:
+```js
+const Command = require("../../base/Command.js");
+
+class CommandName extends Command {
+    constructor(client) {
+      super(client, {
+        // The name of the command. In most cases, this should match the class and file name.
+        name: "",
+        // State what the command does
+        description: "",
+        // Choose from one of the directory names within the `commands` folder
+        category: "",
+        // State the command usage including all possible parameters/arguments
+        usage: "",
+        // An array of any other names the command can be invoked with.
+        // Each value in the array must be a string.
+        aliases: [],
+        // If the command can be run in DMs, remove this property or set it to false.
+        guildOnly: true,
+        // Choose from "User", "Moderator", "Admin", "Bot Support", "Bot Admin" or "Bot Owner".
+        // If the permLevel is just "User", the `permLevel` property can be removed from the constructor.
+        permLevel: ""
+      });
+    }
+
+    // Make sure to remove all unused params or add `// eslint-disable-line no-unused-vars` on the line
+    async run(message, args, level, settings, texts) {
+        // Command code here
+    }
+}
+
+module.exports = CommandName;
+```
 
 ### Want to join the DS Development Group?
 Head to [delet.js.org/go/join](https://delet.js.org/go/join)!
