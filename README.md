@@ -34,6 +34,8 @@ For further information regarding permissions, limitations and conditions of thi
 Full support for self-hosting may be added in a future update, if there is enough demand for it.
 Obviously, you *are* free to clone this repository, for whatever reason you wish.
 
-### Further Information
+## License & further information
 - **License**: [GNU General Public License v3.0](https://github.com/DS-Development/delet/blob/master/LICENSE)
 - **ETA**: Very soon! delet is now in (private) beta.
+
+Copyright &copy; DS Development Group. All rights reserved.
