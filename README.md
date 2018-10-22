@@ -38,4 +38,4 @@ Obviously, you *are* free to clone this repository, for whatever reason you wish
 - **License**: [GNU General Public License v3.0](https://github.com/DS-Development/delet/blob/master/LICENSE)
 - **ETA**: Very soon! delet is now in (private) beta.
 
-Copyright &copy; DS Development Group. All rights reserved.
+<sup>Copyright &copy; DS Development Group. All rights reserved.</sup>
