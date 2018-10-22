@@ -16,16 +16,16 @@ module.exports = class {
 
     // Checks if the modLogChannel exists
     const modLog = member.guild.channels.find(c => c.name === settings.modLogChannel);
-    if (!modLog) this.client.logger.info(`modLogChannel not found in "${member.guild.name}" (${member.guild.id})`);
+    if (!modLog) return this.client.logger.info(`modLogChannel not found in "${member.guild.name}" (${member.guild.id})`);
 
     // Creates and sends embed
     const { RichEmbed } = require("discord.js");
     const embed = new RichEmbed()
-    .setColor(16767063)
-        .setTitle("🚪 User Left")
-        .setDescription(`**${member.user.tag}** (${member.user.id})`)
-        .setFooter(`There are now ${member.guild.memberCount} members`)
-        .setTimestamp();
+      .setColor(16767063)
+      .setTitle("🚪 User Left")
+      .setDescription(`**${member.user.tag}** (${member.user.id})`)
+      .setFooter(`There are now ${member.guild.memberCount} members`)
+      .setTimestamp();
     return member.guild.channels.get(modLog.id).send({ embed });
   }
 };
