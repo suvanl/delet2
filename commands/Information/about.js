@@ -33,7 +33,7 @@ class About extends Command {
         .addField("Website", "https://delet.js.org", true)
         .addField("Users", this.client.users.size, true)
         .addField("Invite link", "[Click here](https://delet.js.org/go/invite)", true)
-        .addField("Uptime", moment.duration(this.client.uptime).format("D [days], H [hrs], m [mins], s [secs]"), true)
+        .addField("Uptime", `${moment.utc(this.client.uptime).format("DD")-1} day(s), ${moment.utc(this.client.uptime).format("HH:mm:ss")}`, true)
         .addField("GitHub", "[Click here](https://github.com/DS-Development/delet)", true)
         .addField("Node.js version", process.version, true)
         .addField("Memory usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
