@@ -4,6 +4,7 @@
 *.json text
 *.md text
 *.example text
+*.sh linguist-language=Shell
 
 dashboard/public/css/darkly.css linguist-vendored
 dashboard/public/css/flatly.css linguist-vendored
