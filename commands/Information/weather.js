@@ -16,17 +16,14 @@ class Weather extends Command {
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         weather.find({ search: args.join(" "), degreeType: "C" }, function(err, result) {
             if (!args[0]) return message.channel.send(`You must provide a place to look up weather information for.\nTo see how to use this command, use \`${settings.prefix}help weather\`.`);
-            // Temporary logging of returned data for debugging purposes
-            console.log(`RESULT:\n${JSON.stringify(result, null, 2)}\n`);
-            console.log(`ERRORS:\n${err ? err : "None"}\n`);
-
-            if (err && err.toString().startsWith("ESOCKETTIMEDOUT")) return message.channel.send("Connection timed out. Please try again."); 
+            if (err && err.toString().startsWith("ESOCKETTIMEDOUT")) return message.channel.send(""); 
             if (err) return message.channel.send(`${texts.general.error.replace(/{{err}}/g, err.message)}\nTo see how to use this command, use \`${settings.prefix}help weather\`.`);
 
             try {
                 var current = result[0].current;
             } catch (error) {
                 if (error.message === "Cannot read property 'current' of undefined") return message.channel.send("Invalid location provided.");
+                if (error.message === "ESOCKETTIMEDOUT") return message.channel.send("Request timed out. Please try again.");
                 console.error(error.message);
                 return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
             }
