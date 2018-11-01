@@ -28,7 +28,9 @@ class Emoji extends Command {
           isImgLink = false;
         }
 
-        if (isImgLink === false) return message.channel.send("Invalid image link. Please ensure the image link you've provided is from either Imgur or vgy.me, and starts with `https://`.");
+        if (image.split(".").pop() !== "png") isImgLink = false;
+
+        if (isImgLink === false) return message.channel.send("Invalid image link.\nPlease ensure the image link you've provided is from either Imgur or vgy.me, starts with `https://` and ends with `.png`.");
         if (!name) return message.channel.send("You must provide a name for the new emoji.");
 
         message.guild.createEmoji(image, name)
