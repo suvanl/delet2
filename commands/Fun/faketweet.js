@@ -13,9 +13,10 @@ class FakeTweet extends Command {
     }
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-      const user = args[0];
+      let user = args[0];
       let text = args.slice(1).join(" ") || undefined;
       if (!user) return message.channel.send("You must provide a Twitter username, to have as the author of the tweet.");
+      if (user.startsWith("@")) user = args[0].slice(1);
 
       if (!text) {
         text = await this.client.awaitReply(message, "Please enter the tweet's message...\nReply with `cancel` to exit this text-entry period.", 30000);
