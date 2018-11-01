@@ -5,7 +5,6 @@ class Announce extends Command {
     super(client, {
       name: "announce",
       description: "Sends a specified message to a specified channel.",
-      category: "System",
       usage: "announce <message>",
       aliases: ["send"],
       permLevel: "Server Owner",
