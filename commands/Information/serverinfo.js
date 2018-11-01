@@ -64,7 +64,7 @@ class ServerInfo extends Command {
         .addField("❯ Channels", stripIndents`
         • Text: **${message.guild.channels.filter(ch => ch.type === "text").size}**
         • Voice: **${message.guild.channels.filter(ch => ch.type === "voice").size}**
-        • AFK: **${message.guild.afkChannel || "None"}**
+        • AFK: **${message.guild.afkChannel ? message.guild.afkChannel.name : "None"}**
         `, true)
 
         .addField("❯ Other", stripIndents`
