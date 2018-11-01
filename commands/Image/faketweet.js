@@ -6,7 +6,7 @@ class FakeTweet extends Command {
       super(client, {
         name: "faketweet",
         description: "Creates a fake tweet.",
-        category: "Fun",
+        category: "Image",
         usage: "faketweet <username> <message>",
         aliases: ["fake-tweet"]
       });

@@ -6,7 +6,7 @@ class ChangeMyMind extends Command {
       super(client, {
         name: "changemymind",
         description: "Change my mind...",
-        category: "Fun",
+        category: "Image",
         usage: "changemymind <text>",
         aliases: ["change-my-mind", "change"]
       });

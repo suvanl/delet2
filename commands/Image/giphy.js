@@ -7,7 +7,7 @@ class Giphy extends Command {
       super(client, {
         name: "giphy",
         description: "Returns a GIF from Giphy based on your query.",
-        category: "Fun",
+        category: "Image",
         usage: "giphy <query>",
         aliases: ["gif"]
       });
