@@ -18,7 +18,7 @@ class Lizard extends Command {
             message.channel.stopTyping(true);
             return message.channel.send({ file: body.url });
         } catch (error) {
-            this.client.logger.error(error.stack);
+            this.client.logger.error(error);
             return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
         }
     }
