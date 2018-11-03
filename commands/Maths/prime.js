@@ -15,7 +15,7 @@ class Prime extends Command {
         const n = parseInt(args[0]);
         if (!n) return message.channel.send(texts.cmd.math.noNum);
         
-        function isPrime(n) {
+        const isPrime = n => {
             if (isNaN(n) || !isFinite(n) || n%1 || n < 2) return false;
             if (n%2 == 0) return (n == 2);
             if (n%3 == 0) return (n == 3);
@@ -27,7 +27,7 @@ class Prime extends Command {
                 if (n%(i + 2) == 0) return false;
             }
             return true;
-        }
+        };
 
         if (isPrime(n) === true) {
             message.channel.send(`<:tick:398228298842374154> **${n}** ${texts.cmd.math.isPrime}.`);

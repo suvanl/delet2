@@ -22,7 +22,7 @@ class ChannelInfo extends Command {
         else topic = chan.topic;
 
         const createdTimestamp = moment.utc(chan.createdAt).format("YYYYMMDD");
-        const randomColor = "#0000".replace(/0/g, function() {
+        const randomColor = "#0000".replace(/0/g, () => {
             return (~~(Math.random() * 16)).toString(16);
         });
 

@@ -18,7 +18,7 @@ class About extends Command {
       let displayColor;
       if (message.channel.type === "text") displayColor = message.guild.me.displayColor;
       else if (message.channel.type === "dm" || message.channel.type === "group") {
-        displayColor = "#0000".replace(/0/g, function() {
+        displayColor = "#0000".replace(/0/g, () => {
           return (~~(Math.random() * 16)).toString(16);
         });
       }

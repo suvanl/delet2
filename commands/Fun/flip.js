@@ -29,10 +29,7 @@ class Flip extends Command {
       \`\`\`${settings.prefix}set edit currency TYPE\`\`\`
       Currently available types: ${currencies.map(c => "`" + c + "`").join(", ")}`);
 
-      function coinFlip() {
-        return (Math.floor(Math.random() * 2) == 0) ? "heads" : "tails";
-      }
-
+      const coinFlip = () => (Math.floor(Math.random() * 2) == 0) ? "heads" : "tails";
       const flip = coinFlip();
 
       const embed = new RichEmbed()

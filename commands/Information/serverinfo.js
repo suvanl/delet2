@@ -30,7 +30,7 @@ class ServerInfo extends Command {
     }
 
     async run(message, args, level) { // eslint-disable-line no-unused-vars
-        const randomColor = "#0000".replace(/0/g, function() {
+        const randomColor = "#0000".replace(/0/g, () => {
             return (~~(Math.random() * 16)).toString(16);
         });
 
