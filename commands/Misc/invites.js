@@ -1,5 +1,4 @@
 const Command = require("../../base/Command.js");
-const { RichEmbed } = require("discord.js");
 const arraySort = require("array-sort");
 const t = require("table");
 
@@ -23,17 +22,13 @@ class Invites extends Command {
         arraySort(invites, "uses", { reverse: true });
 
         const usedInvites = [["User", "Uses"]];
-        invites.forEach(function(invite) {
+        invites.forEach((invite) => {
             usedInvites.push([invite.inviter.tag, invite.uses]);
         });
 
-        const embed = new RichEmbed()
-            .setColor(5234401)
-            .setTitle("Server Invite Leaderboard")
-            .setDescription(`for **${message.guild.name}**\n\`\`\`${t.table(usedInvites)}\`\`\``)
-            .setTimestamp();
-        
-        message.channel.send({ embed });
+        console.log(t.table(usedInvites));
+
+        return message.channel.send(`**Server Invite Leaderboard** for ${message.guild.name}\n\`\`\`${t.table(usedInvites)}\`\`\``);
     }
 }
 
