@@ -21,8 +21,9 @@ class Time extends Command {
         `);
 
         try {
-            const time = new Date().toLocaleTimeString("en-GB", { timeZone });
-            return message.channel.send(`The time in **${timeZone}** is currently **${time}**.`);
+            const time = new Date().toLocaleTimeString("en-GB", { timeZone, hour12: false });
+            const friendly = timeZone.substring(timeZone.indexOf("/") + 1).replace(/_/g, " ");
+            return message.channel.send(`The time in **${friendly.toProperCase()}** is currently **${time}**.`);
         } catch (err) {
             message.channel.send(stripIndents`
             ${texts.general.error.replace(/{{err}}/g, err.message)}
