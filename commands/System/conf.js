@@ -98,7 +98,7 @@ class Conf extends Command {
       });
       await message.channel.send(stripIndents`
       = Bot Default Settings =
-      ${array.join("\n")}`, {code: "asciidoc"});
+      ${array.join("\n")}`, { code: "asciidoc" });
     }
   }
 }
