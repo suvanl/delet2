@@ -4,6 +4,6 @@ module.exports = class {
     }
   
     async run(error) {
-        this.client.logger.error(`Discord API Error:\n${JSON.stringify(error)}`);
+        this.client.logger.error(`Discord API Error: ${error.message}`);
     }
   };
