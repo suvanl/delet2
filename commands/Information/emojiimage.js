@@ -15,7 +15,7 @@ class EmojiImage extends Command {
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         if (!args[0]) return message.channel.send(texts.cmd.info.noEmoji);
         if (args[0].startsWith("<a:")) return message.channel.send("This command does not support animated emojis yet.");
-        if (args[0].charCodeAt(0) >= 55296) return message.channel.send(`${texts.cmd.info.regularEmoji.replace(/{{emoji}}/g, args[0])}\nhttps://twitter.github.io/twemoji/`);
+        if (args[0].charCodeAt(0) >= 55296) return message.channel.send(`${texts.cmd.info.regularEmoji.replace(/{{emoji}}/g, args[0])}\nhttps://twemoji.twitter.com`);
 
         const match = args[0].match(/<:[a-zA-Z0-9_-]+:(\d{18})>/);
         if (!match || !match[1]) return message.channel.send(texts.cmd.info.invalidEmoji);
