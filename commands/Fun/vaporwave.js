@@ -13,7 +13,8 @@ class Vaporwave extends Command {
         name: "vaporwave",
         description: "Plays vaporwave music.",
         category: "Fun",
-        usage: "vaporwave <play|stop>"
+        usage: "vaporwave <play|stop>",
+        aliases: ["vapourwave"]
       });
     }
 

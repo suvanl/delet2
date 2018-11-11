@@ -7,7 +7,7 @@ class Vaportext extends Command {
         description: "A E S T H E T I C",
         category: "Fun",
         usage: "vaportext <text>",
-        aliases: ["vapor"]
+        aliases: ["vapor", "vapour", "vapourtext"]
       });
     }
 
