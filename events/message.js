@@ -41,11 +41,11 @@ module.exports = class {
     const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    // Get the user or member's permission level from the elevation.
+    // Gets the user or member's permission level from the elevation.
     const level = this.client.permlevel(message);
 
-    // Check whether the command, or alias, exist in the collections defined
-    // in app.js.
+    // Checks whether the command or alias exists in the collections defined
+    // in index.js.
     const cmd = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command));
     // using this const varName = thing OR other-thing; is a pretty efficient
     // and clean way to grab one of 2 values.
