@@ -10,15 +10,19 @@ class Trivia extends Command {
       name: "trivia",
       description: "Puts your general knowledge to the test.",
       category: "Fun",
-      usage: "trivia",
+      usage: "trivia [difficulty]",
       aliases: ["randomtrivia", "randomq", "testme", "quiz"]
     });
   }
 
   async run(message, args, level) { // eslint-disable-line no-unused-vars
-      const { body } = await snekfetch.get("https://opentdb.com/api.php?amount=50&difficulty=medium&type=multiple");
+      const levels = ["easy", "medium", "hard"];
+      const difficulty = args[0] || "medium";
+      if (!levels.includes(difficulty.toLowerCase())) return message.channel.send("Invalid difficulty specified. Please choose from one of **easy**, **medium** or **hard**.");
+
+      const { body } = await snekfetch.get(`https://opentdb.com/api.php?amount=50&difficulty=${difficulty.toLowerCase()}&type=multiple`);
       const quiz = body.results.random();
-      const choices = quiz.incorrect_answers.map(answ => h.decode(answ));
+      const choices = quiz.incorrect_answers.map(ans => h.decode(ans));
       choices.push(h.decode(quiz.correct_answer));
 
       const randomChoices = new Array(4);
