@@ -53,11 +53,8 @@ class Trivia extends Command {
 
         const choice = randomChoices[["a", "b", "c", "d"].indexOf(question.toLowerCase())];
         if (!choice) return message.channel.send("That's not a valid answer!\nFor future reference, please ensure your answer is either **A**, **B**, **C**, or **D** (lowercase and uppercase are both accepted).");
-        if (choice === h.decode(quiz.correct_answer)) {
-            return message.channel.send("Well done, your answer is correct!\nTrivia session ended.");
-        } else {
-            return message.channel.send(`Unfortunately, that's the wrong answer. The correct answer was **${h.decode(quiz.correct_answer)}**, and you chose **${choice}**.\nTrivia session ended.`);
-        }
+        if (choice === h.decode(quiz.correct_answer)) return message.channel.send("Well done, your answer is correct!\nTrivia session ended.");
+        else return message.channel.send(`Unfortunately, that's the wrong answer. The correct answer was **${h.decode(quiz.correct_answer)}**, and you chose **${choice}**.\nTrivia session ended.`);
   }
 }
 
