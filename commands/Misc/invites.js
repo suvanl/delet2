@@ -22,9 +22,7 @@ class Invites extends Command {
         arraySort(invites, "uses", { reverse: true });
 
         const usedInvites = [["User", "Uses"]];
-        invites.forEach((invite) => {
-            usedInvites.push([invite.inviter.tag, invite.uses]);
-        });
+        invites.forEach(invite => usedInvites.push([invite.inviter.tag, invite.uses]));
 
         return message.channel.send(`**Server Invite Leaderboard** for ${message.guild.name}\n\`\`\`${t.table(usedInvites)}\`\`\``);
     }
