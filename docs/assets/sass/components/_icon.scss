@@ -1,5 +1,5 @@
 /*
-delet - a multipurpose Discord bot
+delet - Powerful. Configurable. Multipurpose.
 © DS Development Group & Contributors 2017 - 2018
 Contributors are listed in package.json
 
