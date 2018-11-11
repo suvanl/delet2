@@ -28,7 +28,7 @@ class About extends Command {
         .setColor(displayColor)
         .setThumbnail(this.client.user.displayAvatarURL)
         .setTitle(`Hey ${message.author.username}, I'm delet!`)
-        .setDescription("I'm a multipurpose Discord bot developed and maintained by the DS Development Group.")
+        .setDescription("I'm a bot developed and maintained by the DS Development Group.")
         .addField("Version", delet.version, true)
         .addField("Website", "https://delet.js.org", true)
         .addField("Users", this.client.users.size, true)
