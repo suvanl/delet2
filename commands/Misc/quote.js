@@ -30,7 +30,9 @@ class Quote extends Command {
           .setFooter(`#${message.channel.name}`)
           .setTimestamp();
         message.channel.send({ embed });
-      }).catch(error => {
+      })
+      .catch(error => {
+        if (error.code === 10008) return message.channel.send("Unknown message. Please ensure the message ID is from a message in this channnel.");
         this.client.logger.error(error);
         message.channel.send(texts.general.error.replace(/{{err}}/g, error));
       });
