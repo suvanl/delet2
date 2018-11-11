@@ -26,8 +26,6 @@ class Invites extends Command {
             usedInvites.push([invite.inviter.tag, invite.uses]);
         });
 
-        console.log(t.table(usedInvites));
-
         return message.channel.send(`**Server Invite Leaderboard** for ${message.guild.name}\n\`\`\`${t.table(usedInvites)}\`\`\``);
     }
 }
