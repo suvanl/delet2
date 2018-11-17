@@ -30,7 +30,7 @@ class Logger {
       case "ready": {
         return console.log(`${timestamp} ${chalk.black.bgGreen(type.toUpperCase())} ${content}`);
       } 
-      default: throw new TypeError("Logger type must be one of either log, warn, info, error, debug, cmd, panel or ready.");
+      default: throw new TypeError("Invalid logger type specified.");
     }
   }
   
