@@ -1,6 +1,8 @@
 const Command = require("../../base/Command.js");
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
+const { stripIndents } = require("common-tags");
+const { Util } = require("discord.js");
 const { GOOGLE_API_KEY } = process.env;
 const youtube = new YouTube(GOOGLE_API_KEY);
 
@@ -19,7 +21,9 @@ class Play extends Command {
         const voiceChannel = message.member.voiceChannel;
         if (!voiceChannel) return message.channel.send(texts.music.noVoiceChannel);
 
-        const searchString = args.slice(1).join(" ");
+        const searchString = args.join(" ");
+        if (!searchString) return message.channel.send("You must provide a song/video name or YouTube URL.");
+
         const url = args[0] ? args[0].replace(/<(.+)>/g, "$1") : ""; // removes embed escape characters (< >)
     
         const permissions = voiceChannel.permissionsFor(message.client.user);
@@ -32,7 +36,7 @@ class Play extends Command {
     
           for (const video of Object.values(videos)) {
             const video2 = await youtube.getVideoByID(video.id);
-            await this.handleVideo(video2, message, voiceChannel, true);
+            await handleVideo(video2, message, voiceChannel, true);
           }
           return message.channel.send(texts.music.playlistAdded.replace(/{{playlist}}/g, playlist.title));
         } else {
@@ -68,69 +72,69 @@ class Play extends Command {
               return message.channel.send(texts.general.noResultsFound);
             }
           }
-          return this.handleVideo(video, message, voiceChannel);
+          return handleVideo(video, message, voiceChannel);
         }
-    }
 
-    async handleVideo(video, message, voiceChannel, playlist = false) {
-      const serverQueue = queue.get(message.guild.id);
-      //this.client.logger.debug(video);
-      const song = {
-        id: video.id,
-        title: Util.escapeMarkdown(video.title),
-        url: `https://www.youtube.com/watch?v=${video.id}`
-      };
-      if (!serverQueue) {
-        const queueConstruct = {
-          textChannel: message.channel,
-          voiceChannel: voiceChannel,
-          connection: null,
-          songs: [],
-          volume: 5,
-          playing: true
-        };
-        queue.set(message.guild.id, queueConstruct);
-    
-        queueConstruct.songs.push(song);
-    
-        try {
-          var connection = await voiceChannel.join();
-          queueConstruct.connection = connection;
-          this.play(message.guild, queueConstruct.songs[0]);
-        } catch (error) {
-          //this.client.logger.error(`Could not join the voice channel: ${error}`);
-          queue.delete(message.guild.id);
-          return message.channel.send(`I could not join the voice channel:\n\`\`\`${error}\`\`\``);
+        async function handleVideo(video, message, voiceChannel, playlist = false) {
+          const serverQueue = queue.get(message.guild.id);
+          //console.debug(video);
+          const song = {
+            id: video.id,
+            title: Util.escapeMarkdown(video.title),
+            url: `https://www.youtube.com/watch?v=${video.id}`
+          };
+          if (!serverQueue) {
+            const queueConstruct = {
+              textChannel: message.channel,
+              voiceChannel: voiceChannel,
+              connection: null,
+              songs: [],
+              volume: 5,
+              playing: true
+            };
+            queue.set(message.guild.id, queueConstruct);
+        
+            queueConstruct.songs.push(song);
+        
+            try {
+              var connection = await voiceChannel.join();
+              queueConstruct.connection = connection;
+              play(message.guild, queueConstruct.songs[0]);
+            } catch (error) {
+              queue.delete(message.guild.id);
+              console.error(`Could not join the voice channel: ${error.stack}`);
+              return message.channel.send(`I could not join the voice channel:\n\`\`\`${error}\`\`\``);
+            }
+          } else {
+            serverQueue.songs.push(song);
+            console.debug(serverQueue.songs);
+            if (playlist) return;
+            else return message.channel.send(`**${song.title}** has been added to the queue.`);
+          }
+          return;
         }
-      } else {
-        serverQueue.songs.push(song);
-        this.client.logger.debug(serverQueue.songs);
-        if (playlist) return;
-        else return message.channel.send(`**${song.title}** has been added to the queue.`);
-      }
-      return;
-    }
 
-    play(guild, song) {
-      const serverQueue = queue.get(guild.id);
-      if (!song) {
-        serverQueue.voiceChannel.leave();
-        queue.delete(guild.id);
-        return;
-      }
-      this.client.logger.debug(serverQueue.songs);
-    
-      const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
-        .on("end", reason => {
-          if (reason === "Stream is not generating quickly enough.") this.client.logger.debug("Song ended");
-          else this.client.logger.debug(reason);
-          serverQueue.songs.shift();
-          this.play(guild, serverQueue.songs[0]);
-        })
-        .on("error", error => this.client.logger.error(error));
-      dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
-    
-      serverQueue.textChannel.send(`Started playing **${song.title}**.`);
+        function play(guild, song) {
+          const serverQueue = queue.get(guild.id);
+          if (!song) {
+            serverQueue.voiceChannel.leave();
+            queue.delete(guild.id);
+            return;
+          }
+          console.debug(serverQueue.songs);
+        
+          const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
+            .on("end", reason => {
+              if (reason === "Stream is not generating quickly enough.") console.debug("Song ended");
+              else console.debug(reason);
+              serverQueue.songs.shift();
+              play(guild, serverQueue.songs[0]);
+            })
+            .on("error", err => console.error(err));
+          dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+        
+          serverQueue.textChannel.send(`Started playing **${song.title}**.`);
+        }
     }
 }
 
