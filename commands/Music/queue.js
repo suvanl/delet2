@@ -11,8 +11,16 @@ class Queue extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
-        // See README.md to see why there is no code in here.
+    async run(message, args, level, serverQueue) { // eslint-disable-line no-unused-vars
+        if (!serverQueue) return message.channel.send("There is nothing currently playing.");
+        
+        return message.channel.send(stripIndents`
+        __**Song Queue**__
+    
+        ${serverQueue.songs.map(song => `• ${song.title}`).join("\n")}
+    
+        **Now playing:** ${serverQueue.songs[0].title}
+        `);
     }
 }
 
