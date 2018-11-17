@@ -11,8 +11,14 @@ class Stop extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
-        // See README.md to see why there is no code in here.
+    async run(message, args, level, settings, texts, serverQueue) { // eslint-disable-line no-unused-vars
+        if (!message.member.voiceChannel) return message.channel.send(texts.music.noVoiceChannel);
+        if (!serverQueue) return message.channel.send("There is nothing currently playing that can be stopped.");
+
+        serverQueue.songs = [];
+        serverQueue.connection.dispatcher.end("Stop command used");
+
+        return message.channel.send("Music stopped.");
     }
 }
 
