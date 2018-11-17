@@ -76,9 +76,13 @@ module.exports = class {
     while (args[0] && args[0][0] === "-") {
       message.flags.push(args.shift().slice(1));
     }
+
+    // Music stuff
+    const queue = new Map();
+    const serverQueue = queue.get(message.guild.id);
     
     // If the command exists, AND the user has permission to use it, this will run the command.
     this.client.logger.log(`${this.client.config.permLevels.find(l => l.level === level).name} ${message.author.tag} (${message.author.id}) ran command ${cmd.help.name}`, "cmd");
-    cmd.run(message, args, level, settings, texts);
+    cmd.run(message, args, level, settings, texts, queue, serverQueue);
   }
 };
