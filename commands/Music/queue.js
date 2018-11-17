@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const { stripIndents } = require("common-tags");
 
 class Queue extends Command {
     constructor(client) {
