@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint . && npm run text",
-    "text": "node ci/text.js",
+    "text": "node build/text.js",
     "start": "node index.js"
   },
   "engines": {
