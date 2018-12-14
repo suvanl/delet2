@@ -76,7 +76,7 @@
                     owner, unless you trust the other person significantly. Note that it is not possible to "officially" have multiple owners, as
                     the bot owner ID registered on the Discord API will only be that of the bot application's creator.
                   -->
-                  <% if(user.id === bot.appInfo.owner.id || user.id === "{{co-owner_user_id}}") { %> <!-- Replace with co-owner's user ID -->
+                  <% if(user.id === bot.appInfo.owner.id || user.id === "{{co-owner_user_id}}") { %> <!-- TODO: replace with co-owner's user ID -->
                     <a class="dropdown-item" href="/admin"><i class="fa fa-key"></i> Admin</a>
                   <% } %>
                   <div class="dropdown-divider"></div>

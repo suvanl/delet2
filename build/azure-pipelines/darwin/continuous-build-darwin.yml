@@ -1,0 +1,24 @@
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: "8.12.0"
+
+- script: |
+    npm install npm@latest -g
+  displayName: Update npm
+
+- script: |
+    npm install -g node-gyp
+  displayName: Install node-gyp
+
+- script: |
+    npm install
+  displayName: Install dependencies
+
+- script: |
+    npm audit
+  displayName: Audit packages
+
+- script: |
+    npm test
+  displayName: Build & test
