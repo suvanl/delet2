@@ -1674,6 +1674,20 @@
 
 		}
 
+	/* Typewriter effect - cursor */
+	.txt-type > .txt {
+		border-right: 0.2rem solid #b6aad7;
+		/* animation: blinker 1s linear infinite; */
+	}
+
+	/* TODO: animate cursor */
+
+	@keyframes blinker {
+		50% {
+			opacity: 0;
+		}
+	}
+
 	a {
 		-moz-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		-webkit-transition: color 0.2s ease, border-bottom-color 0.2s ease;

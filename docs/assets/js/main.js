@@ -8,13 +8,13 @@ Licensed under the GPL-3.0 license.
 https://delet.js.org/
 */
 
-console.log(`
+console.log(`%c
 Hey! Want to view this site's full source code?
 Check it out here: https://github.com/DS-Development/delet/tree/master/docs.
 
 Want to join the DS Development Group?
-Head to https://delet.js.org/go/join.
-`);
+Head to https://delet.js.org/go/join.`,
+"color: #00e0e0");
 
 // Make sure service workers are supported
 if ("serviceWorker" in navigator) {
@@ -26,6 +26,63 @@ if ("serviceWorker" in navigator) {
 	});
 }
 
+// TODO: implement check (to see if JS is enabled)
+
+// TypeWriter
+class TypeWriter {
+	constructor(txtElement, words, wait = 3000) {
+		this.txtElement = txtElement;
+		this.words = words;
+		this.txt = "";
+		this.wordIndex = 0;
+		this.wait = parseInt(wait, 10);
+		this.type();
+		this.isDeleting = false;
+	}
+	
+	type() {
+		const index = this.wordIndex % this.words.length;
+		const fullTxt = this.words[index];
+
+		if (this.isDeleting) {
+			// Remove char
+			this.txt = fullTxt.substring(0, this.txt.length - 1);
+		} else {
+			// Add char
+			this.txt = fullTxt.substring(0, this.txt.length + 1);
+		}
+
+		this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+		let typeSpeed = 150;
+
+		if (this.isDeleting) {
+			typeSpeed /= 2;
+		}
+
+		if (!this.isDeleting && this.txt === fullTxt) {
+			typeSpeed = this.wait;
+			this.isDeleting = true;
+		} else if (this.isDeleting && this.txt === "") {
+			this.isDeleting = false;
+			this.wordIndex++;
+			typeSpeed = 300;
+		}
+
+		setTimeout(() => this.type(), typeSpeed);
+	}
+}
+
+const init = () => {
+	const txtElement = document.querySelector(".txt-type");
+	const words = JSON.parse(txtElement.getAttribute("data-words"));
+	const wait = txtElement.getAttribute("data-wait");
+
+	new TypeWriter(txtElement, words, wait);
+};
+
+document.addEventListener("DOMContentLoaded", init());
+
+// Main jQuery
 (function($) {
 
 	skel.breakpoints({
