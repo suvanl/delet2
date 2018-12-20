@@ -55,7 +55,7 @@
     "marked": "^0.5.2",
     "mathjs": "^5.4.0",
     "memorystore": "^1.6.0",
-    "moment": "^2.22.2",
+    "moment": "^2.23.0",
     "moment-duration-format": "^2.2.2",
     "moment-timezone": "^0.5.23",
     "ms": "^2.1.1",
