@@ -40,8 +40,9 @@ class Snake extends Command {
             .setColor(randomColor)
             .setTimestamp();
           message.channel.send({ embed });
-          message.channel.stopTyping(true);
+          return message.channel.stopTyping(true);
         } catch (error) {
+          message.channe.stopTyping(true);
           if (error.message === "Cannot read property 'urls' of undefined") return message.channel.send("An error occurred during the request. Please try again.");
           this.client.logger.error(error);
           return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
