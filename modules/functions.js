@@ -83,19 +83,10 @@ module.exports = (client) => {
   // `await client.wait(1000);` to "pause" for 1 second.
   client.wait = require("util").promisify(setTimeout);
 
-  // File logging
-  const winston = require("winston");
-  const fileLogger = winston.createLogger({
-    transports: [
-      new (winston.transports.File)({ filename: "errors.log" })
-    ]
-  });
-
   // These 2 process methods will catch exceptions and give *more details* about the error and stack trace.
   process.on("uncaughtException", err => {
     const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, "g"), "./");
     console.error("Uncaught Exception: ", errorMsg);
-    if (process.platform !== "win32") fileLogger.error("error", `Uncaught Exception: ${errorMsg}`); // Only writes to file on production
     // Always best practice to let the code crash on uncaught exceptions, 
     // because you should be catching them anyway.
     process.exit(1);
@@ -103,6 +94,5 @@ module.exports = (client) => {
 
   process.on("unhandledRejection", err => {
     console.error("Uncaught Promise Error: ", err);
-    if (process.platform !== "win32") fileLogger.error("error", `Uncaught Promise Error: ${err}`); // Only writes to file on production
   });
 };
