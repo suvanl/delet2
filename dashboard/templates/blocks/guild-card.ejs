@@ -20,7 +20,7 @@
       <p class="card-text" id="guildCreate"><%= guild.createdTimestamp %></p>
       <ul class="list-group list-group-flush" style="width: 100%">
         <li class="list-group-item" style="width: 100%"><strong>Owner</strong> : <i class="fa fa-fw fa-user-circle-o" aria-hidden="true"></i> <%= `${guild.owner.user.tag}` %></li>
-        <li class="list-group-item"><strong>Members</strong> : <i class="fa fa-fw fa-users" aria-hidden="true"></i> <%= `${guild.memberCount}` %> (<i class="fa fa-fw fa-wrench" aria-hidden="true"></i> <%= `${guild.members.filter(m => m.user.bot).size}` %> Bots )</li>
+        <li class="list-group-item"><strong>Members</strong> : <i class="fa fa-fw fa-users" aria-hidden="true"></i> <%= `${guild.memberCount}` %> (<i class="fa fa-fw fa-wrench" aria-hidden="true"></i> <%= `${guild.members.filter(m => m.user.bot).size}` %> Bot(s) )</li>
         <li class="list-group-item"><strong>Roles</strong> : <i class="fa fa-fw fa-tag" aria-hidden="true"></i> <%= guild.roles.size %></li>
         <li class="list-group-item"><strong>Channels</strong> : <i class="fa fa-fw fa-hashtag" aria-hidden="true"></i> <%= `${guild.channels.filter(c => c.type === 'text').size}`%> <i class="fa fa-fw fa-microphone" aria-hidden="true"></i> <%= `${guild.channels.filter(c => c.type === 'voice').size}`%></li>
       </ul>
