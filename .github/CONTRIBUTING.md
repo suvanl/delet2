@@ -29,7 +29,7 @@ class CommandName extends Command {
         aliases: [],
         // If the command can be run in DMs, remove this property or set it to false.
         guildOnly: true,
-        // Choose from "User", "Moderator", "Admin", "Bot Support", "Bot Admin" or "Bot Owner".
+        // Choose from "User", "Moderator", "Admin", "Bot Support", "Beta Tester" "Bot Admin" or "Bot Owner".
         // If the permLevel is just "User", the `permLevel` property can be removed from the constructor.
         permLevel: ""
       });

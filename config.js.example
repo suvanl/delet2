@@ -5,6 +5,9 @@ const config = {
   // Bot Support, level 8 by default. Array of user ID strings.
   "support": [],
 
+  // Beta testers, level 5 by default. Array of user ID strings.
+  "beta": [],
+
   // Dashboard settings
   "dashboard" : {
     "oauthSecret": "",
@@ -55,6 +58,11 @@ const config = {
       // Simple check - checks if the guild owner id matches the message author's ID, and if so, it will return true.
       // Otherwise, it will return false.
       check: (message) => message.channel.type === "text" ? (message.guild.owner.user.id === message.author.id ? true : false) : false
+    },
+    // Beta testers gain early access to new features
+    { level: 5,
+      name: "Beta Tester",
+      check: (message) => config.beta.includes(message.author.id)
     },
     // Bot Support is a special "in-between" level that has the equivalent access level of the server
     // owner on any server they join, in order to help troubleshoot the bot on behalf of owners.

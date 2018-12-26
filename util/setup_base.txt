@@ -1,6 +1,7 @@
 const config = {
   "admins": [],
   "support": [],
+  "beta": [],
   "dashboard" : {
     "oauthSecret": {{oauthSecret}},
     "callbackURL": "http://{{fullURL}}/callback",
@@ -39,6 +40,10 @@ const config = {
     { level: 4,
       name: "Server Owner", 
       check: (message) => message.channel.type === "text" ? (message.guild.owner.user.id === message.author.id ? true : false) : false
+    },
+    { level: 5,
+      name: "Beta Tester",
+      check: (message) => config.beta.includes(message.author.id)
     },
     { level: 8,
       name: "Bot Support",
