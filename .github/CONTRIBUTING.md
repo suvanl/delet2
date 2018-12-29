@@ -6,7 +6,7 @@ Examples of things you can contribute are fortunes for the 8ball command, transl
 Check the comments in the file [here](https://github.com/DS-Development/delet/blob/master/commands/Fun/8ball.js).
 
 ## Translations
-If you'd like to sign up to be a translator for delet, you can do so [here](https://delet.js.org/go/translate). Note that the process of adding translations to the bot has not started yet.
+If you'd like to sign up to be a translator for delet, you can do so [here](https://delet.js.org/go/translate). Note that the process of adding translations to the bot has not started yet, and we cannot guarantee that it will ever take place, as it will only do so if there is enough demand for this feature. The purpose of signing up is so we know who to go to in the event that we do end up implementing this feature.
 
 ## Commands
 The default command base we use is as follows:
