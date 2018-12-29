@@ -1,6 +1,6 @@
 # Contributing
 **We accept contributions for anything!** Just fork this repository, make any changes you desire, and submit a pull request!
-Examples of things you can contribute are fortunes for the 8ball command, translations and commands, but you can submit a PR for basically anything.
+Examples of things you can contribute are fortunes for the 8ball command, new commands and improvements to existing features, but you can submit a PR for basically anything.
 
 ## Fortunes for the 8ball command
 Check the comments in the file [here](https://github.com/DS-Development/delet/blob/master/commands/Fun/8ball.js).
