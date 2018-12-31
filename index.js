@@ -1,6 +1,6 @@
 /*
 delet - Powerful. Configurable. Multipurpose.
-Copyright © 2017-2018 DS Development Group. All rights reserved.
+Copyright © 2017-2019 DS Development Group. All rights reserved.
 Contributors are listed in package.json
 
 Licensed under the GNU General Public License v3.0.
