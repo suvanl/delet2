@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const snekfetch = require("snekfetch");
+const fetch = require("node-fetch");
 
 class JPEG extends Command {
     constructor(client) {
@@ -18,15 +18,18 @@ class JPEG extends Command {
 
       message.channel.startTyping();
 
-      try {
-        const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=jpeg&url=${url}`);
-        if (body.success === false) return message.channel.send("An error occurred. Please ensure the URL you're providing is an image URL.");
-        message.channel.stopTyping(true);
-        return message.channel.send("", { file: body.message });
-      } catch (error) {
-        this.client.logger.error(error);
-        return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-      }
+      fetch(`https://nekobot.xyz/api/imagegen?type=jpeg&url=${url}`)
+        .then(res => res.json())
+        .then(data => {
+          if (!data.success) return message.channel.send("An error occurred. Please ensure the URL you're providing is an image URL.");
+          message.channel.stopTyping(true);
+          return message.channel.send({ file: data.message });
+        })
+        .catch(error => {
+          this.client.logger.error(error);
+          message.channel.stopTyping(true);
+          return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+        });
     }
 }
 
