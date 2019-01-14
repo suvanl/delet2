@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const fetch = require("node-fetch");
+const snekfetch = require("snekfetch");
 
 class Cat extends Command {
     constructor(client) {
@@ -13,17 +13,14 @@ class Cat extends Command {
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         message.channel.startTyping();
-
-        fetch("https://aws.random.cat/meow")
-            .then(res => res.json())
-            .then(data => message.channel.send({ file: data.file }))
-            .catch(error => {
-                this.client.logger.error(error);
-                message.channel.stopTyping(true);
-                return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-            });
-
-        message.channel.stopTyping(true);
+        try {
+            const { body } = await snekfetch.get("http://aws.random.cat/meow");
+            message.channel.stopTyping(true);
+            return message.channel.send({ file: body.file });
+        } catch (error) {
+            this.client.logger.error(error);
+            return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+        }
     }
 }
 

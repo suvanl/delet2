@@ -22,7 +22,7 @@ class CleverBot extends Command {
 
             message.channel.startTyping();
 
-            bot.ask(query, (err, response) => {
+            bot.ask(query, function(err, response) {
                 message.channel.send(response.includes("Cleverbot") ? response.replace(/Cleverbot/g, "delet") : response);
                 message.channel.stopTyping(true);
                 

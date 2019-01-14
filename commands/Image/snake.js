@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const fetch = require("node-fetch");
+const snekfetch = require("snekfetch");
 const { RichEmbed } = require("discord.js");
 const { UNSPLASH_ACCESS_KEY } = process.env;
 
@@ -22,31 +22,31 @@ class Snake extends Command {
           return (~~(Math.random() * 16)).toString(16);
         });
 
-        const meta = { "Authorization": `Client-ID ${UNSPLASH_ACCESS_KEY}` };
-
         message.channel.startTyping();
 
-        fetch(`https://api.unsplash.com/search/photos?page=${page}&query=snake`, { headers: meta })
-          .then(res => res.json())
-          .then(json => {
-            const data = json.results[parseInt(index.toFixed(0))];
-            const embed = new RichEmbed()
-              .setTitle("🐍 Snake")
-              .setURL(data.urls.raw)
-              .setDescription(`Photo by [${data.user.name}](${data.user.links.html}) on [Unsplash](https://unsplash.com)`)
-              .setImage(data.urls.raw)
-              .setColor(randomColor)
-              .setTimestamp();
-            message.channel.send({ embed });
-          })
-          .catch(error => {
-            message.channel.stopTyping(true);
-            if (error.message === "Cannot read property 'urls' of undefined") return message.channel.send(texts.general.noResultsFound);
-            this.client.logger.error(error);
-            return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-          });
+        try {
+          const { body } = await snekfetch
+            .get(`https://api.unsplash.com/search/photos?page=${page}`)
+            .query({ query: "snake" })
+            .set({ Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}` });
 
-        message.channel.stopTyping(true);
+          const data = body.results[parseInt(index.toFixed(0))];
+
+          const embed = new RichEmbed()
+            .setTitle("🐍 Snake")
+            .setURL(data.urls.raw)
+            .setDescription(`Photo by [${data.user.name}](${data.user.links.html}) on [Unsplash](https://unsplash.com)`)
+            .setImage(data.urls.raw)
+            .setColor(randomColor)
+            .setTimestamp();
+          message.channel.send({ embed });
+          return message.channel.stopTyping(true);
+        } catch (error) {
+          message.channel.stopTyping(true);
+          if (error.message === "Cannot read property 'urls' of undefined") return message.channel.send("An error occurred during the request. Please try again.");
+          this.client.logger.error(error);
+          return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+        }
     }
 }
 
