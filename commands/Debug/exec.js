@@ -1,3 +1,6 @@
+// Copyright (c) 2019 An Idiot's Guide. All rights reserved. MIT license.
+// https://github.com/NotAWeebDev/Misaki
+
 // The EXEC command will execute **ANY** new specified process. This can be
 // extremely dangerous if used incorrectly, hence why it is reserved strictly
 // for the bot owner only. This command spawns a new child process, and

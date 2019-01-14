@@ -1,3 +1,6 @@
+// Copyright (c) 2019 An Idiot's Guide. All rights reserved. MIT license.
+// https://github.com/AnIdiotsGuide/guidebot-class
+
 // The MESSAGE event runs anytime a message is received.
 // Due to the binding of client to every event, every event
 // goes `client, other, args` when this function is run.

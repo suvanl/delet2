@@ -1,3 +1,6 @@
+// Copyright (c) 2019 An Idiot's Guide. All rights reserved. MIT license.
+// https://github.com/AnIdiotsGuide/guidebot-class
+
 // This command is to modify/edit guild configuration. Perm Level 3 for admins
 // and owners only. Used for changing prefixes and role names and such.
 

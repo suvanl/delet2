@@ -1,3 +1,6 @@
+// Copyright (c) 2019 An Idiot's Guide. All rights reserved. MIT license.
+// https://github.com/AnIdiotsGuide/guidebot-class
+
 // The HELP command is used to display every command's name and description
 // to the user, so that they can see what commands are available. The help
 // command is also filtered by level, so if a user does not have access to

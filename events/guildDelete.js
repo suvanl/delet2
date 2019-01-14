@@ -1,3 +1,6 @@
+// Copyright (c) 2019 An Idiot's Guide. All rights reserved. MIT license.
+// https://github.com/AnIdiotsGuide/guidebot-class
+
 // This event executes when a new guild (server) has been left.
 
 module.exports = class {

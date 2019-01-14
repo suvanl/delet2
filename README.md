@@ -37,5 +37,4 @@ Obviously, you *are* free to clone this repository, for whatever reason you wish
 ## License & further information
 - **License**: [GNU General Public License v3.0](https://github.com/DS-Development/delet/blob/master/LICENSE)
 - **ETA**: Very soon! delet is now in (private) beta.
-
-<sup>Copyright &copy; DS Development Group. All rights reserved.</sup>
+- Parts of this bot are based on [GuideBot](https://github.com/AnIdiotsGuide/guidebot-class) and [Misaki](https://github.com/NotAWeebDev/Misaki) (MIT License).

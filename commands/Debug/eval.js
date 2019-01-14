@@ -1,3 +1,6 @@
+// Copyright (c) 2019 An Idiot's Guide. All rights reserved. MIT license.
+// https://github.com/AnIdiotsGuide/guidebot-class
+
 // The EVAL command will execute **ANY** arbitrary JavaScript code given to it.
 // Therefore, this command is permission level 10 to prevent others using it. It
 // can be dangerous, as Eval can be used to do anything on the host machine.

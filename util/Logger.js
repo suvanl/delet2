@@ -1,3 +1,6 @@
+// Copyright (c) 2019 An Idiot's Guide. All rights reserved. MIT license.
+// https://github.com/AnIdiotsGuide/guidebot-class
+
 // Logger class for easy and aesthetically pleasing console logging
 const chalk = require("chalk");
 const moment = require("moment");

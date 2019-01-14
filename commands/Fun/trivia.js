@@ -1,3 +1,6 @@
+// Copyright (c) 2019 An Idiot's Guide. All rights reserved. MIT license.
+// https://github.com/NotAWeebDev/Misaki
+
 const Command = require("../../base/Command.js");
 const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
