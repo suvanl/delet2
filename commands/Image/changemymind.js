@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const fetch = require("node-fetch");
+const snekfetch = require("snekfetch");
 
 class ChangeMyMind extends Command {
     constructor(client) {
@@ -13,22 +13,19 @@ class ChangeMyMind extends Command {
     }
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-      let text = args.join(" ");
+      const text = args.join(" ");
       if (!text) return message.channel.send("You must provide some text to appear on the image.");
-      else text = encodeURIComponent(args.join(" "));
 
       message.channel.startTyping();
 
-      fetch(`https://nekobot.xyz/api/imagegen?type=changemymind&text=${text}`)
-        .then(res => res.json())
-        .then(data => message.channel.send({ file: data.message }))
-        .catch(error => {
-          this.client.logger.error(error);
-          message.channel.stopTyping(true);
-          return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-        });
-        
+      try {
+        const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=changemymind&text=${encodeURIComponent(text)}`);
+        message.channel.send("", { file: body.message });
         message.channel.stopTyping(true);
+      } catch (error) {
+        this.client.logger.error(error);
+        return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+      }
     }
 }
 

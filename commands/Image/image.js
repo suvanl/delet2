@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const fetch = require("node-fetch");
+const { get } = require("snekfetch");
 
 class Image extends Command {
     constructor(client) {
@@ -18,15 +18,14 @@ class Image extends Command {
 
         message.channel.startTyping();
 
-        fetch(`https://source.unsplash.com/random/${size}`)
-            .then(res => message.channel.send({ files: [{ attachment: res.body, name: "image.jpg" }] })
-            .catch(error => {
-                this.client.logger.error(error);
-                message.channel.stopTyping(true);
-                return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-            }));
-
-        message.channel.stopTyping(true);
+        try {
+            const { raw } = await get(`https://source.unsplash.com/random/${size}`);
+            message.channel.send("", { files: [{ attachment: raw, name: "image.jpg" }] });
+            return message.channel.stopTyping(true);
+        } catch (error) {
+            this.client.logger.error(error);
+            return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+        }
     }
 }
 

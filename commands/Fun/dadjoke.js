@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const fetch = require("node-fetch");
+const { get } = require("snekfetch");
 
 class DadJoke extends Command {
     constructor(client) {
@@ -13,15 +13,14 @@ class DadJoke extends Command {
     }
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-      const meta = { "Accept": "text/plain" };
-
-      fetch("https://icanhazdadjoke.com/", { headers: meta })
-        .then(res => res.text())
-        .then(body => message.channel.send(body))
-        .catch(error => {
+        try {
+          const { raw } = await get("https://icanhazdadjoke.com/").set("Accept", "text/plain");
+          const text = raw.toString();
+          message.channel.send(text);
+        } catch (error) {
           this.client.logger.error(error);
           return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-        });
+        }
     }
 }
 
