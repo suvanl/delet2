@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const snekfetch = require("snekfetch");
+const fetch = require("node-fetch");
 
 class FakeTweet extends Command {
     constructor(client) {
@@ -18,6 +18,9 @@ class FakeTweet extends Command {
       if (!user) return message.channel.send("You must provide a Twitter username, to have as the author of the tweet.");
       if (user.startsWith("@")) user = args[0].slice(1);
 
+      const type = user.toLowerCase() === "realdonaldtrump" ? "trumptweet" : "tweet";
+      const u = user.startsWith("@") ? user.slice(1) : user;
+
       if (!text) {
         text = await this.client.awaitReply(message, "Please enter the tweet's message...\nReply with `cancel` to exit this text-entry period.", 30000);
         if (text.toLowerCase() === "cancel") return message.channel.send("Cancelled.");
@@ -25,14 +28,16 @@ class FakeTweet extends Command {
 
       message.channel.startTyping();
 
-      try {
-        const { body } = await snekfetch.get(`https://nekobot.xyz/api/imagegen?type=${user.toLowerCase() === "realdonaldtrump" ? "trumptweet" : "tweet"}&username=${user.startsWith("@") ? user.slice(1) : user}&text=${encodeURIComponent(text)}`);
-        message.channel.send("", { file: body.message });
+      fetch(`https://nekobot.xyz/api/imagegen?type=${type}&username=${u}&text=${encodeURIComponent(text)}`)
+        .then(res => res.json())
+        .then(data => message.channel.send({ file: data.message }))
+        .catch(error => {
+          this.client.logger.error(error);
+          message.channel.stopTyping(true);
+          return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+        });
+
         message.channel.stopTyping(true);
-      } catch (error) {
-        this.client.logger.error(error);
-        return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-      }
     }
 }
 
