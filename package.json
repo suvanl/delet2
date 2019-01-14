@@ -35,7 +35,7 @@
   "dependencies": {
     "array-sort": "^1.0.0",
     "body-parser": "^1.18.3",
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "cleverbot.io": "^1.0.4",
     "common-tags": "^1.8.0",
     "discord.js": "^11.4.2",
