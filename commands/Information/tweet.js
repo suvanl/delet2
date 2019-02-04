@@ -1,4 +1,5 @@
 const Command = require("../../base/Command.js");
+const fetch = require("node-fetch");
 const snekfetch = require("snekfetch");
 const { RichEmbed } = require("discord.js");
 const { base64 } = require("../../util/Utils.js");
@@ -21,32 +22,33 @@ class Tweet extends Command {
     const user = args[0];
     if (!user) return message.channel.send("You must specify a Twitter user whose latest tweet you'd like to see.");
 
-    try {
-        if (!this.token) await this.fetchToken();
-        const { body } = await snekfetch
-            .get("https://api.twitter.com/1.1/users/show.json")
-            .set({ Authorization: `Bearer ${this.token}` })
-            .query({ screen_name: user });
+    if (!this.token) await this.fetchToken();
 
-        const embed = new RichEmbed()
-            .setColor(12639981)
-            .setThumbnail(body.profile_image_url_https)
-            .setAuthor("Latest Tweet", "https://vgy.me/8tgKd0.png")
-            .setTitle(`${body.name} (@${body.screen_name})`)
-            .setURL(`https://twitter.com/${body.screen_name}`)
-            .setDescription(body.status ? body.status.text : "???");
+    const url = `https://api.twitter.com/1.1/users/show.json?screen_name=${user}`;
+    const meta = { "Authorization": `Bearer ${this.token}` };
 
-        return message.channel.send({ embed });
-    } catch (error) {
-        if (error.statusCode === 401) await this.fetchToken();
-        if (error.statusCode === 404) return message.channel.send(texts.general.noResultsFound);
-        this.client.logger.error(error);
-        return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-    }
+    fetch(url, { headers: meta })
+        .then(res => res.json())
+        .then(data => {
+            const embed = new RichEmbed()
+                .setColor(12639981)
+                .setThumbnail(data.profile_image_url_https)
+                .setAuthor("Latest Tweet", "https://vgy.me/8tgKd0.png")
+                .setTitle(`${data.name} (@${data.screen_name})`)
+                .setURL(`https://twitter.com/${data.screen_name}`)
+                .setDescription(data.status ? data.status.text : "???");
+            return message.channel.send({ embed });
+        })
+        .catch(error => {
+            if (error.statusCode === 401) this.fetchToken();
+            if (error.statusCode === 404) return message.channel.send(texts.general.noResultsFound);
+            this.client.logger.error(error);
+            return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+        });
   }
 
   async fetchToken() {
-      const { body } = await snekfetch
+    const { body } = await snekfetch
         .post("https://api.twitter.com/oauth2/token")
         .set({
             Authorization: `Basic ${base64(`${TWITTER_API_KEY}:${TWITTER_SECRET}`)}`,
@@ -54,8 +56,8 @@ class Tweet extends Command {
         })
         .send("grant_type=client_credentials");
 
-      this.token = body.access_token;
-      return body;
+    this.token = body.access_token;
+    return body;
   }
 }
 

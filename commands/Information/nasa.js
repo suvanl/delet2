@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const snekfetch = require("snekfetch");
+const fetch = require("node-fetch");
 const h = new (require("html-entities").AllHtmlEntities)();
 
 class NASA extends Command {
@@ -13,28 +13,27 @@ class NASA extends Command {
   }
 
   async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
-    const query = args[0];
+    let query = args.join(" ");
     if (!query) return message.channel.send("You must provide a query to search NASA's image database for.");
+    else query = encodeURIComponent(args.join(" "));
 
-    try {
-      const { body } = await snekfetch
-        .get("https://images-api.nasa.gov/search")
-        .query({
-          q: encodeURIComponent(query),
-          media_type: "image"
+    fetch(`https://images-api.nasa.gov/search?q=${query}&media_type=image`)
+      .then(res => res.json())
+      .then(body => {
+        const images = body.collection.items;
+        if (!images.length || images.length === 0) return message.channel.send("No results found.");
+
+        const data = images.random();
+        const description = h.decode(data.data[0].description);
+
+        message.channel.send(description.length > 1997 ? description.substring(0, 1997) + "..." : description.substring(0, 2000) + " <:NASA:476079744857931796>", {
+          file: data.links[0].href
         });
-      
-      const images = body.collection.items;
-      if (!images.length || images.length === 0) return message.channel.send("No results found.");
-
-      const data = images.random();
-      const description = h.decode(data.data[0].description);
-
-      message.channel.send(description.length > 1997 ? description.substring(0, 1997) + "..." : description.substring(0, 2000) + "<:NASA:476079744857931796>", { file: data.links[0].href });
-    } catch (error) {
-      this.client.logger.error(error);
-      message.channel.send(texts.general.error.replace(/{{err}}/g, error));
-    }
+      })
+      .catch(error => {
+        this.client.logger.error(error);
+        message.channel.send(texts.general.error.replace(/{{err}}/g, error));
+      });
   }
 }
 
