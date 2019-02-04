@@ -63,7 +63,7 @@
     "readline-sync": "^1.4.9",
     "simple-youtube-api": "^5.0.2",
     "snekfetch": "^4.0.4",
-    "table": "^5.2.1",
+    "table": "^5.2.2",
     "weather-js": "^2.0.0"
   },
   "optionalDependencies": {
