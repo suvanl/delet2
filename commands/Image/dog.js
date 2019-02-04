@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const snekfetch = require("snekfetch");
+const fetch = require("node-fetch");
 
 class Dog extends Command {
     constructor(client) {
@@ -13,14 +13,17 @@ class Dog extends Command {
 
     async run(message, args, level, settings, texts) { // eslint-disable-line no-unused-vars
         message.channel.startTyping();
-        try {
-            const { body } = await snekfetch.get("https://dog.ceo/api/breeds/image/random");
-            message.channel.stopTyping(true);
-            return message.channel.send({ file: body.message });
-        } catch (error) {
-            this.client.logger.error(error);
-            return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-        }
+
+        fetch("https://dog.ceo/api/breeds/image/random")
+            .then(res => res.json())
+            .then(data => message.channel.send({ file: data.message }))
+            .catch(error => {
+                this.client.logger.error(error);
+                message.channel.stopTyping(true);
+                return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+            });
+
+        message.channel.stopTyping(true);
     }
 }
 

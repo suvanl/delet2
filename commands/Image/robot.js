@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const { get } = require("snekfetch");
+const fetch = require("node-fetch");
 
 class Robot extends Command {
     constructor(client) {
@@ -19,14 +19,15 @@ class Robot extends Command {
 
         message.channel.startTyping();
 
-        try {
-          const { raw } = await get(`https://robohash.org/${query}.png`);
-          message.channel.stopTyping();
-          return message.channel.send(`*"${query}"*`, { file: raw });
-        } catch (error) {
-          this.client.logger.error(error);
-          return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
-        }
+        fetch(`https://robohash.org/${encodeURIComponent(query)}.png`)
+          .then(res => message.channel.send({ files: [{ attachment: res.body, name: `${query}.png` }] })
+          .catch(error => {
+            this.client.logger.error(error);
+            message.channel.stopTyping(true);
+            return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
+          }));
+
+        message.channel.stopTyping(true);
     }
 }
 
