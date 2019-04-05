@@ -56,6 +56,8 @@
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
     "moment-timezone": "^0.5.23",
+    "mongoose": "^5.4.9",
+    "mongoose-timestamp": "^0.6.0",
     "ms": "^2.1.1",
     "node-fetch": "^2.3.0",
     "passport": "^0.4.0",
