@@ -52,7 +52,7 @@
     "klaw": "^3.0.0",
     "marked": "^0.6.1",
     "mathjs": "^5.4.2",
-    "memorystore": "^1.6.0",
+    "memorystore": "^1.6.1",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
     "moment-timezone": "^0.5.23",
