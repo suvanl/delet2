@@ -34,7 +34,7 @@
   "homepage": "https://delet.js.org",
   "dependencies": {
     "array-sort": "^1.0.0",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
     "cleverbot.io": "^1.0.4",
     "common-tags": "^1.8.0",
