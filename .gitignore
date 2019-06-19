@@ -78,6 +78,8 @@ indev
 /notes/
 /security/
 /docker-compose.yml
+/base/DS.js
+/points/
 
 # Temporary
 /tags/
