@@ -55,7 +55,7 @@
     "memorystore": "^1.6.1",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
-    "moment-timezone": "^0.5.23",
+    "moment-timezone": "^0.5.25",
     "ms": "^2.1.1",
     "node-fetch": "^2.3.0",
     "passport": "^0.4.0",
