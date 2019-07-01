@@ -72,6 +72,6 @@
     "ytdl-core": "^0.29.1"
   },
   "devDependencies": {
-    "eslint": "^5.16.0"
+    "eslint": "^6.0.1"
   }
 }
