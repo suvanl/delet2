@@ -69,7 +69,7 @@
   "optionalDependencies": {
     "canvas": "^2.5.0",
     "node-opus": "^0.3.2",
-    "ytdl-core": "^0.29.1"
+    "ytdl-core": "^0.29.6"
   },
   "devDependencies": {
     "eslint": "^6.3.0"
