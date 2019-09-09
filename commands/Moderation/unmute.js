@@ -20,7 +20,7 @@ class Unmute extends Command {
 
     const muteRole = message.guild.roles.find(role => role.name === "Muted");
     const empty = await this.isEmpty(muteRole);
-    if (empty) return message.channel.send(`A "Muted" role does not exist on this server. To create one, please run the \`${settings.prefix}mute\` command.`);
+    if (empty) return message.channel.send(`A **\`Muted\`** role does not exist on this server. To create one, please run the \`${settings.prefix}mute\` command.`);
 
     const user = message.mentions.users.first();
     let reason = args.slice(1).join(" ");

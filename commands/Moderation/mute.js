@@ -22,7 +22,7 @@ class Mute extends Command {
     const muteRole = message.guild.roles.find(role => role.name === "Muted");
     const empty = await this.isEmpty(muteRole);
     if (empty) {
-      const roleRequest = await this.client.awaitReply(message, "A \"**Muted**\" role does not exist on this server. Would you like me to create one? (__Y__es / __N__o)", 30000);
+      const roleRequest = await this.client.awaitReply(message, "A **`Muted`** role does not exist on this server. Would you like me to create one? (__Y__es / __N__o)", 30000);
       if (roleRequest.toLowerCase() === "y" || roleRequest.toLowerCase() === "yes") {
         message.guild.createRole({ name: "Muted" })
           .then(role => message.channel.send(`✅ Created new role: **${role.name}**.`))
@@ -31,7 +31,7 @@ class Mute extends Command {
             return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
           });
       } else {
-        return message.channel.send("Cancelled. I will not create a \"Muted\" role. You will not be able to mute users without having this role.");
+        return message.channel.send("Cancelled. I will not create a **`Muted`** role. You will not be able to mute users without having this role.");
       }
     }
 
