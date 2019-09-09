@@ -56,7 +56,7 @@
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
     "moment-timezone": "^0.5.25",
-    "ms": "^2.1.1",
+    "ms": "^2.1.2",
     "node-fetch": "^2.6.0",
     "passport": "^0.4.0",
     "passport-discord": "^0.1.3",
