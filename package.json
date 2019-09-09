@@ -44,7 +44,7 @@
     "enmap": "^4.0.6",
     "express": "^4.16.4",
     "express-passport": "^0.1.0",
-    "express-session": "^1.16.1",
+    "express-session": "^1.16.2",
     "ffmpeg": "0.0.4",
     "helmet": "^3.18.0",
     "html-entities": "^1.2.1",
