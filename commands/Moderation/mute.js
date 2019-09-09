@@ -31,7 +31,7 @@ class Mute extends Command {
             return message.channel.send(texts.general.error.replace(/{{err}}/g, error.message));
           });
       } else {
-        return message.channel.send("Cancelled. I will not create a \"Muted\" role. You will not be able to mute users without having a \"Muted\" role.");
+        return message.channel.send("Cancelled. I will not create a \"Muted\" role. You will not be able to mute users without having this role.");
       }
     }
 
@@ -109,7 +109,7 @@ class Mute extends Command {
 
   async isEmpty(obj) {
     for (const key in obj) {
-      if (obj.hasOwnProperty(key)) return false;
+      if (Object.prototype.hasOwnProperty.call(obj, key)) return false;
     }
     return true;
   }
