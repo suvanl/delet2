@@ -102,9 +102,9 @@ exports.cmd = {
     system: {
         // Announce command
         noMessage: "You must provide a message to send.",
-        idRequest: "Please enter the channel ID of the channel the message should be sent to..."
+        idAndNameRequest: "Please enter the ID or name of the channel the message should be sent to..."
     },
-    
+
     // "UTILITY" CATEGORY
     util: {
         // Shorten command

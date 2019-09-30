@@ -16,13 +16,13 @@ class Announce extends Command {
     const content = args.join(" ");
     if (!content) return message.channel.send(texts.cmd.system.noMessage);
 
-    const id = await this.client.awaitReply(message, texts.cmd.system.idRequest, 30000);
-    if (!message.guild.channels.find(c => c.id === id)) return message.channel.send("A channel with that ID does not exist on this server.");
-    
-    message.guild.channels.get(id).send(content)
+    const param = await this.client.awaitReply(message, texts.cmd.system.idAndNameRequest, 30000);
+    let channel = message.guild.channels.find(channel => channel.id === param);
+    if (!channel) channel = message.guild.channels.find(channel => channel.name === param);
+    channel.send(content)
       .then(message.react("✅"))
       .catch(error => {
-        if (error.message === "Missing Access") return message.channel.send(`I do not have sufficient permissions to send messages in <#${id}>.`);
+        if (error.message === "Missing Access") return message.channel.send(`I do not have sufficient permissions to send messages in <#${channel.id}>.`);
         this.client.logger.error(error);
       });
   }
