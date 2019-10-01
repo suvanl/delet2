@@ -40,7 +40,7 @@
     "common-tags": "^1.8.0",
     "discord.js": "^11.5.1",
     "dotenv": "^8.0.0",
-    "ejs": "^2.6.1",
+    "ejs": "^2.7.1",
     "enmap": "^4.0.6",
     "express": "^4.17.1",
     "express-passport": "^0.1.0",
