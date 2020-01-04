@@ -46,7 +46,7 @@
     "express-passport": "^0.1.0",
     "express-session": "^1.16.2",
     "ffmpeg": "0.0.4",
-    "helmet": "^3.18.0",
+    "helmet": "^3.21.2",
     "html-entities": "^1.2.1",
     "isgd": "^1.1.3",
     "klaw": "^3.0.0",
