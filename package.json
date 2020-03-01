@@ -38,7 +38,7 @@
     "chalk": "^2.4.2",
     "cleverbot.io": "^1.0.4",
     "common-tags": "^1.8.0",
-    "discord.js": "^11.5.1",
+    "discord.js": "^11.6.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "enmap": "^4.0.6",
