@@ -70,7 +70,7 @@
   },
   "optionalDependencies": {
     "canvas": "^2.6.1",
-    "node-opus": "^0.3.2",
+    "node-opus": "^0.3.3",
     "ytdl-core": "^1.0.6"
   },
   "devDependencies": {
