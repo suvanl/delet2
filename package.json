@@ -64,7 +64,7 @@
     "sequelize": "^5.21.3",
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
-    "sqlite3": "^4.1.1",
+    "sqlite3": "^4.2.0",
     "table": "^5.4.6",
     "weather-js": "^2.0.0"
   },
