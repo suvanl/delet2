@@ -1,7 +1,6 @@
 ## NO LONGER MAINTAINED - will be replaced by delet<sup>3</sup>
-### Suggestions/feature requests (for delet<sup>3</sup> **only**): https://github.com/suvanl/delet3-suggestions
+### delet<sup>3</sup>: https://github.com/suvanl/delet3
 
-this README will likely be updated when delet 3.0 is public
 
 ---
 
